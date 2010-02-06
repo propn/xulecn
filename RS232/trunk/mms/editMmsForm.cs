@@ -48,27 +48,27 @@ namespace mms
             DbUtil dbUtil = new DbUtil();
             //OleDbConnection conn = dbUtil.getConn();
 
-            DataTable dataTable = dbUtil.GetData();
+            DataTable table = dbUtil.GetData();
 
             if (table != null && table.Rows.Count > 0)
             {
                 String name = table.Rows[0]["PERSONNAME"].ToString();
-                textBoxName.Text = name;
+               
 
                 String DEPTNAME = table.Rows[0]["DEPTNAME"].ToString();
-                textBoxDept.Text = DEPTNAME;
+                
 
                 String EXT2 = table.Rows[0]["EXT3"].ToString();
-                textBoxJob.Text = EXT2;
+               
 
 
                 String SEATINGNO = table.Rows[0]["SEATINGNO"].ToString();
-                textBoxNo.Text = SEATINGNO;
+               
 
                 String time = table.Rows[0]["TABLEID"].ToString();
-                textBoxTime.Text = time;
+              
 
-                personId = table.Rows[0]["PERSONID"].ToString();
+               
 
 
             }
