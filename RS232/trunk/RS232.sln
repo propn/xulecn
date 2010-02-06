@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mms", "mms\mms.csproj", "{3D48B03D-5556-4244-ACAA-8C4EE86FB078}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupMms", "Setup\Setup.vdproj", "{35C1A0EF-8156-4B9C-A93A-CD2591B947F1}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D48B03D-5556-4244-ACAA-8C4EE86FB078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D48B03D-5556-4244-ACAA-8C4EE86FB078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D48B03D-5556-4244-ACAA-8C4EE86FB078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D48B03D-5556-4244-ACAA-8C4EE86FB078}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35C1A0EF-8156-4B9C-A93A-CD2591B947F1}.Debug|Any CPU.ActiveCfg = Debug
+		{35C1A0EF-8156-4B9C-A93A-CD2591B947F1}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
