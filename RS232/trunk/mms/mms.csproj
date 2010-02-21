@@ -230,6 +230,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CookComputing.XmlRpcV2.dll" />
+    <Content Include="ICSharpCode.SharpZipLib.dll" />
     <Content Include="image\1.jpg" />
     <Content Include="image\0.jpg" />
     <Content Include="image\2.jpg" />
