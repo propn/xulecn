@@ -23,15 +23,15 @@ namespace mms
                 + "地点：XXXXXX\r\n"
                 + "注意事项：凭此短信进行签到，请勿删除该信息";
 
-            textBox2.Text = "提示;4个LOGO图片用来适配不同大小的手机屏幕。"
-            +"\r\n需要修改图片，请替换【程序安装目录】\\image\\下的图片";
+            //textBox2.Text = "提示;4个LOGO图片用来适配不同大小的手机屏幕。"
+           // +"\r\n需要修改图片，请替换【程序安装目录】\\image\\下的图片";
             
             
             pictureBox1.Image=Image.FromFile("image\\0.jpg");
             pictureBox2.Image = Image.FromFile("image\\1.jpg");
-            pictureBox3.Image = Image.FromFile("image\\2.jpg");
-            pictureBox4.Image = Image.FromFile("image\\3.jpg");
-            pictureBox5.Image = Image.FromFile("image\\4.jpg");
+            //pictureBox3.Image = Image.FromFile("image\\2.jpg");
+            //pictureBox4.Image = Image.FromFile("image\\3.jpg");
+            //pictureBox5.Image = Image.FromFile("image\\4.jpg");
 
             
         }
@@ -81,6 +81,11 @@ namespace mms
                 //
 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Md5.GetMD5("asdf");
         }
     }
 }

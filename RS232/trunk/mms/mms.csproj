@@ -105,6 +105,7 @@
       <DependentUpon>FilesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FileUtils.cs" />
+    <Compile Include="Md5.cs" />
     <Compile Include="Mm7Form.cs">
       <SubType>Form</SubType>
     </Compile>
