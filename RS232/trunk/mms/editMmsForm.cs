@@ -26,7 +26,6 @@ namespace mms
             //textBox2.Text = "提示;4个LOGO图片用来适配不同大小的手机屏幕。"
            // +"\r\n需要修改图片，请替换【程序安装目录】\\image\\下的图片";
             
-            
             pictureBox1.Image=Image.FromFile("image\\0.jpg");
             pictureBox2.Image = Image.FromFile("image\\1.jpg");
             //pictureBox3.Image = Image.FromFile("image\\2.jpg");
@@ -52,35 +51,23 @@ namespace mms
 
             if (table != null && table.Rows.Count > 0)
             {
-                String name = table.Rows[0]["PERSONNAME"].ToString();
-               
+                for (int i = 0; i < table.Rows.Count;i++ )
+                {
+                    String name = table.Rows[i]["PERSONNAME"].ToString();
+                    String DEPTNAME = table.Rows[i]["DEPTNAME"].ToString();
+                    String EXT2 = table.Rows[i]["EXT3"].ToString();
+                    String SEATINGNO = table.Rows[i]["SEATINGNO"].ToString();
+                    String time = table.Rows[i]["TABLEID"].ToString();
 
-                String DEPTNAME = table.Rows[0]["DEPTNAME"].ToString();
-                
+                    Message msg = new Message();
+                    msg.sendMsg();
 
-                String EXT2 = table.Rows[0]["EXT3"].ToString();
-               
-
-
-                String SEATINGNO = table.Rows[0]["SEATINGNO"].ToString();
-               
-
-                String time = table.Rows[0]["TABLEID"].ToString();
-              
-
-               
-
+                }
 
             }
 
           
-            {
-                //提交任务单
-                //编辑短信
-                //提交白名单
-                //
-
-            }
+           
         }
 
         private void button3_Click(object sender, EventArgs e)

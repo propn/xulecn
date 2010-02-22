@@ -116,7 +116,7 @@ namespace mms
         **/
         /// </returns>
         [XmlRpcMethod("AddContent")]
-        int AddContent(Hashtable map);
+        string AddContent(Hashtable map);
 
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace mms
         **/
         /// </returns>
         [XmlRpcMethod("AddWhiteList")]
-        int AddWhiteList(Hashtable map);
+        string AddWhiteList(Hashtable map);
 
     }
 
