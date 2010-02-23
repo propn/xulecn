@@ -60,7 +60,7 @@ namespace mms
                     String time = table.Rows[i]["TABLEID"].ToString();
 
                     Message msg = new Message();
-                    msg.sendMsg();
+                   // msg.sendMsg();
 
                 }
 
