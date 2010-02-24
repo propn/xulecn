@@ -1,0 +1,19 @@
+<smil xmlns="http://www.w3.org/2000/SMIL20/CR/Language">
+<head>
+<layout>
+<root-layout width="240" height="320" />
+<region id="image" left="8" top="13" width="210" height="243" />
+</layout>
+</head>
+<body>
+<par dur="1s" >
+<img src="2.jpg" region="image" />
+</par>
+<par dur="5s" >
+<text src="att01.txt" region="image" />
+</par>
+<par dur="10s" >
+<img src="qr.jpg" region="image" />
+</par>
+</body>
+</smil>
