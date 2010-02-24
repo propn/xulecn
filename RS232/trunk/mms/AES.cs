@@ -12,7 +12,7 @@ namespace mms
     /// 与公共密钥密码使用密钥对不同，对称密钥密码使用相同的密钥加密和解密数据。通过分组密码返回的加密数据 的位数与输入数据相同。
     /// 迭代加密使用一个循环结构，在该循环中重复置换（permutations ）和替换(substitutions）输入数据。
     /// </summary>
-    class AES
+    class Aes
     {
         /// <summary>
         /// AES加密函数
