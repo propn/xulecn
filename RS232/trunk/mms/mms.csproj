@@ -249,6 +249,11 @@
     <Content Include="msg\att01.txt" />
     <Content Include="msg\att02.txt" />
     <Content Include="msg\title.txt" />
+    <Content Include="msg\2.jpg" />
+    <Content Include="msg\3.jpg" />
+    <Content Include="msg\1.jpg" />
+    <Content Include="msg\5.jpg" />
+    <Content Include="msg\4.jpg" />
     <None Include="Resources\bg.jpg" />
   </ItemGroup>
   <ItemGroup>
