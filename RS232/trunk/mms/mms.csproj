@@ -246,50 +246,9 @@
     <Content Include="db.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="msg\Mms\2.jpg" />
-    <Content Include="msg\Mms\att01.txt" />
-    <Content Include="msg\Mms\att02.txt" />
-    <Content Include="msg\Mms\att03.txt" />
-    <Content Include="msg\Mms\qr.jpg" />
-    <Content Include="msg\Mms\title.txt" />
-    <Content Include="msg\Mms_cd\att01.txt" />
-    <Content Include="msg\Mms_cd\att02.txt" />
-    <Content Include="msg\Mms_cd\att03.txt" />
-    <Content Include="msg\Mms_cd\qr.jpg" />
-    <Content Include="msg\Mms_cd\title.txt" />
-    <Content Include="msg\Mms_dt\3.jpg" />
-    <Content Include="msg\Mms_dt\att01.txt" />
-    <Content Include="msg\Mms_dt\att02.txt" />
-    <Content Include="msg\Mms_dt\att03.txt" />
-    <Content Include="msg\Mms_dt\qr.jpg" />
-    <Content Include="msg\Mms_dt\title.txt" />
-    <Content Include="msg\Mms_xt\1.jpg" />
-    <Content Include="msg\Mms_xt\att01.txt" />
-    <Content Include="msg\Mms_xt\att02.txt" />
-    <Content Include="msg\Mms_xt\att03.txt" />
-    <Content Include="msg\Mms_xt\qr.jpg" />
-    <Content Include="msg\Mms_xt\title.txt" />
-    <Content Include="msg\Mms_xt\xt.jpg" />
-    <Content Include="msg\Mms_xt\zt.jpg" />
-    <Content Include="msg\Mms_zd\att01.txt" />
-    <Content Include="msg\Mms_zd\att02.txt" />
-    <Content Include="msg\Mms_zd\att03.txt" />
-    <Content Include="msg\Mms_zd\cd.jpg" />
-    <Content Include="msg\Mms_zd\dt.jpg" />
-    <Content Include="msg\Mms_zd\qr.jpg" />
-    <Content Include="msg\Mms_zd\title.txt" />
-    <Content Include="msg\Mms_zd\zd.jpg" />
-    <Content Include="msg\Mms_zd\中.jpg" />
-    <Content Include="msg\Mms_zd\大.jpg" />
-    <Content Include="msg\Mms_zd\小.jpg" />
-    <Content Include="msg\Mms_zd\最大.jpg" />
-    <Content Include="msg\Mms_zd\超大.jpg" />
-    <None Include="msg\Mms\mms.mmp" />
-    <None Include="msg\Mms\mms.smil" />
-    <None Include="msg\Mms_cd\mms.smil" />
-    <None Include="msg\Mms_dt\mms.smil" />
-    <None Include="msg\Mms_xt\mms.smil" />
-    <None Include="msg\Mms_zd\mms.smil" />
+    <Content Include="msg\att01.txt" />
+    <Content Include="msg\att02.txt" />
+    <Content Include="msg\title.txt" />
     <None Include="Resources\bg.jpg" />
   </ItemGroup>
   <ItemGroup>
