@@ -237,11 +237,6 @@
   <ItemGroup>
     <Content Include="CookComputing.XmlRpcV2.dll" />
     <Content Include="ICSharpCode.SharpZipLib.dll" />
-    <Content Include="image\1.jpg" />
-    <Content Include="image\0.jpg" />
-    <Content Include="image\2.jpg" />
-    <Content Include="image\3.jpg" />
-    <Content Include="image\4.jpg" />
     <Content Include="App.ico" />
     <Content Include="db.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -249,23 +244,23 @@
     <Content Include="msg\1\att01.txt" />
     <Content Include="msg\1\att02.txt" />
     <Content Include="msg\1\title.txt" />
-    <Content Include="msg\2\2.jpg" />
+    <Content Include="msg\2\att00.jpg" />
     <Content Include="msg\2\att01.txt" />
     <Content Include="msg\2\att02.txt" />
     <Content Include="msg\2\title.txt" />
-    <Content Include="msg\3\3.jpg" />
+    <Content Include="msg\3\att00.jpg" />
     <Content Include="msg\3\att01.txt" />
     <Content Include="msg\3\att02.txt" />
     <Content Include="msg\3\title.txt" />
-    <Content Include="msg\4\4.jpg" />
+    <Content Include="msg\4\att00.jpg" />
     <Content Include="msg\4\att01.txt" />
     <Content Include="msg\4\att02.txt" />
     <Content Include="msg\4\title.txt" />
-    <Content Include="msg\5\5.jpg" />
+    <Content Include="msg\5\att00.jpg" />
     <Content Include="msg\5\att01.txt" />
     <Content Include="msg\5\att02.txt" />
     <Content Include="msg\5\title.txt" />
-    <Content Include="msg\1\1.jpg" />
+    <Content Include="msg\1\att00.jpg" />
     <None Include="msg\1\mms.smil" />
     <None Include="msg\2\mms.smil" />
     <None Include="msg\3\mms.smil" />

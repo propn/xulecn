@@ -77,7 +77,7 @@ namespace mms
 
 
                 //创建
-                string directoryCreator = Path.GetDirectoryName(args[1]);
+                string directoryCreator = Path.GetDirectoryName("temp");
                 if (!System.IO.Directory.Exists(directoryCreator))
                 {
                     System.IO.Directory.CreateDirectory(directoryCreator);
