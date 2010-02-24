@@ -245,6 +245,14 @@
     <Content Include="db.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="msg\Mms\2.jpg" />
+    <Content Include="msg\Mms\att01.txt" />
+    <Content Include="msg\Mms\att02.txt" />
+    <Content Include="msg\Mms\att03.txt" />
+    <Content Include="msg\Mms\qr.jpg" />
+    <Content Include="msg\Mms\title.txt" />
+    <None Include="msg\Mms\mms.mmp" />
+    <None Include="msg\Mms\mms.smil" />
     <None Include="Resources\bg.jpg" />
   </ItemGroup>
   <ItemGroup>
