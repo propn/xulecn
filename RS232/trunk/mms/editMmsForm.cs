@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,8 +10,10 @@ using System.Windows.Forms;
 
 namespace mms
 {
+   
     public partial class editMmsForm : Form
     {
+        private string meetingName = "";
         public editMmsForm()
         {
             InitializeComponent();
@@ -18,21 +21,27 @@ namespace mms
 
         private void editMmsForm_Load(object sender, EventArgs e)
         {
-            textBox1.Text = "\r\n尊敬的领导请准时参加XXX会议:\r\n"
-                + "时间：20100204 10：30-20100204 11：30 \r\n"
-                + "地点：XXXXXX\r\n"
-                + "注意事项：凭此短信进行签到，请勿删除该信息";
-
-            //textBox2.Text = "提示;4个LOGO图片用来适配不同大小的手机屏幕。"
-           // +"\r\n需要修改图片，请替换【程序安装目录】\\image\\下的图片";
+            //获取会议信息
+            //获取会议信息，如果系统未包含会议信息则提示导入信息
+            DbUtil dbUtil = new DbUtil();
+            //OleDbConnection conn = dbUtil.getConn();
+            DataTable table = dbUtil.GetData();
             
-            pictureBox1.Image=Image.FromFile("image\\0.jpg");
-            pictureBox2.Image = Image.FromFile("image\\1.jpg");
-            //pictureBox3.Image = Image.FromFile("image\\2.jpg");
-            //pictureBox4.Image = Image.FromFile("image\\3.jpg");
-            //pictureBox5.Image = Image.FromFile("image\\4.jpg");
 
-            
+            if (table != null && table.Rows.Count > 0)
+            {
+                meetingName = table.Rows[0]["MEETINGNAME"].ToString();
+            }
+
+            //初始化系统界面
+            textBox1.Text = "\r\n尊敬的领导:\r\n请准时参加[" + meetingName + "]会议\r\n"
+                + "时间：\r\n" + "yyyyMMdd hh:mm-yyyyMMdd hh:mm" + "\r\n"
+                + "地点：\r\n"+"\r\n";
+
+            textBox2.Text = "\r\n注意事项：\r\n1.凭此短信进行签到，请勿删除该信息";
+
+            title.Text = "广州市府办公厅会议通知";
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -45,24 +54,46 @@ namespace mms
             
             //遍历所有与会人员
             DbUtil dbUtil = new DbUtil();
-            //OleDbConnection conn = dbUtil.getConn();
-
             DataTable table = dbUtil.GetData();
 
             if (table != null && table.Rows.Count > 0)
             {
+                labelInfo.Text = "开始创建彩信...";
+                //生成att01.txt文件
+                FileStream objFileStream = new FileStream("att01.txt", FileMode.Create, FileAccess.Write);
+                StreamWriter objStreamWriter = new StreamWriter(objFileStream);
+                objStreamWriter.Write(textBox1.Text); //将字符串写入到文件中
+                objStreamWriter.Close();
+                //生成att02.txt
+                objFileStream = new FileStream("att02.txt", FileMode.Create, FileAccess.Write);
+                objStreamWriter = new StreamWriter(objFileStream);
+                objStreamWriter.Write(textBox2.Text); //将字符串写入到文件中
+                objStreamWriter.Close();
+                //生成title.txt
+                objFileStream = new FileStream("title.txt", FileMode.Create, FileAccess.Write);
+                objStreamWriter = new StreamWriter(objFileStream);
+                objStreamWriter.Write(title.Text); //将字符串写入到文件中
+                objStreamWriter.Close();
+
+
+                //创建
+                string directoryCreator = Path.GetDirectoryName(args[1]);
+                if (!System.IO.Directory.Exists(directoryCreator))
+                {
+                    System.IO.Directory.CreateDirectory(directoryCreator);
+                }
+
+                labelInfo.Text = "完成创建彩信";
+                labelInfo.Text = "开始发送彩信...";
+
                 for (int i = 0; i < table.Rows.Count;i++ )
                 {
-                    String name = table.Rows[i]["PERSONNAME"].ToString();
-                    String DEPTNAME = table.Rows[i]["DEPTNAME"].ToString();
-                    String EXT2 = table.Rows[i]["EXT3"].ToString();
-                    String SEATINGNO = table.Rows[i]["SEATINGNO"].ToString();
-                    String time = table.Rows[i]["TABLEID"].ToString();
-
-                    Message msg = new Message();
-                   // msg.sendMsg();
-
+                    //生成彩信
+                    String personId = table.Rows[i]["PERSONID"].ToString();
+                   
+                 
                 }
+                labelInfo.Text = "完成发送彩信";
 
             }
 

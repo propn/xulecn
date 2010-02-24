@@ -11,7 +11,7 @@
       <Value Profile="(Default)">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\db.mdb;Persist Security Info=True</Value>
     </Setting>
     <Setting Name="rpcURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://218.206.69.203:9090/eepwww/xmlrpc </Value>
+      <Value Profile="(Default)">http://218.206.69.203:80/eepwww/xmlrpc </Value>
     </Setting>
     <Setting Name="Customer_id" Type="System.String" Scope="Application">
       <Value Profile="(Default)">1</Value>

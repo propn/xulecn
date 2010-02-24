@@ -36,7 +36,7 @@ namespace mms.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://218.206.69.203:9090/eepwww/xmlrpc ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://218.206.69.203:80/eepwww/xmlrpc ")]
         public string rpcURL {
             get {
                 return ((string)(this["rpcURL"]));

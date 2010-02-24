@@ -18,6 +18,7 @@ namespace mms
     public partial class main : Form
     {
         private string zipFileName = "";
+        public  string meetingName = "";
 
         public main()
         {
@@ -194,6 +195,23 @@ namespace mms
         {
             new editMmsForm().Show();
 
+        }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+            //获取会议信息，如果系统未包含会议信息则提示导入信息
+            DbUtil dbUtil = new DbUtil();
+            //OleDbConnection conn = dbUtil.getConn();
+            DataTable table = dbUtil.GetData();
+
+
+            if (table != null && table.Rows.Count > 0)
+            {
+                meetingName = table.Rows[0]["MEETINGNAME"].ToString();
+            }
+            //MessageBox.Show(meetingName);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            label1.Text = meetingName;
         }
     }
 }

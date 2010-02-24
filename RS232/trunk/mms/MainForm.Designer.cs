@@ -48,6 +48,7 @@
             this.help = new System.Windows.Forms.ToolStripMenuItem();
             this.about = new System.Windows.Forms.ToolStripMenuItem();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.label1 = new System.Windows.Forms.Label();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,33 +80,33 @@
             // imp
             // 
             this.imp.Name = "imp";
-            this.imp.Size = new System.Drawing.Size(142, 22);
+            this.imp.Size = new System.Drawing.Size(152, 22);
             this.imp.Text = "导入会议信息";
             this.imp.Click += new System.EventHandler(this.imp_Click);
             // 
             // exp
             // 
             this.exp.Name = "exp";
-            this.exp.Size = new System.Drawing.Size(142, 22);
+            this.exp.Size = new System.Drawing.Size(152, 22);
             this.exp.Text = "导出与会信息";
             this.exp.Click += new System.EventHandler(this.exp_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(139, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // mfiles
             // 
             this.mfiles.Name = "mfiles";
-            this.mfiles.Size = new System.Drawing.Size(142, 22);
+            this.mfiles.Size = new System.Drawing.Size(152, 22);
             this.mfiles.Text = "离线办公";
             this.mfiles.Click += new System.EventHandler(this.mfiles_Click);
             // 
             // exitMenu
             // 
             this.exitMenu.Name = "exitMenu";
-            this.exitMenu.Size = new System.Drawing.Size(142, 22);
+            this.exitMenu.Size = new System.Drawing.Size(152, 22);
             this.exitMenu.Text = "退出系统";
             this.exitMenu.Click += new System.EventHandler(this.exitMenu_Click_1);
             // 
@@ -159,21 +160,21 @@
             // editMmsMenuItem
             // 
             this.editMmsMenuItem.Name = "editMmsMenuItem";
-            this.editMmsMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editMmsMenuItem.Size = new System.Drawing.Size(118, 22);
             this.editMmsMenuItem.Text = "发送彩信";
             this.editMmsMenuItem.Click += new System.EventHandler(this.editMmsMenuItem_Click);
             // 
             // sendMsg
             // 
             this.sendMsg.Name = "sendMsg";
-            this.sendMsg.Size = new System.Drawing.Size(152, 22);
+            this.sendMsg.Size = new System.Drawing.Size(118, 22);
             this.sendMsg.Text = "发送短信";
             this.sendMsg.Click += new System.EventHandler(this.sendMsg_Click);
             // 
             // receiveMsg
             // 
             this.receiveMsg.Name = "receiveMsg";
-            this.receiveMsg.Size = new System.Drawing.Size(152, 22);
+            this.receiveMsg.Size = new System.Drawing.Size(118, 22);
             this.receiveMsg.Text = "查询结果";
             this.receiveMsg.Click += new System.EventHandler(this.receiveMsg_Click);
             // 
@@ -198,12 +199,23 @@
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.Location = new System.Drawing.Point(124, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 12);
+            this.label1.TabIndex = 2;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::mms.Properties.Resources.bg;
             this.ClientSize = new System.Drawing.Size(571, 369);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -213,6 +225,7 @@
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "广州市政府办公厅会议系统";
+            this.Load += new System.EventHandler(this.main_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.ResumeLayout(false);
@@ -241,6 +254,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitMenu;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.ToolStripMenuItem editMmsMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }
 
