@@ -18,7 +18,16 @@ namespace mms
             string str = "";
             for (int i = 0; i < bytes.Length; i++)
             {
-                str += string.Format("{0:X000}", bytes[i]);
+                if ((int)bytes[i] < 10)
+                {
+                    str += "0" + bytes[i].ToString("X");
+                }
+                else
+                {
+                    str += bytes[i].ToString("X");
+                }
+
+              
             }
             return str;
         }
@@ -71,11 +80,11 @@ namespace mms
          {
              if ((int)bytes[i] < 10)
              {
-                 str +="0"+ string.Format("{0:X}", bytes[i]);
+                 str += "0" + bytes[i].ToString("X");
              }
              else
              {
-                 str += string.Format("{0:X}", bytes[i]);
+                 str += bytes[i].ToString("X");
              }
              
              if (fenge && (i != bytes.Length - 1))

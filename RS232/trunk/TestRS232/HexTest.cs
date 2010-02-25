@@ -97,7 +97,7 @@ namespace TestRS232
         [TestMethod()]
         public void ToHexTest()
         {
-            string s = "	"; // TODO: 初始化为适当的值
+            string s = "    "; // TODO: 初始化为适当的值
             string charset = "utf-8"; // TODO: 初始化为适当的值
             bool fenge = false; // TODO: 初始化为适当的值
             string expected = "09"; //
