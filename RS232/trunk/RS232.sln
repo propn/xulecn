@@ -5,10 +5,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mms", "mms\mms.csproj", "{3
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupMms", "Setup\Setup.vdproj", "{35C1A0EF-8156-4B9C-A93A-CD2591B947F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRS232", "TestRS232\TestRS232.csproj", "{459E0AC6-724C-4DF1-8B43-5C8AF5363CAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09EC583C-5B3D-4BD9-9749-170CA286E24E}"
+	ProjectSection(SolutionItems) = preProject
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		RS232.vsmdi = RS232.vsmdi
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
 		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = RS232.vsmdi
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +32,10 @@ Global
 		{3D48B03D-5556-4244-ACAA-8C4EE86FB078}.Release|Any CPU.Build.0 = Release|Any CPU
 		{35C1A0EF-8156-4B9C-A93A-CD2591B947F1}.Debug|Any CPU.ActiveCfg = Debug
 		{35C1A0EF-8156-4B9C-A93A-CD2591B947F1}.Release|Any CPU.ActiveCfg = Release
+		{459E0AC6-724C-4DF1-8B43-5C8AF5363CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{459E0AC6-724C-4DF1-8B43-5C8AF5363CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{459E0AC6-724C-4DF1-8B43-5C8AF5363CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{459E0AC6-724C-4DF1-8B43-5C8AF5363CAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

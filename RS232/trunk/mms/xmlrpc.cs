@@ -58,8 +58,8 @@ namespace mms
                 </Response>
          * */
         /// </returns>
-        [XmlRpcMethod("GetTaskList")]
-        string GetTaskList(Hashtable map);
+        [XmlRpcMethod("TaskService.GetTaskList")]
+        string GetTaskList(XmlRpcStruct map);
 
 
         /// <summary>
@@ -88,8 +88,8 @@ namespace mms
                 </Response >
         **/
         /// </returns>
-        [XmlRpcMethod("AddTask")]
-        string AddTask(Hashtable map);
+        [XmlRpcMethod("TaskService.AddTask")]
+        string AddTask(XmlRpcStruct map);
 
         /// <summary>
         /// 
@@ -115,8 +115,8 @@ namespace mms
                 </Response >
         **/
         /// </returns>
-        [XmlRpcMethod("AddContent")]
-        string AddContent(Hashtable map);
+        [XmlRpcMethod("TaskService.AddContent")]
+        string AddContent(XmlRpcStruct map);
 
 
         /// <summary>
@@ -137,8 +137,8 @@ namespace mms
               </Response >
         **/
         /// </returns>
-        [XmlRpcMethod("AddWhiteList")]
-        string AddWhiteList(Hashtable map);
+        [XmlRpcMethod("TaskService.AddWhiteList")]
+        string AddWhiteList(XmlRpcStruct map);
 
     }
 

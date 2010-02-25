@@ -11,31 +11,41 @@ namespace mms
     class Message
     {
         private IMsg msgProxy = XmlRpcProxyGen.Create<IMsg>();
-        private string Customer_id = Properties.Settings.Default.Customer_id;//集团客户编号
+        private int Customer_id = Properties.Settings.Default.Customer_id;//集团客户编号
         private string Corp_Account = Properties.Settings.Default.Corp_Account;//集团代码
-        private string Agreement_id = Md5.GetMD5(Properties.Settings.Default.Agreement_id);//合同id
+        private int Agreement_id =  Properties.Settings.Default.Agreement_id;//合同id
         private string Token = Md5.GetMD5(Properties.Settings.Default.Token);//密码
 
 
-        public void sendMsg(string SmsContent)
+        public void sendMsg(Hashtable request)
         {
             msgProxy.Url = Properties.Settings.Default.rpcURL;
-         
-            string type = "1";//短/彩信标识        1—彩信  2—短信
+            int Type = 1;//短/彩信标识        1—彩信  2—短信
+            //IDictionary props = new Hashtable();
+            //props["port"] = 8888;
 
-            Hashtable map = new Hashtable();
+            XmlRpcStruct map = new XmlRpcStruct();
             map.Add("Customer_id", Customer_id);
             map.Add("Corp_Account", Corp_Account);
             map.Add("Agreement_id", Agreement_id);
             map.Add("Token", Token);
-            
-            map.Add("type", type);
+            map.Add("Type", Type);
+
+           // map.Add();
 
             //提交任务单
-            string TaskID = addTask(map);
+            int TaskID = addTask(map);
             map.Add("TaskID", TaskID);
             //提交彩信内容
-            string state = AddContent(new Hashtable());
+            map.Add("MmsType", 2);//1-通用彩信 2-适配彩信
+            //string Mms_xt = (string)request["Mms_xt"];
+            map.Add("Mms_xt", Hex.readFile((string)request["Mms_xt"]));
+            map.Add("Mms", Hex.readFile((string)request["Mms"]));
+            map.Add("Mms_dt", Hex.readFile((string)request["Mms_dt"]));
+            map.Add("Mms_cd", Hex.readFile((string)request["Mms_cd"]));
+            map.Add("Mms_zd", Hex.readFile((string)request["Mms_zd"]));
+
+            string state = AddContent(map);
 
 
             //提交白名单
@@ -48,19 +58,24 @@ namespace mms
         /// 创建彩信任务单
         /// </summary>
         /// <returns>任务Id</returns>
-        public string addTask(Hashtable map)
+        public int addTask(XmlRpcStruct map)
         {
             try
             {
                // XmlTextReader reader = new XmlTextReader(new StringReader(msgProxy.AddTask(new Hashtable())));
+                 
                 string taskInfo = msgProxy.AddTask(map);
-                XmlDocument document = new XmlDocument();
-                document.LoadXml(taskInfo);
-                string state = document.GetElementsByTagName("Code")[0].Value; 
-                string taskId = "";
-                if (state.Equals("0000"))
+
+                XmlDocument xmldoc = new XmlDocument();
+                xmldoc.LoadXml(taskInfo);
+                XmlElement root = null;
+                root = xmldoc.DocumentElement;
+                XmlElement Code = (XmlElement)root.SelectSingleNode("/Response/Code");
+                int taskId = 0;
+                if (Code.InnerText.Equals("0000"))
                 {
-                    taskId = document.GetElementsByTagName("TaskID")[0].Value;
+                    XmlElement TaskID = (XmlElement)root.SelectSingleNode("/Response/TaskList/Task/TaskID");
+                    taskId =int.Parse(TaskID.InnerText.Trim());
                 }
                 return taskId;
 
@@ -75,17 +90,22 @@ namespace mms
         /// </summary>
         /// <param name="map"></param>
         /// <returns>添加结果</returns>
-        public string AddContent(Hashtable map)
+        public string AddContent(XmlRpcStruct map)
         {
-
-           
-
+            
             string state = msgProxy.AddContent(map);
-            //XmlTextReader reader = new XmlTextReader(new StringReader());
-            XmlDocument document = new XmlDocument();
-            document.LoadXml(state);
-            state = document.GetElementsByTagName("Code")[0].Value;
+            
+            XmlDocument xmldoc = new XmlDocument();
+            xmldoc.LoadXml(state);
+            XmlElement root = null;
+            root = xmldoc.DocumentElement;
+            XmlElement Code = (XmlElement)root.SelectSingleNode("/Response/Code");
+            if (Code.InnerText.Equals("0000"))
+            {
+                return "ok";
+            }
             return state;
+
         }
 
         /// <summary>
@@ -94,9 +114,9 @@ namespace mms
         /// </summary>
         /// <param name="map"></param>
         /// <returns></returns>
-        public string AddWhiteList(Hashtable map)
+        public string AddWhiteList(XmlRpcStruct map)
         {
-             map = new Hashtable();
+           
             string state = msgProxy.AddContent(map);
             //XmlTextReader reader = new XmlTextReader(new StringReader());
             XmlDocument document = new XmlDocument();

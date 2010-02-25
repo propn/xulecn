@@ -205,6 +205,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="xmlrpc.cs" />
+    <Compile Include="XmlUtils.cs" />
     <Compile Include="Zip.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +262,7 @@
     <Content Include="msg\5\att02.txt" />
     <Content Include="msg\5\title.txt" />
     <Content Include="msg\1\att00.jpg" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="msg\1\mms.smil" />
     <None Include="msg\2\mms.smil" />
     <None Include="msg\3\mms.smil" />

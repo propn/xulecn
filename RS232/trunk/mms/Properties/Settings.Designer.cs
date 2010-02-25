@@ -46,9 +46,9 @@ namespace mms.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public string Customer_id {
+        public int Customer_id {
             get {
-                return ((string)(this["Customer_id"]));
+                return ((int)(this["Customer_id"]));
             }
         }
         
@@ -72,10 +72,10 @@ namespace mms.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1 （彩信）  4(短信)")]
-        public string Agreement_id {
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int Agreement_id {
             get {
-                return ((string)(this["Agreement_id"]));
+                return ((int)(this["Agreement_id"]));
             }
         }
     }
