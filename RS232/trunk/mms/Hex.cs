@@ -128,7 +128,8 @@ namespace mms
  
  
         // return chs.GetString(bytes);
-         return ToHex(bytes.ToString(), "utf-8", false);
+         string result=ToHex(bytes.ToString(), "utf-8", false);
+         return result;
 
      }
 
