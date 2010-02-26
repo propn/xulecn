@@ -212,6 +212,7 @@ namespace mms
             //MessageBox.Show(meetingName);
             this.label1.BackColor = System.Drawing.Color.Transparent;
             label1.Text = meetingName;
+            toolStripStatusLabel1.Text = "当前会议："+meetingName;
         }
     }
 }

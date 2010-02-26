@@ -21,6 +21,11 @@ namespace mms
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 初始化页面信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void editMmsForm_Load(object sender, EventArgs e)
         {
             //获取会议信息
@@ -42,7 +47,7 @@ namespace mms
 
             textBox2.Text = "\r\n注意事项：\r\n1.凭此短信进行签到，请勿删除该信息";
 
-            title.Text = "广州市府办公厅会议通知";
+            title.Text = "广州市府办公厅会议签到凭证";
 
         }
 
@@ -51,6 +56,11 @@ namespace mms
             this.Close();
         }
 
+        /// <summary>
+        /// 发送彩信
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             
@@ -97,7 +107,7 @@ namespace mms
                    
 
                     String personId = table.Rows[i]["PERSONID"].ToString();
-                    String telephone = table.Rows[i]["TELEPHONE"].ToString();
+                    String Mobile = table.Rows[i]["TELEPHONE"].ToString();
                     String personName = table.Rows[i]["PERSONNAME"].ToString();
 
                     labelInfo.Text = "开始向" + personName + "发送彩信...";
@@ -153,7 +163,7 @@ namespace mms
                     request.Add("Mms_cd", basePtah + personId + "\\4.zip");
                     request.Add("Mms_zd", basePtah + personId + "\\5.zip");
 
-                    request.Add("telephone", telephone);
+                    request.Add("Mobile", Mobile);
 
                     msg.sendMsg(request);
 
@@ -166,9 +176,15 @@ namespace mms
            
         }
 
+
+        /// <summary>
+        /// 发送短信
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            Md5.GetMD5("asdf");
+           
         }
     }
 }

@@ -47,10 +47,15 @@ namespace mms
 
             string state = AddContent(map);
 
-
+            map.Clear();
+            map.Add("Customer_id", Customer_id);
+            map.Add("Corp_Account", Corp_Account);
+            map.Add("TaskID", TaskID);
+            map.Add("Token", Token);
+            map.Add("Mobile", (string)request["Mobile"]);
+            AddWhiteList(map);
             //提交白名单
             //
-
 
         }
 
@@ -116,12 +121,18 @@ namespace mms
         /// <returns></returns>
         public string AddWhiteList(XmlRpcStruct map)
         {
-           
-            string state = msgProxy.AddContent(map);
+
+            string state = msgProxy.AddWhiteList(map);
             //XmlTextReader reader = new XmlTextReader(new StringReader());
-            XmlDocument document = new XmlDocument();
-            document.LoadXml(state);
-            state = document.GetElementsByTagName("Code")[0].Value;
+            XmlDocument xmldoc = new XmlDocument();
+            xmldoc.LoadXml(state);
+            XmlElement root = null;
+            root = xmldoc.DocumentElement;
+            XmlElement Code = (XmlElement)root.SelectSingleNode("/Response/Code");
+            if (Code.InnerText.Equals("0000"))
+            {
+                return "ok";
+            }
             return state;
         }
 

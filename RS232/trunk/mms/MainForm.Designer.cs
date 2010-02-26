@@ -49,7 +49,10 @@
             this.about = new System.Windows.Forms.ToolStripMenuItem();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menu.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menu
@@ -80,33 +83,33 @@
             // imp
             // 
             this.imp.Name = "imp";
-            this.imp.Size = new System.Drawing.Size(152, 22);
+            this.imp.Size = new System.Drawing.Size(142, 22);
             this.imp.Text = "导入会议信息";
             this.imp.Click += new System.EventHandler(this.imp_Click);
             // 
             // exp
             // 
             this.exp.Name = "exp";
-            this.exp.Size = new System.Drawing.Size(152, 22);
+            this.exp.Size = new System.Drawing.Size(142, 22);
             this.exp.Text = "导出与会信息";
             this.exp.Click += new System.EventHandler(this.exp_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(139, 6);
             // 
             // mfiles
             // 
             this.mfiles.Name = "mfiles";
-            this.mfiles.Size = new System.Drawing.Size(152, 22);
+            this.mfiles.Size = new System.Drawing.Size(142, 22);
             this.mfiles.Text = "离线办公";
             this.mfiles.Click += new System.EventHandler(this.mfiles_Click);
             // 
             // exitMenu
             // 
             this.exitMenu.Name = "exitMenu";
-            this.exitMenu.Size = new System.Drawing.Size(152, 22);
+            this.exitMenu.Size = new System.Drawing.Size(142, 22);
             this.exitMenu.Text = "退出系统";
             this.exitMenu.Click += new System.EventHandler(this.exitMenu_Click_1);
             // 
@@ -209,12 +212,28 @@
             this.label1.Size = new System.Drawing.Size(0, 12);
             this.label1.TabIndex = 2;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 347);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(571, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::mms.Properties.Resources.bg;
             this.ClientSize = new System.Drawing.Size(571, 369);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.menu);
@@ -228,6 +247,8 @@
             this.Load += new System.EventHandler(this.main_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,6 +276,8 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.ToolStripMenuItem editMmsMenuItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 

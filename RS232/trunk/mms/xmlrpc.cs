@@ -128,6 +128,7 @@ namespace mms
         /// Corp_Account集团代码企业彩讯提供
         /// TaskID任务单ID
         /// Mobile白名单号码使用,号间隔
+        /// Token Md5加密
         /// </param>
         /// <returns>
         /*    <?xml version="1.0" encoding="UTF-8"?>

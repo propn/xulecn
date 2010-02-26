@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace mms
 {
     class Hex
     {
+        internal enum HasCode
+        {
+            ASCII,
+            UNICODE,
+            UTF_8,
+            UTF_7,
+        }
+
         /// <summary>
         /// 彩信内容转为16进制
         /// </summary>
@@ -15,28 +25,22 @@ namespace mms
         /// <returns>彩信16进制字符串</returns>
         public static string encodeHex(byte[] bytes)
         {
-            string str = "";
+            StringBuilder builder = new StringBuilder();
+            //byte[] bytes = Encoding.Default.GetBytes(inputText);
             for (int i = 0; i < bytes.Length; i++)
             {
-                if ((int)bytes[i] < 10)
-                {
-                    str += "0" + bytes[i].ToString("X");
-                }
-                else
-                {
-                    str += bytes[i].ToString("X");
-                }
-
-              
+                builder = builder.Append(bytes[i].ToString("X2"));
             }
-            return str;
+
+            return builder.ToString();
+
         }
 
         public static String readFile(String filename)
         {
             byte[] b = null;
             FileStream fis = null;
-            int  size = 0;
+            int size = 0;
             try
             {
                 fis = new FileStream(filename, System.IO.FileMode.Open, System.IO.FileAccess.Read);
@@ -55,92 +59,108 @@ namespace mms
         }
 
 
-       /// <summary>
-     /// 从汉字转换到16进制
-      /// </summary>
-      /// <param name="s"></param>
-      /// <param name="charset">编码,如"utf-8","gb2312"</param>
-      /// <param name="fenge">是否每字符用逗号分隔</param>
-      /// <returns></returns>
-     public static string ToHex(string s, string charset, bool fenge)
-     {
-         if ((s.Length % 2) != 0)
+        public string get_Hextext(HasCode code, string text)
         {
-             s += " ";//空格
-             //throw new ArgumentException("s is not valid chinese string!");
-         }
- 
-         System.Text.Encoding chs = System.Text.Encoding.GetEncoding(charset);
- 
-         byte[] bytes = chs.GetBytes(s);
- 
-         string str = "";
- 
-         for (int i = 0; i < bytes.Length; i++)
-         {
-             if ((int)bytes[i] < 10)
-             {
-                 str += "0" + bytes[i].ToString("X");
-             }
-             else
-             {
-                 str += bytes[i].ToString("X");
-             }
-             
-             if (fenge && (i != bytes.Length - 1))
-             {
-                 str += string.Format("{0}", ",");
-             }
-         }
- 
-         return str.ToLower();
-     }
- 
-     /// <summary>
-     /// 从16进制转换成汉字
-     /// </summary>
-     /// <param name="hex"></param>
-     /// <param name="charset">编码,如"utf-8","gb2312"</param>
-     /// <returns></returns>
-     public static string UnHex(string hex, string charset)
-     {
-         if (hex == null)
-             throw new ArgumentNullException("hex");
-         hex = hex.Replace(",", "");
-         hex = hex.Replace("\n", "");
-         hex = hex.Replace("\\", "");
-         hex = hex.Replace(" ", "");
-         if (hex.Length % 2 != 0)
-         {
-             hex += "20";//空格
-             //throw new ArgumentException("hex is not a valid number!", "hex");
-         }
-         // 需要将 hex 转换成 byte 数组。 
-         byte[] bytes = new byte[hex.Length / 2];
- 
-         for (int i = 0; i < bytes.Length; i++)
-         {
-             try
-             {
-                 // 每两个字符是一个 byte。 
-                 bytes[i] = byte.Parse(hex.Substring(i * 2, 2),
-                 System.Globalization.NumberStyles.HexNumber);
-             }
-             catch
-             {
-                 // Rethrow an exception with custom message. 
-                 throw new ArgumentException("hex is not a valid hex number!", "hex");
-             }
-         }
- 
-         System.Text.Encoding chs = System.Text.Encoding.GetEncoding(charset);
- 
- 
-        // return chs.GetString(bytes);
-         string result=ToHex(bytes.ToString(), "utf-8", false);
-         return result;
+            string str = null;
+            if (text == null)
+            {
+                return str;
+            }
+            string pattern = "[^a-fA-F0-9]";
+            Regex regex = new Regex(pattern);
+            if (!regex.Match(text).Success)
+            {
+                byte[] bytes = new byte[0x1000];
+                int length = text.Length;
 
-     }
+                int num2 = 0;
+
+                if ((length % 2) == 1)
+                {
+                    length--;
+                    text = text.Substring(0, length);
+                }
+                length /= 2;
+                for (int i = 0; i < length; i++)
+                {
+                    num2 = (int)long.Parse(text.Substring(i * 2, 2), NumberStyles.AllowHexSpecifier);
+                    bytes[i] = (byte)num2;
+                }
+                switch (code)
+                {
+                    case HasCode.ASCII:
+                        return Encoding.Default.GetString(bytes, 0, length);
+
+                    case HasCode.UNICODE:
+                        return Encoding.Unicode.GetString(bytes, 0, length);
+
+                    case HasCode.UTF_8:
+                        return Encoding.UTF8.GetString(bytes, 0, length);
+
+                    case HasCode.UTF_7:
+
+                        return Encoding.UTF7.GetString(bytes, 0, length);
+
+                }
+                return str;
+            }
+            return null;
+        }
+
+
+        public string Convert(string inputText, HasCode code)
+        {
+            if (inputText != null)
+            {
+                switch (code)
+                {
+                    case HasCode.ASCII:
+                        {
+                            StringBuilder builder = new StringBuilder();
+                            byte[] bytes = Encoding.Default.GetBytes(inputText);
+                            for (int i = 0; i < bytes.Length; i++)
+                            {
+                                builder = builder.Append(bytes[i].ToString("X2"));
+                            }
+                            return builder.ToString();
+                        }
+                    case HasCode.UNICODE:
+                        {
+                            StringBuilder builder2 = new StringBuilder();
+                            byte[] buffer2 = Encoding.Unicode.GetBytes(inputText);
+                            for (int j = 0; j < buffer2.Length; j++)
+                            {
+                                builder2 = builder2.Append(buffer2[j].ToString("X2"));
+                            }
+                            return builder2.ToString();
+                        }
+                    case HasCode.UTF_8:
+                        {
+                            StringBuilder builder3 = new StringBuilder();
+                            byte[] buffer3 = Encoding.UTF8.GetBytes(inputText);
+                            for (int k = 0; k < buffer3.Length; k++)
+                            {
+                                builder3 = builder3.Append(buffer3[k].ToString("X2"));
+                            }
+                            return builder3.ToString();
+                        }
+                    case HasCode.UTF_7:
+                        {
+                            StringBuilder builder4 = new StringBuilder();
+                            byte[] buffer4 = Encoding.UTF7.GetBytes(inputText);
+                            for (int m = 0; m < buffer4.Length; m++)
+                            {
+                                builder4 = builder4.Append(buffer4[m].ToString("X2"));
+                            }
+                            return builder4.ToString();
+                        }
+                }
+            }
+            return null;
+        }
+
+
+
 
 
     }

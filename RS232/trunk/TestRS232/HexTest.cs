@@ -76,35 +76,6 @@ namespace TestRS232
             Assert.Inconclusive("验证此测试方法的正确性。");
         }
 
-        /// <summary>
-        ///UnHex 的测试
-        ///</summary>
-        [TestMethod()]
-        public void UnHexTest()
-        {
-            string hex = string.Empty; // TODO: 初始化为适当的值
-            string charset = string.Empty; // TODO: 初始化为适当的值
-            string expected = string.Empty; // TODO: 初始化为适当的值
-            string actual;
-            actual = Hex.UnHex(hex, charset);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("验证此测试方法的正确性。");
-        }
-
-        /// <summary>
-        ///ToHex 的测试
-        ///</summary>
-        [TestMethod()]
-        public void ToHexTest()
-        {
-            string s = "    "; // TODO: 初始化为适当的值
-            string charset = "utf-8"; // TODO: 初始化为适当的值
-            bool fenge = false; // TODO: 初始化为适当的值
-            string expected = "09"; //
-            string actual;
-            actual = Hex.ToHex(s, charset, fenge);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("验证此测试方法的正确性。");
-        }
+      
     }
 }
