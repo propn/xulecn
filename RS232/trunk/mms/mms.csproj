@@ -79,6 +79,7 @@
     <Compile Include="BrowseForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Calendar.cs" />
     <Compile Include="dbDataSet.cs">
       <DependentUpon>dbDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>
