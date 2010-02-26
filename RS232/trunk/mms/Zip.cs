@@ -7,6 +7,7 @@ using System.IO;
 
 using ICSharpCode.SharpZipLib.Checksums;
 using ICSharpCode.SharpZipLib.Zip;
+using ICSharpCode.SharpZipLib.GZip;
 using System.Windows.Forms;
 
 
@@ -92,7 +93,7 @@ namespace mms
         }
 
         /// <summary>
-        /// 解压缩
+        /// 解压缩zip格式
         /// </summary>
         /// <param name="args"></param>
         public void UnZip(string[] args)
@@ -144,6 +145,14 @@ namespace mms
                 }
             }
             s.Close();
+        }
+
+        /// <summary>
+        /// 解压缩gz压缩格式
+        /// </summary>
+        /// <param name="args"></param>
+        public void gunZip(string[] args)
+        {
         }
 
         //遍历目录

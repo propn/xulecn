@@ -54,6 +54,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -107,6 +108,7 @@
       <DependentUpon>FilesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FileUtils.cs" />
+    <Compile Include="FTPFactory.cs" />
     <Compile Include="Hex.cs" />
     <Compile Include="Md5.cs" />
     <Compile Include="Message.cs" />
@@ -243,6 +245,8 @@
     <Content Include="db.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="log4net.dll" />
+    <Content Include="log4net.xml" />
     <Content Include="msg\1\att01.txt" />
     <Content Include="msg\1\att02.txt" />
     <Content Include="msg\1\title.txt" />

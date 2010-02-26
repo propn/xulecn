@@ -43,7 +43,6 @@
             this.pCount = new System.Windows.Forms.ToolStripMenuItem();
             this.message = new System.Windows.Forms.ToolStripMenuItem();
             this.editMmsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendMsg = new System.Windows.Forms.ToolStripMenuItem();
             this.receiveMsg = new System.Windows.Forms.ToolStripMenuItem();
             this.help = new System.Windows.Forms.ToolStripMenuItem();
             this.about = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,40 +75,40 @@
             this.mfiles,
             this.exitMenu});
             this.file.Name = "file";
-            this.file.Size = new System.Drawing.Size(41, 20);
-            this.file.Text = "文件";
+            this.file.Size = new System.Drawing.Size(59, 20);
+            this.file.Text = "文件(&F)";
             // 
             // imp
             // 
             this.imp.Name = "imp";
-            this.imp.Size = new System.Drawing.Size(142, 22);
-            this.imp.Text = "导入会议信息";
+            this.imp.Size = new System.Drawing.Size(160, 22);
+            this.imp.Text = "导入会议信息(&I)";
             this.imp.Click += new System.EventHandler(this.imp_Click);
             // 
             // exp
             // 
             this.exp.Name = "exp";
-            this.exp.Size = new System.Drawing.Size(142, 22);
-            this.exp.Text = "导出与会信息";
+            this.exp.Size = new System.Drawing.Size(160, 22);
+            this.exp.Text = "导出与会信息(&O)";
             this.exp.Click += new System.EventHandler(this.exp_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(139, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
             // 
             // mfiles
             // 
             this.mfiles.Name = "mfiles";
-            this.mfiles.Size = new System.Drawing.Size(142, 22);
-            this.mfiles.Text = "离线办公";
+            this.mfiles.Size = new System.Drawing.Size(160, 22);
+            this.mfiles.Text = "离线办公(&W)";
             this.mfiles.Click += new System.EventHandler(this.mfiles_Click);
             // 
             // exitMenu
             // 
             this.exitMenu.Name = "exitMenu";
-            this.exitMenu.Size = new System.Drawing.Size(142, 22);
-            this.exitMenu.Text = "退出系统";
+            this.exitMenu.Size = new System.Drawing.Size(160, 22);
+            this.exitMenu.Text = "退出系统(&E)";
             this.exitMenu.Click += new System.EventHandler(this.exitMenu_Click_1);
             // 
             // check
@@ -120,64 +119,56 @@
             this.toolStripSeparator1,
             this.pCount});
             this.check.Name = "check";
-            this.check.Size = new System.Drawing.Size(41, 20);
-            this.check.Text = "签到";
+            this.check.Size = new System.Drawing.Size(59, 20);
+            this.check.Text = "签到(&C)";
             // 
             // monitor
             // 
             this.monitor.Name = "monitor";
-            this.monitor.Size = new System.Drawing.Size(118, 22);
-            this.monitor.Text = "自动签到";
+            this.monitor.Size = new System.Drawing.Size(152, 22);
+            this.monitor.Text = "自动签到(&A)";
             this.monitor.Click += new System.EventHandler(this.monitor_Click);
             // 
             // handCheck
             // 
             this.handCheck.Name = "handCheck";
-            this.handCheck.Size = new System.Drawing.Size(118, 22);
-            this.handCheck.Text = "手工签到";
+            this.handCheck.Size = new System.Drawing.Size(152, 22);
+            this.handCheck.Text = "手工签到(&H)";
             this.handCheck.Click += new System.EventHandler(this.handCheck_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // pCount
             // 
             this.pCount.Name = "pCount";
-            this.pCount.Size = new System.Drawing.Size(118, 22);
-            this.pCount.Text = "统计";
+            this.pCount.Size = new System.Drawing.Size(152, 22);
+            this.pCount.Text = "统计(&Q)";
             this.pCount.Click += new System.EventHandler(this.pCount_Click);
             // 
             // message
             // 
             this.message.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editMmsMenuItem,
-            this.sendMsg,
             this.receiveMsg});
             this.message.Name = "message";
-            this.message.Size = new System.Drawing.Size(41, 20);
-            this.message.Text = "彩信";
+            this.message.Size = new System.Drawing.Size(59, 20);
+            this.message.Text = "彩信(&M)";
             // 
             // editMmsMenuItem
             // 
             this.editMmsMenuItem.Name = "editMmsMenuItem";
-            this.editMmsMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.editMmsMenuItem.Text = "发送彩信";
+            this.editMmsMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editMmsMenuItem.Text = "发送彩信(&S)";
             this.editMmsMenuItem.Click += new System.EventHandler(this.editMmsMenuItem_Click);
-            // 
-            // sendMsg
-            // 
-            this.sendMsg.Name = "sendMsg";
-            this.sendMsg.Size = new System.Drawing.Size(118, 22);
-            this.sendMsg.Text = "发送短信";
-            this.sendMsg.Click += new System.EventHandler(this.sendMsg_Click);
             // 
             // receiveMsg
             // 
             this.receiveMsg.Name = "receiveMsg";
-            this.receiveMsg.Size = new System.Drawing.Size(118, 22);
-            this.receiveMsg.Text = "查询结果";
+            this.receiveMsg.Size = new System.Drawing.Size(152, 22);
+            this.receiveMsg.Text = "查询结果(&R)";
             this.receiveMsg.Click += new System.EventHandler(this.receiveMsg_Click);
             // 
             // help
@@ -185,14 +176,14 @@
             this.help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.about});
             this.help.Name = "help";
-            this.help.Size = new System.Drawing.Size(41, 20);
-            this.help.Text = "帮助";
+            this.help.Size = new System.Drawing.Size(59, 20);
+            this.help.Text = "帮助(&H)";
             // 
             // about
             // 
             this.about.Name = "about";
-            this.about.Size = new System.Drawing.Size(94, 22);
-            this.about.Text = "关于";
+            this.about.Size = new System.Drawing.Size(152, 22);
+            this.about.Text = "关于(&A)";
             this.about.Click += new System.EventHandler(this.about_Click);
             // 
             // monthCalendar1
@@ -252,7 +243,6 @@
         private System.Windows.Forms.ToolStripMenuItem monitor;
         private System.Windows.Forms.ToolStripMenuItem pCount;
         private System.Windows.Forms.ToolStripMenuItem message;
-        private System.Windows.Forms.ToolStripMenuItem sendMsg;
         private System.Windows.Forms.ToolStripMenuItem receiveMsg;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem handCheck;

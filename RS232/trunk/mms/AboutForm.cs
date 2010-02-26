@@ -110,6 +110,7 @@ namespace mms
             // 
             // AboutForm
             // 
+            this.AcceptButton = this.OK;
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 14);
             this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.OK;

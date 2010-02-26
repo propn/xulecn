@@ -16,13 +16,13 @@ namespace mms
     public class Calendar
     {
         private static ChineseLunisolarCalendar chineseDate = new ChineseLunisolarCalendar();
-        static void Main(string[] args)
-        {
-            //ChineseLunisolarCalendar chineseDate = new ChineseLunisolarCalendar();   
-            ShowYearInfo();
-            ShowCurrentYearInfo();
-            Console.ReadLine();
-        }
+        //static void Main(string[] args)
+        //{
+        //    //ChineseLunisolarCalendar chineseDate = new ChineseLunisolarCalendar();   
+        //    ShowYearInfo();
+        //    ShowCurrentYearInfo();
+        //    Console.ReadLine();
+        //}
         /// <summary>   
         /// 展示阴历年份信息   
         /// </summary>   
