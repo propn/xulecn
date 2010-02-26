@@ -207,12 +207,17 @@ namespace mms
 
             if (table != null && table.Rows.Count > 0)
             {
+                //会议名称
                 meetingName = table.Rows[0]["MEETINGNAME"].ToString();
+                //会议地点
+
+                //会议时间
+                
             }
             //MessageBox.Show(meetingName);
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            label1.Text = meetingName;
-            toolStripStatusLabel1.Text = "当前会议："+meetingName;
+            //this.label1.BackColor = System.Drawing.Color.Transparent;
+            //label1.Text = meetingName;
+            toolStripStatusLabel1.Text = "会议信息： "+meetingName +"  地点："+"  时间：";
         }
     }
 }
