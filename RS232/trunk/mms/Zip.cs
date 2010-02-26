@@ -147,13 +147,99 @@ namespace mms
             s.Close();
         }
 
+
+
         /// <summary>
         /// 解压缩gz压缩格式
         /// </summary>
         /// <param name="args"></param>
-        public void gunZip(string[] args)
+        private static void gunZip(string[] args)
         {
+            string file=args[0], dir=args[1];
+            try
+            {
+                if (!Directory.Exists(Path.GetDirectoryName(dir)))
+                    Directory.CreateDirectory(Path.GetDirectoryName(dir));
+
+                GZipInputStream s = new GZipInputStream(File.OpenRead(file));
+                FileStream streamWriter = File.Create(dir);
+
+                int size = 2048;
+                byte[] data = new byte[2048];
+                while (true)
+                {
+                    size = s.Read(data, 0, data.Length);
+                    if (size > 0)
+                    {
+                        streamWriter.Write(data, 0, size);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                streamWriter.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
+
+        /// <summary>
+        /// 解压缩zip格式
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="dir"></param>
+        private static void UncompressZip(string file, string dir)
+        {
+            try
+            {
+                if (!Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);
+
+                ZipInputStream s = new ZipInputStream(File.OpenRead(file));
+
+                ZipEntry theEntry;
+                while ((theEntry = s.GetNextEntry()) != null)
+                {
+                    string directoryName = Path.GetDirectoryName(theEntry.Name);
+                    string fileName = Path.GetFileName(theEntry.Name);
+
+                    if (directoryName != String.Empty)
+                        Directory.CreateDirectory(dir + directoryName);
+
+                    if (fileName != String.Empty)
+                    {
+                        FileStream streamWriter = File.Create(dir + theEntry.Name);
+
+                        int size = 2048;
+                        byte[] data = new byte[2048];
+                        while (true)
+                        {
+                            size = s.Read(data, 0, data.Length);
+                            if (size > 0)
+                            {
+                                streamWriter.Write(data, 0, size);
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+
+                        streamWriter.Close();
+                    }
+                }
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
 
         //遍历目录
         public void SearchDirectory(string str)

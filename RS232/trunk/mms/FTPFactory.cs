@@ -20,81 +20,46 @@ namespace mms
     public class FTPFactory
     {
 
-        static readonly log4net.ILog log = log4net.LogManager.GetLogger("log4net");
+        //static readonly log4net.ILog log = log4net.LogManager.GetLogger("log4net");
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);  
 
-        private string
-
-             remoteHost, remotePath, remoteUser, remotePass, mes;
-
+        private string remoteHost, remotePath, remoteUser, remotePass, mes;
         private int remotePort, bytes;
-
         private Socket clientSocket;
 
-
-
         private int retValue;
-
         private Boolean debug;
-
         private Boolean logined;
-
         private string reply;
-
-
-
-
-
         private static int BLOCK_SIZE = 512;
 
-
-
         Byte[] buffer = new Byte[BLOCK_SIZE];
-
         Encoding ASCII = Encoding.ASCII;
-
-
 
         public FTPFactory()
         {
 
             string FTPRemoteIP = Properties.Settings.Default.FTPRemoteIP;
-
             int FTPRemotePort = Properties.Settings.Default.FTPRemotePort;
-
             string FTPUser = Properties.Settings.Default.FTPUser;
-
             string FTPPassword = Properties.Settings.Default.FTPPassword;
 
-
-
             remoteHost = FTPRemoteIP;
-
             remotePath = ".";
-
             remoteUser = FTPUser;
-
             remotePass = FTPPassword;
-
             remotePort = FTPRemotePort;
-
             debug = false;
-
             logined = false;
-
-
 
         }
 
 
 
         ///
-
         /// Set the name of the FTP server to connect to.
-
         ///
-
         /// Server name
-
         public void setRemoteHost(string remoteHost)
         {
 
@@ -102,14 +67,9 @@ namespace mms
 
         }
 
-
-
         ///
-
         /// Return the name of the current FTP server.
-
         ///
-
         /// Server name
 
         public string getRemoteHost()
@@ -122,11 +82,8 @@ namespace mms
 
 
         ///
-
         /// Set the port number to use for FTP.
-
         ///
-
         /// Port number
 
         public void setRemotePort(int remotePort)
@@ -139,11 +96,8 @@ namespace mms
 
 
         ///
-
         /// Return the current port number.
-
         ///
-
         /// Current port number
 
         public int getRemotePort()
@@ -156,11 +110,8 @@ namespace mms
 
 
         ///
-
         /// Set the remote directory path.
-
         ///
-
         /// The remote directory path
 
         public void setRemotePath(string remotePath)
@@ -1547,17 +1498,9 @@ namespace mms
 
 
 
-            string ipAddress = parts[0] + "." + parts[1] + "." +
-
-                 parts[2] + "." + parts[3];
-
-
+            string ipAddress = parts[0] + "." + parts[1] + "." +parts[2] + "." + parts[3];
 
             int port = (parts[4] << 8) + parts[5];
-
-
-
-
 
             Socket s = new
 
@@ -1586,14 +1529,9 @@ namespace mms
                 throw new IOException("Can't connect to remote     server");
 
             }
-
-
-
             return s;
 
         }
-
-
 
     }
 
