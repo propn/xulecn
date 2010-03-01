@@ -77,7 +77,8 @@ namespace mms
 
                 MessageBox.Show("文件导入成功", "导入会议信息", MessageBoxButtons.OK);
                 //panelMain.Hide();
-                
+                //this.ParentForm.Refresh();
+                main_Load(sender, e);
                
                 //monthCalendar1.Dispose();
             }
@@ -204,20 +205,16 @@ namespace mms
             //OleDbConnection conn = dbUtil.getConn();
             DataTable table = dbUtil.GetData();
 
-
             if (table != null && table.Rows.Count > 0)
             {
                 //会议名称
                 meetingName = table.Rows[0]["MEETINGNAME"].ToString();
                 //会议地点
-
+                string meetingRoomName = table.Rows[0]["QRID"].ToString();
                 //会议时间
-                
+                string date = table.Rows[0]["EXT4"].ToString();
+                toolStripStatusLabel1.Text = "会议名称:" + meetingName + "  时间:" + date + "  地点:" + meetingRoomName;
             }
-            //MessageBox.Show(meetingName);
-            //this.label1.BackColor = System.Drawing.Color.Transparent;
-            //label1.Text = meetingName;
-            toolStripStatusLabel1.Text = "会议信息： "+meetingName +"  地点："+"  时间：";
         }
     }
 }
