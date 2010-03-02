@@ -207,6 +207,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Uuid.cs" />
     <Compile Include="xmlrpc.cs" />
     <Compile Include="XmlUtils.cs" />
     <Compile Include="Zip.cs" />
