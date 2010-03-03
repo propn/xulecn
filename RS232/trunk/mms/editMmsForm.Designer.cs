@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.labelInfo = new System.Windows.Forms.TextBox();
+            this.tSmartProgressBar1 = new mms.TSmartProgressBar();
             this.SuspendLayout();
             // 
             // label1
@@ -160,11 +161,20 @@
             this.labelInfo.Size = new System.Drawing.Size(189, 115);
             this.labelInfo.TabIndex = 25;
             // 
+            // tSmartProgressBar1
+            // 
+            this.tSmartProgressBar1.Location = new System.Drawing.Point(13, 330);
+            this.tSmartProgressBar1.Name = "tSmartProgressBar1";
+            this.tSmartProgressBar1.Size = new System.Drawing.Size(534, 23);
+            this.tSmartProgressBar1.TabIndex = 26;
+            this.tSmartProgressBar1.Visible = false;
+            // 
             // editMmsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 367);
+            this.Controls.Add(this.tSmartProgressBar1);
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -201,5 +211,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox labelInfo;
+        private TSmartProgressBar tSmartProgressBar1;
     }
 }

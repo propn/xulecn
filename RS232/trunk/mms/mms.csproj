@@ -60,6 +60,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
@@ -117,6 +118,9 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Sha1.cs" />
+    <Compile Include="TSmartProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UpdateForm.cs">
       <SubType>Form</SubType>
     </Compile>

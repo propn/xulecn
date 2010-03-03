@@ -64,6 +64,9 @@ namespace mms
         private void button1_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
+            tSmartProgressBar1.Visible = true;
+            tSmartProgressBar1.Value = 0;
+
             labelInfo.Text = "\r\n开始创建彩信\r\n";
             //遍历所有与会人员
             DbUtil dbUtil = new DbUtil();
@@ -87,7 +90,7 @@ namespace mms
                 objStreamWriter = new StreamWriter(objFileStream);
                 objStreamWriter.Write(title.Text); //将字符串写入到文件中
                 objStreamWriter.Close();
-
+                tSmartProgressBar1.Value = 10;
                 string basePtah = Application.StartupPath + "\\temp\\";
                 //删除历史文件
                 if (Directory.Exists(basePtah))
@@ -101,7 +104,7 @@ namespace mms
                 Message msg = new Message();
 
                 labelInfo.Text = labelInfo.Text + "完成创建彩信\r\n\r\n";
-
+                tSmartProgressBar1.Value = 20;
                 for (int i = 0; i < table.Rows.Count; i++)
                 {
                     //生成彩信
@@ -113,6 +116,8 @@ namespace mms
                     {
 
                         labelInfo.Text = labelInfo.Text + "开始向" + personName + "发送彩信\r\n";
+
+                        tSmartProgressBar1.Value = 20 + i*5;
 
                         Directory.CreateDirectory(Path.GetDirectoryName(basePtah + personId + "\\"));
                         //复制文件夹
@@ -169,11 +174,12 @@ namespace mms
 
                         msg.sendMsg(request);
                         labelInfo.Text = labelInfo.Text + "完成向" + personName + "发送彩信\r\n\r\n";
+                        tSmartProgressBar1.Value = 100;
                     }
                     catch (Exception ex)
                     {
                         labelInfo.Text = labelInfo.Text + "向" + personName + "发送彩信失败\r\n\r\n";
-
+                        tSmartProgressBar1.Value = 100;
                     }
 
 
@@ -195,7 +201,8 @@ namespace mms
         private void button3_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-
+            tSmartProgressBar1.Visible = true;
+            tSmartProgressBar1.Value = 0;
             labelInfo.Text = "\r\n开始发送短信\r\n\r\n";
             //遍历所有与会人员
             DbUtil dbUtil = new DbUtil();
@@ -218,7 +225,7 @@ namespace mms
                     sb.Append(",");
                 }
                 labelInfo.Text = labelInfo.Text + "完成创建短信\r\n\r\n";
-
+                tSmartProgressBar1.Value = 20;
                 try
                 {
                     Hashtable request = new Hashtable();
@@ -230,10 +237,12 @@ namespace mms
                 catch (Exception ex)
                 {
                     labelInfo.Text = labelInfo.Text + "发送短信失败\r\n\r\n";
+                    tSmartProgressBar1.Value = 100;
                 }
 
             }
             labelInfo.Text = labelInfo.Text + "\r\n完成短信发送\r\n";
+            tSmartProgressBar1.Value = 100;
             this.Cursor = Cursors.Default;
 
         }
