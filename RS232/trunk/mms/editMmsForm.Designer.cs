@@ -41,7 +41,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.labelInfo = new System.Windows.Forms.Label();
+            this.labelInfo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -150,13 +150,14 @@
             // 
             // labelInfo
             // 
-            this.labelInfo.ForeColor = System.Drawing.Color.Red;
-            this.labelInfo.Location = new System.Drawing.Point(358, 102);
+            this.labelInfo.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.labelInfo.Location = new System.Drawing.Point(358, 116);
+            this.labelInfo.Multiline = true;
             this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(159, 126);
+            this.labelInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.labelInfo.Size = new System.Drawing.Size(189, 115);
             this.labelInfo.TabIndex = 25;
-            this.labelInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelInfo.UseCompatibleTextRendering = true;
             // 
             // editMmsForm
             // 
@@ -198,6 +199,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label labelInfo;
+        private System.Windows.Forms.TextBox labelInfo;
     }
 }

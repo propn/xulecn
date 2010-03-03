@@ -13,9 +13,48 @@ namespace mms
         private IMsg msgProxy = XmlRpcProxyGen.Create<IMsg>();
         private int Customer_id = Properties.Settings.Default.Customer_id;//集团客户编号
         private string Corp_Account = Properties.Settings.Default.Corp_Account;//集团代码
-        private int Agreement_id =  Properties.Settings.Default.Agreement_id;//合同id
+        private int MMSAgreement_id = Properties.Settings.Default.MMSAgreement_id;//彩信合同id
+        private int SMSAgreement_id = Properties.Settings.Default.SMSAgreement_id;//短信合同id
         private string Token = Md5.GetMD5(Properties.Settings.Default.Token);//密码
 
+
+        /// <summary>
+        /// 发送短信
+        /// </summary>
+        /// <param name="request"></param>
+        public void sendTextMsg(Hashtable request)
+        {
+            msgProxy.Url = Properties.Settings.Default.rpcURL;
+            int Type = 2;//短/彩信标识        1—彩信  2—短信
+            //IDictionary props = new Hashtable();
+            //props["port"] = 8888;
+
+            XmlRpcStruct map = new XmlRpcStruct();
+            map.Add("Customer_id", Customer_id);
+            map.Add("Corp_Account", Corp_Account);
+            map.Add("Agreement_id", SMSAgreement_id);
+            map.Add("Token", Token);
+            map.Add("Type", Type);
+
+            //提交任务单
+            int TaskID = addTask(map);
+            map.Add("TaskID", TaskID);
+            //提交短信内容
+            map.Add("SmsContent", (string)request["SmsContent"]);
+
+            string state = AddContent(map);
+
+            map.Clear();
+            map.Add("Customer_id", Customer_id);
+            map.Add("Corp_Account", Corp_Account);
+            map.Add("TaskID", TaskID);
+            map.Add("Token", Token);
+            map.Add("Mobile", (string)request["Mobile"]);
+            AddWhiteList(map);
+            //提交白名单
+
+
+        }
 
         public void sendMsg(Hashtable request)
         {
@@ -27,7 +66,7 @@ namespace mms
             XmlRpcStruct map = new XmlRpcStruct();
             map.Add("Customer_id", Customer_id);
             map.Add("Corp_Account", Corp_Account);
-            map.Add("Agreement_id", Agreement_id);
+            map.Add("Agreement_id", MMSAgreement_id);
             map.Add("Token", Token);
             map.Add("Type", Type);
 

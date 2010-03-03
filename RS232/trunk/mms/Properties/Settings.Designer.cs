@@ -72,15 +72,6 @@ namespace mms.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int Agreement_id {
-            get {
-                return ((int)(this["Agreement_id"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string FTPRemoteIP {
             get {
@@ -112,6 +103,24 @@ namespace mms.Properties {
         public string FTPPassword {
             get {
                 return ((string)(this["FTPPassword"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public int SMSAgreement_id {
+            get {
+                return ((int)(this["SMSAgreement_id"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int MMSAgreement_id {
+            get {
+                return ((int)(this["MMSAgreement_id"]));
             }
         }
     }
