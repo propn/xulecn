@@ -15,7 +15,7 @@ namespace mms
 
     public partial class editMmsForm : Form
     {
-        private string meetingName = "";
+        
         public editMmsForm()
         {
             InitializeComponent();
@@ -34,16 +34,24 @@ namespace mms
             //OleDbConnection conn = dbUtil.getConn();
             DataTable table = dbUtil.GetData();
 
-
+            string meetingRoomName = "";
+            string date = "yyyy-MM-dd hh:mm";
+            string meetingName = "";
             if (table != null && table.Rows.Count > 0)
             {
+                //会议名称
                 meetingName = table.Rows[0]["MEETINGNAME"].ToString();
+                //会议地点
+                meetingRoomName = table.Rows[0]["QRID"].ToString();
+                //会议时间
+                date = table.Rows[0]["EXT4"].ToString();
+
             }
 
             //初始化系统界面
             textBox1.Text = "\r\n尊敬的领导:\r\n请准时参加[" + meetingName + "]会议\r\n"
-                + "时间：\r\n" + "yyyyMMdd hh:mm-yyyyMMdd hh:mm" + "\r\n"
-                + "地点：\r\n" + "\r\n";
+                + "时间：\r\n" + date + "\r\n"
+                + "地点：\r\n" + meetingRoomName + "\r\n";
 
             textBox2.Text = "\r\n注意事项：\r\n1.凭此短信进行签到，请勿删除该信息";
 
@@ -174,7 +182,9 @@ namespace mms
 
                         msg.sendMsg(request);
                         labelInfo.Text = labelInfo.Text + "完成向" + personName + "发送彩信\r\n\r\n";
+                        
                         tSmartProgressBar1.Value = 100;
+                        labelInfo.Text = labelInfo.Text + "\r\n完成发送彩信\r\n";
                     }
                     catch (Exception ex)
                     {
@@ -186,7 +196,7 @@ namespace mms
                 }
 
             }
-            labelInfo.Text = labelInfo.Text + "\r\n完成发送彩信\r\n";
+          
             this.Cursor = Cursors.Default;
 
 
@@ -232,6 +242,7 @@ namespace mms
                     request.Add("SmsContent", textBox1.Text);
                     request.Add("Mobile", sb.ToString());
                     msg.sendTextMsg(request);
+                    labelInfo.Text = labelInfo.Text + "\r\n完成短信发送\r\n";
                    
                 }
                 catch (Exception ex)
@@ -241,7 +252,7 @@ namespace mms
                 }
 
             }
-            labelInfo.Text = labelInfo.Text + "\r\n完成短信发送\r\n";
+           
             tSmartProgressBar1.Value = 100;
             this.Cursor = Cursors.Default;
 
