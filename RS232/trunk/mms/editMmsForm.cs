@@ -63,14 +63,15 @@ namespace mms
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Cursor = Cursors.WaitCursor;
+            labelInfo.Text = "\r\n开始创建彩信\r\n";
             //遍历所有与会人员
             DbUtil dbUtil = new DbUtil();
             DataTable table = dbUtil.GetData();
 
             if (table != null && table.Rows.Count > 0)
             {
-                labelInfo.Text = "\r\n开始创建彩信\r\n";
+               
                 //生成att01.txt文件
                 FileStream objFileStream = new FileStream("att01.txt", FileMode.Create, FileAccess.Write);
                 StreamWriter objStreamWriter = new StreamWriter(objFileStream);
@@ -180,6 +181,7 @@ namespace mms
 
             }
             labelInfo.Text = labelInfo.Text + "\r\n完成发送彩信\r\n";
+            this.Cursor = Cursors.Default;
 
 
         }
@@ -192,12 +194,15 @@ namespace mms
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
+
+            labelInfo.Text = "\r\n开始发送短信\r\n\r\n";
             //遍历所有与会人员
             DbUtil dbUtil = new DbUtil();
             DataTable table = dbUtil.GetData();
             Message msg = new Message();
 
-            labelInfo.Text = "\r\n开始发送短信\r\n\r\n";
+           
             labelInfo.Text = labelInfo.Text +  "\r\n开始创建短信\r\n";
 
             if (table != null && table.Rows.Count > 0)
@@ -229,6 +234,8 @@ namespace mms
 
             }
             labelInfo.Text = labelInfo.Text + "\r\n完成短信发送\r\n";
+            this.Cursor = Cursors.Default;
+
         }
     }
 }

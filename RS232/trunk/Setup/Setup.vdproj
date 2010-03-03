@@ -69,6 +69,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_3FAD04A28F358972013D7CB66AE55D15"
+        "OwnerKey" = "8:_098E19FF7F1248088FC260F95A9B449F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_422F1D40590849A0B4E21B6879675D98"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -293,6 +299,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_DB74D22FA7FAF9CB4E0E415F779EF2AF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3FAD04A28F358972013D7CB66AE55D15"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -592,6 +604,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3FAD04A28F358972013D7CB66AE55D15"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_3FAD04A28F358972013D7CB66AE55D15"
+                    {
+                    "Name" = "8:log4net.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:log4net.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7222F768123F4408A04973F39010ED43"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_422F1D40590849A0B4E21B6879675D98"
@@ -1352,7 +1395,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:会议管理系统"
         "ProductCode" = "8:{6C823C54-0749-4103-8077-B83E98451633}"
-        "PackageCode" = "8:{AF7D2903-1382-4320-B435-C372F5C6C6BA}"
+        "PackageCode" = "8:{7D7CE1F9-3A79-4E53-A9B7-4F5155EB9C9E}"
         "UpgradeCode" = "8:{3DB76038-E989-40FE-B365-B3C551BE0176}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"

@@ -152,6 +152,7 @@
             // 
             this.labelInfo.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.labelInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.labelInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.labelInfo.Location = new System.Drawing.Point(358, 116);
             this.labelInfo.Multiline = true;
             this.labelInfo.Name = "labelInfo";
