@@ -15,7 +15,7 @@ namespace OCR
     [ProgId("OCR")]
     [Guid("2C4A839B-01CB-4f85-AF94-48036F674776")]
     [ComVisible(true)]
-    public partial class OCR : UserControl
+    public partial class OCR : UserControl ,IDisposable
     {
         private string filePath = ""; 
         private MODIOCRParameters _MODIParameters = new MODIOCRParameters();
@@ -24,6 +24,10 @@ namespace OCR
         public OCR()
         {
             InitializeComponent();
+        }
+
+        ~OCR()
+        {
         }
 
         /// <summary>
@@ -84,7 +88,8 @@ namespace OCR
                 _MODIDocument.OnOCRProgress += new MODI._IDocumentEvents_OnOCRProgressEventHandler(this.ShowProgress);
                
                 _MODIDocument.OCR(_MODIParameters.Language, _MODIParameters.WithAutoRotation, _MODIParameters.WithStraightenImage);
-
+                _MODIDocument.Save();
+                MessageBox.Show("save");
                 statusBar1.Text = "识别完成...";
             }
             catch (Exception ee)
@@ -230,6 +235,10 @@ namespace OCR
             Dispose();
         }
 
+
+
+
+      
         /// <summary>
         /// 扫描图片并显示
         /// </summary>

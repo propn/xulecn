@@ -83,8 +83,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="doc\ASP VB调用NET编写的DLL.doc" />
     <None Include="doc\Release\setup.bat" />
     <None Include="doc\Release\SetupOCR.msi" />
+    <None Include="doc\引用程序集没有强名称解决办法.doc" />
     <None Include="ocr.snk" />
   </ItemGroup>
   <ItemGroup>
