@@ -157,11 +157,6 @@
             "AssemblyAsmDisplayName" = "8:Interop.MODI, Version=11.0.0.0, Culture=neutral, PublicKeyToken=5e518e80e0e7413f, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_577A3CE7F9A1783EFBC46FBF051319FB"
-                    {
-                    "Name" = "8:Interop.MODI.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Interop.MODI.dll"
             "TargetName" = "8:"
@@ -188,11 +183,6 @@
             "AssemblyAsmDisplayName" = "8:AxInterop.MODI, Version=11.0.0.0, Culture=neutral, PublicKeyToken=5e518e80e0e7413f, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_8CB0B44D6A6C7F922B6251DF90B46D7B"
-                    {
-                    "Name" = "8:AxInterop.MODI.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:AxInterop.MODI.dll"
             "TargetName" = "8:"
@@ -289,7 +279,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TifOCR"
         "ProductCode" = "8:{98035C0A-1E9E-4F55-B113-323838BEE0C9}"
-        "PackageCode" = "8:{9984EBBB-DC0D-430A-AA41-FB720C49AE15}"
+        "PackageCode" = "8:{67108BB0-638F-4332-9603-5D6BCBA8CA6F}"
         "UpgradeCode" = "8:{3AEC12CC-AF45-4B47-8999-B01F174C4CC1}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
