@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCR", "OCR\OCR.csproj", "{553A3D78-819F-43C3-9C82-4CE258A07406}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupOCR", "SetupOCR\SetupOCR.vdproj", "{DF383132-7A41-41F5-8D98-010CD33F1321}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -17,6 +19,8 @@ Global
 		{553A3D78-819F-43C3-9C82-4CE258A07406}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{553A3D78-819F-43C3-9C82-4CE258A07406}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{553A3D78-819F-43C3-9C82-4CE258A07406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF383132-7A41-41F5-8D98-010CD33F1321}.Debug|Any CPU.ActiveCfg = Debug
+		{DF383132-7A41-41F5-8D98-010CD33F1321}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
