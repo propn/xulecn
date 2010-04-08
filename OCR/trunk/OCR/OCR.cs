@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
+
 namespace OCR
 {
 
@@ -79,10 +80,11 @@ namespace OCR
             if (_MODIDocument == null) return;
             try
             {
-                // add event handler for progress visualisation
+                
                 _MODIDocument.OnOCRProgress += new MODI._IDocumentEvents_OnOCRProgressEventHandler(this.ShowProgress);
-                // the MODI call for OCR
+               
                 _MODIDocument.OCR(_MODIParameters.Language, _MODIParameters.WithAutoRotation, _MODIParameters.WithStraightenImage);
+
                 statusBar1.Text = "识别完成...";
             }
             catch (Exception ee)
@@ -91,6 +93,8 @@ namespace OCR
                 MessageBox.Show(ee.Message);
             }
         }
+
+
 
         public void ShowProgress(int progress, ref bool cancel)
         {
@@ -187,7 +191,7 @@ namespace OCR
 
 
         /// <summary>
-        /// Parameter visible from JS
+        /// 
         /// tif文件路径
         /// </summary>
         [ComVisible(true)]
@@ -205,7 +209,7 @@ namespace OCR
         }
 
         /// <summary>
-        /// 初始化显示tif文件
+        /// 初始化
         /// </summary>
         [ComVisible(true)]
         public void init()
@@ -216,12 +220,25 @@ namespace OCR
         }
 
         /// <summary>
-        /// 释放资源
+        /// 关闭
         /// </summary>
         [ComVisible(true)]
         public void close()
         {
+            MessageBox.Show("close");
+            _MODIDocument = null;
             Dispose();
+        }
+
+        /// <summary>
+        /// 扫描图片并显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ScanMenuItem_Click(object sender, EventArgs e)
+        {
+
+           
         }
 
         

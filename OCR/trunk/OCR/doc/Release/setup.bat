@@ -1,0 +1,1 @@
+cabarc.exe n TifOCR.cab SetupOCR.msi install.inf

@@ -83,10 +83,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="doc\Release\setup.bat" />
+    <None Include="doc\Release\SetupOCR.msi" />
     <None Include="ocr.snk" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AxInterop.MODI.dll" />
+    <Content Include="doc\Release\CABARC.EXE" />
+    <Content Include="doc\Release\install.inf" />
+    <Content Include="doc\Release\setup.exe" />
+    <Content Include="doc\Release\TifOCR.cab" />
+    <Content Include="doc\Release\tifOCR.html" />
     <Content Include="Interop.MODI.dll" />
     <Content Include="MDIVWCTL.DLL" />
   </ItemGroup>

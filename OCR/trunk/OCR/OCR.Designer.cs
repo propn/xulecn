@@ -85,15 +85,16 @@
             // OpenMenuItem
             // 
             this.OpenMenuItem.Name = "OpenMenuItem";
-            this.OpenMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.OpenMenuItem.Size = new System.Drawing.Size(152, 22);
             this.OpenMenuItem.Text = "打开";
             this.OpenMenuItem.Click += new System.EventHandler(this.OpenMenuItem_Click);
             // 
             // ScanMenuItem
             // 
             this.ScanMenuItem.Name = "ScanMenuItem";
-            this.ScanMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.ScanMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ScanMenuItem.Text = "扫描";
+            this.ScanMenuItem.Click += new System.EventHandler(this.ScanMenuItem_Click);
             // 
             // OcrMenuItem
             // 
@@ -107,7 +108,7 @@
             // 
             this.OcrF2MenuItem.Name = "OcrF2MenuItem";
             this.OcrF2MenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.OcrF2MenuItem.Size = new System.Drawing.Size(105, 22);
+            this.OcrF2MenuItem.Size = new System.Drawing.Size(152, 22);
             this.OcrF2MenuItem.Text = "OCR";
             this.OcrF2MenuItem.Click += new System.EventHandler(this.oCRToolStripMenuItem_Click);
             // 
