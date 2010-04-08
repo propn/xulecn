@@ -246,10 +246,24 @@ namespace OCR
         /// <param name="e"></param>
         private void ScanMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.OnClose("www.baidu.com");
            
         }
 
+
+        /// <summary>
+        /// This interface shows events to javascript
+        /// </summary>
+        
+        [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
+        public interface ControlEvents
+        {
+            //Add a DispIdAttribute to any members in the source interface to specify the COM DispId.
+            [DispId(0x60020000)]
+            void OnClose(string redirectUrl);
+        }
+
+        public event ControlEventHandler OnClose;
         
 
     }
@@ -281,5 +295,7 @@ namespace OCR
             set { _WithStraightenImage = value; }
         }
     }
+
+    public delegate void ControlEventHandler(string redirectUrl);
 
 }
