@@ -16,6 +16,7 @@ namespace OCR
     [ComVisible(true)]
     public partial class OCR : UserControl
     {
+        private string filePath = ""; 
         private MODIOCRParameters _MODIParameters = new MODIOCRParameters();
         private MODI.Document _MODIDocument = null;
 
@@ -31,8 +32,7 @@ namespace OCR
         /// <param name="e"></param>
         private void OCR_Load(object sender, EventArgs e)
         {
-            //SetImage("c:\\sample.tif");
-
+            init();//初始化显示
         }
 
         private void SetImage(string filename)
@@ -52,13 +52,14 @@ namespace OCR
             }
         }
 
+        /*改用菜单监听F2
         private void axMiDocView1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (e.KeyCode.Equals(Keys.F2))
             {
                 Analyse();
             }
-        }
+        }*/
 
 
         private void axMiDocView1_SelectionChanged(object sender, EventArgs e)
@@ -80,10 +81,9 @@ namespace OCR
             {
                 // add event handler for progress visualisation
                 _MODIDocument.OnOCRProgress += new MODI._IDocumentEvents_OnOCRProgressEventHandler(this.ShowProgress);
-
                 // the MODI call for OCR
                 _MODIDocument.OCR(_MODIParameters.Language, _MODIParameters.WithAutoRotation, _MODIParameters.WithStraightenImage);
-                statusBar1.Text = "Ready.";
+                statusBar1.Text = "识别完成...";
             }
             catch (Exception ee)
             {
@@ -156,11 +156,22 @@ namespace OCR
             MessageBox.Show("TIF文件OCR控件删除完成");
         }
 
+        
+        /// <summary>
+        /// F2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void oCRToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Analyse();
         }
 
+        /// <summary>
+        /// 打开TIF文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.OpenFileDialog fd = new OpenFileDialog();
@@ -173,33 +184,67 @@ namespace OCR
             }
         }
 
-        /// <summary>
-        /// Representation for the MODI OCR parameters
-        /// OCR 参数
-        /// 
-        /// </summary>
-        public class MODIOCRParameters
-        {
-            private MODI.MiLANGUAGES _language = MODI.MiLANGUAGES.miLANG_CHINESE_SIMPLIFIED;//语音默认为中文
 
-            public MODI.MiLANGUAGES Language
+        /// <summary>
+        /// Parameter visible from JS
+        /// tif文件路径
+        /// </summary>
+        [ComVisible(true)]
+        public string FilePath
+        {
+            get
             {
-                get { return _language; }
-                set { _language = value; }
+                return filePath;
             }
-            private bool _withAutoRotation = true;
-            public bool WithAutoRotation
+
+            set
             {
-                get { return _withAutoRotation; }
-                set { _withAutoRotation = value; }
-            }
-            private bool _WithStraightenImage = true;
-            public bool WithStraightenImage
-            {
-                get { return _WithStraightenImage; }
-                set { _WithStraightenImage = value; }
+                filePath = value;
             }
         }
 
+        /// <summary>
+        /// 初始化显示tif文件
+        /// </summary>
+        [ComVisible(true)]
+        public void init()
+        {
+            if(!String.IsNullOrEmpty(FilePath)){
+                SetImage(FilePath);
+            }
+        }
+
+
+        
+
     }
+
+    /// <summary>
+    /// Representation for the MODI OCR parameters
+    /// OCR 参数
+    /// 
+    /// </summary>
+    public class MODIOCRParameters
+    {
+        private MODI.MiLANGUAGES _language = MODI.MiLANGUAGES.miLANG_CHINESE_SIMPLIFIED;//语音默认为中文
+
+        public MODI.MiLANGUAGES Language
+        {
+            get { return _language; }
+            set { _language = value; }
+        }
+        private bool _withAutoRotation = true;
+        public bool WithAutoRotation
+        {
+            get { return _withAutoRotation; }
+            set { _withAutoRotation = value; }
+        }
+        private bool _WithStraightenImage = true;
+        public bool WithStraightenImage
+        {
+            get { return _WithStraightenImage; }
+            set { _WithStraightenImage = value; }
+        }
+    }
+
 }

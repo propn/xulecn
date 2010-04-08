@@ -60,7 +60,6 @@
             this.axMiDocView1.Size = new System.Drawing.Size(491, 367);
             this.axMiDocView1.TabIndex = 7;
             this.axMiDocView1.SelectionChanged += new System.EventHandler(this.axMiDocView1_SelectionChanged);
-            this.axMiDocView1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.axMiDocView1_PreviewKeyDown);
             // 
             // menuStrip1
             // 
@@ -86,14 +85,14 @@
             // OpenMenuItem
             // 
             this.OpenMenuItem.Name = "OpenMenuItem";
-            this.OpenMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.OpenMenuItem.Size = new System.Drawing.Size(94, 22);
             this.OpenMenuItem.Text = "打开";
             this.OpenMenuItem.Click += new System.EventHandler(this.OpenMenuItem_Click);
             // 
             // ScanMenuItem
             // 
             this.ScanMenuItem.Name = "ScanMenuItem";
-            this.ScanMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ScanMenuItem.Size = new System.Drawing.Size(94, 22);
             this.ScanMenuItem.Text = "扫描";
             // 
             // OcrMenuItem
