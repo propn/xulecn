@@ -165,6 +165,7 @@ namespace OCR
         private void oCRToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Analyse();
+
         }
 
         /// <summary>
@@ -214,6 +215,14 @@ namespace OCR
             }
         }
 
+        /// <summary>
+        /// 释放资源
+        /// </summary>
+        [ComVisible(true)]
+        public void close()
+        {
+            Dispose();
+        }
 
         
 
