@@ -419,7 +419,7 @@ namespace OCR
         {
             if (String.IsNullOrEmpty(filePath))	// no tiff exists
             {		
-                MessageBox.Show("文件不存在");
+                //MessageBox.Show("文件不存在");
                 return;
             }
 
