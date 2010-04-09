@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+ <SCRIPT LANGUAGE="JavaScript">
+ <!--
+	window.onbeforeunload=close;
+
+	//³õÊ¼»¯
+	function init(){
+		try
+		{
+			document.OCR.FilePath = "c:\\sample.tif"
+			document.OCR.init();
+		}
+		catch(Err)
+		{ 
+			alert(Err.description);
+		}
+
+	}
+
+	//¹Ø±Õ
+	function close(){
+		try
+		{
+			document.OCR.close();
+		}
+		catch(Err)
+		{ 
+			alert(Err.description);
+		}
+
+	}
+ //-->
+ </SCRIPT>
+ </HEAD>
+
+ <BODY onload="init()">
+
+	<OBJECT ID="OCR" WIDTH="600" HEIGHT="400" CLASSID="CLSID:3C9882EC-5DF3-3988-BD6B-2CD431F614E8" codebase="TifOCR.cab#version=1,0,0,0">
+	
+	</OBJECT>
+
+
+
+
+	<SCRIPT LANGUAGE="JavaScript">
+	<!--
+	  <!-- Attaching to an ActiveX event-->
+       function OCR::OnClose(redirectionUrl)
+	   {
+		 window.location.href=redirectionUrl;
+       }
+	//-->
+	</SCRIPT>
+
+
+ </BODY>
+</HTML>
