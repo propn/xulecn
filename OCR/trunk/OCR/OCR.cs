@@ -18,11 +18,19 @@ namespace OCR
     /// TIF扫描文件OCR识别
     /// </summary>
     [ProgId("OCR")]
+    [Guid("3C9882EC-5DF3-3988-BD6B-2CD431F614E8")]
     [ComVisible(true)]
     public partial class OCR : UserControl
     {
+        /// <summary>
+        /// 图片路径
+        /// </summary>
         private string filePath = ""; 
+        /// <summary>
+        /// ocr参数
+        /// </summary>
         private MODIOCRParameters _MODIParameters = new MODIOCRParameters();
+
         private MODI.Document _MODIDocument = null;
         /// <summary>
         /// 扫描后图片
