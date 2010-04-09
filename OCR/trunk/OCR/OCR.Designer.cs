@@ -38,6 +38,7 @@
             this.OcrMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OcrF2MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axMiDocView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +78,8 @@
             // 
             this.FileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OpenMenuItem,
-            this.ScanMenuItem});
+            this.ScanMenuItem,
+            this.saveMenuItem});
             this.FileMenuItem.Name = "FileMenuItem";
             this.FileMenuItem.Size = new System.Drawing.Size(41, 20);
             this.FileMenuItem.Text = "文件";
@@ -108,7 +110,7 @@
             // 
             this.OcrF2MenuItem.Name = "OcrF2MenuItem";
             this.OcrF2MenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.OcrF2MenuItem.Size = new System.Drawing.Size(152, 22);
+            this.OcrF2MenuItem.Size = new System.Drawing.Size(105, 22);
             this.OcrF2MenuItem.Text = "OCR";
             this.OcrF2MenuItem.Click += new System.EventHandler(this.oCRToolStripMenuItem_Click);
             // 
@@ -117,6 +119,13 @@
             this.帮助ToolStripMenuItem1.Name = "帮助ToolStripMenuItem1";
             this.帮助ToolStripMenuItem1.Size = new System.Drawing.Size(41, 20);
             this.帮助ToolStripMenuItem1.Text = "帮助";
+            // 
+            // saveMenuItem
+            // 
+            this.saveMenuItem.Name = "saveMenuItem";
+            this.saveMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveMenuItem.Text = "保存";
+            this.saveMenuItem.Click += new System.EventHandler(this.saveMenuItem_Click);
             // 
             // OCR
             // 
@@ -147,6 +156,7 @@
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ScanMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OcrF2MenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveMenuItem;
 
     }
 }

@@ -192,12 +192,27 @@ namespace OCR
         private void OpenMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.OpenFileDialog fd = new OpenFileDialog();
-            fd.Filter = "扫描文件(*.tif)|*.tif";
+            fd.Filter = "扫描文件(*.tif)|*.tif|位图文件(*.bmp)|*.bmp|JPG文件(*.jpg)|*.jpg|GIF文件(*.gif)|*.gif|PNG文件(*.png)|*.png";
 
             if (fd.ShowDialog() == DialogResult.OK)
             {
-                //MessageBox.Show(fd.FileName);
-                SetImage(fd.FileName);
+                string fileName = fd.SafeFileName;
+                string fileType = fileName.Substring(fileName.LastIndexOf(".")+1, 3);
+                
+                fileType = fileType.ToLower();
+
+                if (fileType.Equals("tif"))
+                {
+                    filePath = fd.FileName;
+                    
+                }
+                else
+                {
+                    ImageConverter(fd.FileName);
+                }
+
+                SetImage(filePath);
+                
             }
         }
 
@@ -279,6 +294,7 @@ namespace OCR
                 }
                 // this call shows the common WIA dialog to let the user select a picture:
                 wiaPics = wiaRoot.GetItemsFromUI(WiaFlag.SingleImage, WiaIntent.ImageTypeColor) as CollectionClass;
+
                 if (wiaPics == null)
                     return;
 
@@ -288,10 +304,12 @@ namespace OCR
                         //DisposeImage();						// remove previous picture
                         wiaItem = (ItemClass)Marshal.CreateWrapperOfType(wiaObj, typeof(ItemClass));
                         filePath = Path.GetTempFileName();				// create temporary file for image
+                        filePath = filePath.Substring(0, filePath.LastIndexOf(".")) + ".bmp";
                         Cursor.Current = Cursors.WaitCursor;				// could take some time
                         this.Refresh();
 
                         MessageBox.Show(filePath);
+
                         wiaItem.Transfer(filePath, false);			// transfer picture to our temporary file
                         
                         Marshal.ReleaseComObject(wiaObj);					// release enumerated COM object
@@ -341,14 +359,21 @@ namespace OCR
             try
             {
                 Bitmap m_bitmap = new Bitmap(strFileName); ;
+                
                 string imageFileName = Path.GetTempFileName();// create temporary file for image
+                imageFileName = imageFileName.Substring(0, imageFileName.LastIndexOf(".")) + ".tif";
 
-                m_bitmap.Save(imageFileName, ImageFormat.Bmp);
-                File.Delete(strFileName);
+                m_bitmap.Save(imageFileName, ImageFormat.Tiff);
+
+                m_bitmap.Dispose();
+
+               // File.Delete(strFileName);
 
                 filePath= imageFileName;
-                MessageBox.Show(filePath);
-                SetImage(filePath);
+
+               // MessageBox.Show(filePath);
+
+                SetImage(imageFileName);
             }
             catch (Exception ee)
             {
@@ -388,6 +413,24 @@ namespace OCR
         }
 
         public event ControlEventHandler OnClose;
+
+        private void saveMenuItem_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(filePath))	// no tiff exists
+            {		
+                MessageBox.Show("文件不存在");
+                return;
+            }
+
+            SaveFileDialog sd = new SaveFileDialog();
+            sd.Title = "Save Image As...";
+            sd.FileName = "scan.tif";
+            sd.Filter = "TIFF file (*.tif)|*.tif";	// bmp bitmap file format
+            if (sd.ShowDialog() != DialogResult.OK)
+                return;
+            
+           // pictureBox.Image.Save(sd.FileName);		// save to file
+        }
         
 
     }
