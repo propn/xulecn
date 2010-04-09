@@ -4,6 +4,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.ComponentModel;
+using WIALib;
+using System.IO;
+using System.Drawing.Imaging;
+using System.Drawing;
 
 
 namespace OCR
@@ -20,7 +25,9 @@ namespace OCR
         private string filePath = ""; 
         private MODIOCRParameters _MODIParameters = new MODIOCRParameters();
         private MODI.Document _MODIDocument = null;
-
+        /// <summary>
+        /// 扫描后图片
+        /// </summary>
         public OCR()
         {
             InitializeComponent();
@@ -236,25 +243,142 @@ namespace OCR
         }
 
 
-
-
       
         /// <summary>
-        /// 扫描图片并显示
+        /// 扫描图片、专为TIFF格式并显示
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ScanMenuItem_Click(object sender, EventArgs e)
         {
-            this.OnClose("www.baidu.com");
-           
+            WiaClass wiaManager = null;		// WIA manager COM object
+            CollectionClass wiaDevs = null;		// WIA devices collection COM object
+            ItemClass wiaRoot = null;		// WIA root device COM object
+            CollectionClass wiaPics = null;		// WIA collection COM object
+            ItemClass wiaItem = null;		// WIA image COM object
+            									/// <summary> temporary image file. </summary>
+
+            try
+            {
+                wiaManager = new WiaClass();		// create COM instance of WIA manager
+
+                wiaDevs = wiaManager.Devices as CollectionClass;			// call Wia.Devices to get all devices
+                if ((wiaDevs == null) || (wiaDevs.Count == 0))
+                {
+                    MessageBox.Show(this, "未找到扫描仪或照相机，请安装支持微软WIA接口的的设备!", "WIA", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    //Application.Exit();
+                    return;
+                }
+
+                object selectUsingUI = System.Reflection.Missing.Value;			// = Nothing
+                wiaRoot = (ItemClass)wiaManager.Create(ref selectUsingUI);	    // let user select device
+
+                if (wiaRoot == null)
+                {											// nothing to do
+                    return;
+                }
+                // this call shows the common WIA dialog to let the user select a picture:
+                wiaPics = wiaRoot.GetItemsFromUI(WiaFlag.SingleImage, WiaIntent.ImageTypeColor) as CollectionClass;
+                if (wiaPics == null)
+                    return;
+
+                foreach (object wiaObj in wiaPics)			// enumerate all the pictures the user selected
+                {
+                   
+                        //DisposeImage();						// remove previous picture
+                        wiaItem = (ItemClass)Marshal.CreateWrapperOfType(wiaObj, typeof(ItemClass));
+                        filePath = Path.GetTempFileName();				// create temporary file for image
+                        Cursor.Current = Cursors.WaitCursor;				// could take some time
+                        this.Refresh();
+
+                        MessageBox.Show(filePath);
+                        wiaItem.Transfer(filePath, false);			// transfer picture to our temporary file
+                        
+                        Marshal.ReleaseComObject(wiaObj);					// release enumerated COM object
+
+                        ImageConverter(filePath);
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(this, "获取图像失败\r\n" + ee.Message, "WIA", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+               
+            }
+            finally
+            {
+                if (wiaItem != null)
+                {
+                    Marshal.ReleaseComObject(wiaItem);		// release WIA image COM object
+                }
+                if (wiaPics != null)
+                {
+                    Marshal.ReleaseComObject(wiaPics);		// release WIA collection COM object
+                }
+                if (wiaRoot != null)
+                {
+                    Marshal.ReleaseComObject(wiaRoot);		// release WIA root device COM object
+                }
+                if (wiaDevs != null)
+                {
+                    Marshal.ReleaseComObject(wiaDevs);		// release WIA devices collection COM object
+                }
+                if (wiaManager != null)
+                {
+                    Marshal.ReleaseComObject(wiaManager);		// release WIA manager COM object
+                }
+                Cursor.Current = Cursors.Default;				// restore cursor
+            }
+        }
+
+        /// <summary>
+        /// 转换BMP格式文件为TIFF格式文件,并删除bmp文件
+        /// </summary>
+        /// <param name="bmpFile"></param>
+        /// <returns>Tif文件路径</returns>
+        public void ImageConverter(string strFileName)
+        {
+
+            try
+            {
+                Bitmap m_bitmap = new Bitmap(strFileName); ;
+                string imageFileName = Path.GetTempFileName();// create temporary file for image
+
+                m_bitmap.Save(imageFileName, ImageFormat.Bmp);
+                File.Delete(strFileName);
+
+                filePath= imageFileName;
+                MessageBox.Show(filePath);
+                SetImage(filePath);
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("转换图片格式出错\r\n" + ee.Message,"WIA", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+
+
+        }
+
+
+
+        [ComVisible(true)]
+        public void Close()
+        {
+            
+            if (OnClose != null)
+            {
+                OnClose("http://www.baidu.com"); //Calling event that will be catched in JS
+            }
+            else
+            {
+                MessageBox.Show("No Event Attached"); //If no events are attached send message.
+            }
         }
 
 
         /// <summary>
         /// This interface shows events to javascript
         /// </summary>
-        
+        [Guid("68BD4E0D-D7BC-4cf6-BEB7-CAB950161E52")]
         [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
         public interface ControlEvents
         {

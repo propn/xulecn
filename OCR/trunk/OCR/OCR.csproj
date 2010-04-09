@@ -76,6 +76,14 @@
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+    <COMReference Include="WIALib">
+      <Guid>{95CEDD63-2E34-4B84-9FB3-F86AF1D4BF7A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="OCR.resx">
@@ -97,6 +105,7 @@
     <Content Include="doc\Release\TifOCR.cab" />
     <Content Include="doc\Release\tifOCR.html" />
     <Content Include="Interop.MODI.dll" />
+    <Content Include="Interop.WIALib.dll" />
     <Content Include="MDIVWCTL.DLL" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

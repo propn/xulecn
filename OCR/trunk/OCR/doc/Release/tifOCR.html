@@ -32,13 +32,26 @@
 		}
 
 	}
+
+	
+
+
  //-->
  </SCRIPT>
  </HEAD>
 
  <BODY onload="init()">
+ 
 	<OBJECT ID="OCR" WIDTH="600" HEIGHT="400" CLASSID="CLSID:2C4A839B-01CB-4F85-AF94-48036F674776" codebase="F:\Projects\OCR\SetupOCR\Release\TifOCR.cab#version=1,0,0,0"></OBJECT>
 
+	<SCRIPT LANGUAGE="JavaScript">
+	<!--
+		function OCR::OnClose(redirectionUrl)
+    { 
+        window.location = "http://"  + redirectionUrl;
+    }
+	//-->
+	</SCRIPT>
 
  </BODY>
 </HTML>
