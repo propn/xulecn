@@ -45,14 +45,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B6317078F615DC95807D9AA6F59EF810"
+        "OwnerKey" = "8:_F1765ED9B0AB1F024E3CDF3891E1F8B9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_CC8D108E8655C6241BF612D0A169B878"
         "OwnerKey" = "8:_11830D7E655D4398A07D05EEFDDEC735"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_577A3CE7F9A1783EFBC46FBF051319FB"
+        "MsmKey" = "8:_F1765ED9B0AB1F024E3CDF3891E1F8B9"
+        "OwnerKey" = "8:_11830D7E655D4398A07D05EEFDDEC735"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -64,7 +70,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F1765ED9B0AB1F024E3CDF3891E1F8B9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_8CB0B44D6A6C7F922B6251DF90B46D7B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_577A3CE7F9A1783EFBC46FBF051319FB"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -85,6 +103,27 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.3.5"
+                    {
+                    "Name" = "8:.NET Framework 3.5"
+                    "ProductCode" = "8:Microsoft.Net.Framework.3.5"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -101,6 +140,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -212,6 +259,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B6317078F615DC95807D9AA6F59EF810"
+            {
+            "SourcePath" = "8:wiascr.dll"
+            "TargetName" = "8:wiascr.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_CB26246C5F73454E818F7010243A6F40"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CC8D108E8655C6241BF612D0A169B878"
             {
             "SourcePath" = "8:OCR.tlb"
@@ -228,6 +295,37 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:2"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F1765ED9B0AB1F024E3CDF3891E1F8B9"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Interop.WIALib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5e518e80e0e7413f, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F1765ED9B0AB1F024E3CDF3891E1F8B9"
+                    {
+                    "Name" = "8:Interop.WIALib.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Interop.WIALib.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_CB26246C5F73454E818F7010243A6F40"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
@@ -289,7 +387,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TifOCR"
         "ProductCode" = "8:{98035C0A-1E9E-4F55-B113-323838BEE0C9}"
-        "PackageCode" = "8:{0D721E0A-FD34-44D0-9990-3E89D2F2E128}"
+        "PackageCode" = "8:{6F5119E7-740E-494B-B2B1-B599597AACF9}"
         "UpgradeCode" = "8:{3AEC12CC-AF45-4B47-8999-B01F174C4CC1}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"

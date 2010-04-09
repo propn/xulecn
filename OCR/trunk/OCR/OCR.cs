@@ -18,7 +18,6 @@ namespace OCR
     /// TIF扫描文件OCR识别
     /// </summary>
     [ProgId("OCR")]
-    [Guid("2C4A839B-01CB-4f85-AF94-48036F674776")]
     [ComVisible(true)]
     public partial class OCR : UserControl ,IDisposable
     {
@@ -253,8 +252,8 @@ namespace OCR
         [ComVisible(true)]
         public void close()
         {
-            MessageBox.Show("close");
-            _MODIDocument = null;
+            MessageBox.Show("close","ocr",MessageBoxButtons.OK);
+            
             Dispose();
         }
 
@@ -413,6 +412,8 @@ namespace OCR
             void OnClose(string redirectUrl);
         }
 
+
+
         public event ControlEventHandler OnClose;
 
         private void saveMenuItem_Click(object sender, EventArgs e)
@@ -466,6 +467,8 @@ namespace OCR
             set { _WithStraightenImage = value; }
         }
     }
+
+
 
     public delegate void ControlEventHandler(string redirectUrl);
 
