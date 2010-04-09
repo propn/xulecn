@@ -314,7 +314,7 @@ namespace OCR
                         Cursor.Current = Cursors.WaitCursor;				// could take some time
                         this.Refresh();
 
-                        MessageBox.Show(filePath);
+                        //MessageBox.Show(filePath);
 
                         wiaItem.Transfer(filePath, false);			// transfer picture to our temporary file
                         
