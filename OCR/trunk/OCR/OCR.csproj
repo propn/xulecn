@@ -105,7 +105,7 @@
     <Content Include="doc\Release\install.inf" />
     <Content Include="doc\Release\setup.exe" />
     <Content Include="doc\Release\TifOCR.cab" />
-    <Content Include="doc\Release\tifOCR.html" />
+    <Content Include="doc\Release\tifOCR.htm" />
     <Content Include="Interop.MODI.dll" />
     <Content Include="Interop.WIALib.dll" />
     <Content Include="MDIVWCTL.DLL" />
