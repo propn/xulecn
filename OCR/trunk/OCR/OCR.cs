@@ -19,7 +19,7 @@ namespace OCR
     /// </summary>
     [ProgId("OCR")]
     [ComVisible(true)]
-    public partial class OCR : UserControl ,IDisposable
+    public partial class OCR : UserControl
     {
         private string filePath = ""; 
         private MODIOCRParameters _MODIParameters = new MODIOCRParameters();
@@ -32,9 +32,7 @@ namespace OCR
             InitializeComponent();
         }
 
-        ~OCR()
-        {
-        }
+        
 
         /// <summary>
         /// 初始化显示内容
