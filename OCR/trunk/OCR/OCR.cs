@@ -55,6 +55,7 @@ namespace OCR
                 _MODIDocument = new MODI.Document();
                 _MODIDocument.Create(filename);
                 axMiDocView1.Document = _MODIDocument;
+               
 
                 axMiDocView1.Refresh();
             }
@@ -427,7 +428,10 @@ namespace OCR
             sd.FileName = "scan.tif";
             sd.Filter = "TIFF file (*.tif)|*.tif";	// bmp bitmap file format
             if (sd.ShowDialog() != DialogResult.OK)
+            {
                 return;
+            }
+            _MODIDocument.SaveAs(sd.FileName, MODI.MiFILE_FORMAT.miFILE_FORMAT_TIFF, MODI.MiCOMP_LEVEL.miCOMP_LEVEL_MEDIUM);
             
            // pictureBox.Image.Save(sd.FileName);		// save to file
         }
