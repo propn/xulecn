@@ -102,7 +102,7 @@ namespace OCR
                
                 _MODIDocument.OCR(_MODIParameters.Language, _MODIParameters.WithAutoRotation, _MODIParameters.WithStraightenImage);
                 _MODIDocument.Save();
-                MessageBox.Show("save");
+               // MessageBox.Show("save");
                 statusBar1.Text = "识别完成...";
             }
             catch (Exception ee)
