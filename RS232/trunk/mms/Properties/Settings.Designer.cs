@@ -36,7 +36,7 @@ namespace mms.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://218.206.69.203:80/eepwww/xmlrpc ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://221.179.219.246/eepwww/xmlrpc")]
         public string rpcURL {
             get {
                 return ((string)(this["rpcURL"]));
@@ -45,7 +45,7 @@ namespace mms.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("944")]
         public int Customer_id {
             get {
                 return ((int)(this["Customer_id"]));
@@ -54,7 +54,7 @@ namespace mms.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2001299904")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2002000101238")]
         public string Corp_Account {
             get {
                 return ((string)(this["Corp_Account"]));
@@ -63,7 +63,7 @@ namespace mms.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1924af76-9d14-4fa9-9c9c-993341988eb0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("721d5a18-f089-4fb4-bacf-416f2ab26eea")]
         public string Token {
             get {
                 return ((string)(this["Token"]));
@@ -117,7 +117,7 @@ namespace mms.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1004")]
         public int MMSAgreement_id {
             get {
                 return ((int)(this["MMSAgreement_id"]));
