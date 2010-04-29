@@ -45,12 +45,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_210CD6751F87464E9B13B2DAB8623C35"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_29CC5FA433AC46B29EEE39E1469E48E3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -501,26 +495,6 @@
             "TargetName" = "8:mms.smil"
             "Tag" = "8:"
             "Folder" = "8:_CD343A2140974389B4AA5DDAA4C99FE9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_210CD6751F87464E9B13B2DAB8623C35"
-            {
-            "SourcePath" = "8:..\\mms\\bin\\Debug\\mms.vshost.exe.manifest"
-            "TargetName" = "8:mms.vshost.exe.manifest"
-            "Tag" = "8:"
-            "Folder" = "8:_7222F768123F4408A04973F39010ED43"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
