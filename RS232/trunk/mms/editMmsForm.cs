@@ -84,21 +84,135 @@ namespace mms
             {
                
                 //生成att01.txt文件
-                FileStream objFileStream = new FileStream("att01.txt", FileMode.Create, FileAccess.Write);
+
+                FileStream objFileStream = new FileStream(Application.StartupPath+"\\att01.txt", FileMode.Create, FileAccess.Write);
                 StreamWriter objStreamWriter = new StreamWriter(objFileStream);
                 objStreamWriter.Write(textBox1.Text); //将字符串写入到文件中
                 objStreamWriter.Close();
+
                 //生成att02.txt
-                objFileStream = new FileStream("att02.txt", FileMode.Create, FileAccess.Write);
+                objFileStream = new FileStream(Application.StartupPath + "\\att02.txt", FileMode.Create, FileAccess.Write);
                 objStreamWriter = new StreamWriter(objFileStream);
                 objStreamWriter.Write(textBox2.Text); //将字符串写入到文件中
                 objStreamWriter.Close();
+
                 //生成title.txt
-                objFileStream = new FileStream("title.txt", FileMode.Create, FileAccess.Write);
+                objFileStream = new FileStream(Application.StartupPath + "\\title.txt", FileMode.Create, FileAccess.Write);
                 objStreamWriter = new StreamWriter(objFileStream);
                 objStreamWriter.Write(title.Text); //将字符串写入到文件中
                 objStreamWriter.Close();
+                //复制文件到msg中
+                Directory.CreateDirectory(Path.GetDirectoryName(Application.StartupPath + "\\msg\\1\\"));
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\1\\att01.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\1\\att01.txt");
+                }
+                File.Copy(Application.StartupPath + "\\att01.txt", Application.StartupPath + "\\msg\\1\\att01.txt");
+
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\1\\att02.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\1\\att02.txt");
+                }
+                File.Copy(Application.StartupPath + "\\att02.txt", Application.StartupPath + "\\msg\\1\\att02.txt");
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\1\\title.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\1\\title.txt");
+                }
+                File.Copy(Application.StartupPath + "\\title.txt", Application.StartupPath + "\\msg\\1\\title.txt");
+
+
+                Directory.CreateDirectory(Path.GetDirectoryName(Application.StartupPath + "\\msg\\2\\"));
+
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\2\\att01.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\2\\att01.txt");
+                }
+                File.Copy(Application.StartupPath + "\\att01.txt", Application.StartupPath + "\\msg\\2\\att01.txt");
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\2\\att02.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\2\\att02.txt");
+                }
+                File.Copy(Application.StartupPath + "\\att02.txt", Application.StartupPath + "\\msg\\2\\att02.txt");
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\2\\title.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\2\\title.txt");
+                }
+                File.Copy(Application.StartupPath + "\\title.txt", Application.StartupPath + "\\msg\\2\\title.txt");
+
+                Directory.CreateDirectory(Path.GetDirectoryName(Application.StartupPath + "\\msg\\3\\"));
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\3\\att01.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\3\\att01.txt");
+                }
+                File.Copy(Application.StartupPath + "\\att01.txt", Application.StartupPath + "\\msg\\3\\att01.txt");
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\3\\att02.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\3\\att02.txt");
+                }
+                File.Copy(Application.StartupPath + "\\att02.txt", Application.StartupPath + "\\msg\\3\\att02.txt");
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\3\\title.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\3\\title.txt");
+                }
+                File.Copy(Application.StartupPath + "\\title.txt", Application.StartupPath + "\\msg\\3\\title.txt");
+
+
+
+                Directory.CreateDirectory(Path.GetDirectoryName(Application.StartupPath + "\\msg\\4\\"));
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\4\\att01.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\4\\att01.txt");
+                }
+                
+                File.Copy(Application.StartupPath + "\\att01.txt", Application.StartupPath + "\\msg\\4\\att01.txt");
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\4\\att02.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\4\\att02.txt");
+                }
+                File.Copy(Application.StartupPath + "\\att02.txt", Application.StartupPath + "\\msg\\4\\att02.txt");
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\4\\title.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\4\\title.txt");
+                }
+                File.Copy(Application.StartupPath + "\\title.txt", Application.StartupPath + "\\msg\\4\\title.txt");
+
+
+
+                Directory.CreateDirectory(Path.GetDirectoryName(Application.StartupPath + "\\msg\\5\\"));
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\5\\att01.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\5\\att01.txt");
+                }
+                File.Copy(Application.StartupPath + "\\att01.txt", Application.StartupPath + "\\msg\\5\\att01.txt");
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\5\\att02.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\5\\att02.txt");
+                }
+                File.Copy(Application.StartupPath + "\\att02.txt", Application.StartupPath + "\\msg\\5\\att02.txt");
+                //删除历史文件
+                if (File.Exists(Application.StartupPath + "\\msg\\5\\title.txt"))
+                {
+                    File.Delete(Application.StartupPath + "\\msg\\5\\title.txt");
+                }
+                File.Copy(Application.StartupPath + "\\title.txt", Application.StartupPath + "\\msg\\5\\title.txt");
+
+
                 tSmartProgressBar1.Value = 10;
+
                 string basePtah = Application.StartupPath + "\\temp\\";
                 //删除历史文件
                 if (Directory.Exists(basePtah))
@@ -113,6 +227,8 @@ namespace mms
 
                 labelInfo.Text = labelInfo.Text + "完成创建彩信\r\n\r\n";
                 tSmartProgressBar1.Value = 20;
+
+
                 for (int i = 0; i < table.Rows.Count; i++)
                 {
                     //生成彩信

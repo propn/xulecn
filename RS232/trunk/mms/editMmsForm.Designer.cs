@@ -86,7 +86,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(442, 237);
+            this.button1.Location = new System.Drawing.Point(442, 284);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 15;
@@ -124,12 +124,13 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(358, 237);
+            this.button3.Location = new System.Drawing.Point(201, 284);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 22;
             this.button3.Text = "发送短信";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label2
@@ -158,7 +159,7 @@
             this.labelInfo.Multiline = true;
             this.labelInfo.Name = "labelInfo";
             this.labelInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.labelInfo.Size = new System.Drawing.Size(189, 115);
+            this.labelInfo.Size = new System.Drawing.Size(189, 162);
             this.labelInfo.TabIndex = 25;
             // 
             // tSmartProgressBar1

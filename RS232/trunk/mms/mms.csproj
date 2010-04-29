@@ -110,6 +110,12 @@
     </Compile>
     <Compile Include="FileUtils.cs" />
     <Compile Include="FTPFactory.cs" />
+    <Compile Include="handForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="handForm.Designer.cs">
+      <DependentUpon>handForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Hex.cs" />
     <Compile Include="Md5.cs" />
     <Compile Include="Message.cs" />
@@ -158,6 +164,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FilesForm.resx">
       <DependentUpon>FilesForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="handForm.resx">
+      <DependentUpon>handForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Mm7Form.resx">
@@ -268,10 +278,10 @@
     <Content Include="msg\4\att02.txt" />
     <Content Include="msg\4\title.txt" />
     <Content Include="msg\5\att00.jpg" />
+    <Content Include="msg\1\att00.jpg" />
     <Content Include="msg\5\att01.txt" />
     <Content Include="msg\5\att02.txt" />
     <Content Include="msg\5\title.txt" />
-    <Content Include="msg\1\att00.jpg" />
     <None Include="ClassDiagram1.cd" />
     <None Include="msg\1\mms.smil" />
     <None Include="msg\2\mms.smil" />
