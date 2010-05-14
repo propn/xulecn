@@ -38,17 +38,15 @@
             // 
             // MyListView
             // 
-            this.MyListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.MyListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.MyListView.Location = new System.Drawing.Point(12, 12);
+            this.MyListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MyListView.Location = new System.Drawing.Point(0, 0);
             this.MyListView.Name = "MyListView";
-            this.MyListView.Size = new System.Drawing.Size(545, 343);
+            this.MyListView.Size = new System.Drawing.Size(676, 404);
             this.MyListView.TabIndex = 0;
             this.MyListView.UseCompatibleStateImageBehavior = false;
             this.MyListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.MyListView_MouseDoubleClick);
@@ -77,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 367);
+            this.ClientSize = new System.Drawing.Size(676, 404);
             this.Controls.Add(this.MyListView);
             this.Name = "FilesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

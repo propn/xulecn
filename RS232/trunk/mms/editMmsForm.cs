@@ -57,10 +57,18 @@ namespace mms
 
             title.Text = "广州市府办公厅会议签到凭证";
 
+            DateTime current = DateTime.Now;
+            SendTime.MinDate = current;
+            SendTime.Value = current.AddHours(24);
+
+            toolStripStatusLabel1.Text = "注意：由于移动白名单审核时间最长可能达到24小时，所以发送时间尽量延后24小时;时间请选择 09：00-21：00之间";
+            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             this.Close();
         }
 
@@ -75,14 +83,48 @@ namespace mms
             tSmartProgressBar1.Visible = true;
             tSmartProgressBar1.Value = 0;
 
-            labelInfo.Text = "\r\n开始创建彩信\r\n";
+           
+           
             //遍历所有与会人员
             DbUtil dbUtil = new DbUtil();
             DataTable table = dbUtil.GetData();
 
             if (table != null && table.Rows.Count > 0)
             {
+                Message msg = new Message();
+                //创建白名单
+                //生成白名单 对移动号码生成白名单
+                toolStripStatusLabel1.Text = "开始创见白名单...";
+                string whiteList = "";
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    String Mobile = table.Rows[i]["TELEPHONE"].ToString();
+                    whiteList = whiteList + Mobile + "\r\n";
+
+                }
+
                
+                DateTime dt = DateTime.Now;
+                string path = Application.StartupPath + "\\" + String.Format("{0:yyyyMMddHHmmss}", dt) + "_0.txt";
+                string filePath = msg.createWhiteFile(path, whiteList);
+                toolStripStatusLabel1.Text = "开始上传白名单...";
+
+                try
+                {
+                    ftpFile(filePath);
+
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show("Ftp上传白名单失败，请检查网络", "发送彩信失败", MessageBoxButtons.OK);
+                }
+
+                tSmartProgressBar1.Value = 5;
+
+
+                toolStripStatusLabel1.Text = "开始创建彩信...";
+                labelInfo.Text = "\r\n开始创建彩信\r\n";
+
                 //生成att01.txt文件
 
                 FileStream objFileStream = new FileStream(Application.StartupPath+"\\att01.txt", FileMode.Create, FileAccess.Write);
@@ -223,12 +265,12 @@ namespace mms
                 //创建
                 Directory.CreateDirectory(Path.GetDirectoryName(basePtah));
 
-                Message msg = new Message();
-
                 labelInfo.Text = labelInfo.Text + "完成创建彩信\r\n\r\n";
+                toolStripStatusLabel1.Text = "开始发送彩信...";
+                
                 tSmartProgressBar1.Value = 20;
 
-
+                //创建发送彩信
                 for (int i = 0; i < table.Rows.Count; i++)
                 {
                     //生成彩信
@@ -236,12 +278,20 @@ namespace mms
                     String Mobile = table.Rows[i]["TELEPHONE"].ToString();
                     String personName = table.Rows[i]["PERSONNAME"].ToString();
 
+                    //是否是移动手机号码
+                    if (!Message.isCmbNO(Mobile))
+                    {
+                        labelInfo.Text = labelInfo.Text + "注意：" + personName + "手机号不是移动手机号码；\r\n";
+                        labelInfo.Text = labelInfo.Text + "注意：系统不支持向 " + Mobile + "发送彩信；\r\n";
+                        continue;
+                    }
+
                     try
                     {
 
                         labelInfo.Text = labelInfo.Text + "开始向" + personName + "发送彩信\r\n";
 
-                        tSmartProgressBar1.Value = 20 + i*5;
+                        tSmartProgressBar1.Value = 20 + (80 / table.Rows.Count)*i;
 
                         Directory.CreateDirectory(Path.GetDirectoryName(basePtah + personId + "\\"));
                         //复制文件夹
@@ -293,14 +343,19 @@ namespace mms
                         request.Add("Mms_dt", basePtah + personId + "\\3.zip");
                         request.Add("Mms_cd", basePtah + personId + "\\4.zip");
                         request.Add("Mms_zd", basePtah + personId + "\\5.zip");
-
+                        
                         request.Add("Mobile", Mobile);
+                        request.Add("SendTime", String.Format("{0:yyyy-MM-dd HH:mm:ss}", SendTime.Value));//发送时间
+                        //MessageBox.Show(String.Format("{0:yyyy-MM-dd HH:mm:ss}", SendTime.Value));
+                        //Application.Exit();
 
                         msg.sendMsg(request);
+
                         labelInfo.Text = labelInfo.Text + "完成向" + personName + "发送彩信\r\n\r\n";
                         
                         tSmartProgressBar1.Value = 100;
                         labelInfo.Text = labelInfo.Text + "\r\n完成发送彩信\r\n";
+
                     }
                     catch (Exception ex)
                     {
@@ -357,6 +412,7 @@ namespace mms
                     Hashtable request = new Hashtable();
                     request.Add("SmsContent", textBox1.Text);
                     request.Add("Mobile", sb.ToString());
+                    request.Add("SendTime", string.Format("{0:yyyy-MM-dd HH:mm:ss}", SendTime.Value) );
                     msg.sendTextMsg(request);
                     labelInfo.Text = labelInfo.Text + "\r\n完成短信发送\r\n";
                    
@@ -373,5 +429,21 @@ namespace mms
             this.Cursor = Cursors.Default;
 
         }
+
+        //ftp上传白名单
+        private void  ftpFile(string filePath){
+            FTPFactory ftp = new FTPFactory();
+            ftp.login();
+            ftp.upload(filePath);
+            ftp.close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new selectForm().Show();
+        }
+
+      
+        
     }
 }

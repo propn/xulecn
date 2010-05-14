@@ -55,8 +55,8 @@ namespace mms
                         strInsertIntoAccess = "insert into MEETINGPERSON(PERSONID, PERSONNAME, NOTIFID, TELEPHONE, DEPTNAME, ADDRESSID,MEETINGID, MEETINGNAME, [TABLEID], SEATINGNO, QRID, EXT1, EXT2, EXT3, EXT4,EXT5) values('"
                             + oleDbDataReaderExcel.GetValue(0).ToString()
                             + "','" + oleDbDataReaderExcel.GetValue(1).ToString()
-                            + "','" + oleDbDataReaderExcel.GetValue(2).ToString()
-                            + "','" + oleDbDataReaderExcel.GetValue(3).ToString()
+                            + "'," + "True" //发送短信标志默认为选中
+                            + ",'" + oleDbDataReaderExcel.GetValue(3).ToString()
                             + "','" + oleDbDataReaderExcel.GetValue(4).ToString()
                             + "','" + oleDbDataReaderExcel.GetValue(5).ToString()
                             + "','" + oleDbDataReaderExcel.GetValue(6).ToString()
@@ -127,7 +127,7 @@ namespace mms
                         strInsertIntoExcel = "insert into  [Sheet1$](PERSONID, PERSONNAME, NOTIFID, TELEPHONE, DEPTNAME, ADDRESSID,MEETINGID, MEETINGNAME, [TABLEID], SEATINGNO, QRID, EXT1, EXT2, EXT3, EXT4,EXT5) values('"
                        + oleDbDataReaderAccess.GetValue(0).ToString()
                        + "','" + oleDbDataReaderAccess.GetValue(1).ToString()
-                       + "','" + oleDbDataReaderAccess.GetValue(2).ToString()
+                       + "','" + "" //选中标志不导出
                        + "','" + oleDbDataReaderAccess.GetValue(3).ToString()
                        + "','" + oleDbDataReaderAccess.GetValue(4).ToString()
                        + "','" + oleDbDataReaderAccess.GetValue(5).ToString()

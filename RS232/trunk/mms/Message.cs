@@ -16,7 +16,8 @@ namespace mms
         private int MMSAgreement_id = Properties.Settings.Default.MMSAgreement_id;//彩信合同id
         private int SMSAgreement_id = Properties.Settings.Default.SMSAgreement_id;//短信合同id
         private string Token = Md5.GetMD5(Properties.Settings.Default.Token);//密码
-
+        private static string chinaMobileNumber = Properties.Settings.Default.chinaMobileNumber;
+        
 
         /// <summary>
         /// 发送短信
@@ -35,6 +36,7 @@ namespace mms
             map.Add("Agreement_id", SMSAgreement_id);
             map.Add("Token", Token);
             map.Add("Type", Type);
+            map.Add("SendTime", (string)request["SendTime"]);
 
             //提交任务单
             int TaskID = addTask(map);
@@ -69,8 +71,7 @@ namespace mms
             map.Add("Agreement_id", MMSAgreement_id);
             map.Add("Token", Token);
             map.Add("Type", Type);
-
-           // map.Add();
+            map.Add("SendTime", (string)request["SendTime"]);
 
             //提交任务单
             int TaskID = addTask(map);
@@ -175,9 +176,48 @@ namespace mms
             return state;
         }
 
+        /// <summary>
+        /// 是否是移动手机号码
+        /// </summary>
+        /// <param name="phoneNO"></param>
+        /// <returns></returns>
+        public static Boolean isCmbNO(string phoneNO)
+        {
+            if (chinaMobileNumber.IndexOf(phoneNO.Substring(0, 3)) > 0)
+            {
+               
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
+        }
 
+        
+        /// <summary>
+        /// 生成白名单文件
+        /// </summary>
+        /// <param name="phones"></param>
+        /// <returns></returns>
+        public string createWhiteFile(string filePath,string phones)
+        {
+           
 
+            FileStream objFileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write);
+            StreamWriter objStreamWriter = new StreamWriter(objFileStream, Encoding.UTF8);
+            
+            //遍历组装所有手机号码
+            string ECCode = Properties.Settings.Default.ECCode;
+            string ProductCode = Properties.Settings.Default.ProductCode;
+            string ECPrdCode = Properties.Settings.Default.ECPrdCode;
 
+            string firstLine = ECCode + "," + ProductCode + "," + ECPrdCode + "\r\n";
+
+            objStreamWriter.Write(phones); //将字符串写入到文件中
+            objStreamWriter.Close();
+            return filePath;
+        }
     }
 }

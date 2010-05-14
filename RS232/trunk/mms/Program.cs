@@ -17,7 +17,8 @@ namespace mms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new main());
+           Application.Run(new main());
+           // Application.Run(new selectForm());
             //Application.Run(new editMmsForm());
             //Application.Run(new FrmTest());
             //Application.Run(new MsgForm());

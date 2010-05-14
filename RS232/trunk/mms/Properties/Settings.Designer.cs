@@ -72,7 +72,7 @@ namespace mms.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("221.179.214.203")]
         public string FTPRemoteIP {
             get {
                 return ((string)(this["FTPRemoteIP"]));
@@ -81,16 +81,16 @@ namespace mms.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int FTPRemotePort {
+        [global::System.Configuration.DefaultSettingValueAttribute("/EC/2002000101238/Incoming/")]
+        public string Incoming {
             get {
-                return ((int)(this["FTPRemotePort"]));
+                return ((string)(this["Incoming"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2002000101238")]
         public string FTPUser {
             get {
                 return ((string)(this["FTPUser"]));
@@ -99,7 +99,7 @@ namespace mms.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("^YH7uj8ik")]
         public string FTPPassword {
             get {
                 return ((string)(this["FTPPassword"]));
@@ -121,6 +121,60 @@ namespace mms.Properties {
         public int MMSAgreement_id {
             get {
                 return ((int)(this["MMSAgreement_id"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/EC/2002000101238/Outgoing/")]
+        public string Outgoing {
+            get {
+                return ((string)(this["Outgoing"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("21")]
+        public int remotePort {
+            get {
+                return ((int)(this["remotePort"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("134;135;136;137;138;139;158;150;151;152;157;159;188;187;189;")]
+        public string chinaMobileNumber {
+            get {
+                return ((string)(this["chinaMobileNumber"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("EC2002000101238")]
+        public string ECCode {
+            get {
+                return ((string)(this["ECCode"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2990020801")]
+        public string ProductCode {
+            get {
+                return ((string)(this["ProductCode"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("EC10650222001018")]
+        public string ECPrdCode {
+            get {
+                return ((string)(this["ECPrdCode"]));
             }
         }
     }

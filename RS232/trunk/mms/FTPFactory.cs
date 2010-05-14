@@ -20,7 +20,7 @@ namespace mms
     public class FTPFactory
     {
 
-        //static readonly log4net.ILog log = log4net.LogManager.GetLogger("log4net");
+      
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);  
 
         private string remoteHost, remotePath, remoteUser, remotePass, mes;
@@ -40,18 +40,40 @@ namespace mms
         {
 
             string FTPRemoteIP = Properties.Settings.Default.FTPRemoteIP;
-            int FTPRemotePort = Properties.Settings.Default.FTPRemotePort;
+            int RemotePort = Properties.Settings.Default.remotePort;
             string FTPUser = Properties.Settings.Default.FTPUser;
             string FTPPassword = Properties.Settings.Default.FTPPassword;
+            string RemotePath = Properties.Settings.Default.Incoming; 
+
 
             remoteHost = FTPRemoteIP;
-            remotePath = ".";
             remoteUser = FTPUser;
             remotePass = FTPPassword;
-            remotePort = FTPRemotePort;
+            remotePort = RemotePort;
+            remotePath = RemotePath;
+
             debug = false;
             logined = false;
+        }
 
+
+        public  FTPFactory(string ip,string user,string password)
+        {
+
+            string FTPRemoteIP = ip;
+            int RemotePort = Properties.Settings.Default.remotePort;
+            string FTPUser = user;
+            string FTPPassword = password;
+           
+
+            remoteHost = FTPRemoteIP;
+            remoteUser = FTPUser;
+            remotePass = FTPPassword;
+            remotePort = RemotePort;
+            remotePath = ".";
+
+            debug = false;
+            logined = false;
         }
 
 

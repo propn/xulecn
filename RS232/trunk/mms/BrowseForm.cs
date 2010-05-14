@@ -13,17 +13,14 @@ namespace mms
     public partial class BrowseForm : System.Windows.Forms.Form
     {
         private System.Windows.Forms.DataGrid dataGrid1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private OleDbConnection conn = (new DbUtil()).getConn();
-        private DataSet ds;
-        string sql = "SELECT PERSONNAME as 姓名,  TELEPHONE as 手机号码, DEPTNAME as 单位名称, EXT3 as 职位,SEATINGNO as 座位号码 ,[TABLEID] as 签到时间 FROM MEETINGPERSON ";
-
-        /// <summary>
-        /// 必需的设计器变量。
-        /// </summary>
-        private System.ComponentModel.Container components = null;
+        private DataSet ds1;//已到
+        private DataSet ds2;//未到
+        string sql = "SELECT PERSONNAME as 姓名,  TELEPHONE as 手机号码, DEPTNAME as 单位名称, EXT3 as 职位,[TABLEID] as 签到时间,SEATINGNO as 座位号码  FROM MEETINGPERSON ";
+        private Button button2;
+        private Timer timer1;
+        private IContainer components;
 
 
         public BrowseForm()
@@ -54,52 +51,32 @@ namespace mms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGrid1 = new System.Windows.Forms.DataGrid();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGrid1
             // 
-            this.dataGrid1.AllowSorting = false;
             this.dataGrid1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGrid1.CaptionBackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGrid1.CaptionForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGrid1.DataMember = "";
+            this.dataGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGrid1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dataGrid1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.dataGrid1.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-            this.dataGrid1.Location = new System.Drawing.Point(1, 35);
+            this.dataGrid1.Location = new System.Drawing.Point(0, 0);
             this.dataGrid1.Name = "dataGrid1";
-            this.dataGrid1.PreferredColumnWidth = 100;
+            this.dataGrid1.PreferredColumnWidth = 150;
             this.dataGrid1.PreferredRowHeight = 30;
             this.dataGrid1.ReadOnly = true;
-            this.dataGrid1.Size = new System.Drawing.Size(567, 323);
+            this.dataGrid1.RowHeaderWidth = 50;
+            this.dataGrid1.Size = new System.Drawing.Size(859, 507);
             this.dataGrid1.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(391, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "开始查询";
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(-2, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 12);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "请选择签到状态：";
             // 
             // comboBox1
             // 
@@ -107,26 +84,45 @@ namespace mms
             this.comboBox1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.comboBox1.Items.AddRange(new object[] {
-            "所有人员",
-            "已到人员",
-            "未到人员"});
-            this.comboBox1.Location = new System.Drawing.Point(105, 6);
+            "未到人员",
+            "已到人员"});
+            this.comboBox1.Location = new System.Drawing.Point(636, 2);
             this.comboBox1.MaxDropDownItems = 3;
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(172, 20);
+            this.comboBox1.Size = new System.Drawing.Size(131, 20);
             this.comboBox1.TabIndex = 7;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Location = new System.Drawing.Point(784, 0);
+            this.button2.Name = "button2";
+            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button2.Size = new System.Drawing.Size(75, 22);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "关闭";
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // BrowseForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 14);
-            this.ClientSize = new System.Drawing.Size(569, 367);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(859, 507);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGrid1);
             this.Name = "BrowseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "浏览签到信息";
+            this.Load += new System.EventHandler(this.BrowseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -134,39 +130,16 @@ namespace mms
         }
         #endregion
 
-        private void BrowseForm_Load(object sender, System.EventArgs e)
+                
+
+        private void query()
         {
 
-
-        }
-
-
-        private void button1_Click(object sender, System.EventArgs e)
-        {
-
-            string whereCnt = " where [TABLEID] is not null ";
-            string distsql = "";
-
-            if (null != comboBox1.Text.ToString())
-            {
-                if (comboBox1.Text.ToString().Equals("已到人员"))
-                {
-                    distsql = sql + whereCnt;
-                }
-                else if (comboBox1.Text.ToString().Equals("未到人员"))
-                {
-                    distsql = sql + " where [TABLEID] is null";
-                }
-                else
-                {
-                    distsql = sql;
-                }
-            }
-            else
-            {
-                distsql = sql;
-            }
-
+            //MessageBox.Show("ok");
+            string whereCnt1 = " where  ([TABLEID] IS NOT NULL) AND ([TABLEID] <> '') order by DEPTNAME";
+            string whereCnt2 = " where [TABLEID] is null or [TABLEID]='' order by DEPTNAME";
+            string distsql1 = sql + whereCnt1;
+            string distsql2 = sql + whereCnt2;
 
             //防止重复打开连接
             if (conn.State != ConnectionState.Open)
@@ -175,25 +148,57 @@ namespace mms
             }
 
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(distsql, conn);
+            OleDbDataAdapter adp = new OleDbDataAdapter(distsql1, conn);
+           
+            ds1 = new DataSet();
+            ds1.Clear();
+            adp.Fill(ds1);
 
-            ds = new DataSet();
-            ds.Clear();
+            adp = new OleDbDataAdapter(distsql2, conn);
+            ds2 = new DataSet();
+            ds2.Clear();
+            adp.Fill(ds2);
 
-            adp.Fill(ds);
 
-
-            if (ds.Tables[0].Rows.Count != 0)
+            if (null != comboBox1.Text.ToString())
             {
-                dataGrid1.DataSource = ds.Tables[0].DefaultView;
-                dataGrid1.CaptionText = "共有" + ds.Tables[0].Rows.Count + "条查询结果";
+                if (comboBox1.Text.ToString().Equals("已到人员"))
+                {
+                    dataGrid1.DataSource = ds1.Tables[0].DefaultView;
+                }
+                else if (comboBox1.Text.ToString().Equals("未到人员"))
+                {
+                    dataGrid1.DataSource = ds2.Tables[0].DefaultView;
+                }
             }
-            else
-            {
-                dataGrid1.CaptionText = "没有您所查找的员工信息";
-                dataGrid1.DataSource = null;
-            }
+
+            dataGrid1.CaptionText = "已到人数：" + ds1.Tables[0].Rows.Count + "     未到人数：" + ds2.Tables[0].Rows.Count;
+          
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Dispose(true);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            query();
+        }
+
+        private void BrowseForm_Load(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 0;
+            this.WindowState = FormWindowState.Maximized;
+
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            query();
+        }
+
+       
     }
 }

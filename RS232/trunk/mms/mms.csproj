@@ -122,6 +122,12 @@
     <Compile Include="Mm7Form.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="selectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="selectForm.Designer.cs">
+      <DependentUpon>selectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Sha1.cs" />
     <Compile Include="TSmartProgressBar.cs">
@@ -172,6 +178,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mm7Form.resx">
       <DependentUpon>Mm7Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="selectForm.resx">
+      <DependentUpon>selectForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateForm.resx">

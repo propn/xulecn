@@ -23,22 +23,40 @@
       <Value Profile="(Default)">721d5a18-f089-4fb4-bacf-416f2ab26eea</Value>
     </Setting>
     <Setting Name="FTPRemoteIP" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">221.179.214.203</Value>
     </Setting>
-    <Setting Name="FTPRemotePort" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="Incoming" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/EC/2002000101238/Incoming/</Value>
     </Setting>
     <Setting Name="FTPUser" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">2002000101238</Value>
     </Setting>
     <Setting Name="FTPPassword" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">^YH7uj8ik</Value>
     </Setting>
     <Setting Name="SMSAgreement_id" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="MMSAgreement_id" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">1004</Value>
+    </Setting>
+    <Setting Name="Outgoing" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/EC/2002000101238/Outgoing/</Value>
+    </Setting>
+    <Setting Name="remotePort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">21</Value>
+    </Setting>
+    <Setting Name="chinaMobileNumber" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">134;135;136;137;138;139;158;150;151;152;157;159;188;187;189;</Value>
+    </Setting>
+    <Setting Name="ECCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">EC2002000101238</Value>
+    </Setting>
+    <Setting Name="ProductCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2990020801</Value>
+    </Setting>
+    <Setting Name="ECPrdCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">EC10650222001018</Value>
     </Setting>
   </Settings>
 </SettingsFile>
