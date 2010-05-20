@@ -19,7 +19,6 @@ namespace mms
         private DataSet ds2;//未到
         string sql = "SELECT PERSONNAME as 姓名,  TELEPHONE as 手机号码, DEPTNAME as 单位名称, EXT3 as 职位,[TABLEID] as 签到时间,SEATINGNO as 座位号码  FROM MEETINGPERSON ";
         private Button button2;
-        private Timer timer1;
         private IContainer components;
 
 
@@ -51,11 +50,9 @@ namespace mms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataGrid1 = new System.Windows.Forms.DataGrid();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,12 +102,6 @@ namespace mms
             this.button2.TabIndex = 2;
             this.button2.Text = "关闭";
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 30000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // BrowseForm
             // 

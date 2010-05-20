@@ -111,7 +111,10 @@ namespace mms
                 DateTime dt = DateTime.Now;
                 string path = Application.StartupPath + "\\" + String.Format("{0:yyyyMMddHHmmss}", dt) + "_0.txt";
                 string filePath = msg.createWhiteFile(path, whiteList);
+
                 toolStripStatusLabel1.Text = "开始上传白名单...";
+
+                //Application.Exit();
 
                 try
                 {
@@ -120,16 +123,16 @@ namespace mms
                 }
                 catch (Exception ee)
                 {
-                    MessageBox.Show("Ftp上传白名单失败，请检查网络", "发送彩信失败", MessageBoxButtons.OK);
+                    MessageBox.Show("Ftp上传白名单失败，请检查网络", "上传白名单失败", MessageBoxButtons.OK);
                 }
 
                 tSmartProgressBar1.Value = 5;
 
 
-                toolStripStatusLabel1.Text = "开始创建彩信...";
+                toolStripStatusLabel1.Text = "开始发送彩信...";
                 labelInfo.Text = "\r\n开始创建彩信\r\n";
 
-                Application.Exit();
+               
 
                 //生成att01.txt文件
 
