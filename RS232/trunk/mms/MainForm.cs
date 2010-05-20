@@ -216,5 +216,10 @@ namespace mms
                 toolStripStatusLabel1.Text = "会议名称:" + meetingName + "  时间:" + date + "  地点:" + meetingRoomName;
             }
         }
+
+        private void 与会情况表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new QueryForm().Show();
+        }
     }
 }

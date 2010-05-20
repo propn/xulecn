@@ -48,6 +48,7 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.infoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -74,39 +75,39 @@
             this.mfiles,
             this.exitMenu});
             this.file.Name = "file";
-            this.file.Size = new System.Drawing.Size(59, 20);
+            this.file.Size = new System.Drawing.Size(57, 20);
             this.file.Text = "文件(&F)";
             // 
             // imp
             // 
             this.imp.Name = "imp";
-            this.imp.Size = new System.Drawing.Size(160, 22);
+            this.imp.Size = new System.Drawing.Size(162, 22);
             this.imp.Text = "导入会议信息(&I)";
             this.imp.Click += new System.EventHandler(this.imp_Click);
             // 
             // exp
             // 
             this.exp.Name = "exp";
-            this.exp.Size = new System.Drawing.Size(160, 22);
+            this.exp.Size = new System.Drawing.Size(162, 22);
             this.exp.Text = "导出与会信息(&O)";
             this.exp.Click += new System.EventHandler(this.exp_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(159, 6);
             // 
             // mfiles
             // 
             this.mfiles.Name = "mfiles";
-            this.mfiles.Size = new System.Drawing.Size(160, 22);
+            this.mfiles.Size = new System.Drawing.Size(162, 22);
             this.mfiles.Text = "离线办公(&W)";
             this.mfiles.Click += new System.EventHandler(this.mfiles_Click);
             // 
             // exitMenu
             // 
             this.exitMenu.Name = "exitMenu";
-            this.exitMenu.Size = new System.Drawing.Size(160, 22);
+            this.exitMenu.Size = new System.Drawing.Size(162, 22);
             this.exitMenu.Text = "退出系统(&E)";
             this.exitMenu.Click += new System.EventHandler(this.exitMenu_Click_1);
             // 
@@ -116,34 +117,35 @@
             this.monitor,
             this.handCheck,
             this.toolStripSeparator1,
-            this.pCount});
+            this.pCount,
+            this.infoMenuItem});
             this.check.Name = "check";
-            this.check.Size = new System.Drawing.Size(59, 20);
+            this.check.Size = new System.Drawing.Size(58, 20);
             this.check.Text = "签到(&C)";
             // 
             // monitor
             // 
             this.monitor.Name = "monitor";
-            this.monitor.Size = new System.Drawing.Size(136, 22);
+            this.monitor.Size = new System.Drawing.Size(152, 22);
             this.monitor.Text = "自动签到(&A)";
             this.monitor.Click += new System.EventHandler(this.monitor_Click);
             // 
             // handCheck
             // 
             this.handCheck.Name = "handCheck";
-            this.handCheck.Size = new System.Drawing.Size(136, 22);
+            this.handCheck.Size = new System.Drawing.Size(152, 22);
             this.handCheck.Text = "手工签到(&H)";
             this.handCheck.Click += new System.EventHandler(this.handCheck_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // pCount
             // 
             this.pCount.Name = "pCount";
-            this.pCount.Size = new System.Drawing.Size(136, 22);
+            this.pCount.Size = new System.Drawing.Size(152, 22);
             this.pCount.Text = "统计(&Q)";
             this.pCount.Click += new System.EventHandler(this.pCount_Click);
             // 
@@ -167,13 +169,13 @@
             this.help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.about});
             this.help.Name = "help";
-            this.help.Size = new System.Drawing.Size(59, 20);
+            this.help.Size = new System.Drawing.Size(58, 20);
             this.help.Text = "帮助(&H)";
             // 
             // about
             // 
             this.about.Name = "about";
-            this.about.Size = new System.Drawing.Size(112, 22);
+            this.about.Size = new System.Drawing.Size(113, 22);
             this.about.Text = "关于(&A)";
             this.about.Click += new System.EventHandler(this.about_Click);
             // 
@@ -197,6 +199,13 @@
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            // 
+            // infoMenuItem
+            // 
+            this.infoMenuItem.Name = "infoMenuItem";
+            this.infoMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.infoMenuItem.Text = "与会情况表";
+            this.infoMenuItem.Click += new System.EventHandler(this.与会情况表ToolStripMenuItem_Click);
             // 
             // main
             // 
@@ -245,6 +254,7 @@
         private System.Windows.Forms.ToolStripMenuItem editMmsMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem infoMenuItem;
     }
 }
 

@@ -25,6 +25,7 @@ namespace mms
             //Application.Run(new FilesForm());
             //Application.Run(new UpdateForm());
             //Application.Run(new BrowseForm());
+            //Application.Run(new QueryForm());
         }
 
 

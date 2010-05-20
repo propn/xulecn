@@ -214,7 +214,7 @@ namespace mms
             string ECPrdCode = Properties.Settings.Default.ECPrdCode;
 
             string firstLine = ECCode + "," + ProductCode + "," + ECPrdCode + "\r\n";
-
+            objStreamWriter.Write(firstLine); //将字符串写入到文件中
             objStreamWriter.Write(phones); //将字符串写入到文件中
             objStreamWriter.Close();
             return filePath;

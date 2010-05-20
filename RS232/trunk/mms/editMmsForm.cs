@@ -99,8 +99,12 @@ namespace mms
                 for (int i = 0; i < table.Rows.Count; i++)
                 {
                     String Mobile = table.Rows[i]["TELEPHONE"].ToString();
-                    whiteList = whiteList + Mobile + "\r\n";
+                    if (Message.isCmbNO(Mobile))
+                    {
+                          whiteList = whiteList + Mobile + "\r\n";
 
+                    }
+                  
                 }
 
                
@@ -124,6 +128,8 @@ namespace mms
 
                 toolStripStatusLabel1.Text = "开始创建彩信...";
                 labelInfo.Text = "\r\n开始创建彩信\r\n";
+
+                Application.Exit();
 
                 //生成att01.txt文件
 
