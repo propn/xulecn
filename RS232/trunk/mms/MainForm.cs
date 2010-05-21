@@ -221,5 +221,10 @@ namespace mms
         {
             new QueryForm().Show();
         }
+
+        private void setMenuItem_Click(object sender, EventArgs e)
+        {
+            new setForm().Show();
+        }
     }
 }

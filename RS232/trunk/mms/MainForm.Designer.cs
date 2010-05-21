@@ -41,6 +41,7 @@
             this.handCheck = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.pCount = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.message = new System.Windows.Forms.ToolStripMenuItem();
             this.editMmsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.help = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,7 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.infoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -149,6 +150,13 @@
             this.pCount.Text = "统计(&Q)";
             this.pCount.Click += new System.EventHandler(this.pCount_Click);
             // 
+            // infoMenuItem
+            // 
+            this.infoMenuItem.Name = "infoMenuItem";
+            this.infoMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.infoMenuItem.Text = "与会情况表";
+            this.infoMenuItem.Click += new System.EventHandler(this.与会情况表ToolStripMenuItem_Click);
+            // 
             // message
             // 
             this.message.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -160,13 +168,14 @@
             // editMmsMenuItem
             // 
             this.editMmsMenuItem.Name = "editMmsMenuItem";
-            this.editMmsMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editMmsMenuItem.Size = new System.Drawing.Size(136, 22);
             this.editMmsMenuItem.Text = "发送彩信(&S)";
             this.editMmsMenuItem.Click += new System.EventHandler(this.editMmsMenuItem_Click);
             // 
             // help
             // 
             this.help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setMenuItem,
             this.about});
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(58, 20);
@@ -175,7 +184,7 @@
             // about
             // 
             this.about.Name = "about";
-            this.about.Size = new System.Drawing.Size(113, 22);
+            this.about.Size = new System.Drawing.Size(152, 22);
             this.about.Text = "关于(&A)";
             this.about.Click += new System.EventHandler(this.about_Click);
             // 
@@ -200,12 +209,12 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
-            // infoMenuItem
+            // setMenuItem
             // 
-            this.infoMenuItem.Name = "infoMenuItem";
-            this.infoMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.infoMenuItem.Text = "与会情况表";
-            this.infoMenuItem.Click += new System.EventHandler(this.与会情况表ToolStripMenuItem_Click);
+            this.setMenuItem.Name = "setMenuItem";
+            this.setMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.setMenuItem.Text = "设置";
+            this.setMenuItem.Click += new System.EventHandler(this.setMenuItem_Click);
             // 
             // main
             // 
@@ -255,6 +264,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem infoMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setMenuItem;
     }
 }
 
