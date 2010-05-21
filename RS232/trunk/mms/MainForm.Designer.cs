@@ -45,11 +45,11 @@
             this.message = new System.Windows.Forms.ToolStripMenuItem();
             this.editMmsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.help = new System.Windows.Forms.ToolStripMenuItem();
+            this.setMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.about = new System.Windows.Forms.ToolStripMenuItem();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.setMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -127,33 +127,33 @@
             // monitor
             // 
             this.monitor.Name = "monitor";
-            this.monitor.Size = new System.Drawing.Size(152, 22);
+            this.monitor.Size = new System.Drawing.Size(137, 22);
             this.monitor.Text = "自动签到(&A)";
             this.monitor.Click += new System.EventHandler(this.monitor_Click);
             // 
             // handCheck
             // 
             this.handCheck.Name = "handCheck";
-            this.handCheck.Size = new System.Drawing.Size(152, 22);
+            this.handCheck.Size = new System.Drawing.Size(137, 22);
             this.handCheck.Text = "手工签到(&H)";
             this.handCheck.Click += new System.EventHandler(this.handCheck_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(134, 6);
             // 
             // pCount
             // 
             this.pCount.Name = "pCount";
-            this.pCount.Size = new System.Drawing.Size(152, 22);
+            this.pCount.Size = new System.Drawing.Size(137, 22);
             this.pCount.Text = "统计(&Q)";
             this.pCount.Click += new System.EventHandler(this.pCount_Click);
             // 
             // infoMenuItem
             // 
             this.infoMenuItem.Name = "infoMenuItem";
-            this.infoMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.infoMenuItem.Size = new System.Drawing.Size(137, 22);
             this.infoMenuItem.Text = "与会情况表";
             this.infoMenuItem.Click += new System.EventHandler(this.与会情况表ToolStripMenuItem_Click);
             // 
@@ -180,6 +180,14 @@
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(58, 20);
             this.help.Text = "帮助(&H)";
+            // 
+            // setMenuItem
+            // 
+            this.setMenuItem.Name = "setMenuItem";
+            this.setMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.setMenuItem.Text = "设置";
+            this.setMenuItem.Visible = false;
+            this.setMenuItem.Click += new System.EventHandler(this.setMenuItem_Click);
             // 
             // about
             // 
@@ -208,13 +216,6 @@
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
-            // 
-            // setMenuItem
-            // 
-            this.setMenuItem.Name = "setMenuItem";
-            this.setMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.setMenuItem.Text = "设置";
-            this.setMenuItem.Click += new System.EventHandler(this.setMenuItem_Click);
             // 
             // main
             // 
