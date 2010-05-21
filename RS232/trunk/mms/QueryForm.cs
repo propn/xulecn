@@ -63,6 +63,7 @@ namespace mms
             ds.Clear();
             adp.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0].DefaultView;
+            
 
             adp = new OleDbDataAdapter(sql2, conn);
             DataTable table = new DataTable();
@@ -76,6 +77,7 @@ namespace mms
                 label4.Text = table.Rows[0]["已到人数"].ToString();
             }
 
+            int depts = 0;
             textBox1.Text = "";
             DataTable table2=ds.Tables[0];
             if (table2 != null && table2.Rows.Count > 0)
@@ -86,12 +88,14 @@ namespace mms
                     {
                         if (row.Cells[0].Value !=null)
                         {
+                            depts++;
                             textBox1.Text = textBox1.Text + "\r\n" + row.Cells[0].Value.ToString();
                         }
                         
                     }
                 }
             }
+            label10.Text = depts.ToString() ;
 
         }
 

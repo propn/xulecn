@@ -1276,7 +1276,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_7222F768123F4408A04973F39010ED43"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\mms"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -1369,7 +1369,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:会议管理系统"
         "ProductCode" = "8:{6C823C54-0749-4103-8077-B83E98451633}"
-        "PackageCode" = "8:{7D7CE1F9-3A79-4E53-A9B7-4F5155EB9C9E}"
+        "PackageCode" = "8:{B4FB807E-98F5-4B98-B322-89C3C34924C4}"
         "UpgradeCode" = "8:{3DB76038-E989-40FE-B365-B3C551BE0176}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
