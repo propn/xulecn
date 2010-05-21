@@ -1369,7 +1369,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:会议管理系统"
         "ProductCode" = "8:{6C823C54-0749-4103-8077-B83E98451633}"
-        "PackageCode" = "8:{298ADAC5-F245-4D09-9E8A-3AC979B9C940}"
+        "PackageCode" = "8:{01F1BC1C-EE19-4F3A-9183-5C4176447FDE}"
         "UpgradeCode" = "8:{3DB76038-E989-40FE-B365-B3C551BE0176}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
