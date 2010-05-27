@@ -233,6 +233,7 @@
 
 	<scm>
 		<connection>svn</connection>
+		<developerConnection>xulecn</developerConnection>
 		<url>https://xulecn.googlecode.com/svn/iap/trunk</url>
 	</scm>
 	<build>
