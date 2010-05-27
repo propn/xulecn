@@ -1,10 +1,11 @@
-package genericdaotest.dao;
+package org.leixu.iap.core.genericdao.dao;
 
 import java.util.List;
 import java.util.Iterator;
 
-import genericdao.GenericDao;
-import genericdaotest.domain.Person;
+import org.leixu.iap.core.genericdao.GenericDao;
+import org.leixu.iap.core.genericdao.domain.Person;
+
 
 public interface PersonDao extends GenericDao<Person, Long>
 {

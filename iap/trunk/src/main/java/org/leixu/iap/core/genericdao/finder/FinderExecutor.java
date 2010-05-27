@@ -1,4 +1,4 @@
-package genericdao.finder;
+package org.leixu.iap.core.genericdao.finder;
 
 import java.lang.reflect.Method;
 import java.util.List;

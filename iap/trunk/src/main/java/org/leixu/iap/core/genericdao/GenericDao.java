@@ -1,4 +1,4 @@
-package genericdao;
+package org.leixu.iap.core.genericdao;
 
 import java.io.Serializable;
 

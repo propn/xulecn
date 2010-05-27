@@ -1,4 +1,4 @@
-package genericdao.impl;
+package org.leixu.iap.core.genericdao.impl;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
@@ -6,16 +6,16 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import genericdao.GenericDao;
-import genericdao.finder.FinderArgumentTypeFactory;
-import genericdao.finder.FinderExecutor;
-import genericdao.finder.FinderNamingStrategy;
-import genericdao.finder.impl.SimpleFinderArgumentTypeFactory;
-import genericdao.finder.impl.SimpleFinderNamingStrategy;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.type.Type;
+import org.leixu.iap.core.genericdao.GenericDao;
+import org.leixu.iap.core.genericdao.finder.FinderArgumentTypeFactory;
+import org.leixu.iap.core.genericdao.finder.FinderExecutor;
+import org.leixu.iap.core.genericdao.finder.FinderNamingStrategy;
+import org.leixu.iap.core.genericdao.finder.impl.SimpleFinderArgumentTypeFactory;
+import org.leixu.iap.core.genericdao.finder.impl.SimpleFinderNamingStrategy;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
 
 /**

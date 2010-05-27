@@ -1,7 +1,7 @@
-package genericdao.finder.impl;
+package org.leixu.iap.core.genericdao.finder.impl;
 
-import genericdao.finder.FinderExecutor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.leixu.iap.core.genericdao.finder.FinderExecutor;
 import org.springframework.aop.IntroductionInterceptor;
 
 /**

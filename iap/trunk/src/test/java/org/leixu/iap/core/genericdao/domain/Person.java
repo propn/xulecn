@@ -1,4 +1,4 @@
-package genericdaotest.domain;
+package org.leixu.iap.core.genericdao.domain;
 
 import java.io.Serializable;
 

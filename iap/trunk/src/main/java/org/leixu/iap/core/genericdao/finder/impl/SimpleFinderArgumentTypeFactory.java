@@ -1,10 +1,10 @@
-package genericdao.finder.impl;
+package org.leixu.iap.core.genericdao.finder.impl;
 
 import java.util.Properties;
 
-import genericdao.finder.FinderArgumentTypeFactory;
 import org.hibernate.type.Type;
 import org.hibernate.type.TypeFactory;
+import org.leixu.iap.core.genericdao.finder.FinderArgumentTypeFactory;
 
 /**
  * Maps Enums to a custom Hibernate user type

@@ -1,4 +1,4 @@
-package genericdao.finder.impl;
+package org.leixu.iap.core.genericdao.finder.impl;
 
 import org.springframework.aop.support.DefaultIntroductionAdvisor;
 

@@ -1,8 +1,9 @@
-package genericdao.finder.impl;
+package org.leixu.iap.core.genericdao.finder.impl;
 
 import java.lang.reflect.Method;
 
-import genericdao.finder.FinderNamingStrategy;
+import org.leixu.iap.core.genericdao.finder.FinderNamingStrategy;
+
 
 /**
  * Looks up Hibernate named queries based on the simple name of the invoced class and the method name of the invocation

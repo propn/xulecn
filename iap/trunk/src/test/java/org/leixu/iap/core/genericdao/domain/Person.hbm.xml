@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="genericdaotest.domain">
+<hibernate-mapping package="org.leixu.iap.core.genericdao.domain">
     <class name="Person">
         <id name="id">
             <generator class="native"></generator>
@@ -19,4 +19,6 @@
     <query name="Person.findByWeight">
         <![CDATA[select p from Person p where p.weight = :weight ]]>
     </query>
+    
+    
 </hibernate-mapping>

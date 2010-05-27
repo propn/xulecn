@@ -1,13 +1,13 @@
-package genericdaotest;
+package org.leixu.iap.core.genericdao;
 
 import java.util.List;
 import java.util.Iterator;
 
-import genericdaotest.dao.PersonDao;
-import genericdaotest.domain.Person;
 import junit.framework.TestCase;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.leixu.iap.core.genericdao.dao.PersonDao;
+import org.leixu.iap.core.genericdao.domain.Person;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;

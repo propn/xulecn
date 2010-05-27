@@ -26,7 +26,7 @@
         </property>
         <property name="mappingResources">
             <list>
-                <value>genericdaotest/domain/Person.hbm.xml</value>
+                <value>org/leixu/iap/core/genericdao/domain/Person.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -41,13 +41,13 @@
         </property>
     </bean>
     
-	<bean id="extendedFinderNamingStrategy" class="genericdao.finder.impl.ExtendedFinderNamingStrategy" />
+	<bean id="extendedFinderNamingStrategy" class="org.leixu.iap.core.genericdao.finder.impl.ExtendedFinderNamingStrategy" />
 	
     <!--begin  Dao Layer generic config-->
-    <bean id="finderIntroductionAdvisor" class="genericdao.finder.impl.FinderIntroductionAdvisor"/>
+    <bean id="finderIntroductionAdvisor" class="org.leixu.iap.core.genericdao.finder.impl.FinderIntroductionAdvisor"/>
     
     <bean id="abstractDaoTarget"
-          class="genericdao.impl.GenericDaoHibernateImpl" abstract="true">
+          class="org.leixu.iap.core.genericdao.impl.GenericDaoHibernateImpl" abstract="true">
         <property name="sessionFactory">
             <ref bean="sessionFactory"/>
         </property>
@@ -70,12 +70,12 @@
     <!--  Dao Layer instances -->
     <bean id="personDao" parent="abstractDao">
         <property name="proxyInterfaces">
-            <value>genericdaotest.dao.PersonDao</value>
+            <value>org.leixu.iap.core.genericdao.dao.PersonDao</value>
         </property>
         <property name="target">
             <bean parent="abstractDaoTarget">
                 <constructor-arg>
-                    <value>genericdaotest.domain.Person</value>
+                    <value>org.leixu.iap.core.genericdao.domain.Person</value>
                 </constructor-arg>
             </bean>
         </property>
