@@ -541,7 +541,7 @@ namespace mms
                         Emsg eMsg = new Emsg(files,mobiles,title);
 
 
-                        int rst =service.sendMms(eMsg);
+                        int rst =service.sendMms(eMsg);//发送序号，用来查询发送状态
 
                         if (rst > 0)//发送成功
                         {
