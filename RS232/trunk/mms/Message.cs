@@ -11,6 +11,7 @@ namespace mms
     class Message
     {
         private IMsg msgProxy = XmlRpcProxyGen.Create<IMsg>();
+
         private int Customer_id = Properties.Settings.Default.Customer_id;//集团客户编号
         private string Corp_Account = Properties.Settings.Default.Corp_Account;//集团代码
         private int MMSAgreement_id = Properties.Settings.Default.MMSAgreement_id;//彩信合同id

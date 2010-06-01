@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VerInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileData" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpLoadFileResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strMobileList" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMmsPort" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileList" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendMMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMMSResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMMS2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strMobileList" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMmsPort" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileList" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileData" type="tns:ArrayOfBase64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBase64Binary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="base64Binary" nillable="true" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendMMS2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMMS2Result" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMmsStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMmsStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMmsStatusResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strXml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strNames" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMobiles" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpLoadContactResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidPhone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strMobiles" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidPhoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidPhoneResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSmsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NextId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSmsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSmsListResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strXml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UpLoadFile" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UpLoadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMMS" />
+  </wsdl:message>
+  <wsdl:message name="SendMMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMMS2SoapIn">
+    <wsdl:part name="parameters" element="tns:SendMMS2" />
+  </wsdl:message>
+  <wsdl:message name="SendMMS2SoapOut">
+    <wsdl:part name="parameters" element="tns:SendMMS2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetMmsStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMmsStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetMmsStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMmsStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadContactSoapIn">
+    <wsdl:part name="parameters" element="tns:UpLoadContact" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadContactSoapOut">
+    <wsdl:part name="parameters" element="tns:UpLoadContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidPhoneSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidPhone" />
+  </wsdl:message>
+  <wsdl:message name="ValidPhoneSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidPhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSmsListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSmsList" />
+  </wsdl:message>
+  <wsdl:message name="GetSmsListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSmsListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SMInterfaceSoap">
+    <wsdl:operation name="Login">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">登录认证</documentation>
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadFile">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">上传彩信文件</documentation>
+      <wsdl:input message="tns:UpLoadFileSoapIn" />
+      <wsdl:output message="tns:UpLoadFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMMS">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">发送彩信</documentation>
+      <wsdl:input message="tns:SendMMSSoapIn" />
+      <wsdl:output message="tns:SendMMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMMS2">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">发送彩信_方式2,同时提交文件内容</documentation>
+      <wsdl:input message="tns:SendMMS2SoapIn" />
+      <wsdl:output message="tns:SendMMS2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMmsStatus">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">获取彩信发送状态</documentation>
+      <wsdl:input message="tns:GetMmsStatusSoapIn" />
+      <wsdl:output message="tns:GetMmsStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadContact">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">上传白名单（通讯簿联系人）</documentation>
+      <wsdl:input message="tns:UpLoadContactSoapIn" />
+      <wsdl:output message="tns:UpLoadContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidPhone">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">白名单检查</documentation>
+      <wsdl:input message="tns:ValidPhoneSoapIn" />
+      <wsdl:output message="tns:ValidPhoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSmsList">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">获取上行短信</documentation>
+      <wsdl:input message="tns:GetSmsListSoapIn" />
+      <wsdl:output message="tns:GetSmsListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SMInterfaceSoap" type="tns:SMInterfaceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadFile">
+      <soap:operation soapAction="http://tempuri.org/UpLoadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMMS">
+      <soap:operation soapAction="http://tempuri.org/SendMMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMMS2">
+      <soap:operation soapAction="http://tempuri.org/SendMMS2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMmsStatus">
+      <soap:operation soapAction="http://tempuri.org/GetMmsStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadContact">
+      <soap:operation soapAction="http://tempuri.org/UpLoadContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidPhone">
+      <soap:operation soapAction="http://tempuri.org/ValidPhone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmsList">
+      <soap:operation soapAction="http://tempuri.org/GetSmsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SMInterface">
+    <wsdl:port name="SMInterfaceSoap" binding="tns:SMInterfaceSoap">
+      <soap:address location="http://211.155.30.65/GrpMms/SMInterface.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

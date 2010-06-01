@@ -44,8 +44,10 @@
             this.SendTime = new System.Windows.Forms.DateTimePicker();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tSmartProgressBar1 = new mms.TSmartProgressBar();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.tSmartProgressBar1 = new mms.TSmartProgressBar();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,17 +86,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(425, 293);
+            this.button1.Location = new System.Drawing.Point(14, 144);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(63, 23);
             this.button1.TabIndex = 15;
             this.button1.Text = "发送彩信";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(533, 292);
+            this.button2.Location = new System.Drawing.Point(533, 297);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 16;
@@ -163,21 +166,23 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 298);
+            this.label4.Location = new System.Drawing.Point(12, 303);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 28;
             this.label4.Text = "发送时间：";
+            this.label4.Visible = false;
             // 
             // SendTime
             // 
             this.SendTime.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.SendTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.SendTime.Location = new System.Drawing.Point(82, 294);
+            this.SendTime.Location = new System.Drawing.Point(82, 299);
             this.SendTime.MinDate = new System.DateTime(2010, 5, 13, 0, 0, 0, 0);
             this.SendTime.Name = "SendTime";
             this.SendTime.Size = new System.Drawing.Size(150, 21);
             this.SendTime.TabIndex = 29;
+            this.SendTime.Visible = false;
             // 
             // statusStrip1
             // 
@@ -192,8 +197,38 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(109, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(131, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(346, 298);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 32;
+            this.button4.Text = "选择人员";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(440, 297);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 33;
+            this.button5.Text = "发送彩信";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(253, 298);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 34;
+            this.button6.Text = "上传白名单";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // tSmartProgressBar1
             // 
@@ -203,21 +238,13 @@
             this.tSmartProgressBar1.TabIndex = 26;
             this.tSmartProgressBar1.Visible = false;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(313, 293);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 32;
-            this.button4.Text = "选择人员";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // editMmsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 380);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.SendTime);
@@ -266,5 +293,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

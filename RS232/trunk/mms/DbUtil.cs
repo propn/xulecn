@@ -14,6 +14,7 @@ namespace mms
     /// </summary>
     class DbUtil
     {
+        
         /// <summary>
         /// 
         /// </summary>
@@ -25,7 +26,7 @@ namespace mms
         }
 
         /// <summary>
-        /// 修改数据
+        /// 获取所有数据
         /// </summary>
         /// <returns></returns>
         public DataTable GetData()
@@ -59,6 +60,43 @@ namespace mms
                 conn.Close();
             }
         }
+
+        /// <summary>
+        /// 获取已经选中数据
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetCheckedData()
+        {
+
+            DataTable dt = new DataTable();
+            OleDbConnection conn = getConn();
+
+            try
+            {
+                //防止重复打开连接
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+                string commandText = "SELECT PERSONID, PERSONNAME, NOTIFID, TELEPHONE, DEPTNAME, ADDRESSID,MEETINGID, MEETINGNAME, [TABLEID], SEATINGNO, QRID, EXT1, EXT2, EXT3, EXT4, EXT5 FROM MEETINGPERSON where NOTIFID=true";
+                OleDbCommand cmd = new OleDbCommand(commandText);
+                //初始化连接
+                cmd.Connection = conn;
+
+                OleDbDataAdapter ada = new OleDbDataAdapter(cmd);
+                ada.Fill(dt);
+                return dt;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("查询与会人员信息出错，请检查数据库配置" + e.Data);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
 
         public DataTable GetDataByPhone(string phone)
         {
@@ -221,5 +259,81 @@ namespace mms
             return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
 
         }
+
+
+        /// <summary>
+        /// 获取所有手机号码
+        /// </summary>
+        /// <returns></returns>
+        public void getAllPhones(out string[] phones, out string[] personNames)
+        {
+            
+            DataTable table = GetData();
+            string[] _phones = null;
+            string[] _personNames = null; ;
+
+            if (table != null && table.Rows.Count > 0)
+            {
+                 _phones = new string[table.Rows.Count];
+                 _personNames = new string[table.Rows.Count];
+
+               // Message msg = new Message();
+                //创建白名单
+                //生成白名单 对移动号码生成白名单
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    String Mobile = table.Rows[i]["TELEPHONE"].ToString();
+                    String personName = table.Rows[i]["PERSONNAME"].ToString();
+
+                    //if (Message.isCmbNO(Mobile))
+                   // {
+                        _phones[i] = Mobile;
+                        _personNames[i] = personName;
+                   // }
+                }
+            }
+
+            phones = _phones;
+            personNames = _personNames;
+        }
+
+
+        /// <summary>
+        /// 获取选择人员的手机号码
+        /// </summary>
+        /// <returns></returns>
+        public void getCheckedPhones(out string[] phones, out string[] personNames)
+        {
+            DataTable table = GetCheckedData();
+            string[] _phones = null;
+            string[] _personNames = null; ;
+
+            if (table != null && table.Rows.Count > 0)
+            {
+                _phones = new string[table.Rows.Count];
+                _personNames = new string[table.Rows.Count];
+
+               // Message msg = new Message();
+                //创建白名单
+                //生成白名单 对移动号码生成白名单
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    String Mobile = table.Rows[i]["TELEPHONE"].ToString();
+                    String personName = table.Rows[i]["PERSONNAME"].ToString();
+
+                    if (Message.isCmbNO(Mobile))
+                    {
+                        _phones[i] = Mobile;
+                        _personNames[i] = personName;
+                    }
+                }
+            }
+
+            phones = _phones;
+            personNames = _personNames;
+        }
+
+
+
     }
 }

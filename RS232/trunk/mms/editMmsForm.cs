@@ -9,12 +9,15 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections.Specialized;
 using System.Collections;
+using System.Net;
 
 namespace mms
 {
 
     public partial class editMmsForm : Form
     {
+        //检查手机号码，上传白名单
+        EMmsService service = new EMmsService();
         
         public editMmsForm()
         {
@@ -61,7 +64,7 @@ namespace mms
             SendTime.MinDate = current;
             SendTime.Value = current.AddHours(24);
 
-            toolStripStatusLabel1.Text = "注意：由于移动白名单审核时间最长可能达到24小时，所以发送时间尽量延后24小时;时间请选择 09：00-21：00之间";
+            toolStripStatusLabel1.Text = "注意：发送彩信前请先提交白名单，白名单审核时间预计1-3分钟;彩信发送完成后请通知彩信审核人员审核并完成发送";
             
 
         }
@@ -152,6 +155,7 @@ namespace mms
                 objStreamWriter = new StreamWriter(objFileStream);
                 objStreamWriter.Write(title.Text); //将字符串写入到文件中
                 objStreamWriter.Close();
+
                 //复制文件到msg中
                 Directory.CreateDirectory(Path.GetDirectoryName(Application.StartupPath + "\\msg\\1\\"));
                 //删除历史文件
@@ -452,7 +456,191 @@ namespace mms
             new selectForm().Show();
         }
 
-      
+
+        /// <summary>
+        /// 易讯彩信发送
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            tSmartProgressBar1.Visible = true;
+            tSmartProgressBar1.Value = 0;
+
+            //检查白名单
+            string[] phones = null;
+            string[] personNames = null;
+            //遍历所有与会人员
+            DbUtil dbUtil = new DbUtil();
+
+            dbUtil.getCheckedPhones(out phones, out personNames);
+
+            if (service.login() < 0)
+            {
+                MessageBox.Show(service.getErrMsg());
+            }
+
+            int ret = service.ValidPhone(phones);
+            if (ret <= 0)
+            {
+               // MessageBox.Show(ret.ToString());
+                MessageBox.Show("以下手机号码尚未通过白名单处理，不能发送\r\n"+service.getErrMsg());
+                return;
+            }
+            //创建彩信对象
+            string title = "广州市政府办公厅会议通知";
+
+            initFiles();
+           
+            DataTable table = dbUtil.GetCheckedData();
+            if (table != null && table.Rows.Count > 0)
+            {
+                Message msg = new Message();
+                string basePath= Application.StartupPath + "\\temp\\";
+                
+                string[] mobiles=new string[1];
+
+                string[] files = new string[6] { basePath + "att00.jpg", basePath + "\\att01.txt", basePath + "\\att02.txt", basePath + "\\mms.smil", basePath + "\\title.txt", basePath + "\\att03.jpg" };
+
+                //创建彩信文件
+
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+
+                    tSmartProgressBar1.Value = 20 + (80 / table.Rows.Count) * i;
+
+                    //生成彩信
+                    String personId = table.Rows[i]["PERSONID"].ToString();
+                    String Mobile = table.Rows[i]["TELEPHONE"].ToString();
+                    String personName = table.Rows[i]["PERSONNAME"].ToString();
+
+                    labelInfo.Text = labelInfo.Text + "开始向" + personName + "发送彩信\r\n";
+
+                    mobiles[0] = Mobile;
+
+                    //是否是移动手机号码
+                    if (!Message.isCmbNO(Mobile))
+                    {
+                        labelInfo.Text = labelInfo.Text + "注意：" + personName + "手机号不是移动手机号码；\r\n";
+                        labelInfo.Text = labelInfo.Text + "注意：系统不支持向 " + Mobile + "发送彩信；\r\n";
+                        continue;
+                    }
+
+                    try
+                    {
+
+                        //删除历史文件
+                        if (File.Exists(basePath + "att03.jpg"))
+                        {
+                            File.Delete(basePath + "att03.jpg");
+                        }
+
+                        File.Copy(Application.StartupPath + "\\files\\qr\\" + personId + ".jpg", basePath + "att03.jpg");
+
+                        Emsg eMsg = new Emsg(files,mobiles,title);
+
+
+                        int rst =service.sendMms(eMsg);
+
+                        if (rst > 0)//发送成功
+                        {
+                            labelInfo.Text = labelInfo.Text + "向" + personName + "发送彩信成功\r\n";
+                        }
+                        else
+                        {
+                            labelInfo.Text = labelInfo.Text + "向" + personName + "发送彩信失败\r\n";
+                        } 
+
+                    }catch(Exception ex){
+                        
+                    }
+
+
+                }
+
+                tSmartProgressBar1.Value = 100;
+                this.Cursor = Cursors.Default;
+
+            }
+
+
+
+            //发送彩信
+
+        }
+
+        /// <summary>
+        /// 上传白名单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string[] phones = null;
+            string[] personNames = null;
+             //遍历所有与会人员
+            DbUtil dbUtil = new DbUtil();
+
+            dbUtil.getAllPhones(out phones, out personNames);
+
+           // MessageBox.Show(phones.Length.ToString());
+           // MessageBox.Show(personNames.Length.ToString());
+
+            if (service.login()<0)
+            {
+                MessageBox.Show(service.getErrMsg());
+            }
+
+            int ret=service.UpLoadContact(personNames, phones);
+
+            if (ret <= 0)
+            {
+                MessageBox.Show(service.getErrMsg());
+            }
+            else
+            {
+                MessageBox.Show("上传白名单成功，等待审批...");
+            }
+
+           
+        }
+
+        public void initFiles()
+        {
+
+            string basePtah = Application.StartupPath + "\\temp\\";
+            //删除历史文件
+            if (Directory.Exists(basePtah))
+            {
+                FileUtils.deleteDirectory(basePtah);
+            }
+
+            //创建
+            Directory.CreateDirectory(Path.GetDirectoryName(basePtah));
+
+            //复制文件夹
+            FileUtils.CopyDirectory(Application.StartupPath + "\\msg\\1\\", basePtah, false);
+
+
+            //生成att01.txt文件
+            FileStream objFileStream = new FileStream(basePtah + "\\att01.txt", FileMode.Create, FileAccess.Write);
+            StreamWriter objStreamWriter = new StreamWriter(objFileStream);
+            objStreamWriter.Write(textBox1.Text); //将字符串写入到文件中
+            objStreamWriter.Close();
+            //生成att02.txt
+            objFileStream = new FileStream(basePtah + "\\att02.txt", FileMode.Create, FileAccess.Write);
+            objStreamWriter = new StreamWriter(objFileStream);
+            objStreamWriter.Write(textBox2.Text); //将字符串写入到文件中
+            objStreamWriter.Close();
+            //生成title.txt
+            objFileStream = new FileStream(basePtah + "\\title.txt", FileMode.Create, FileAccess.Write);
+            objStreamWriter = new StreamWriter(objFileStream);
+            objStreamWriter.Write(title.Text); //将字符串写入到文件中
+            objStreamWriter.Close();
+
+        }
+
         
     }
 }
