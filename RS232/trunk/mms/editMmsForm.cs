@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Collections.Specialized;
 using System.Collections;
 using System.Net;
+using System.Xml;
 
 namespace mms
 {
@@ -18,6 +19,7 @@ namespace mms
     {
         //检查手机号码，上传白名单
         EMmsService service = new EMmsService();
+        DbUtil dbUtil = new DbUtil();
         
         public editMmsForm()
         {
@@ -65,8 +67,7 @@ namespace mms
             SendTime.Value = current.AddHours(24);
 
             toolStripStatusLabel1.Text = "注意：发送彩信前请先提交白名单，白名单审核时间预计1-3分钟;彩信发送完成后请通知彩信审核人员审核并完成发送";
-            
-
+          
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -472,7 +473,7 @@ namespace mms
             string[] phones = null;
             string[] personNames = null;
             //遍历所有与会人员
-            DbUtil dbUtil = new DbUtil();
+          
 
             dbUtil.getCheckedPhones(out phones, out personNames);
 
@@ -546,6 +547,8 @@ namespace mms
                         if (rst > 0)//发送成功
                         {
                             labelInfo.Text = labelInfo.Text + "向" + personName + "发送彩信成功\r\n";
+
+                            dbUtil.UpdateSendInfo(personId, "已发送");
                         }
                         else
                         {
@@ -640,6 +643,10 @@ namespace mms
             objStreamWriter.Close();
 
         }
+
+
+        
+       
 
         
     }

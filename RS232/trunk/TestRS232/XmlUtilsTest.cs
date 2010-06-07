@@ -1,6 +1,8 @@
 ﻿using mms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections;
+using System.Xml;
+using System;
 
 namespace TestRS232
 {
@@ -129,5 +131,41 @@ namespace TestRS232
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("验证此测试方法的正确性。");
         }
+
+
+        /// <summary>
+        ///dealStatus 的测试
+        ///</summary>
+        [TestMethod()]
+        public void dealStatus()
+        {
+            string sxml = "<?xml version='1.0' encoding='utf-8'?><StatusList><Member><MmsId>5</MmsId><Mobile>13500000000</Mobile><Result>Retrieved</Result></Member><Member><MmsId>5</MmsId><Mobile>13600000000</Mobile><Result>Message is too large</Result></Member></StatusList>";
+            XmlElement theBook = null, theElem = null, root = null;
+            XmlDocument xmldoc = new XmlDocument();
+            try
+            {
+                xmldoc.Load(sxml);
+                root = xmldoc.DocumentElement;
+
+                //---  再将所有价格低于10的书删除  ----
+                XmlNodeList someBooks = root.SelectNodes("/StatusList/Member[Result=Retrieved]");
+
+                Console.Out.WriteLine("---  符合条件的书有　" + someBooks.Count + "本。  ---");
+
+                for (int i = 0; i < someBooks.Count; i++)
+                {
+                    //someBooks.Item(i).ParentNode.RemoveChild(someBooks.Item(i));
+                    Console.Out.WriteLine(someBooks.Item(i).OuterXml);
+                }
+                Console.Out.WriteLine("---  删除后的ＸＭＬ ----");
+                Console.Out.WriteLine(xmldoc.OuterXml);
+
+
+
+            }
+            catch(Exception ex){
+            }
+        }
+
     }
 }

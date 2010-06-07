@@ -334,6 +334,90 @@ namespace mms
         }
 
 
+        /// <summary>
+        /// 更新发送状态
+        /// </summary>
+        /// <param name="personid"></param>
+        /// <param name="personname"></param>
+        /// <param name="telephone"></param>
+        /// <param name="deptname"></param>
+        /// <returns></returns>
+        public bool UpdateSendInfo(string personid,string sendId)
+        {
+            OleDbConnection conn = getConn();
+
+            try
+            {
+                // DateTime.Now.ToLongTimeString;
+                //防止重复打开连接
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+                string commandText = string.Format("UPDATE MEETINGPERSON SET EXT1='{0}' WHERE PersonID='{1}'"
+                    , sendId, personid);
+                OleDbCommand cmd = new OleDbCommand(commandText);
+                //初始化连接
+                cmd.Connection = conn;
+
+                int i = cmd.ExecuteNonQuery();
+
+                return (i > 0);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("查询与会人员信息出错，请检查数据库配置" + e.Data);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+        /// <summary>
+        /// 更新发送状态
+        /// </summary>
+        /// <param name="personid"></param>
+        /// <param name="personname"></param>
+        /// <param name="telephone"></param>
+        /// <param name="deptname"></param>
+        /// <returns></returns>
+        public bool UpdateSendInfo2(string mobile, string result)
+        {
+            OleDbConnection conn = getConn();
+
+            try
+            {
+                // DateTime.Now.ToLongTimeString;
+                //防止重复打开连接
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+                string commandText = string.Format("UPDATE MEETINGPERSON SET EXT1='{0}' WHERE TELEPHONE='{1}'", result, mobile);
+                OleDbCommand cmd = new OleDbCommand(commandText);
+                //初始化连接
+                cmd.Connection = conn;
+
+                int i = cmd.ExecuteNonQuery();
+
+                return (i > 0);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("查询与会人员信息出错，请检查数据库配置" + e.Data);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+
+
+
 
     }
 }

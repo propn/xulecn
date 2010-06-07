@@ -83,5 +83,28 @@ namespace mms
             return myService.ValidPhone(strMobiles,out errMsg);
         }
 
+        /// <summary>
+        /// 获取彩信发送状态
+        /// </summary>
+        /// <returns></returns>
+        public string GetMmsStatus()
+        {
+            string xmlStr = "";
+            myService.GetMmsStatus(out xmlStr, out errMsg);
+            return xmlStr;
+ 
+        }
+
+
+        /// <summary>
+        /// 接收短信
+        /// </summary>
+        /// <param name="NextId"></param>
+        /// <returns></returns>
+        public int GetSmsList(int nextId,string strxml)
+        {
+            return myService.GetSmsList(nextId,out strxml,out errMsg);
+        }
+
     }
 }

@@ -30,11 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.NOTIFID = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.pERSONIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pERSONNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEPTNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tELEPHONEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mEETINGPERSONBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbDataSet = new mms.dbDataSet();
@@ -43,6 +38,12 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.mEETINGPERSONTableAdapter = new mms.dbDataSetTableAdapters.MEETINGPERSONTableAdapter();
+            this.NOTIFID = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pERSONIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pERSONNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dEPTNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tELEPHONEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXT1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mEETINGPERSONBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbDataSetBindingSource)).BeginInit();
@@ -61,54 +62,16 @@
             this.pERSONIDDataGridViewTextBoxColumn,
             this.pERSONNAMEDataGridViewTextBoxColumn,
             this.dEPTNAMEDataGridViewTextBoxColumn,
-            this.tELEPHONEDataGridViewTextBoxColumn});
+            this.tELEPHONEDataGridViewTextBoxColumn,
+            this.EXT1});
             this.dataGridView1.DataSource = this.mEETINGPERSONBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 60;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(637, 437);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // NOTIFID
-            // 
-            this.NOTIFID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.NOTIFID.DataPropertyName = "NOTIFID";
-            this.NOTIFID.HeaderText = "选择";
-            this.NOTIFID.Name = "NOTIFID";
-            this.NOTIFID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.NOTIFID.Width = 54;
-            // 
-            // pERSONIDDataGridViewTextBoxColumn
-            // 
-            this.pERSONIDDataGridViewTextBoxColumn.DataPropertyName = "PERSONID";
-            this.pERSONIDDataGridViewTextBoxColumn.HeaderText = "PERSONID";
-            this.pERSONIDDataGridViewTextBoxColumn.Name = "pERSONIDDataGridViewTextBoxColumn";
-            this.pERSONIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pERSONNAMEDataGridViewTextBoxColumn
-            // 
-            this.pERSONNAMEDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.pERSONNAMEDataGridViewTextBoxColumn.DataPropertyName = "PERSONNAME";
-            this.pERSONNAMEDataGridViewTextBoxColumn.HeaderText = "姓名";
-            this.pERSONNAMEDataGridViewTextBoxColumn.Name = "pERSONNAMEDataGridViewTextBoxColumn";
-            this.pERSONNAMEDataGridViewTextBoxColumn.Width = 54;
-            // 
-            // dEPTNAMEDataGridViewTextBoxColumn
-            // 
-            this.dEPTNAMEDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dEPTNAMEDataGridViewTextBoxColumn.DataPropertyName = "DEPTNAME";
-            this.dEPTNAMEDataGridViewTextBoxColumn.HeaderText = "单位";
-            this.dEPTNAMEDataGridViewTextBoxColumn.Name = "dEPTNAMEDataGridViewTextBoxColumn";
-            this.dEPTNAMEDataGridViewTextBoxColumn.Width = 54;
-            // 
-            // tELEPHONEDataGridViewTextBoxColumn
-            // 
-            this.tELEPHONEDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.tELEPHONEDataGridViewTextBoxColumn.DataPropertyName = "TELEPHONE";
-            this.tELEPHONEDataGridViewTextBoxColumn.HeaderText = "手机";
-            this.tELEPHONEDataGridViewTextBoxColumn.Name = "tELEPHONEDataGridViewTextBoxColumn";
-            this.tELEPHONEDataGridViewTextBoxColumn.Width = 54;
             // 
             // mEETINGPERSONBindingSource
             // 
@@ -170,6 +133,53 @@
             // 
             this.mEETINGPERSONTableAdapter.ClearBeforeFill = true;
             // 
+            // NOTIFID
+            // 
+            this.NOTIFID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NOTIFID.DataPropertyName = "NOTIFID";
+            this.NOTIFID.HeaderText = "选择";
+            this.NOTIFID.Name = "NOTIFID";
+            this.NOTIFID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.NOTIFID.Width = 54;
+            // 
+            // pERSONIDDataGridViewTextBoxColumn
+            // 
+            this.pERSONIDDataGridViewTextBoxColumn.DataPropertyName = "PERSONID";
+            this.pERSONIDDataGridViewTextBoxColumn.HeaderText = "PERSONID";
+            this.pERSONIDDataGridViewTextBoxColumn.Name = "pERSONIDDataGridViewTextBoxColumn";
+            this.pERSONIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pERSONNAMEDataGridViewTextBoxColumn
+            // 
+            this.pERSONNAMEDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.pERSONNAMEDataGridViewTextBoxColumn.DataPropertyName = "PERSONNAME";
+            this.pERSONNAMEDataGridViewTextBoxColumn.HeaderText = "姓名";
+            this.pERSONNAMEDataGridViewTextBoxColumn.Name = "pERSONNAMEDataGridViewTextBoxColumn";
+            this.pERSONNAMEDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // dEPTNAMEDataGridViewTextBoxColumn
+            // 
+            this.dEPTNAMEDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dEPTNAMEDataGridViewTextBoxColumn.DataPropertyName = "DEPTNAME";
+            this.dEPTNAMEDataGridViewTextBoxColumn.HeaderText = "单位";
+            this.dEPTNAMEDataGridViewTextBoxColumn.Name = "dEPTNAMEDataGridViewTextBoxColumn";
+            this.dEPTNAMEDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // tELEPHONEDataGridViewTextBoxColumn
+            // 
+            this.tELEPHONEDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.tELEPHONEDataGridViewTextBoxColumn.DataPropertyName = "TELEPHONE";
+            this.tELEPHONEDataGridViewTextBoxColumn.HeaderText = "手机";
+            this.tELEPHONEDataGridViewTextBoxColumn.Name = "tELEPHONEDataGridViewTextBoxColumn";
+            this.tELEPHONEDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // EXT1
+            // 
+            this.EXT1.DataPropertyName = "EXT1";
+            this.EXT1.HeaderText = "彩信发送状态";
+            this.EXT1.Name = "EXT1";
+            this.EXT1.ReadOnly = true;
+            // 
             // selectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -201,12 +211,13 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.BindingSource mEETINGPERSONBindingSource;
+        private mms.dbDataSetTableAdapters.MEETINGPERSONTableAdapter mEETINGPERSONTableAdapter;
         private System.Windows.Forms.DataGridViewCheckBoxColumn NOTIFID;
         private System.Windows.Forms.DataGridViewTextBoxColumn pERSONIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pERSONNAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dEPTNAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tELEPHONEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource mEETINGPERSONBindingSource;
-        private mms.dbDataSetTableAdapters.MEETINGPERSONTableAdapter mEETINGPERSONTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXT1;
     }
 }

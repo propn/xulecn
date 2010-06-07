@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 
 using mms.Properties;
+using System.Xml;
 
 namespace mms
 {
@@ -19,6 +20,10 @@ namespace mms
     {
         private string zipFileName = "";
         public  string meetingName = "";
+
+        //检查手机号码，上传白名单
+        EMmsService service = new EMmsService();
+        DbUtil dbUtil = new DbUtil();
 
         public main()
         {
@@ -215,9 +220,11 @@ namespace mms
                 string date = table.Rows[0]["EXT4"].ToString();
                 toolStripStatusLabel1.Text = "会议名称:" + meetingName + "  时间:" + date + "  地点:" + meetingRoomName;
             }
+
+           // updateStatus();
         }
 
-        private void 与会情况表ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void infoMenuItem_Click(object sender, EventArgs e)
         {
             new QueryForm().Show();
         }
@@ -226,5 +233,72 @@ namespace mms
         {
             new setForm().Show();
         }
+
+
+        //查看彩信发送状态
+        private void MmsStatusMenuItem_Click(object sender, EventArgs e)
+        {
+            updateStatus(sender,e);
+            new selectForm().Show();
+
+
+        }
+
+
+
+        public void updateStatus(object sender, EventArgs e)
+        {
+
+            //MessageBox.Show("1");
+
+            if (service.login() < 0)
+            {
+                MessageBox.Show(service.getErrMsg());
+            }
+
+            string strxml = service.GetMmsStatus();
+
+
+            //  string sxml = "<?xml version='1.0' encoding='utf-8'?><StatusList><Member><MmsId>5</MmsId><Mobile>13500000000</Mobile><Result>Retrieved</Result></Member><Member><MmsId>5</MmsId><Mobile>13600000000</Mobile><Result>Message is too large</Result></Member></StatusList>";
+
+            XmlElement root = null;
+            XmlDocument xmldoc = new XmlDocument();
+
+            if (String.IsNullOrEmpty(strxml))
+            {
+                return;
+            }
+
+            try
+            {
+                xmldoc.LoadXml(strxml);
+                root = xmldoc.DocumentElement;
+
+                XmlNodeList someBooks = root.SelectNodes("/StatusList/Member[Result='Retrieved']");
+
+               // MessageBox.Show("---  本次有　" + someBooks.Count + "条彩信发送成功。  ---");
+
+                for (int i = 0; i < someBooks.Count; i++)
+                {
+                    XmlElement note = (XmlElement)someBooks.Item(i);
+
+                    string mobile = note.GetElementsByTagName("Mobile").Item(0).InnerText;
+                    if (!String.IsNullOrEmpty(mobile))
+                    {
+                        dbUtil.UpdateSendInfo2(mobile, "已接收");
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+              
+
     }
 }

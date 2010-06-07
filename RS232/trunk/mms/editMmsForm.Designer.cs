@@ -166,7 +166,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 303);
+            this.label4.Location = new System.Drawing.Point(11, 266);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 28;
@@ -177,7 +177,7 @@
             // 
             this.SendTime.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.SendTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.SendTime.Location = new System.Drawing.Point(82, 299);
+            this.SendTime.Location = new System.Drawing.Point(82, 185);
             this.SendTime.MinDate = new System.DateTime(2010, 5, 13, 0, 0, 0, 0);
             this.SendTime.Name = "SendTime";
             this.SendTime.Size = new System.Drawing.Size(150, 21);
@@ -202,7 +202,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(346, 298);
+            this.button4.Location = new System.Drawing.Point(291, 296);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 32;
@@ -212,7 +212,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(440, 297);
+            this.button5.Location = new System.Drawing.Point(404, 296);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 33;
@@ -222,7 +222,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(253, 298);
+            this.button6.Location = new System.Drawing.Point(177, 297);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 34;

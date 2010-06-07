@@ -17,7 +17,7 @@ namespace mms
         private OleDbConnection conn = (new DbUtil()).getConn();
         private DataSet ds1;//已到
         private DataSet ds2;//未到
-        string sql = "SELECT PERSONNAME as 姓名,  TELEPHONE as 手机号码, DEPTNAME as 单位名称, EXT3 as 职位,[TABLEID] as 签到时间,SEATINGNO as 座位号码  FROM MEETINGPERSON ";
+        string sql = "SELECT PERSONNAME as 姓名,  TELEPHONE as 手机号码, DEPTNAME as 单位名称, EXT3 as 职位,[TABLEID] as 签到时间,SEATINGNO as 座号  FROM MEETINGPERSON ";
         private Button button2;
         private IContainer components;
 
