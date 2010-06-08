@@ -301,9 +301,6 @@
     <Content Include="CookComputing.XmlRpcV2.dll" />
     <Content Include="ICSharpCode.SharpZipLib.dll" />
     <Content Include="App.ico" />
-    <Content Include="db.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="log4net.dll" />
     <Content Include="log4net.xml" />
     <Content Include="msg\1\att01.txt" />

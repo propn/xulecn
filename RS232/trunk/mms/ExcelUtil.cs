@@ -64,7 +64,7 @@ namespace mms
                             + "','" + oleDbDataReaderExcel.GetValue(8).ToString()
                             + "','" + oleDbDataReaderExcel.GetValue(9).ToString()
                             + "','" + oleDbDataReaderExcel.GetValue(10).ToString()
-                            + "','" + oleDbDataReaderExcel.GetValue(11).ToString()
+                            + "','" + ""
                             + "','" + oleDbDataReaderExcel.GetValue(12).ToString()
                             + "','" + oleDbDataReaderExcel.GetValue(13).ToString()
                             + "','" + oleDbDataReaderExcel.GetValue(14).ToString()
