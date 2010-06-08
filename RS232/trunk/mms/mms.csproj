@@ -299,6 +299,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CookComputing.XmlRpcV2.dll" />
+    <Content Include="db.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ICSharpCode.SharpZipLib.dll" />
     <Content Include="App.ico" />
     <Content Include="log4net.dll" />
