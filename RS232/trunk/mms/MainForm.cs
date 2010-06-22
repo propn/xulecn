@@ -295,6 +295,7 @@ namespace mms
             catch (Exception ex)
             {
                // MessageBox.Show(ex.Message);
+                timer1.Enabled = false;
             }
 
 
