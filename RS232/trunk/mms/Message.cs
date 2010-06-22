@@ -184,7 +184,7 @@ namespace mms
         /// <returns></returns>
         public static Boolean isCmbNO(string phoneNO)
         {
-            if (chinaMobileNumber.IndexOf(phoneNO.Substring(0, 3)) > 0)
+            if (chinaMobileNumber.IndexOf(phoneNO.Substring(0, 3)) >= 0)
             {
                
                 return true;
