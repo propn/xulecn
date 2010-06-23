@@ -1,0 +1,4 @@
+#Wed Jun 23 13:25:46 CST 2010
+eclipse.preferences.version=1
+encoding//src/com/hwadee/demo/TransactionHelper.java=GBK
+encoding//src/com/hwadee/demo/aop/RequiredTransactionInterceptor.java=GBK
