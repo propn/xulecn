@@ -58,7 +58,7 @@ namespace mms
             }
             else
             {
-                MessageBox.Show("手机号码号码不存在，请核对后重新输入", "注意：", MessageBoxButtons.OK);
+                MessageBox.Show("输入信息不存在，请核对后重新输入", "注意：", MessageBoxButtons.OK);
                 textBoxPhone.Text = "";
                 return;
             }
@@ -80,6 +80,8 @@ namespace mms
                 textBoxTime.Text = time;
                 MessageBox.Show("成功签到时间:" + time, textBoxName.Text + " 签到成功", MessageBoxButtons.OK);
                // this.Close();
+                textBox1.Text = "";
+                textBoxPhone.Text = "";
             }
             else
             {

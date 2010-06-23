@@ -76,6 +76,7 @@ namespace mms
 
             conn.Close();
             this.Dispose();
+            new selectForm().Show();
 
         }
 
@@ -113,7 +114,7 @@ namespace mms
 
             conn.Close();
             this.Dispose();
-
+            new selectForm().Show();
         }
     }
 }
