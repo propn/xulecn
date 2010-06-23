@@ -6,6 +6,7 @@
 	default-lazy-init="true">
 
 	<description>Spring测试环境配置文件 </description>
+	
     <!-- 数据源配置,在测试环境使用单连接 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.h2.Driver" />
@@ -43,7 +44,9 @@
     
 	<bean id="extendedFinderNamingStrategy" class="org.leixu.iap.core.genericdao.finder.impl.ExtendedFinderNamingStrategy" />
 	
+    
     <!--begin  Dao Layer generic config-->
+    
     <bean id="finderIntroductionAdvisor" class="org.leixu.iap.core.genericdao.finder.impl.FinderIntroductionAdvisor"/>
     
     <bean id="abstractDaoTarget"

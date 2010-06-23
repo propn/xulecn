@@ -16,4 +16,5 @@ public interface FinderExecutor<T>
     Iterator<T> iterateFinder(Method method, Object[] queryArgs);
 
 //    ScrollableResults scrollFinder(Method method, Object[] queryArgs);
+    
 }
