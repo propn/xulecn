@@ -23,16 +23,17 @@ namespace mms
         {
 
 
-            string phone = textBoxPhone.Text.Trim();
+            string phone = textBoxPhone.Text.Trim();//手机号码
+            string qName  = textBox1.Text.Trim();//姓名
 
-            if (phone.Length != 11 || !phone.StartsWith("13"))
+            if (phone.Length < 1 && qName.Length < 1)
             {
-                MessageBox.Show("请输入正确的手机号码", "注意：", MessageBoxButtons.OK);
+                MessageBox.Show("请输入查询条件", "注意：", MessageBoxButtons.OK);
                 textBoxPhone.Text = "";
                 return;
             }
 
-            DataTable table = (new DbUtil()).GetDataByPhone(phone);
+            DataTable table = (new DbUtil()).GetDataByPhone(phone,qName);
             if (table != null && table.Rows.Count > 0)
             {
                 String name = table.Rows[0]["PERSONNAME"].ToString();
@@ -78,12 +79,17 @@ namespace mms
                 string time = new DbUtil().getCurrentTime();
                 textBoxTime.Text = time;
                 MessageBox.Show("成功签到时间:" + time, textBoxName.Text + " 签到成功", MessageBoxButtons.OK);
-                this.Close();
+               // this.Close();
             }
             else
             {
                 MessageBox.Show("请先查找要进行手工签到的人，然后再进行签到操作", "注意", MessageBoxButtons.OK);
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

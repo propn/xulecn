@@ -136,7 +136,7 @@ namespace mms
                        + "','" + oleDbDataReaderAccess.GetValue(8).ToString()
                        + "','" + oleDbDataReaderAccess.GetValue(9).ToString()
                        + "','" + oleDbDataReaderAccess.GetValue(10).ToString()
-                       + "','" + oleDbDataReaderAccess.GetValue(11).ToString()
+                       + "','" + "" //彩信发送状态不导出
                        + "','" + oleDbDataReaderAccess.GetValue(12).ToString()
                        + "','" + oleDbDataReaderAccess.GetValue(13).ToString()
                        + "','" + oleDbDataReaderAccess.GetValue(14).ToString()

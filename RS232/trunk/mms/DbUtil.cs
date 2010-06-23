@@ -98,7 +98,7 @@ namespace mms
         }
 
 
-        public DataTable GetDataByPhone(string phone)
+        public DataTable GetDataByPhone(string phone,string name)
         {
             DataTable dt = new DataTable();
             OleDbConnection conn = getConn();
@@ -111,8 +111,24 @@ namespace mms
                     conn.Open();
                 }
 
+                
+
                 string commandText = "SELECT PERSONID, PERSONNAME, NOTIFID, TELEPHONE, DEPTNAME, ADDRESSID,MEETINGID, MEETINGNAME, [TABLEID], SEATINGNO, QRID, EXT1, EXT2, EXT3, EXT4, EXT5 "
+                    + "FROM MEETINGPERSON  WHERE (TELEPHONE = '" + phone + "' and PERSONNAME ='" + name + "') ";
+
+                if (name.Length==0)
+                {
+                     commandText = "SELECT PERSONID, PERSONNAME, NOTIFID, TELEPHONE, DEPTNAME, ADDRESSID,MEETINGID, MEETINGNAME, [TABLEID], SEATINGNO, QRID, EXT1, EXT2, EXT3, EXT4, EXT5 "
                     + "FROM MEETINGPERSON  WHERE (TELEPHONE = '" + phone + "') ";
+                }
+
+                if (phone.Length == 0)
+                {
+                     commandText = "SELECT PERSONID, PERSONNAME, NOTIFID, TELEPHONE, DEPTNAME, ADDRESSID,MEETINGID, MEETINGNAME, [TABLEID], SEATINGNO, QRID, EXT1, EXT2, EXT3, EXT4, EXT5 "
+                    + "FROM MEETINGPERSON  WHERE ( PERSONNAME ='" + name + "') ";
+                }
+
+
 
                 OleDbCommand cmd = new OleDbCommand(commandText);
                 //初始化连接

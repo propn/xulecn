@@ -190,6 +190,11 @@ namespace mms
             query();
         }
 
+        private void dataGrid1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
        
     }
 }
