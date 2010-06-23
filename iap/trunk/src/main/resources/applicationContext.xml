@@ -8,87 +8,87 @@
 
 	<description>Spring测试环境配置文件 </description>
 
-		
-
-		<!-- 数据源配置,在生产环境使用应用服务器提供的数据源连接池 -->
-		<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-			<property name="jndiName">
-				<value>java:comp/env/jdbc/mysql</value>
-			</property>
-		</bean>
-
-		<bean id="namingStrategy"
-			class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
-			<property name="staticField">
-				<value>org.hibernate.cfg.ImprovedNamingStrategy.INSTANCE</value>
-			</property>
-		</bean>
-
-		<bean id="sessionFactory"
-			class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-			<property name="namingStrategy">
-				<ref bean="namingStrategy" />
-			</property>
-			<property name="mappingResources">
-				<list>
-					<value>org/leixu/iap/core/genericdao/domain/Person.hbm.xml</value>
-				</list>
-			</property>
-			<property name="hibernateProperties">
-				<props>
-					<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
-					<prop key="hibernate.show_sql">true</prop>
-					<prop key="hibernate.hbm2ddl.auto">create</prop>
-				</props>
-			</property>
-			<property name="dataSource">
-				<ref bean="dataSource" />
-			</property>
-		</bean>
-
-		<bean id="extendedFinderNamingStrategy"
-			class="org.leixu.iap.core.genericdao.finder.impl.ExtendedFinderNamingStrategy" />
 
 
-		<!--begin  Dao Layer generic config-->
+	<!-- 数据源配置,在生产环境使用应用服务器提供的数据源连接池 -->
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>java:comp/env/jdbc/mysql</value>
+		</property>
+	</bean>
 
-		<bean id="finderIntroductionAdvisor"
-			class="org.leixu.iap.core.genericdao.finder.impl.FinderIntroductionAdvisor" />
+	<bean id="namingStrategy"
+		class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+		<property name="staticField">
+			<value>org.hibernate.cfg.ImprovedNamingStrategy.INSTANCE</value>
+		</property>
+	</bean>
 
-		<bean id="abstractDaoTarget"
-			class="org.leixu.iap.core.genericdao.impl.GenericDaoHibernateImpl"
-			abstract="true">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-			<property name="namingStrategy">
-				<ref bean="extendedFinderNamingStrategy" />
-			</property>
-		</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="namingStrategy">
+			<ref bean="namingStrategy" />
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>org/leixu/iap/core/genericdao/domain/Person.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+			</props>
+		</property>
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
 
-		<bean id="abstractDao" class="org.springframework.aop.framework.ProxyFactoryBean"
-			abstract="true">
-			<property name="interceptorNames">
-				<list>
-					<value>finderIntroductionAdvisor</value>
-				</list>
-			</property>
-		</bean>
-		<!--end  Dao Layer generic config-->
+	<bean id="extendedFinderNamingStrategy"
+		class="org.leixu.iap.core.genericdao.finder.impl.ExtendedFinderNamingStrategy" />
 
 
-		<!--  Dao Layer instances -->
-		<bean id="personDao" parent="abstractDao">
-			<property name="proxyInterfaces">
-				<value>org.leixu.iap.core.genericdao.dao.PersonDao</value>
-			</property>
-			<property name="target">
-				<bean parent="abstractDaoTarget">
-					<constructor-arg>
-						<value>org.leixu.iap.core.genericdao.domain.Person</value>
-					</constructor-arg>
-				</bean>
-			</property>
-		</bean>
+	<!--begin  Dao Layer generic config-->
+
+	<bean id="finderIntroductionAdvisor"
+		class="org.leixu.iap.core.genericdao.finder.impl.FinderIntroductionAdvisor" />
+
+	<bean id="abstractDaoTarget"
+		class="org.leixu.iap.core.genericdao.impl.GenericDaoHibernateImpl"
+		abstract="true">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="namingStrategy">
+			<ref bean="extendedFinderNamingStrategy" />
+		</property>
+	</bean>
+
+	<bean id="abstractDao" class="org.springframework.aop.framework.ProxyFactoryBean"
+		abstract="true">
+		<property name="interceptorNames">
+			<list>
+				<value>finderIntroductionAdvisor</value>
+			</list>
+		</property>
+	</bean>
+	<!--end  Dao Layer generic config-->
+
+
+	<!--  Dao Layer instances -->
+	<bean id="personDao" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>org.leixu.iap.core.genericdao.dao.PersonDao</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>org.leixu.iap.core.genericdao.domain.Person</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
 
 </beans>

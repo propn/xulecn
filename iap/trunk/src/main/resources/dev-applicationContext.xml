@@ -10,7 +10,7 @@
 
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location" value="/jdbc.properties" />
+		<property name="location" value="/WEB-INF/jdbc.properties" />
 	</bean>
 
 	<!-- 数据源配置,在开发环境使用DBCP数据源连接池 -->
