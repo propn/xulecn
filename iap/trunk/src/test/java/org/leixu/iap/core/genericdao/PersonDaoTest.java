@@ -22,8 +22,7 @@ public class PersonDaoTest extends TestCase {
 
 	public PersonDaoTest(String s) {
 		super(s);
-		factory = new ClassPathXmlApplicationContext(
-				"dev-applicationContext.xml");
+		factory = new ClassPathXmlApplicationContext(new String[]{"test-applicationContext.xml"});
 	}
 
 	public void testCrud() throws Exception {
