@@ -1,4 +1,4 @@
-#Wed Jun 23 21:03:35 CST 2010
+#Wed Jun 23 21:12:30 CST 2010
 eclipse.preferences.version=1
 encoding//src/main/resources/jdbc.properties=UTF-8
-encoding/<project>=GBK
+encoding//src/test/resources/jdbc.properties=UTF-8
