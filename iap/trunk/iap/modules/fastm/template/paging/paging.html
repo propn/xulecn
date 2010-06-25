@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+
+<span class="gen">
+{pages} Pages:
+[
+<!-- BEGIN DYNAMIC: link -->
+<!-- BEGIN DYNAMIC: prev -->
+<a href="{link}" title="Previous page"><b>{pageIndex} <<</b></a>
+<!-- END DYNAMIC: prev -->
+<!-- BEGIN DYNAMIC: current -->
+<b>{pageIndex}</b>
+<!-- END DYNAMIC: current -->
+<!-- BEGIN DYNAMIC: next -->
+<a href="{link}" title="Next page"><b>>> {pageIndex}</b></a>&nbsp;
+<!-- END DYNAMIC: next -->
+<!-- BEGIN DYNAMIC: mid -->
+<a href="{link}"><b>...</b></a>&nbsp;
+<!-- END DYNAMIC: mid -->
+<!-- BEGIN DYNAMIC: notCurrent -->
+<a href="{link}"><b>{pageIndex}</b></a>&nbsp;
+<!-- END DYNAMIC: notCurrent -->
+<!-- END DYNAMIC: link -->
+]
+</span>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+
+<classes>
+<!-- BEGIN DYNAMIC: node -->
+<class>
+<name>{name}</name>
+
+<!-- BEGIN DYNAMIC: hasChildren -->
+<classes>
+<!-- BEGIN DYNAMIC: node -->
+<!-- END DYNAMIC: node -->
+</classes>
+<!-- END DYNAMIC: hasChildren -->
+</class>
+<!-- END DYNAMIC: node -->
+</classes>
+

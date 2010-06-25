@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.leixu.iap.user.mode">
+	<class name="User">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" update="false" />
+		<property name="weight" />
+	</class>
+
+	<query name="User.findByName">
+        <![CDATA[select u from User u where u.name = ? ]]>
+	</query>
+
+	<query name="User.findByWeight">
+        <![CDATA[select u from User u where u.weight = :weight ]]>
+	</query>
+
+
+</hibernate-mapping>

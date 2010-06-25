@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>{title}</title>
+</head>
+<body>
+<h1>{title}</h1>
+<p>
+Even value is yellow.
+Odd value is green.
+</p>
+<table border=1>
+<!-- BEGIN DYNAMIC : row -->
+<tr>
+<!-- BEGIN DYNAMIC : current -->
+<!-- BEGIN DYNAMIC : even -->
+<td bgcolor="yellow">{value}</td>
+<!-- END DYNAMIC : even -->
+
+<!-- BEGIN DYNAMIC : odd -->
+<td bgcolor="green">{value}</td>
+<!-- END DYNAMIC : odd -->
+<!-- END DYNAMIC : current -->
+
+</tr>
+<!-- END DYNAMIC : row -->
+</table>
+
+</body>
+</html>
+
