@@ -8,10 +8,36 @@
 	<name>IAP</name>
 	<packaging>pom</packaging>
 	
+	<!-- 项目的编码用UTF－8-->
+	<properties>
+	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<!-- 源代码管理 -->
 	<scm>
-		<developerConnection>xulecn</developerConnection>
-		<url>https://xulecn.googlecode.com/svn/iap/trunk/</url>
+		<connection>scm:svn://xulecn.googlecode.com/svn/iap/trunk</connection>
+		<developerConnection>
+			scm:svn://xulecn.googlecode.com/svn/iap/trunk
+		</developerConnection>
+		<tag>head</tag>
+		<url>svn://xulecn.googlecode.com/svn/iap/trunk</url>
 	</scm>
+
+	<!-- 开发人员以及角色定义 -->
+	<developers>
+		<developer>
+			<name>lei</name>
+			<id>lei</id>
+			<email>xulecn@gmail.com</email>
+			<organization>iap</organization>
+			<roles>
+				<role>PM</role>
+				<role>设计人员</role>
+				<role>开发人员</role>
+			</roles>
+		</developer>
+	</developers>
+
 	<modules>
 		<module>modules/parent</module>
 		<module>modules/core</module>
