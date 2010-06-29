@@ -1,0 +1,179 @@
+mvn简明使用手册
+
+1.安装mvn apache-maven-2.2.1 http://maven.apache.org/download.html
+   1.1 下载解压 配置jdk环境 jdk1.5
+   1.2 配置setting.xml 
+
+   //////////
+	 <!-- 项目的编码用UTF－8-->
+	<properties>
+	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<!-- 问题管理 -->
+	<issueManagement>
+		<system>jira</system>
+		<url>http://169.254.11.166:8088/secure/Dashboard.jspa</url>
+	</issueManagement>
+	<!-- 源代码管理 -->
+	<scm>
+		<connection>scm:svn://127.0.0.1/repos/MavenBasedCI</connection>
+		<developerConnection>
+			scm:svn://127.0.0.1/repos/MavenBasedCI
+		</developerConnection>
+		<tag>head</tag>
+		<url>svn://127.0.0.1/repos/MavenBasedCI</url>
+	</scm>
+
+	<!-- 开发人员以及角色定义 -->
+	<developers>
+		<developer>
+			<name>aaa</name>
+			<id>aaa</id>
+			<email>aaa@samueli.com</email>
+			<organization>samueli</organization>
+			<roles>
+				<role>PM</role>
+			</roles>
+		</developer>
+		<developer>
+			<name>bbb</name>
+			<id>bbb</id>
+			<email>bbb@samueli.com</email>
+			<organization>samueli</organization>
+			<roles>
+				<role>设计人员</role>
+				<role>开发人员</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<!--发布本地资源到nexus服务器 xulei 20100628-->
+	<server>  
+		<id>releases</id>  
+		<username>admin</username>  
+		<password>admin123</password>  
+	</server>  
+
+	<server>  
+		<id>snapshots</id>  
+		<username>admin</username>  
+		<password>admin123</password>  
+	</server>    
+	<!--发布本地资源到nexus服务器 xulei 20100628-->
+
+
+	<!--本地nexus服务代理repository xulei20100628-->
+	<profile>  
+	  <id>dev</id>  
+	  <repositories>  
+		  <repository>  
+			<id>local-nexus</id>  
+			<url>http://127.0.0.1:8081/nexus/content/groups/public/</url>  
+			<releases>  
+			  <enabled>true</enabled>  
+			</releases>  
+			<snapshots>  
+			  <enabled>true</enabled>  
+			</snapshots>  
+		  </repository>  
+	    </repositories>  
+	</profile>  
+
+	<activeProfiles>
+	   <!--
+	    <activeProfile>alwaysActiveProfile</activeProfile>
+	    <activeProfile>anotherAlwaysActiveProfile</activeProfile>
+		-->
+		<activeProfile>dev</activeProfile>
+	 </activeProfiles>
+
+
+   //////////
+2.按装 nexus 服务器
+	2.1 从  http://nexus.sonatype.org/ 下载 nexus-oss-webapp-1.7.0-bundle.zip 解压安装，
+		执行 \nexus-oss-webapp-1.7.0\bin\jsw\windows-x86-32\nexus.bat 启动服务
+		
+	2.2 配置 nexus 服务器
+		2.2.1 用浏览器打开http://localhost:8081/nexus/ ，用admin/admin123登录系统
+		2.2.2 配置Repositories 
+		      1。修改Maven Central的 Download Remote Indexes属性为TRUE
+		      2。修改releases的Deployment Policy 为Allow Redeploy 
+	2.3 添加代理仓库
+		Repository ID - sonatype；
+		Repository Name - Sonatype Repository；
+		Remote Storage Location - http://repository.sonatype.org/content/groups/public/
+
+
+3。为Eclipse安装插件
+	3.1 easytools  http://www.blogjava.net/Files/vip01/org.hermit.easytools_3.2.0.rar
+	3.2 checkStyle 在线安装地址为 http://eclipse-cs.sf.net/update/
+	3.3 subclipse 在线安装地址为 http://subclipse.tigris.org/update_1.0.x
+	3.4 m2eclipse 在线安装地址为 http://m2eclipse.sonatype.org/sites/m2e
+	3.5 m2e-extras 在线安装地址为 http://m2eclipse.sonatype.org/sites/m2e-extras
+	3.6 安装其他应用服务器插件
+
+4。创建mvn项目
+	4.1 使用命令创建项目：
+
+		普通工程：mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+		WEB项目：mvn archetype:create -DgroupId=com.mycompany.app -DartifactId=myWeb -DarchetypeArtifactId=maven-archetype-webapp
+
+
+	4.2 修改pom.xml文件
+	////
+	<repository>
+		<id>nexus</id>
+		<name>Team Nexus Repository</name>
+		<url>http://127.0.0.1:8081/nexus/content/groups/public</url>
+	</repository>
+
+	<pluginRepository>
+		<id>nexus</id>
+		<name>Team Nexus Repository</name>
+		<url>http://127.0.0.1:8081/nexus/content/groups/public</url>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+	</pluginRepository>
+
+
+	<!-- 设定团队持续集成发布包服务器  -->
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Team Nexus Release Repository</name>
+			<url>http://127.0.0.1:8081/nexus/content/repositories/releases</url>
+		</repository>
+		
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Team Nexus Snapshot Repository</name>
+			<url>http://127.0.0.1:8081/nexus/content/repositories/snapshots</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+		
+	</distributionManagement>
+
+	///
+	
+5。使用mvn命令
+	
+	maven定义的生命周期中主要的相位如下：
+	validate: 验证项目是否正确以及相关信息是否可用。
+	compile: 编译。
+	test: 通过junit进行单元测试。
+	package: 根据事先指定的格式（比如jar），进行打包。
+	integration-test: 部署到运行环境中，准备进行集成测试。
+	verify: 对包进行有效性性和质量检查。
+	install: 安装到本地代码库。
+	deploy: 在集成或发布环境，将包发布到远程代码库。
+	
+	在“默认”的生命周期之外，还有两个相位：
+	clean: 清除以前的构建物。
+	site: 生成项目文档。
+
+	mvn jetty:run	使用jetty插件运行
+
+	
