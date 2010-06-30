@@ -16,3 +16,30 @@ net.sf.eclipsecs-5.1.0.201002232103-updatesite.zip
 4。Atlassian Connector for Eclipse 3.4 and 3.5
 http://update.atlassian.com/atlassian-eclipse-plugin/e3.4/
 
+5.EclEmma is http://update.eclemma.org/.
+6.http://pmd.sourceforge.net/eclipse
+
+
+代码格式设置
+导入SpringSide3的代码格式与Cleanup规则，见规则详情（Preferences->Java Code Style，Profile文件在springside3/tools/eclipse/中）
+手工修改warning设置，见规则详情（Preferences-> Java->Compiler->Warining).
+设置保存代码时的自动操作 ,包括：format source code->all lines，与Organize  Imports。(Preference->Java->Editor->SaveAction)
+调整与输入法切换冲突的内容助手热键.(Preference->General->Keys, 找到Content Assist, 改为诸如Shift+Space)
+取消XML缺少DTD的warning 并设置XML每行长度为120字符, (Preference->XML->XML Files).
+取消spell checking (Preference->Genernal->Editors->TextEditors->Spelling)
+
+
+在 Windows->Preferences->Java Code Style的Formatter 和 Cleanup 中导入springsidd3.0/tools/code-quality/eclipse/cleanup-profile.xml 和formatter.xml。
+
+修改Preference->General->Keys ，调整与输入法切换冲突的内容助手热键， 找到Content Assist, 改为诸如Shift+Space
+
+修改Windows->Preference->Java->Editor->SaveAction, 选择Format Source Code，Formate All Codes，与Organize Imports
+
+修改Windows->Preferences->XML->XML Files->Editor  ,增加到120字符
+
+修改Windows->Preferences->XML->XML Files, 取消XML缺乏DTD的warning；
+
+修改Windows->Preferences->Genernal->Editors->TextEditors->Spelling取消spell checking，
+
+
+
