@@ -1,0 +1,18 @@
+Eclipse 版本：eclipse-jee-helios-win32
+
+插件：
+1.SVN插件
+http://subclipse.tigris.org/update_1.6.x
+site-1.0.6.zip
+
+2.MVN插件 
+http://m2eclipse.sonatype.org/sites/m2e 
+http://m2eclipse.sonatype.org/sites/m2e-extras
+
+3.checkStyle插件
+http://eclipse-cs.sf.net/update/ 
+net.sf.eclipsecs-5.1.0.201002232103-updatesite.zip
+
+4。Atlassian Connector for Eclipse 3.4 and 3.5
+http://update.atlassian.com/atlassian-eclipse-plugin/e3.4/
+
