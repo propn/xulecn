@@ -1,45 +1,45 @@
-Eclipse °æ±¾£ºeclipse-jee-helios-win32
+ï»¿Eclipse ç‰ˆæœ¬ï¼šeclipse-jee-helios-win32
 
-²å¼ş£º
-1.SVN²å¼ş
+æ’ä»¶ï¼š
+1.SVNæ’ä»¶
 http://subclipse.tigris.org/update_1.6.x
 site-1.0.6.zip
 
-2.MVN²å¼ş 
+2.MVNæ’ä»¶ 
 http://m2eclipse.sonatype.org/sites/m2e 
 http://m2eclipse.sonatype.org/sites/m2e-extras
 
-3.checkStyle²å¼ş
+3.checkStyleæ’ä»¶
 http://eclipse-cs.sf.net/update/ 
 net.sf.eclipsecs-5.1.0.201002232103-updatesite.zip
 
-4¡£Atlassian Connector for Eclipse 3.4 and 3.5
+4ã€‚Atlassian Connector for Eclipse 3.4 and 3.5
 http://update.atlassian.com/atlassian-eclipse-plugin/e3.4/
 
 5.EclEmma is http://update.eclemma.org/.
 6.http://pmd.sourceforge.net/eclipse
 
 
-´úÂë¸ñÊ½ÉèÖÃ
-µ¼ÈëSpringSide3µÄ´úÂë¸ñÊ½ÓëCleanup¹æÔò£¬¼û¹æÔòÏêÇé£¨Preferences->Java Code Style£¬ProfileÎÄ¼şÔÚspringside3/tools/eclipse/ÖĞ£©
-ÊÖ¹¤ĞŞ¸ÄwarningÉèÖÃ£¬¼û¹æÔòÏêÇé£¨Preferences-> Java->Compiler->Warining).
-ÉèÖÃ±£´æ´úÂëÊ±µÄ×Ô¶¯²Ù×÷ ,°üÀ¨£ºformat source code->all lines£¬ÓëOrganize  Imports¡£(Preference->Java->Editor->SaveAction)
-µ÷ÕûÓëÊäÈë·¨ÇĞ»»³åÍ»µÄÄÚÈİÖúÊÖÈÈ¼ü.(Preference->General->Keys, ÕÒµ½Content Assist, ¸ÄÎªÖîÈçShift+Space)
-È¡ÏûXMLÈ±ÉÙDTDµÄwarning ²¢ÉèÖÃXMLÃ¿ĞĞ³¤¶ÈÎª120×Ö·û, (Preference->XML->XML Files).
-È¡Ïûspell checking (Preference->Genernal->Editors->TextEditors->Spelling)
+ä»£ç æ ¼å¼è®¾ç½®
+å¯¼å…¥SpringSide3çš„ä»£ç æ ¼å¼ä¸Cleanupè§„åˆ™ï¼Œè§è§„åˆ™è¯¦æƒ…ï¼ˆPreferences->Java Code Styleï¼ŒProfileæ–‡ä»¶åœ¨springside3/tools/eclipse/ä¸­ï¼‰
+æ‰‹å·¥ä¿®æ”¹warningè®¾ç½®ï¼Œè§è§„åˆ™è¯¦æƒ…ï¼ˆPreferences-> Java->Compiler->Warining).
+è®¾ç½®ä¿å­˜ä»£ç æ—¶çš„è‡ªåŠ¨æ“ä½œ ,åŒ…æ‹¬ï¼šformat source code->all linesï¼Œä¸Organize  Importsã€‚(Preference->Java->Editor->SaveAction)
+è°ƒæ•´ä¸è¾“å…¥æ³•åˆ‡æ¢å†²çªçš„å†…å®¹åŠ©æ‰‹çƒ­é”®.(Preference->General->Keys, æ‰¾åˆ°Content Assist, æ”¹ä¸ºè¯¸å¦‚Shift+Space)
+å–æ¶ˆXMLç¼ºå°‘DTDçš„warning å¹¶è®¾ç½®XMLæ¯è¡Œé•¿åº¦ä¸º120å­—ç¬¦, (Preference->XML->XML Files).
+å–æ¶ˆspell checking (Preference->Genernal->Editors->TextEditors->Spelling)
 
 
-ÔÚ Windows->Preferences->Java Code StyleµÄFormatter ºÍ Cleanup ÖĞµ¼Èëspringsidd3.0/tools/code-quality/eclipse/cleanup-profile.xml ºÍformatter.xml¡£
+åœ¨ Windows->Preferences->Java Code Styleçš„Formatter å’Œ Cleanup ä¸­å¯¼å…¥springsidd3.0/tools/code-quality/eclipse/cleanup-profile.xml å’Œformatter.xmlã€‚
 
-ĞŞ¸ÄPreference->General->Keys £¬µ÷ÕûÓëÊäÈë·¨ÇĞ»»³åÍ»µÄÄÚÈİÖúÊÖÈÈ¼ü£¬ ÕÒµ½Content Assist, ¸ÄÎªÖîÈçShift+Space
+ä¿®æ”¹Preference->General->Keys ï¼Œè°ƒæ•´ä¸è¾“å…¥æ³•åˆ‡æ¢å†²çªçš„å†…å®¹åŠ©æ‰‹çƒ­é”®ï¼Œ æ‰¾åˆ°Content Assist, æ”¹ä¸ºè¯¸å¦‚Shift+Space
 
-ĞŞ¸ÄWindows->Preference->Java->Editor->SaveAction, Ñ¡ÔñFormat Source Code£¬Formate All Codes£¬ÓëOrganize Imports
+ä¿®æ”¹Windows->Preference->Java->Editor->SaveAction, é€‰æ‹©Format Source Codeï¼ŒFormate All Codesï¼Œä¸Organize Imports
 
-ĞŞ¸ÄWindows->Preferences->XML->XML Files->Editor  ,Ôö¼Óµ½120×Ö·û
+ä¿®æ”¹Windows->Preferences->XML->XML Files->Editor  ,å¢åŠ åˆ°120å­—ç¬¦
 
-ĞŞ¸ÄWindows->Preferences->XML->XML Files, È¡ÏûXMLÈ±·¦DTDµÄwarning£»
+ä¿®æ”¹Windows->Preferences->XML->XML Files, å–æ¶ˆXMLç¼ºä¹DTDçš„warningï¼›
 
-ĞŞ¸ÄWindows->Preferences->Genernal->Editors->TextEditors->SpellingÈ¡Ïûspell checking£¬
+ä¿®æ”¹Windows->Preferences->Genernal->Editors->TextEditors->Spellingå–æ¶ˆspell checkingï¼Œ
 
 
 
