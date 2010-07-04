@@ -10,7 +10,7 @@
 
 	<import resource="classpath:core-applicationContext.xml" />
 	<import resource="classpath:iap-applicationContext.xml" />
-	
+
 	<!-- 测试环境使用xml格式数据库连接propert配置 -->
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -47,8 +47,19 @@
 				<prop key="hibernate.hbm2ddl.auto">create</prop>
 			</props>
 		</property>
+		<!-- xml 文件
+		<property name="annotatedClassesLocations">
+			<list>
+				<value>classpath*:/org/**/domain/*.class</value>
+			</list>
+		</property>
+		 -->
+		<property name="mappingLocations">
+			<list>
+				<value>classpath*:/org/**/model/**/*.hbm.xml</value>
+			</list>
+		</property>
 
-		<property name="packagesToScan" value="org.leixu.iap.*.domains" />
 	</bean>
 
 </beans>

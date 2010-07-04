@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: org.leixu.iap.user.UserDaoTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.438 sec <<< FAILURE!
-testCrud(org.leixu.iap.user.UserDaoTest)  Time elapsed: 0.031 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.335 sec <<< FAILURE!
+testCrud(org.leixu.iap.user.UserDaoTest)  Time elapsed: 0.027 sec  <<< ERROR!
 org.hibernate.MappingException: Unknown entity: org.leixu.iap.person.domain.Person
 	at org.hibernate.impl.SessionFactoryImpl.getEntityPersister(SessionFactoryImpl.java:628)
 	at org.hibernate.impl.SessionImpl.getEntityPersister(SessionImpl.java:1366)
@@ -52,7 +52,7 @@ org.hibernate.MappingException: Unknown entity: org.leixu.iap.person.domain.Pers
 	at org.apache.maven.surefire.booter.SurefireBooter.runSuitesInProcess(SurefireBooter.java:350)
 	at org.apache.maven.surefire.booter.SurefireBooter.main(SurefireBooter.java:1021)
 
-testFindByName(org.leixu.iap.user.UserDaoTest)  Time elapsed: 0.032 sec  <<< ERROR!
+testFindByName(org.leixu.iap.user.UserDaoTest)  Time elapsed: 0.024 sec  <<< ERROR!
 org.hibernate.MappingException: Unknown entity: org.leixu.iap.person.domain.Person
 	at org.hibernate.impl.SessionFactoryImpl.getEntityPersister(SessionFactoryImpl.java:628)
 	at org.hibernate.impl.SessionImpl.getEntityPersister(SessionImpl.java:1366)
@@ -102,7 +102,7 @@ org.hibernate.MappingException: Unknown entity: org.leixu.iap.person.domain.Pers
 	at org.apache.maven.surefire.booter.SurefireBooter.runSuitesInProcess(SurefireBooter.java:350)
 	at org.apache.maven.surefire.booter.SurefireBooter.main(SurefireBooter.java:1021)
 
-testIterateByWeight(org.leixu.iap.user.UserDaoTest)  Time elapsed: 0.031 sec  <<< ERROR!
+testIterateByWeight(org.leixu.iap.user.UserDaoTest)  Time elapsed: 0.022 sec  <<< ERROR!
 org.hibernate.MappingException: Unknown entity: org.leixu.iap.person.domain.Person
 	at org.hibernate.impl.SessionFactoryImpl.getEntityPersister(SessionFactoryImpl.java:628)
 	at org.hibernate.impl.SessionImpl.getEntityPersister(SessionImpl.java:1366)
