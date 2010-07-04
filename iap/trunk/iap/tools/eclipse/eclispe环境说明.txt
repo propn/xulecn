@@ -19,6 +19,12 @@ http://update.atlassian.com/atlassian-eclipse-plugin/e3.4/
 5.EclEmma is http://update.eclemma.org/.
 6.http://pmd.sourceforge.net/eclipse
 
+7.安装Hibernatetools ： HibernateTools-3.3.1.v201006011046R-H111-GA
+下载地址：http://www.jboss.org/tools/download/stable/3_1_GA.html
+8.安装jboss的jsp html 编辑插件：RichFaces-VPE-win32-3.1.1.v201006011046R-H111-GA 
+下载地址：http://www.jboss.org/tools/download/stable/3_1_GA.html
+
+
 
 代码格式设置
 导入SpringSide3的代码格式与Cleanup规则，见规则详情（Preferences->Java Code Style，Profile文件在springside3/tools/eclipse/中）
@@ -40,6 +46,8 @@ http://update.atlassian.com/atlassian-eclipse-plugin/e3.4/
 修改Windows->Preferences->XML->XML Files, 取消XML缺乏DTD的warning；
 
 修改Windows->Preferences->Genernal->Editors->TextEditors->Spelling取消spell checking，
+
+
 
 
 
