@@ -1,0 +1,8 @@
+导出命令：
+$exp system/toone@chiefoa full=y file='E:/chiefoa0122.dmp';
+$exp chiefoa/toone@chiefoa full=y file='F:/chiefoa0320.dmp';
+导入命令
+$imp chiefoa/toone@chiefoa fromuser=system touser=chiefoa full=n iGNORE=y file='F:\chiefoa0313.dmp';
+
+$imp chiefoa/toone@chiefoa fromuser=chiefoa touser=chiefoa full=n iGNORE=y file='F:\chiefoa0320.dmp';
+注：切记勿带中文！
