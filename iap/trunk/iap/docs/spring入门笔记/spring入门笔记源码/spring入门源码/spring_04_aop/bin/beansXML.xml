@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	<aop:aspectj-autoproxy /><!-- 开启切面编程功能 -->
+
+	<bean id="userDaoImp" class="com.asm.dao.impl.UserDaoImp" />
+	<bean id="aspectBean"
+		class="com.asm.dao.impl.factory.TheInterceptorXML" />
+	<aop:config>
+		<aop:aspect id="asp" ref="aspectBean">
+			<aop:pointcut id="thecut"
+				expression="execution(* com.asm.dao.impl.UserDaoImp.*(..))" />
+			<aop:after-returning pointcut-ref="thecut" method="afterReturningRes" returning="result" />
+			<aop:around pointcut-ref="thecut" method="around"/>
+			<aop:after-throwing pointcut-ref="thecut" method="catchException" throwing="e"/>						
+			<aop:after pointcut-ref="thecut" method="after" />
+			<aop:before pointcut-ref="thecut" method="before" />
+			<aop:before pointcut-ref="thecut" method="beforeAdd"  />
+			<!-- 
+			
+			 -->
+		</aop:aspect>
+	</aop:config>
+</beans>

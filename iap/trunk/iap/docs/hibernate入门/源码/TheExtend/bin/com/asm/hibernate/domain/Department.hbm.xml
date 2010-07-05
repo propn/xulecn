@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.asm.hibernate.domain">
+
+	<class name="Department">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name"></property>
+		
+		<set name="emps">
+			<key column="depart_id"></key>
+			<one-to-many class="Employee"/>
+		</set>
+		<!-- 下面是在级联操作或关系维护中用到的属性
+		<set name="emps" cascade="save-update" inverse="true">
+			<key column="depart_id"></key>
+			<one-to-many class="Employee"/>
+		</set>
+		 -->
+	</class>
+</hibernate-mapping>

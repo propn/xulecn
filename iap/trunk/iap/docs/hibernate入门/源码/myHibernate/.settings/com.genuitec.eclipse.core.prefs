@@ -1,0 +1,4 @@
+#Sat Sep 05 15:53:03 CST 2009
+eclipse.preferences.version=1
+validator.Checked=src/com/asm/hibernate/test/ManyToOneTest.java
+validator.Unchecked=

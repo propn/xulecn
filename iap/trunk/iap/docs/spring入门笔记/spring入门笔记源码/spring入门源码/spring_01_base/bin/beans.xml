@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<bean id="userDaoImpl" class="com.asm.dao.impl.UserDaoImpl"
+		scope="prototype" init-method="init" destroy-method="destroy" />
+	<bean id="userDaoImpl2" class="com.asm.dao.impl.UserDaoImplFactory"
+		factory-method="getUserDaoImpl" />
+	<bean id="factory" class="com.asm.dao.impl.UserDaoImplFactory2" />
+	<bean id="userDaoImpl3" factory-bean="factory"
+		factory-method="getUserDaoImpl" />
+
+	<bean abstract="true" id="parent" >
+		<property name="username" value="张某某"></property>
+	</bean>
+	<bean  id="XXX"  class="com.asm.vo.User" parent="parent">
+		<property name="password" value="123456"></property>
+	</bean>
+
+	<!-- 字段注入 -->
+	<bean id="userServiceBean"
+		class="com.asm.service.UserServiceBean">
+		<property name="id" value="10"></property>
+		<property name="username" value="张某某"></property>
+		<property name="userDao">
+			<bean id="temp" class="com.asm.dao.impl.UserDaoImpl" />
+		</property>
+		<property name="list">
+			<list>
+				<value>List值一</value>
+				<value>List值二</value>
+				<value>List值三</value>
+			</list>
+		</property>
+
+		<property name="set">
+			<set>
+				<value>Set值二</value>
+				<value>Set值一</value>
+				<value>Set值三</value>
+			</set>
+		</property>
+
+		<property name="map">
+			<map>
+				<entry key="one" value="一" />
+				<entry key="two" value="二" />
+				<entry key="three" value="三" />
+			</map>
+		</property>
+		<property name="pro">
+			<props>
+				<prop key="p1">first</prop>
+				<prop key="p2">second</prop>
+				<prop key="p3">third</prop>
+			</props>
+		</property>
+		<!-- 
+			<property name="userDao" ref="userDaoImpl"/>
+		-->
+	</bean>
+	
+	<!-- 构造器注入 -->
+	<bean id="userServiceBean2" class="com.asm.service.UserServiceBean">
+		<constructor-arg index="0" value="李某某"/>
+		<constructor-arg index="1" ref="userDaoImpl" />
+		<constructor-arg index="2">
+			<list>
+				<value>List值一</value>
+				<value>List值二</value>
+				<value>List值三</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+</beans>

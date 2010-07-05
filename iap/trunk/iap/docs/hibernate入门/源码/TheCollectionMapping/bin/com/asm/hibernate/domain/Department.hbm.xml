@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.asm.hibernate.domain">
+
+	<class name="Department" table="newDep">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name"></property>
+		<!-- 
+			<set name="emps">
+			<key column="depart_id"></key>
+			<one-to-many class="Employee"/>
+			</set>
+		-->
+		<list name="emps">
+			<key column="depart_id" />
+			<list-index column="order_by" />
+			<one-to-many class="Employee" />
+		</list>
+	</class>
+</hibernate-mapping>

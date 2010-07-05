@@ -1,0 +1,5 @@
+hibernate-mapping-3.0.dtd  和 hibernate-configuration-3.0.dtd 这两个dtd文件均来看自hibernate3.jar包中 
+
+主本配置文件xml 及辅助配置文件hibernate.properties均来自ect目录 
+
+实体配置文件来自eg下的目录 

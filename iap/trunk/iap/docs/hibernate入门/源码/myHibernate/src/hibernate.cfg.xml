@@ -1,0 +1,64 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory name="foo">
+		<property name="hibernate.connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+		<property name="hibernate.connection.url">
+			jdbc:mysql://localhost:3306/test
+		</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">123456</property>
+
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="show_sql">true</property>
+
+		<!-- 配置缓存 -->
+		<property name="hibernate.cache.use_second_level_cache">
+			true
+		</property>
+		<property name="hibernate.cache.provider_class">
+			org.hibernate.cache.OSCacheProvider
+		</property>
+
+		<!-- 配置统计信息 -->
+		<property name="hibernate.generate_statistics">true</property>
+
+		<!-- 让Query支持二级缓存 -->
+		<property name="#hibernate.cache.use_query_cache">
+			true
+		</property>
+
+		<!-- 使用事务边界 -->
+		<property name="current_session_context_class">thread</property>
+
+
+		<mapping resource="com/asm/hibernate/domain/User.hbm.xml" />
+		<mapping resource="com/asm/hibernate/domain/Department.hbm.xml" />
+		<mapping resource="com/asm/hibernate/domain/Employee.hbm.xml" />
+
+		<mapping resource="com/asm/hibernate/domain/Person.hbm.xml" />
+		<mapping resource="com/asm/hibernate/domain/IdCard.hbm.xml" />
+
+		<mapping resource="com/asm/hibernate/domain/Teacher.hbm.xml" />
+		<mapping resource="com/asm/hibernate/domain/Student.hbm.xml" />
+
+		<mapping resource="com/asm/hibernate/domain/People.hbm.xml" />
+
+		<!-- 
+			<class-cache class="com.asm.hibernate.domain.User"
+			usage="read-only" />
+		-->
+		<event type="save">
+			<listener class="com.asm.hibernate.event.SaveUserListener" />
+			<listener
+				class="org.hibernate.event.def.DefaultSaveOrUpdateEventListener" />
+		</event>
+	</session-factory>
+</hibernate-configuration>

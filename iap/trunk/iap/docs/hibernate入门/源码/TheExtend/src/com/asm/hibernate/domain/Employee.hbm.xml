@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.asm.hibernate.domain">
+	<!-- 共享一张表的配置
+		<class name="Employee" discriminator-value="0">
+		<id name="id">
+		<generator class="native" />
+		</id>
+		<discriminator column="sign" type="string" />
+		<property name="name"></property>
+		<many-to-one name="depart" column="depart_id" />
+		
+		<subclass name="Sale" discriminator-value="1">
+		<property name="signSale"></property>
+		</subclass>
+		<subclass name="Skill" discriminator-value="2">
+		<property name="signSkill"></property>
+		</subclass>
+		</class>
+	-->
+	<!-- 
+		每个子类一张表的配置
+		<class name="Employee">
+		<id name="id">
+		<generator class="native" />
+		</id>
+		<property name="name"></property>
+		<many-to-one name="depart" column="depart_id" />
+		<joined-subclass name="Sale">
+		<key column="sale_id" />
+		<property name="signSale" />
+		</joined-subclass>
+		
+		<joined-subclass name="Skill">
+		<key column="skill_id" />
+		<property name="signSkill" />
+		</joined-subclass>
+		</class>
+	-->
+	<!-- 联合使用表-->
+		<class name="Employee" discriminator-value="0">
+		<id name="id">
+		<generator class="native" />
+		</id>
+		<discriminator column="sign" type="int" />
+		<property name="name"></property>
+		<many-to-one name="depart" column="depart_id" />
+		
+		<subclass name="Sale" discriminator-value="1">
+		<property name="signSale"></property>
+		</subclass>
+		<subclass name="Skill" >
+		<join table="skill">
+		<key column="skill_id" />
+		<property name="signSkill" />
+		</join>
+		</subclass>
+		</class>
+	
+<!-- 
+	<class name="Employee">
+		<id name="id">
+			<generator class="hilo" />
+		</id>
+		<property name="name"></property>
+		<many-to-one name="depart" column="depart_id" />
+		<union-subclass name="Sale">
+			<property name="signSale" />
+		</union-subclass>
+		<union-subclass name="Skill">
+			<property name="signSkill" />
+		</union-subclass>
+	</class>
+ -->
+</hibernate-mapping>
