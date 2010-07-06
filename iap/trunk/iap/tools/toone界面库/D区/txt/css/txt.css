@@ -1,0 +1,253 @@
+/************************  同望科技css控制文件 *************************/
+
+
+/**-------------------------------公共部分---**/
+
+/*统一控制全局的字体和内容水平对齐方式，所有body的下级节点都应用这些属性，如下级节点需要不同的字体和对齐方式，则单独修改*/
+body{
+	font-family: Arial,宋体,helvertica,sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	text-align:center;
+}
+	
+/*去掉所有图片的默认1px的边框属性*/
+img{
+	border:0px;
+}
+
+/*页面滚动条颜色控制*/
+body{
+	scrollbar-face-color:#EBF1F9;
+	scrollbar-shadow-color: #91B7E8;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-3dlight-color: #F0F5FB;
+	scrollbar-darkshadow-color: #53749C;
+	scrollbar-track-color: #D0E3F9;
+	scrollbar-arrow-color: #53749C;
+	margin:0px;
+	padding:0px;
+	background-image:url(../images/txt_bg.gif);
+}
+
+/**-------------------------------标题部分---**/
+
+/*标题的属性控制以及外层控制*/
+.txt_head_frame{
+	background: url(../images/txt_head_bg.gif) repeat 0 0;
+	width: auto;
+	height:34px;
+	margin:0px;
+	padding:5px 0px 0px 15px;
+}
+
+/*标题的控制*/	
+.txt_frame_title{
+	background: url(../images/txt_head_new.gif) no-repeat 0 0;
+	float:left;
+	margin:0px;
+	padding:5px 0px 0px 30px;
+	font-size:12px;
+	font-weight:bold;
+	color:#3F5393;
+	height:20px;
+}
+/**-------------------------------输入区外框控制---**/
+
+/*输入列表的背景色和边框色*/   
+.txt_content_frame{
+	margin:0px 2px; 
+	padding:0px;
+	width:auto;
+	height:380px;
+	border:1px solid #C6D4EA;
+	background-color:#F3F6FA;
+}
+/*输入列表内边框色*/ 
+.txt_content_box{
+	border:1px solid #FFF;
+	padding:0px;
+	width:auto;
+	height:380px;
+}
+
+/**-------------------------------左侧输入区域控制---**
+
+/*左侧输入区域的宽度*/
+.txt_content_left{
+	width:30%;
+	height:235px;
+	float:left;
+	padding:5px 0px 0px 0px;
+}
+/*左侧输入区域文字控制*/
+.txt_text_left{
+	float:left;
+	width:150px;
+	text-align:right;
+	line-height:16px;
+	padding:1px 0px 0px 0px;
+}
+/*左侧输入框*/
+.txt_left_input{
+	float:left; 
+	padding:0px 0px 0px 10px;
+	margin:0px;
+}
+
+/**-------------------------------中间输入区域控制---**/
+
+/*输入区域的宽度*/
+.txt_content_center{
+	width:30%;
+	height:230px;
+	float:left;
+	padding:5px 0px 4px 0px;
+}
+/*输入区域文字控制*/
+.txt_text_center{
+	float: left;
+	text-align: right;
+	line-height:16px;
+	width:150px;
+	padding:1px 0px 0px 0px;
+}
+/*输入框*/
+.txt_center_input{
+	float:left; 
+	padding:0px 0px 0px 10px;
+}
+
+/**-------------------------------右侧输入区域控制---**/
+
+/*输入区域的宽度*/
+.txt_content_right{
+	width:30%;
+	height:230px;
+	float:left;
+	padding:5px 0px 4px 0px;
+}
+/*输入区域文字控制*/
+.txt_text_right{
+	float: left;
+	text-align: right;
+	line-height:16px;
+	width:150px;
+	padding:1px 0px 0px 0px;
+}
+/*输入框*/
+.txt_right_input{
+	float:left; 
+	padding:0px 0px 0px 10px;
+}
+
+/**-------------------------------文本域部分---**/
+
+/*文本域外框*/
+.txt_txtarea{
+	height:130px; 
+	width:100%;
+	margin:0px;
+	padding:0px;
+	float:left;
+}
+
+/*文本域输文字控制*/
+.txt_txtarea_text{
+	float:left;
+	width:150px;
+	text-align:right;
+	line-height:16px;
+	padding:5px 0px 0px 0px;
+}
+/*文本域框*/
+.txt_txtarea_input{
+	float: left;
+	padding:5px 0px 0px 10px;
+	margin:0px;
+}
+
+/*页面中多行文本框默认属性控制*/
+.txt_txtarea_font{
+	border:1px solid #C0C2CF;
+	background-image: url(../images/txt_txtarea_bg.gif);
+	font-size: 12px;
+	background-color:#F3F6FA;
+	text-align:left;
+	padding-left:3px;
+	width:400px;
+}
+
+/* 页面中上传样式默认属性控制*/
+.txt_txtarea_input{
+	float:left; 
+	padding:0px 0px 0px 10px;
+}
+
+/* 页面中上传按钮样式默认属性控制 */
+.txt_upload_btn {
+	background:url(../images/txt_btn_bg.gif);
+	border:1px solid;
+	cursor: hand;
+	height:20px;
+	font-size: 12px;
+	color: #000;
+	border-top-color: #BDD0D3;
+	border-right-color: #7FBCE0;
+	border-bottom-color: #7FBCE0;
+	border-left-color: #BDD0D3;
+}
+
+/**-------------------------------按钮部分---***/
+
+/*按钮外框设置*/
+.txt_btn{
+	margin:5px 2px 0px 2px;
+	padding:0px;
+}
+
+/*按钮样式设置*/
+.txt_btn_a{
+	background:url(../images/txt_botton_bg.gif);
+	border:1px solid;
+	cursor: hand;
+	height:20px;
+	font-size: 12px;
+	color: #564032;
+	border-top-color: #9F9F9F;
+	border-right-color: #9F9F9F;
+	border-bottom-color: #9F9F9F;
+	border-left-color: #9F9F9F;
+}
+
+/*--------------------其他-------------------------*/
+
+/*页面中文本框默认属性控制*/
+.txt{
+	border:1px solid #C0C2CF;
+	background-image: url(../images/txt_input_bg.gif);
+	font-size: 12px;
+	font-family: Arial,宋体,微软雅黑,helvertica,sans-serif;
+	height:15px;
+}
+
+/*页面中复选框默认属性控制*/
+.checkbox{
+	text-decoration: none;
+	background-image: url(../images/txt_checkbox_bg.gif);
+	height:15px;
+	width:15px;
+	padding:0px;
+	margin:0px;
+}
+
+/*页面中下拉框默认属性控制*/
+.select{
+	font-size: 12px;
+	font-family: Arial,宋体,微软雅黑,helvertica,sans-serif;
+}
+
+/* 提示、警告字体颜色属性控制*/
+span{
+	color:#F00;
+}

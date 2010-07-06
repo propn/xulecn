@@ -1,0 +1,102 @@
+/************************  同望科技css控制文件 *************************/
+
+/**-------------------------------公共部分---**/
+
+/*统一控制全局的字体和内容水平对齐方式，所有body、table的下级节点都应用这些属性，如下级节点需要不同的字体和对齐方式，则单独修改*/
+body,table,td,th{
+   FONT-SIZE: 12px; FONT-FAMILY: 宋体,微软雅黑,helvertica,sans-serif; font-weight:normal;
+   text-align:center;
+   }
+	
+/*去掉所有图片的默认1px的边框属性*/
+img{
+   border:0px;
+   }
+
+/*去掉链接虚线边框属性*/
+
+
+/* 框架页背景颜色控制*/
+body{
+   scrollbar-face-color:#EBF1F9;
+   scrollbar-shadow-color: #91B7E8;
+   scrollbar-highlight-color: #FFFFFF;
+   scrollbar-3dlight-color: #F0F5FB;
+   scrollbar-darkshadow-color: #53749C;
+   scrollbar-track-color: #D0E3F9;
+   scrollbar-arrow-color: #53749C;
+   margin:0px;
+   padding:0px;
+   background-image:url(../images/common/frame_main_bg.gif);
+}
+   
+   
+/**-------------------------------foot部分---**/
+
+	
+/*foot数据字体默认属性控制*/ 	
+.foot-font-date{ 
+    font-color: #0857C1;
+    font-weight:normal;
+   	}
+	
+/*foot英文字体默认属性控制*/ 	
+.foot-font-Eng{ 
+    font-size: 10px;
+    font-color: #000;
+    font-weight:normal;
+	FONT-FAMILY: Arial,宋体,微软雅黑,helvertica,sans-serif; font-weight:normal;
+   	}
+	
+/*foot链接属性控制*/ 	
+A.foot-link:link,A.foot-link:visited{
+   FONT-SIZE: 11px; COLOR: #000; FONT-FAMILY: Arial,宋体,微软雅黑,helvertica,sans-serif; font-weight:normal; 
+   text-decoration:none;
+   font-weight:bold;
+   color:#0857C1;
+   }
+A.foot-link:hover {
+   FONT-SIZE: 12px; COLOR: #000; FONT-FAMILY: Arial,宋体,微软雅黑,helvertica,sans-serif; font-weight:normal; 
+   text-decoration:none;
+   font-weight:bold;
+   color:#0857C1;
+   }
+/*foot页脚区重构布局*/ 
+.foot_wrap {
+	height:27px;
+	text-align:left;
+	background:url(../images/foot_bg.gif);
+}
+.foot_wrap p {
+	margin:0;
+	padding:9px;
+	padding-bottom:0;
+}
+/*foot左边ico图标*/ 
+.foot_wrap .ico {
+	float:left;
+	margin:-2px 15px 0 0;
+}
+/*foot左边各项*/ 
+.foot_wrap .left {
+	float:left;
+	width:650px;
+}
+.foot_wrap .left ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.foot_wrap .left li {
+	float:left;
+	padding:0 17px;
+	background:url(../images/foot_line2.gif) no-repeat;
+}
+/*foot右边版权*/ 
+.foot_wrap .right {
+	float:right;
+}
+
+
+/**----------------------------修改完成----------------------------**/
+

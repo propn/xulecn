@@ -1,0 +1,225 @@
+/************************  同望科技css控制文件 *************************/
+
+
+/**-------------------------------公共部分---**/
+
+/*统一控制全局的字体和内容水平对齐方式，所有body的下级节点都应用这些属性，如下级节点需要不同的字体和对齐方式，则单独修改*/
+body{
+	font-family: Arial,宋体,helvertica,sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	text-align:center;
+}
+	
+/*去掉所有图片的默认1px的边框属性*/
+img{
+	border:0px;
+}
+
+/* 页面滚动条颜色控制*/
+body{
+	scrollbar-face-color:#EBF1F9;
+	scrollbar-shadow-color: #91B7E8;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-3dlight-color: #F0F5FB;
+	scrollbar-darkshadow-color: #53749C;
+	scrollbar-track-color: #D0E3F9;
+	scrollbar-arrow-color: #53749C;
+	margin:0px;
+	padding:0px;
+	background-image:url(../images/filter_main_bg.gif);
+}
+
+/**-------------------------------标题部分---**/
+
+/*标题的属性控制以及外层控制*/
+.filter_head_frame{
+	background: url(../images/filter_head_bg.gif);
+	width: auto;
+	height:34px;
+	margin:0px;
+	padding:5px 15px 0px 15px;
+}
+
+/*页面头部标题区域的控制*/	
+.filter_head_title{
+	background: url(../images/filter_head_ico.gif) no-repeat 0 0;
+	float:left;
+	margin:0px;
+	padding:5px 0px 0px 30px;
+	font-size:12px;
+	font-weight:bold;
+	color:#3F5393;
+	height:20px;
+}
+
+/*页面头部按钮区域控制*/
+.filter_head_btn{
+	background:url(../images/filter_head_btn.gif);
+	border:1px solid;
+	height:20px;
+	font-size:12px;
+	color: #000;
+	border-top-color: #D4D3D3;
+	border-right-color: #B4B4B4;
+	border-bottom-color: #B4B4B4;
+	border-left-color: #D4D3D3;
+	float:right;
+	margin:2px 0px 0px 0px;
+}
+
+/*------------------过滤区域控制------------*/
+
+/*过滤的外层控制*/
+.filter-wraper{
+	margin-top:5px; 
+	margin-left:2px; 
+	margin-right:2px;
+	padding-left:5px;
+}
+
+/* 过滤条件字体默认属性控制*/
+.filter-font{
+	font-size:12px;
+	font-weight:bold;
+	color: #000;
+}
+
+/**-------------------------------表格部分---**/
+
+/*页面主体的外层控制*/
+.fliter_table{
+   margin-top:5px; 
+   margin-left:2px; 
+   margin-right:2px;
+}
+
+/*页面主体内容，含数据列表、翻页属性控制*/
+.fliter_table_frame{
+   padding:1px;
+   width:100%;
+   border:1px solid #CAD0E4;
+   border-collapse:collapse;
+   white-space:nowrap;
+}
+
+/*页面数据列的表格属性控制*/
+.fliter_table_frame td,.fliter_table_frame thead th,.fliter_table_frame tfoot th{
+   padding:2px;
+   border:1px solid #E9EBF5;
+   white-space:nowrap;
+}
+
+/*页面数据列的表格属性控制*/
+.fliter_table_header{
+	padding:2px;
+	height:21px;
+	background: url(../images/filter_table_title.gif);
+    font-size:12px;
+    color:#000;
+}
+ 
+/*页面表格奇、偶行及鼠标悬停行的背景颜色属性控制*/
+.tr_even,.tr_odd{
+	height:18px;
+	font-size:12px;
+	color:#4c4c4c;
+}
+      
+.tr_even{background-color:#fff;}
+.tr_odd{background-color:#F9FAFC;}
+.tr_mouseover{background-color:#ECEEF0;}
+
+/*页面特殊的左对齐属性控制*/
+.fliter_align_left{text-align:left;}
+
+/**-------------------------------页脚部分--------------**/
+
+/*页脚的外层控制*/
+.filter_foot_wraper{
+	margin:5px 2px 0px 2px; 
+	height:25px;
+	width: auto;
+	background:url(../images/filter_pages_bg.gif);
+	border:1px solid #CAD0E4;
+}
+/*页脚翻页部分的外层控制*/
+.filter_menu{
+	list-style:none;
+	display:inline;
+	float:left;
+	margin:0px 0px 0px 10px;
+	padding:0px;
+	height:25px;
+	width:500px;
+}
+/*页脚翻页部分单个元素控制*/
+.filter_menu li{
+	display: inline;
+	margin:0px 3px 0px 0px;
+	width:auto;
+	float:left;
+	height:25px;
+	line-height:27px;
+}
+/*页脚翻页部分输入页码元素控制*/
+.filter_menu input{
+	margin:3px auto;
+	height:auto;
+}
+/*页脚翻页部分每页显示多少条元素控制*/
+.filter_menu select{
+	margin:2px auto;
+	height:auto;
+}
+
+/**-------------------------------链接部分---**/
+
+/* 链接默认属性控制 */
+A:link,A:visited,A:hover {
+   font-size:12px;
+   color:#076DF8;
+   text-decoration:none;
+   font-weight:normal;
+   }
+
+/* 列表部分链接默认属性控制 */
+A.a1:link,A.a1:visited {
+   font-size:12px;
+   text-decoration:none;
+   font-weight:normal;
+   color:#496BDD;
+   }
+A.a1:hover {
+   font-size:12px;
+   text-decoration:underline;
+   font-weight:normal;
+   color:#6778B1;
+   }
+   
+/**-------------------------------字体部分---**/
+
+/* 字体默认属性控制*/
+.font{   
+   padding-left:0px;
+   font-size:12px;
+   font-weight:normal;
+   color:#000;
+   }
+
+/**-------------------------------文本域部分---**/
+
+/*页面中文本框默认属性控制*/
+.filter_txt{
+	border:1px solid #C0C2CF;
+	background-image: url(../images/filter_txt_bg.GIF);
+	font-size: 12px;
+	font-family: Arial,宋体,微软雅黑,helvertica,sans-serif;
+	height:15px;
+}
+   
+/* 提示、警告字体颜色属性控制 */
+b{
+	color:#F00;
+}
+/**----------------------------修改完成----------------------------**/

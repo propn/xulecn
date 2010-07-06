@@ -1,0 +1,39 @@
+/************************  同望科技css控制文件 *************************/
+/*统一控制全局的字体和内容水平对齐方式，所有body、table的下级节点都应用这些属性，如下级节点需要不同的字体和对齐方式，则单独修改*/
+body,table,td,th{ FONT-SIZE: 12px; FONT-FAMILY: Arial,宋体,微软雅黑,helvertica,sans-serif; font-weight:normal; text-align:center; }
+
+/*去掉所有图片的默认1px的边框属性控制*/
+img{ border:0px; }
+
+/* 页面背景颜色属性控制*/
+body { scrollbar-face-color: #F5F6F6; scrollbar-shadow-color: #E9EEF3; scrollbar-highlight-color: #FFFFFF; scrollbar-3dlight-color: #F6F6F7; scrollbar-darkshadow-color: #AEAFB0; scrollbar-track-color: #F6F7F7; scrollbar-arrow-color: #C3C4C4; background: #b3bac9; }
+
+/*页面中文本框默认属性控制*/
+.txt{ border:1px solid #C0C2CF; background: url(../images/txt_bg.gif); height: 20px; font-size: 12px; font-family: Arial,宋体,微软雅黑,helvertica,sans-serif; }
+
+/*页面中字体默认属性控制*/
+.font{ FONT-SIZE: 12px;COLOR: #444444; font-weight:normal; }
+
+/*页面中单选框默认属性控制*/
+.radio{ cursor: text; border: 0px solid #C1C1C1; text-decoration: none; }
+
+/*页面中复选框默认属性控制*/
+.checkbox{ text-decoration: none; border:0px solid #C0C2CF; }
+
+/*字体链接默认属性控制 */
+A.login-link:link,A.login-link:visited,A.login-link:hover{ font-size:12px; text-decoration:none; font-weight:normal; color:#444; }
+
+/*登录区重构布局 */
+.login {width: 918px; height:560px; position:absolute; top:50%; left:50%; margin:-280px 0 0 -459px; background:url(login_07.gif) no-repeat bottom; }
+.login_title { height:45px; background: url(../images/login_01.gif); }
+.login_title span{ float:right; color: #594879; margin: 23px 33px 0 0; }
+.login_content { float:left; background:url(../images/login_wrap.gif) repeat-y; padding:0 23px 0 15px; }
+.login_left { float:left; width:529px; }
+.login_right { float:left; width:351px; height:467px; background:url(../images/login_04.gif); }
+.login_log { width: 255px; margin:220px auto 0; text-align:left; }
+.login_log p { padding:8px 0; margin:0; }
+.login_log .title { font-size:15px; font-weight:bold; background:url(../images/login_bg.gif) repeat-x bottom; padding:13px 0; margin:0; }
+.login_log .btn { text-align:center; margin:0; }
+.login .bottom { float:left; }
+
+/**----------------------------修改完成----------------------------**/

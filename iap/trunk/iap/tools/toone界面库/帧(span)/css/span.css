@@ -1,0 +1,13 @@
+/**-------------------------------帧部分----------------------------**/
+.span_frame{
+	height:47%;
+	width:7px;
+	margin:0px;
+	padding:0px;
+}
+.span_middle{
+	background: url(../images/span_ico_left.gif);
+	height:46px;
+	width:6px;
+}
+/**-------------------------------完成----------------------------**/

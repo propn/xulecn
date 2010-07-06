@@ -1,0 +1,160 @@
+﻿/************************  同望科技css控制文件 *************************/
+
+/**-------------------------------公共部分-------------------------------**/
+
+/*统一控制全局的字体和内容水平对齐方式，所有body、table的下级节点都应用这些属性，如下级节点需要不同的字体和对齐方式，则单独修改*/
+body{
+   FONT-SIZE: 12px; FONT-FAMILY: Arial,宋体,微软雅黑,helvertica,sans-serif; 
+   text-align:center;
+   padding:0px;
+   margin:0px;
+   }
+	
+/*去掉所有图片的默认1px的边框属性控制*/
+img{
+   border:0px;
+   }
+
+   
+/* 页面背景颜色属性控制*/
+body {
+	scrollbar-face-color: #F5F6F6;
+	scrollbar-shadow-color: #E9EEF3;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-3dlight-color: #F6F6F7;
+	scrollbar-darkshadow-color: #AEAFB0;
+	scrollbar-track-color: #F6F7F7;
+	scrollbar-arrow-color: #C3C4C4;
+}
+
+/**------------选择登陆页面------------**/
+
+/*外框位和大小置定义*/
+.choose{
+	position:absolute;
+	top:20%;
+	left:23%;
+	width:700px;
+	height:400px;
+}
+/*顶部左侧图片位置大小定义*/
+.choose_left_top{
+	background:url(../images/choose_bg1.gif);
+	width:27px;
+	height:52px;
+	float:left;
+}
+/*顶部中间图片位置大小定义*/
+.choose_center_top{
+	background: url(../images/choose_bg2.gif);
+	width:646px;
+	height:52px;
+	float:left;
+}
+/*顶部右侧图片位置大小定义*/
+.choose_right_top{
+	background:url(../images/choose_bg3.gif);
+	width:26px;
+	height:52px;
+	float:left;
+}
+/*内容区域图片位置大小定义*/
+.choose_Content_bg{
+	background:  url(../images/choose_content_bg.gif);
+	width:700px;
+	height:300px;
+}
+/*脚部左侧区域图片位置大小定义*/
+.choose_left_foot{
+	background:url(../images/choose_bg6.gif);
+	height:117px;
+	width:27px;
+	float:left;
+}
+/*脚部中间区域图片位置大小定义*/
+.choose_center_foot{
+	background:url(../images/choose_bg7.gif);
+	width:646px;
+	height:117px;
+	float:left;
+}
+/*脚部右侧区域图片位置大小定义*/
+.choose_right_foot{
+	background:url(../images/choose_bg8.gif);
+	width:26px;
+	height:117px;
+	float:left;
+}
+
+/**------------内容标题区域设置------------**/
+
+/*内容区外框大小定义*/
+.choose_txt{
+	margin:auto;
+	width:600px;
+	height:250px;
+}
+/*内容区标题定义*/
+.choose_title{
+	background:url(../images/choose_ico2.gif) no-repeat center left;
+	width:500px;
+	height:20px;
+	padding:2px 20px;
+	line-height:20px;
+	font-size:12px;
+	font-weight:bold;
+	float:left;
+	text-align:left;
+}
+/*内容区副标题定义*/
+.choose_title1{
+	background:url(../images/choose_ico3.gif) no-repeat center left;
+	width:150px;
+	height:20px;
+	padding:2px 25px;
+	line-height:20px;
+	font-size:12px;
+	float:left;
+	text-align:left;
+}
+/*内容区副标题链接定义*/
+.choose_title1 a{
+	color:#018EF0;
+	text-decoration:none;
+}
+.choose_title1 a:hover{
+	color:#10449A;
+	text-decoration:none;
+}
+
+/**------------内容区域设置------------**/
+
+.choose_link{
+	margin: auto;
+	padding:0px;
+	height:25px;
+	width:570px;
+	text-align:left;
+	float:left;
+	line-height:25px;
+}
+.choose_ul{
+	list-style:none;
+	display:inline;
+}
+.choose_li{
+	display: inline;
+	background:url(../images/choose_ico4.gif) no-repeat center left;
+	padding:0px 15px;
+	margin:0px 11px;
+}
+.choose_li a{
+	color:#999;
+	text-decoration:none;
+}
+.choose_li a:hover {
+	color:#000;
+	text-decoration:none;
+}
+
+/**-------------------------------完成-------------------------------**/

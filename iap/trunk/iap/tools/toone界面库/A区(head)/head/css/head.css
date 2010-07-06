@@ -1,0 +1,149 @@
+/************************  同望科技css控制文件 *************************/
+
+/**-------------------------------公共部分---**/
+
+/*统一控制全局的字体和内容水平对齐方式，所有body、table的下级节点都应用这些属性，如下级节点需要不同的字体和对齐方式，则单独修改*/
+body,table,td,th{
+   FONT-SIZE: 12px; FONT-FAMILY: 宋体,微软雅黑,helvertica,sans-serif; font-weight:normal;
+   text-align:center;
+   }
+	
+/*去掉所有图片的默认1px的边框属性*/
+img{
+   border:0px;
+   }
+
+/*去掉链接虚线边框属性*/
+
+
+/* 框架页背景颜色控制*/
+body{
+   scrollbar-face-color:#EBF1F9;
+   scrollbar-shadow-color: #91B7E8;
+   scrollbar-highlight-color: #FFFFFF;
+   scrollbar-3dlight-color: #F0F5FB;
+   scrollbar-darkshadow-color: #53749C;
+   scrollbar-track-color: #D0E3F9;
+   scrollbar-arrow-color: #53749C;
+   margin:0px;
+   padding:0px;
+   background-image:url(../images/common/frame_main_bg.gif);
+}
+
+
+
+
+/**-------------------------------head部分---**/
+   
+/*head_font默认字体属性控制*/
+.head-font{  
+   font-size:12px; 
+   color:#363C61;
+   font-weight:bold; 
+   	}
+   
+/* head_link链接默认属性控制 */
+A.head-link:link,A.head-link:visited{
+   font-size:12px;
+   text-decoration:none;
+   font-weight:normal;
+   color:#000;
+   }
+A.head-link:hover {
+   font-size:12px;
+   text-decoration:none;
+   color:#183B82;
+   }
+      
+/* head_link2链接默认属性控制 */
+A.head-link2:link,A.head-link2:visited{
+   font-size:12px;
+   text-decoration:none;
+   font-weight:normal;
+   color:#4B527D;
+   }
+A.head-link2:hover {
+   font-size:12px;
+   text-decoration:none;
+   font-weight:normal;
+   color:#000;
+   }
+/*head页头区重构布局*/
+.head_top {
+	width:100%;
+	height:49px;
+	background:url(../images/head_bg.gif) repeat-x;
+}
+
+/*logo标志*/
+.head_top .logo {
+	float:left;
+	width:500px;
+	height:49px;
+	background:url(../images/head_sytstem.jpg) no-repeat;
+}
+
+/*右上角菜单*/
+.head_top .right {
+	float:right;
+	background:url(../images/head_bg4.gif) repeat-x;
+}
+.head_top .right .l {
+	float:left;
+}
+.head_top .right .r {
+	float:left;
+	width:300px;
+}
+.head_top ul,.head_nav ul  {
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+.head_top li {
+	float:left;
+	background:url(../images/head_ico.gif) no-repeat;
+	line-height:19px;
+	padding: 0 13px;
+}
+/*日期显示*/
+.head_top .date {
+	clear:both;
+	margin:0;
+	padding-top:5px;
+}
+
+/*nav导航部分*/
+.head_nav {
+	width:100%;
+	clear:both;
+	height:31px;
+	background:url(../images/head_hmenu_bg.gif) repeat-x;
+}
+/*nav导航默认背景色属性控制*/
+.head_nav li {
+	float:left;
+	background:url(../images/head_hmenu_line.gif) no-repeat right;
+	line-height:32px;
+	padding: 0 24px;
+}
+/*nav导航选中背景色属性控制*/   
+.head_nav .select {
+   color:#FFF;
+   font-weight:bold;
+   background:url(../images/head_hmenu_select_bg.gif) repeat-x scroll 0 0;
+}.head_nav .r {
+	float:right;
+}
+
+/*头底部背景*/ 
+.head_footbg {
+	width:100%;
+	clear:both;
+	height:7px;
+	background:url(../images/head_bg2.gif) repeat-x;
+}   
+
+
+/**----------------------------修改完成----------------------------**/
+

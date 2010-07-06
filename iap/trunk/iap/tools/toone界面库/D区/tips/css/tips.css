@@ -1,0 +1,127 @@
+/************************  同望科技css控制文件 *************************/
+
+
+/**-------------------------------公共部分---**/
+
+/*统一控制全局的字体和内容水平对齐方式，所有body的下级节点都应用这些属性，如下级节点需要不同的字体和对齐方式，则单独修改*/
+body{
+	font-family: Arial,宋体,helvertica,sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	text-align:center;
+}
+	
+/*去掉所有图片的默认1px的边框属性*/
+img{
+	border:0px;
+}
+
+/*页面滚动条颜色控制*/
+body{
+	scrollbar-face-color:#EBF1F9;
+	scrollbar-shadow-color: #91B7E8;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-3dlight-color: #F0F5FB;
+	scrollbar-darkshadow-color: #53749C;
+	scrollbar-track-color: #D0E3F9;
+	scrollbar-arrow-color: #53749C;
+	margin:0px;
+	padding:0px;
+	background-image: url(../images/tips_main_bg.gif);
+}
+
+/**----------------------页面外框定位------------------------**/
+.tips_frame{
+	margin:100px auto;
+	padding:0px;
+	width:454px;
+	height:250px;
+}
+
+.tips_head{
+	background:url(../images/tips_head_bg.gif);
+	height:38px;
+	width:450px;
+	border-left:1px solid #aeabd3;
+	border-right:1px solid #aeabd3;
+	float:left;
+}
+
+.tips_head img{
+	float:left;
+}
+
+/* 主标题字体加粗属性控制 */
+.tips_text {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 15px;
+	COLOR: #FB7E04;
+	float:left;
+	margin:10px 0px 0px 5px;
+}
+
+/**-----------------------------------------------------**/
+
+.tips_projection{
+	width:2px;
+	height:238px;
+	float: right;
+	background-color:#dedcde;
+}
+
+/**-----------------------------------------------------**/
+
+.tips_content{
+	background:url(../images/tips_content.gif);
+	width:450px;
+	height:200px;
+	float:left;
+	border-left:1px solid #aeabd3;
+	border-right:1px solid #aeabd3;
+	border-bottom:1px solid #aeabd3;
+}
+
+/* 大标题字体属性控制 */
+.tips_font {
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 13px;
+	COLOR: #FB7E04;
+	margin:30px 0px 0px 0px;
+}
+
+/* 提示黑色字体属性控制 */
+.tips_Error {
+	width:400px;
+	FONT-WEIGHT: normal; 
+	FONT-SIZE: 12px; 
+	COLOR: #000;
+	margin:0px;
+	padding:10px 0px 30px 30px;
+	float:left;
+	text-align:left;
+	line-height:30px;
+}
+
+/*按钮属性设置*/
+.tips_btn_a{
+	background: url(../images/tips_btn_bg.gif);
+	border:1px solid;
+	height:20px;
+	font-size: 12px;
+	color: #564032;
+	border-top-color: #9F9F9F;
+	border-right-color: #9F9F9F;
+	border-bottom-color: #9F9F9F;
+	border-left-color: #9F9F9F;
+	margin:auto;
+}
+
+/**-----------------------------------------------------**/
+
+.tips_bottom{
+	width:450px;
+	height:2px;
+	float:left;
+	background-color:#dedcde;
+	font-size:0px;
+}

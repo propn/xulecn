@@ -1,0 +1,136 @@
+/************************  同望科技css控制文件 *************************/
+
+/**-------------------------------公共部分---**/
+
+/*统一控制全局的字体和内容水平对齐方式，所有body、table的下级节点都应用这些属性，如下级节点需要不同的字体和对齐方式，则单独修改*/
+body,table,td,th{
+   FONT-SIZE: 12px; FONT-FAMILY: 宋体,微软雅黑,helvertica,sans-serif; font-weight:normal;
+   text-align:center;
+   }
+	
+/*去掉所有图片的默认1px的边框属性*/
+img{
+   border:0px;
+   }
+
+/*去掉链接虚线边框属性*/
+
+
+/* 框架页背景颜色控制*/
+body{
+   scrollbar-face-color:#EBF1F9;
+   scrollbar-shadow-color: #91B7E8;
+   scrollbar-highlight-color: #FFFFFF;
+   scrollbar-3dlight-color: #F0F5FB;
+   scrollbar-darkshadow-color: #53749C;
+   scrollbar-track-color: #D0E3F9;
+   scrollbar-arrow-color: #53749C;
+   margin:0px;
+   padding:0px;
+   background-image:url(../images/common/frame_main_bg.gif);
+}
+
+
+
+/**-------------------------------menu部分---**/
+
+/*menu的外层控制*/
+.menu_wrap{
+	margin:0 0 0 3px;
+	height:100%;
+	text-align:left;
+	background:#FFF;
+	overflow:hidden;
+}
+
+/*menu背景色属性控制*/
+.menu-bg{
+	background: url(../images/menu_bg.gif);
+   	}  
+/*menu_link默认字体链接默认属性控制 */
+A.menu-link:link,A.menu-link:visited,A.menu-link:hover{
+   font-size:12px;
+   text-decoration:none;
+   font-weight:normal;
+   color:#000;
+   }
+A.menu-link:hover {
+   font-size:12px;
+   text-decoration:none;
+   font-weight:normal;
+   color:#7886BF;
+   }
+    
+/*menu_link2选中字体链接默认属性控制 */
+A.menu-link2:link,A.menu-link2:visited,A.menu-link2:hover{
+   font-size:12px;
+   text-decoration:none;
+   font-weight:normal;
+   color:#7886BF;
+   }
+/*menu重构布局 */
+.menu_top {
+	width:100%;
+	height:14px;
+	margin:0;
+	background:url(../images/menu_close2.gif) repeat-x;
+}
+.menu_top .left {
+	float:left;
+	margin-left:-1px;
+}
+.menu_top .right {
+	float:right;
+}
+.menu_top .close {
+	float:right;
+	margin-top:4px;
+}
+.menu_content {
+	height:100%;
+	border:#8094ad solid 1px;
+	border-top:0;
+	border-bottom:0;
+}
+.menu_title {
+	background:url(../images/menu_row_bg.gif) repeat-x;
+	margin:0;
+	height:22px;
+	padding-left:6px;
+	font-weight:bold;
+}
+.menu_menus {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.menu_menus li {
+	padding:7px 13px;
+}
+.menu_menus .selected {
+	background:url(../images/menu_row_selected.gif) repeat-x;
+	color:#FFF;
+	font-weight:bold;
+}
+.menu_menus .over {
+	background:#F7F7FE;
+}
+.menu_menu {
+	margin:0;
+	padding:0;
+	list-style:none;
+	position:absolute;
+	bottom:0;
+	border-bottom:#8094ad solid 1px;
+	width:97.5%;
+	_width:100%;
+}
+.menu_menu li {
+	padding:6px;
+	font-weight:bold;
+	background:url(../images/menu_row_bg2.gif) repeat-x;
+}
+
+
+/**----------------------------修改完成----------------------------**/
+

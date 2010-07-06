@@ -1,0 +1,236 @@
+/************************  同望科技css控制文件 *************************/
+
+
+/**-------------------------------公共部分---**/
+
+/*统一控制全局的字体和内容水平对齐方式，所有body的下级节点都应用这些属性，如下级节点需要不同的字体和对齐方式，则单独修改*/
+body{
+	font-family: Arial,宋体,helvertica,sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	text-align:center;
+}
+	
+/*去掉所有图片的默认1px的边框属性*/
+img{
+	border:0px;
+}
+
+/*页面滚动条颜色控制*/
+body{
+	scrollbar-face-color:#EBF1F9;
+	scrollbar-shadow-color: #91B7E8;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-3dlight-color: #F0F5FB;
+	scrollbar-darkshadow-color: #53749C;
+	scrollbar-track-color: #D0E3F9;
+	scrollbar-arrow-color: #53749C;
+	margin:0px;
+	padding:0px;
+	background-image: url(../images/search_main_bg.gif);
+}
+
+/**-------------------------------标题部分---**/
+
+/*标题的属性控制以及外层控制*/
+.search_title{
+	background:url(../images/search_bg.gif) repeat 0 0;
+	width: auto;
+	height:34px;
+	margin:0px;
+	padding:5px 0px 0px 15px;
+}
+
+/*标题的控制*/	
+.search_title_text{
+	background:url(../images/search_icon_title.gif) no-repeat 0 0;
+	float:left;
+	margin:0px;
+	padding:5px 0px 0px 30px;
+	font-size:12px;
+	font-weight:bold;
+	color:#3F5393;
+	height:20px;
+}
+
+/**-------------------------------查询区外框控制---**/
+
+/*输入列表的背景色和边框色*/   
+.search_frame{
+	margin:0px 2px; 
+	padding:0px;
+	width:auto;
+	height:280px;
+	border:1px solid #C6D4EA;
+	background-color:#F3F6FA;
+}
+
+/*输入列表内边框色以及高度*/ 
+.search_Within{
+	border:1px solid #FFF;
+	padding:0px;
+	width:auto;
+	height:280px;
+}
+
+/*快速查询和高级查询外边框定义*/
+.search_radio_box{
+	margin:0px;
+	padding:5px 0px 0px 0px;
+	height:45px;
+	width: auto;
+}
+/*查询图标定义*/
+.search_ico{
+	float:left;
+}
+
+/*快速查询位置定义*/
+.search-font{
+	float:left;
+	line-height:45px;
+	font-weight:bold;
+}
+
+/**-------------------------------左侧输入区域控制---**/
+
+/*左侧输入区域的宽度居左设置*/
+.search_form_left{
+	width:40%;
+	height:120px;
+	float:left;
+	padding:0px;
+
+}
+
+/*左侧输入区域文字控制*/
+.search_form_text{
+	float:left;
+	width:200px;
+	text-align:right;
+	line-height:16px;
+	padding:3px 0px 0px 0px;
+}
+
+/*左侧输入框*/
+.search_input_left{
+	float:left; 
+	padding:0px 0px 0px 10px;
+	margin:0px;
+}
+
+/**-------------------------------右侧输入区域控制---**/
+
+/*右侧输入区域的宽度居左设置*/
+.search_form_right{
+	width:50%;
+	height:120px;
+	float:right;
+	padding:0px;
+}
+
+/*右侧输入框*/
+.search_input_right{
+	float:left; 
+	padding:0px 0px 0px 10px;
+	margin:0px;
+}
+
+/*右侧输入区域文字控制*/
+.search_form_text_right{
+	float:left;
+	width:100px;
+	text-align:right;
+	line-height:16px;
+	padding:3px 0px 0px 0px;
+}
+
+/**-------------------------------查询按钮---**/
+/*按钮区域控制*/
+.search_btn{
+	margin:0px;
+	padding:0px;
+	height:25px;
+	width:100%;
+	float:left;
+}
+
+/*按钮控制*/
+.search_btn_a{	
+	background: url(../images/search_btn_bg.gif);
+	border:1px solid;
+	cursor: hand;
+	height:20px;
+	font-size: 12px;
+	color: #564032;
+	border-top-color: #9F9F9F;
+	border-right-color: #9F9F9F;
+	border-bottom-color: #9F9F9F;
+	border-left-color: #9F9F9F;
+}
+
+/**-------------------------------查询条件显示---**/
+/*查询外框属性控制*/
+.search_table{
+	margin:0px;
+	padding:0px;
+	width:100%;
+	height:auto;
+	float:left;
+}
+
+/*查询边框属性控制*/
+.search_table_frame{
+   padding:1px;
+   width:100%;
+   height:auto;
+   border:1px solid #CAD0E4;
+   border-collapse:collapse;
+   white-space:nowrap;
+}
+
+/*查询标题属性控制*/
+.search_table_header{
+	padding:2px;
+	height:21px;
+	background: url(../images/search_table_title.gif);
+    font-size:12px;
+    color:#000;
+}
+
+/*查询内容区域属性控制*/
+.search_tr_even{
+	background-color:#fff;
+	height:50px;
+	font-size:12px;
+	color: #CCC;
+}
+
+/*查询内容区域的表格属性控制*/
+.search_table td,.search_table thead th,.search_table tfoot th{
+   padding:2px;
+   border:1px solid #E9EBF5;
+   white-space:nowrap;
+}
+
+/**-------------------------------其他区域控制---**/
+
+/*页面中文本框默认属性控制*/
+.search_txt{
+	border:1px solid #C0C2CF;
+	background-image: url(../images/search_txt_bg.GIF);
+	font-size: 12px;
+	font-family: Arial,宋体,微软雅黑,helvertica,sans-serif;
+	height:15px;
+}
+
+/* 提示、警告字体颜色属性控制*/
+b{
+	color:#F00;
+}
+
+/*页面中下拉框默认属性控制*/
+.search_select{
+	font-size: 12px;
+	font-family: Arial,宋体,微软雅黑,helvertica,sans-serif;
+}
