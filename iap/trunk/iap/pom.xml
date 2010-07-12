@@ -8,12 +8,12 @@
 	<name>IAP</name>
 	<packaging>pom</packaging>
 	
-	<!-- ÏîÄ¿µÄ±àÂëÓÃUTF£­8-->
+	<!-- é¡¹ç›®çš„ç¼–ç ç”¨UTFï¼8-->
 	<properties>
 	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<!-- Ô´´úÂë¹ÜÀí -->
+	<!-- æºä»£ç ç®¡ç† -->
 	<scm>
 		<connection>scm:svn://xulecn.googlecode.com/svn/iap/trunk</connection>
 		<developerConnection>
@@ -23,7 +23,7 @@
 		<url>svn://xulecn.googlecode.com/svn/iap/trunk</url>
 	</scm>
 
-	<!-- ¿ª·¢ÈËÔ±ÒÔ¼°½ÇÉ«¶¨Òå -->
+	<!-- å¼€å‘äººå‘˜ä»¥åŠè§’è‰²å®šä¹‰ -->
 	<developers>
 		<developer>
 			<name>lei</name>
@@ -32,8 +32,8 @@
 			<organization>iap</organization>
 			<roles>
 				<role>PM</role>
-				<role>Éè¼ÆÈËÔ±</role>
-				<role>¿ª·¢ÈËÔ±</role>
+				<role>è®¾è®¡äººå‘˜</role>
+				<role>å¼€å‘äººå‘˜</role>
 			</roles>
 		</developer>
 	</developers>
