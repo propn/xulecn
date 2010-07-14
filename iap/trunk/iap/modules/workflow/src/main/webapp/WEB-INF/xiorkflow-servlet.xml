@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"><!--  - Application context definition for "springapp" DispatcherServlet.  -->
+<beans>
+
+	<!-- ========================= DEFINITIONS OF PUBLIC CONTROLLERS ========================= -->
+
+	<bean id="defaultHandlerMapping"
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+
+	<bean name="/addprocess.xf" class="name.xio.xiorkflow.web.AddProcess">
+		<property name="processService">
+			<ref bean="processService" />
+		</property>
+	</bean>
+
+	<bean name="/deleteprocess.xf"
+		class="name.xio.xiorkflow.web.DeleteProcess">
+		<property name="processService">
+			<ref bean="processService" />
+		</property>
+	</bean>
+
+	<bean name="/getprocess.xf" class="name.xio.xiorkflow.web.GetProcess">
+		<property name="processService">
+			<ref bean="processService" />
+		</property>
+	</bean>
+
+	<bean name="/listprocess.xf" class="name.xio.xiorkflow.web.ListProcess">
+		<property name="processService">
+			<ref bean="processService" />
+		</property>
+	</bean>
+
+	<bean name="/updateprocess.xf"
+		class="name.xio.xiorkflow.web.UpdateProcess">
+		<property name="processService">
+			<ref bean="processService" />
+		</property>
+	</bean>
+
+</beans>

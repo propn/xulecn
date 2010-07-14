@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!--
+	- Application context definition for Xite's business layer.
+	- Contains bean references to the transaction manager and to the DAOs in
+	- dataAccessContext-local/jta.xml (see web.xml's "contextConfigLocation").
+-->
+<beans>
+
+	<bean id="webAppRootKey" class="java.lang.String">
+		<constructor-arg value="xiorkflow.root" />
+	</bean>
+
+	<bean id="baseDirName" class="java.lang.String">
+		<constructor-arg value="processes" />
+	</bean>
+
+	<bean id="fileType" class="java.lang.String">
+		<constructor-arg value="xml" />
+	</bean>
+
+	<bean id="defaultFileName" class="java.lang.String">
+		<constructor-arg value="default" />
+	</bean>
+
+	<!-- ========================= BUSINESS OBJECT DEFINITIONS ======================== -->
+
+	<bean id="processService"
+		class="name.xio.xiorkflow.domain.logic.ProcessServiceImpl">
+		<property name="webAppRootKey">
+			<ref bean="webAppRootKey" />
+		</property>
+		<property name="baseDirName">
+			<ref bean="baseDirName" />
+		</property>
+		<property name="defaultFileName">
+			<ref bean="defaultFileName" />
+		</property>
+		<property name="fileType">
+			<ref bean="fileType" />
+		</property>
+	</bean>
+
+</beans>
