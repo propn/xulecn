@@ -27,7 +27,7 @@
 	<!-- ========================= BUSINESS OBJECT DEFINITIONS ======================== -->
 
 	<bean id="processService"
-		class="name.xio.xiorkflow.domain.logic.ProcessServiceImpl">
+		class="org.leixu.iap.workflow.domain.logic.ProcessServiceImpl">
 		<property name="webAppRootKey">
 			<ref bean="webAppRootKey" />
 		</property>

@@ -7,33 +7,33 @@
 	<bean id="defaultHandlerMapping"
 		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
 
-	<bean name="/addprocess.xf" class="name.xio.xiorkflow.web.AddProcess">
+	<bean name="/addprocess.xf" class="org.leixu.iap.workflow.web.AddProcess">
 		<property name="processService">
 			<ref bean="processService" />
 		</property>
 	</bean>
 
 	<bean name="/deleteprocess.xf"
-		class="name.xio.xiorkflow.web.DeleteProcess">
+		class="org.leixu.iap.workflow.web.DeleteProcess">
 		<property name="processService">
 			<ref bean="processService" />
 		</property>
 	</bean>
 
-	<bean name="/getprocess.xf" class="name.xio.xiorkflow.web.GetProcess">
+	<bean name="/getprocess.xf" class="org.leixu.iap.workflow.web.GetProcess">
 		<property name="processService">
 			<ref bean="processService" />
 		</property>
 	</bean>
 
-	<bean name="/listprocess.xf" class="name.xio.xiorkflow.web.ListProcess">
+	<bean name="/listprocess.xf" class="org.leixu.iap.workflow.web.ListProcess">
 		<property name="processService">
 			<ref bean="processService" />
 		</property>
 	</bean>
 
 	<bean name="/updateprocess.xf"
-		class="name.xio.xiorkflow.web.UpdateProcess">
+		class="org.leixu.iap.workflow.web.UpdateProcess">
 		<property name="processService">
 			<ref bean="processService" />
 		</property>
