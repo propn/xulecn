@@ -43,5 +43,6 @@
 		<module>modules/core</module>
 		<module>modules/web</module>
 		<module>modules/fastm</module>
+		<module>modules/workflow</module>
 	</modules>
 </project>
