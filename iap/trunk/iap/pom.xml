@@ -44,5 +44,6 @@
 		<module>modules/web</module>
 		<module>modules/fastm</module>
 		<module>modules/workflow</module>
+		<module>modules/workflowDesigner</module>
 	</modules>
 </project>
