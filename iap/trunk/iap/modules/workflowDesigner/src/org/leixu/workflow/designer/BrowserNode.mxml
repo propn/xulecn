@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MyCanvas  xmlns="org.leixu.workflow.designer.*" xmlns:mx="http://www.adobe.com/2006/mxml" initialize="init()" width="250" height="130">
+	  <mx:Style>  
+           
+         .gradient  
+         {  
+             border-style: solid;  
+             border-thickness: 0; 
+             fillcolors: #0000FF, #00FF99;  
+             corner-radius: 20;
+             drop-shadow-enabled: true;
+			backgroundAlpha: 1.0;
+			backgroundColor: #C8C8C8; 
+			 shadowDirection: "right";
+
+         }  
+         .NodeTitle{
+         	border-style: solid;
+         	border-width:"1px";   
+         	border-color:"Red";
+			fontFamily: "Courier New";
+			fontSize: 23;
+			fontWeight: normal;
+			color: #FEFEFE;
+         }
+           
+     </mx:Style>  
+	<mx:Script>
+		<![CDATA[
+			import mx.containers.TitleWindow;
+			import mx.controls.DateField;
+			import mx.controls.ComboBox;
+			import mx.core.UIComponent;
+			import org.leixu.workflow.designer.tools.UICreate;
+			import mx.controls.TextInput;
+			import mx.controls.Alert;
+			private function init():void{
+				this.Title=TitleLabel;
+				this.dbclick=Mydbclick;
+				this.graphics.beginGradientFill(GradientType.LINEAR,[0x00000,0xfffff],[1.0,0.5],[0,255]);
+				//Alert.show("fsad");
+			}
+			var uiCreate:UICreate;
+			private function Mydbclick(e:MouseEvent):void{
+				if(uiCreate==null){
+					uiCreate=new UICreate(this.parent.parent as UIComponent,this.oh);
+				}
+				ReTitle(e);
+				ReUrl(e);
+				ReMakeDate(e);
+				ReMakeMan(e);
+				ShowUrlToIE(e);
+			}
+			private function ReTitle(e:MouseEvent):void{
+				if(EventToUI(e,TitleLabel)){
+					var titleInput:TextInput = new TextInput();
+					titleInput.x=TitleLabel.x+oh.x;
+					titleInput.y=TitleLabel.y+oh.y;
+					titleInput.text=TitleLabel.text;
+					titleInput.setStyle("fontSize","12");
+					titleInput.width=TitleLabel.width;
+					titleInput.height=TitleLabel.height;
+					this.parent.parent.addChild(titleInput);
+					titleInput.setFocus();
+					titleInput.addEventListener(KeyboardEvent.KEY_DOWN,function keyDown(e:KeyboardEvent):void{
+						if(e.keyCode==13){
+							var txt:TextInput=e.currentTarget as TextInput;
+							TitleLabel.text=txt.text;
+							txt.parent.removeChild(txt);
+						}
+					});
+					titleInput.addEventListener(FocusEvent.FOCUS_OUT,function out(e:FocusEvent):void{
+						var txt:TextInput=e.currentTarget as TextInput;
+						TitleLabel.text=txt.text;
+						txt.parent.removeChild(txt);
+					});
+					
+				}
+			}
+			private function ReUrl(e:MouseEvent):void{
+				if(EventToUI(e,urlAddress)){
+					var txt:TextInput = uiCreate.createText(new TextInput(),urlAddress,urlAddress,function down(e:KeyboardEvent){
+						if(e.keyCode==13){
+							var txt:UIComponent=e.currentTarget as UIComponent;
+							url=txt["text"];
+							urlAddress.text="URL地址："+(url+"               ").substr(0,15)+"...";
+							txt.parent.removeChild(txt);
+						}
+					},function out(e:FocusEvent){
+						var txt:UIComponent=e.currentTarget as UIComponent;
+						url=txt["text"];
+					    urlAddress.text="URL地址："+(url+"               ").substr(0,15)+"...";
+						txt.parent.removeChild(txt);
+					}) as TextInput;
+					txt.setStyle("fontSize","10");	
+					txt.text=url;		
+					//NewMan.text=(url+"          ").substring(0,10)+"...";		
+				}
+			}
+			private function ReMakeDate(e:MouseEvent):void{
+				if(EventToUI(e,MakeDate)){
+					var dateInpu:DateField = uiCreate.createText(new DateField(),MakeDate,MakeDate,function down(e:KeyboardEvent){
+						if(e.keyCode==13){
+			
+							var txt:UIComponent=e.currentTarget as UIComponent;
+							MakeDate.text="制作时间："+txt["text"];
+							txt.parent.removeChild(txt);
+						}
+					},function out(e:FocusEvent){
+						var txt:UIComponent=e.currentTarget as UIComponent;
+					    MakeDate.text="制作时间："+txt["text"];
+						txt.parent.removeChild(txt);
+					}) as DateField;
+					dateInpu.text=MakeDate.text.substring(5);
+				}
+			}
+			private var url:String="";
+			private function ReMakeMan(e:MouseEvent):void{
+				if(EventToUI(e,MakeMan)){
+					var NewMan:TextInput = uiCreate.createText(new TextInput(),MakeMan,MakeMan,function down(e:KeyboardEvent){
+						if(e.keyCode==13){
+							var txt:UIComponent=e.currentTarget as UIComponent;
+							url=
+							MakeMan.text="制作人："+txt["text"];
+							txt.parent.removeChild(txt);
+						}
+					},function out(e:FocusEvent){
+						var txt:UIComponent=e.currentTarget as UIComponent;
+					    MakeMan.text="制作人："+txt["text"];
+						txt.parent.removeChild(txt);
+					}) as TextInput;
+					NewMan.text=MakeMan.text.substring(4);
+				}
+			}
+			private function ShowUrlToIE(e:MouseEvent):void{
+				if(EventToUI(e,ie)){
+					
+					ExternalInterface.call('window.open',this.url,'_blank');
+				}
+			}
+		]]>
+	</mx:Script>
+	<mx:Canvas styleName="gradient" cornerRadius="10" left="22" top="16" right="5" bottom="5" id="PanelMain" backgroundColor="#F2F898">
+		<mx:HRule left="21" right="21" top="43" strokeColor="#2E2E06"/>
+			</mx:Canvas>
+	<mx:Canvas height="35" cornerRadius="11" backgroundColor="#A6BD09" borderStyle="solid" left="0" top="1" right="32" borderColor="#584F06" borderThickness="1" backgroundAlpha="0.75">
+		<mx:Label text="页面名称：" styleName="NodeTitle" height="25" left="10" top="6" right="10" id="TitleLabel" fontSize="18" color="#000000"/>
+	</mx:Canvas>
+	<mx:Canvas x="0" y="0" width="100%" height="100%">
+		<mx:Label id="urlAddress" text="URL地址:" fontSize="12" left="26" top="37" right="16"/>
+		<mx:Image id="ie" source="Access/IE.png" width="52" height="43" right="10" bottom="22" alpha="0.77"/>
+		<mx:Label text="制作人：" fontSize="12" fontFamily="Arial" id="MakeMan" left="24" top="91" right="99"/>
+		<mx:Label text="制作时间：" fontSize="12" fontFamily="Arial" id="MakeDate" left="24" top="71" right="99"/>
+	</mx:Canvas>
+</MyCanvas>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" close="CloseMe(event)" layout="absolute" width="400" height="300" showCloseButton="true" title="服务配置" fontFamily="Courier New" fontSize="12">
+	<mx:Script>
+		<![CDATA[
+			import mx.events.CloseEvent;
+			private function CloseMe(e:CloseEvent):void{
+				this.parent.removeChild(this);
+			}
+		
+		]]>
+	</mx:Script>
+	<mx:Label x="10" y="10" text="服务类型："/>
+	<mx:ComboBox x="73" y="7">
+		<mx:Array>
+			<mx:Object label="WebService" />
+			<mx:Object label="Class" />
+			<mx:Object label="Servlet" />
+		</mx:Array>
+	</mx:ComboBox>
+	<mx:Label x="10" y="39" text="服务地址："/>
+	<mx:ComboBox x="73" y="36" width="297" editable="true"></mx:ComboBox>
+	<mx:Label x="10" y="68" text="服务说明："/>
+	<mx:TextArea x="73" y="68" width="297" height="102"/>
+	<mx:Button x="44" y="193" label="确定" click="CloseMe(null)" />
+	<mx:Button x="262" y="193" label="取消" click="CloseMe(null)" />
+</mx:TitleWindow>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * 作者：雷啸
+ * 联系方式：
+ * 	QQ：466253283
+ * 	Email：leixiaodmm@tom.com
+ * 	电话：13888586664
+ * 注释：
+ *  所有节点的父对象
+ * 版权
+ *  如果要转载 或用于商业使用 请先征得作者同意 谢谢合作
+ **/
+ -->
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="300">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.controls.AdvancedDataGrid;
+			import com.roguedevelopment.objecthandles.ObjectHandles;
+			import mx.core.UIComponent;
+			import mx.controls.Label;
+			private var _input:Array= new Array();
+			private var _output:Array = new Array();
+			protected var Title:Label=null;
+			protected var dbclick:Function=null;
+			protected var oh:ObjectHandles=null;
+			public function get NodeTitle():Label{
+				return Title;
+			}
+			public function set NodeTitle(e:Label):void{
+				this.Title.text=e.text;
+			}
+			public function getInput():Array{
+				return _input;
+			}
+			public function AddInput(e:Line):void{
+				_input.push(e);
+			}
+			public function getOutput():Array{
+				return _output;
+			}
+			public function AddOutput(e:Line):void{
+				_output.push(e);
+			}
+			public function setDBClick(e:MouseEvent):void{
+				oh=e.currentTarget as ObjectHandles;
+				if(dbclick!=null){
+					dbclick(e);
+				}
+			}
+			public function setKeyDown(e:KeyboardEvent):void{
+				oh=e.currentTarget as ObjectHandles;
+				if(e.keyCode==46){
+					oh.parent.removeChild(oh);
+				}
+			}
+
+			protected function EventToUI(e:MouseEvent,v:UIComponent):Boolean{
+				var oh:ObjectHandles= e.currentTarget as ObjectHandles;
+				
+				if(e.localX>v.x && e.localY>v.y){
+					if(e.localX<v.x+v.width && e.localY<v.y+v.height){
+						return true;
+					}
+				}
+				return false;
+			}
+		
+		]]>
+	</mx:Script>
+</mx:Canvas>

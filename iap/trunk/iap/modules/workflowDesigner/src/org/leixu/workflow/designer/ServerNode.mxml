@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MyCanvas  xmlns="org.leixu.workflow.designer.*" xmlns:mx="http://www.adobe.com/2006/mxml" initialize="init()" width="234" height="166">
+	  <mx:Style>  
+           
+         .gradient  
+         {  
+             border-style: solid;  
+             border-thickness: 0; 
+             fillcolors: #0000FF, #00FF99;  
+             corner-radius: 20;
+             drop-shadow-enabled: true;
+			backgroundAlpha: 1.0;
+			backgroundColor: #C8C8C8; 
+			 shadowDirection: "right";
+
+         }  
+         .NodeTitle{
+         	border-style: solid;
+         	border-width:"1px";   
+         	border-color:"Red";
+			fontFamily: "Courier New";
+			fontSize: 23;
+			fontWeight: normal;
+			color: #FEFEFE;
+         }
+           
+     </mx:Style>  
+	<mx:Script>
+		<![CDATA[
+			import org.leixu.workflow.designer.tools.UICreate;
+			import mx.controls.DateField;
+			import mx.core.UIComponent;
+			import mx.skins.halo.TitleBackground;
+			import org.leixu.workflow.designer.tools.ServerTitleWindow;
+			import mx.containers.TitleWindow;
+			import mx.controls.TextInput;
+			import mx.controls.Alert;
+			var uiCreate:UICreate;
+			private function init():void{
+				this.Title=TitleLabel;
+				this.dbclick=Mydbclick;
+				//PanelMain.setStyle("backgroundColor","[0xCCCCCC,0x00ff00]");
+			}
+			private function Mydbclick(e:MouseEvent):void{
+				if(uiCreate==null){
+					uiCreate=new UICreate(this.parent.parent as UIComponent,this.oh);
+				}
+				BtnShow(e);
+				ReTitle(e);
+				ReMakeDate(e);
+				ReMakeMan(e);
+			}
+			private var ServerWin:TitleWindow=null;
+			private function BtnShow(e:MouseEvent):void{
+				if(EventToUI(e,ServerBtn)){
+					if(ServerWin==null){
+						ServerWin=new ServerTitleWindow();
+					}
+					ServerWin.addEventListener(MouseEvent.MOUSE_UP,function Mouser_Up(e:MouseEvent):void{
+						Sprite(e.currentTarget).stopDrag();
+					});
+					ServerWin.addEventListener(MouseEvent.MOUSE_DOWN,function Mouse_Down(e:MouseEvent):void{
+						Sprite(e.currentTarget).startDrag();
+					});
+					
+					this.parent.parent.addChild(ServerWin);
+				}
+			}
+			private function ReTitle(e:MouseEvent):void{
+				if(EventToUI(e,TitleLabel)){
+					var titleInput:TextInput=uiCreate.createText(new TextInput(),TitleLabel,TitleLabel) as TextInput;
+					titleInput.text=TitleLabel.text;
+				}
+			}
+			private function ReMakeDate(e:MouseEvent):void{
+				if(EventToUI(e,MakeDate)){
+					var dateInput:DateField = uiCreate.createText(new DateField(),MakeDate,MakeDate,function down(e:KeyboardEvent){
+						if(e.keyCode==13){
+			
+							var txt:UIComponent=e.currentTarget as UIComponent;
+							MakeDate.text="制作时间："+txt["text"];
+							txt.parent.removeChild(txt);
+						}
+					},function out(e:FocusEvent){
+						var txt:UIComponent=e.currentTarget as UIComponent;
+					    MakeDate.text="制作时间："+txt["text"];
+						txt.parent.removeChild(txt);
+					}) as DateField;
+					dateInput.text=MakeDate.text.substring(5);
+				}
+			}
+			private function ReMakeMan(e:MouseEvent):void{
+				if(EventToUI(e,MakeMan)){
+					var NewMan:TextInput = uiCreate.createText(new TextInput(),MakeMan,MakeMan,function down(e:KeyboardEvent){
+						if(e.keyCode==13){
+							var txt:UIComponent=e.currentTarget as UIComponent;
+							MakeMan.text="制作人："+txt["text"];
+							txt.parent.removeChild(txt);
+						}
+					},function out(e:FocusEvent){
+						var txt:UIComponent=e.currentTarget as UIComponent;
+					    MakeMan.text="制作人："+txt["text"];
+						txt.parent.removeChild(txt);
+					}) as TextInput;
+					NewMan.text=MakeMan.text.substring(4);
+				}
+			}
+			
+		
+		]]>
+	</mx:Script>
+	
+	<mx:Canvas styleName="gradient" id="PanelMain" cornerRadius="10" left="22" top="16" right="5" bottom="5" backgroundColor="#B4F5C3">
+		<mx:HRule left="21" right="21" top="43" strokeColor="#20528D"/>
+		
+	</mx:Canvas>
+	<mx:Canvas height="35" cornerRadius="11" backgroundColor="#0D8910" borderStyle="solid" left="0" top="1" right="32" borderColor="#00FF00" borderThickness="1" backgroundAlpha="0.75">
+		<mx:Label text="服务名称：" styleName="NodeTitle" height="25" left="10" top="6" right="10" id="TitleLabel" fontSize="18"/>
+	</mx:Canvas>
+	<mx:Canvas  left="0" top="0" right="0" bottom="0">
+		<mx:Label text="制作人：" fontSize="12" fontFamily="Arial" id="MakeMan" left="24" top="91" right="99"/>
+		<mx:Label text="制作时间：" fontSize="12" fontFamily="Arial" id="MakeDate" left="24" top="71" right="99"/>
+		<mx:Image id="ServerBtn" source="Access/Server.png" width="78" right="10" bottom="10" top="62"/>
+	</mx:Canvas>
+</MyCanvas>

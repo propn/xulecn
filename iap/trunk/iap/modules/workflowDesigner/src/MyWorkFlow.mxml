@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" initialize="init()" layout="absolute" xmlns:designer="org.leixu.workflow.designer.*" backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#FFFFFF, #FFFFFF]" xmlns:ns2="flexlib.containers.*" xmlns:ns3="flexlib.controls.*" xmlns:objecthandles="com.roguedevelopment.objecthandles.*">
+	<mx:Script>
+		<![CDATA[
+			import org.leixu.workflow.designer._MyClassDesign;
+			//对应的类
+			var _this:_MyClassDesign= null;
+			
+			private function init():void{
+				_this= new _MyClassDesign(this);
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Panel width="204" layout="absolute" cornerRadius="0" left="0" top="0" bottom="0">
+		<ns2:VAccordion x="0" y="0" width="100%" height="100%" fontFamily="Courier New" fontSize="12">
+		 
+		 <mx:VBox label="工具列表" width="100%">  
+		  <mx:Button click="_this.NewStartNode(event)" label="创建开始节点" width="100%" height="24" cornerRadius="0"/>
+		  <mx:Button click="_this.NewStepNode(event)" label="创建步骤节点" width="100%" height="24" cornerRadius="0"/>
+		  <mx:Button click="_this.NewServerNode(event)" label="创建服务节点" width="100%" height="24" cornerRadius="0"/>
+		  <mx:Button click="_this.NewBrowserNode(event)" label="创建页面节点" width="100%" height="24" cornerRadius="0"/>
+		  <mx:Button click="_this.NewStopNode(event)" label="创建结束节点" width="100%" height="24" cornerRadius="0"/>
+			
+		 </mx:VBox>  
+		 <mx:VBox label="功能列表" width="100%">  
+ 			<mx:Button click="_this.NewLine(event)" label="创建连接线" width="100%" height="24" cornerRadius="0"/>
+ 			<mx:Button click="_this.Save(event)" label="保存" width="100%" height="24" cornerRadius="0"/>
+ 			<mx:Button click="_this.Load(event)" label="加载" width="100%" height="24" cornerRadius="0"/>
+		 </mx:VBox>  
+		 <mx:VBox label="项目视图">  
+
+		 </mx:VBox>  
+		 
+
+		</ns2:VAccordion>
+
+	</mx:Panel>
+		<designer:MyMainPanel id="MainPanel" mouseDown="_this.DrModel(event)" left="203" top="0" right="0" bottom="0">
+		</designer:MyMainPanel>
+	
+</mx:Application>

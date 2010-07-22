@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MyCanvas  xmlns="org.leixu.workflow.designer.*" initialize="init()" xmlns:mx="http://www.adobe.com/2006/mxml" width="180" height="105">
+	<mx:Style>
+		.gradient  
+         {  
+             border-style: solid;  
+             border-thickness: 0; 
+             fillcolors: #0000FF, #00FF99;  
+             corner-radius: 20;
+             drop-shadow-enabled: true;
+			backgroundAlpha: 1.0;
+			backgroundColor: #C8C8C8; 
+			 shadowDirection: "right";
+
+         }
+	</mx:Style>
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Label;
+			import org.leixu.workflow.designer.tools.StopTitleWindow;
+			import mx.containers.TitleWindow;
+			private function init():void{
+				this.dbclick=Db_Click
+				this.Title = new Label();
+				this.Title.text="EndNode";
+			}
+			private function Db_Click(e:MouseEvent):void{
+				ShowStartRunWin(e);
+			}
+			private var Win:TitleWindow=null;
+			private function ShowStartRunWin(e:MouseEvent):void{
+				if(EventToUI(e,StopRunBtn)){
+					if(Win==null){
+						Win=new StopTitleWindow();
+					}
+					Win.addEventListener(MouseEvent.MOUSE_UP,function Mouser_Up(e:MouseEvent):void{
+						Sprite(e.currentTarget).stopDrag();
+					});
+					Win.addEventListener(MouseEvent.MOUSE_DOWN,function Mouse_Down(e:MouseEvent):void{
+						Sprite(e.currentTarget).startDrag();
+					});
+					
+					this.parent.parent.addChild(Win);
+				}
+			}
+		]]>
+	</mx:Script>
+	<mx:Canvas styleName="gradient" left="27" top="27" right="4" bottom="4" borderColor="#C8C8C8" backgroundColor="#E8B1B1" backgroundAlpha="1.0">
+	</mx:Canvas>
+	<mx:Image source="Access/Stop.PNG" id="StopRunBtn" alpha="0.75" width="71" height="65" left="0" top="0"/>
+	<mx:HRule left="51" top="51" right="26" strokeColor="#FF0000"/>
+</MyCanvas>

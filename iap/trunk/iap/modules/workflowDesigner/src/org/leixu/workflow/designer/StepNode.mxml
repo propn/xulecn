@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MyCanvas  xmlns="org.leixu.workflow.designer.*" xmlns:mx="http://www.adobe.com/2006/mxml" initialize="init()" width="200" height="140">
+	  <mx:Style>  
+           
+         .gradient  
+         {  
+             border-style: solid;  
+             border-thickness: 0; 
+             fillcolors: #0000FF, #00FF99;  
+             corner-radius: 20;
+             drop-shadow-enabled: true;
+			backgroundAlpha: 1.0;
+			backgroundColor: #C8C8C8; 
+			 shadowDirection: "right";
+
+         }  
+         .NodeTitle{
+         	border-style: solid;
+         	border-width:"1px";   
+         	border-color:"Red";
+			fontFamily: "Courier New";
+			fontSize: 23;
+			fontWeight: normal;
+			color: #FEFEFE;
+         }
+           
+     </mx:Style>  
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.TextInput;
+			import com.roguedevelopment.objecthandles.ObjectHandles;
+			import mx.controls.Alert;
+			private function init():void{
+				this.Title=TitleLabel;
+				this.dbclick=Mydbclick;
+			}
+			private function Mydbclick(e:MouseEvent):void{
+				if(EventToUI(e,TitleLabel)){
+					var titleInput:TextInput = new TextInput();
+					titleInput.x=TitleLabel.x+oh.x;
+					titleInput.y=TitleLabel.y+oh.y;
+					titleInput.text=TitleLabel.text;
+					titleInput.setStyle("fontSize","12");
+					titleInput.width=TitleLabel.width;
+					titleInput.height=TitleLabel.height;
+					this.parent.parent.addChild(titleInput);
+					titleInput.setFocus();
+					titleInput.addEventListener(KeyboardEvent.KEY_DOWN,function keyDown(e:KeyboardEvent):void{
+						if(e.keyCode==13){
+							var txt:TextInput=e.currentTarget as TextInput;
+							TitleLabel.text=txt.text;
+							txt.parent.removeChild(txt);
+						}
+					});
+					titleInput.addEventListener(FocusEvent.FOCUS_OUT,function out(e:FocusEvent):void{
+						var txt:TextInput=e.currentTarget as TextInput;
+						TitleLabel.text=txt.text;
+						txt.parent.removeChild(txt);
+					});
+					
+				}
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Canvas styleName="gradient" cornerRadius="10" left="22" top="16" right="5" bottom="5" backgroundColor="#9FB5DA">
+		<mx:HRule left="21" right="21" top="43" strokeColor="#20528D"/>
+			</mx:Canvas>
+	<mx:Canvas height="35" cornerRadius="11" backgroundColor="#3F84CF" borderStyle="solid" left="0" top="1" right="32" borderColor="#20528D" borderThickness="1" backgroundAlpha="0.75">
+		<mx:Label text="节点名称：" id="TitleLabel" styleName="NodeTitle" height="25" left="10" top="6" right="10" fontSize="18"/>
+	</mx:Canvas>
+	<mx:Image x="0" y="35" width="80" height="82" source="Access/Step.png" alpha="0.75"/>
+</MyCanvas>

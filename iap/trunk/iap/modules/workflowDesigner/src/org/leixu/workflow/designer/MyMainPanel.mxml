@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas  xmlns:mx="http://www.adobe.com/2006/mxml" initialize="init()" resize="ClassPanel_Resize()" width="400" height="300">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			private function init():void{
+				
+			}
+			private function ClassPanel_Resize():void{
+				drPanel();
+			}
+			private var _width:int;
+			private var _height:int;
+			public function drPanel():void{
+				if(_width!=this.width || _height!=this.height){
+					this.graphics.clear();
+					this.graphics.beginFill(0x000000);
+					for(var i:int=1;(i+=10)<this.width;){
+						for(var j:int=1;(j+=10)<this.height;){
+							this.graphics.drawEllipse(i,j,1,1);
+						}
+					}
+					this.graphics.endFill();
+					this._height=this.height;
+					this._width=this.width;
+				}
+			}
+		]]>
+	</mx:Script>
+</mx:Canvas>
