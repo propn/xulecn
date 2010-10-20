@@ -95,25 +95,20 @@ public class ServiceLocator {
 		try {
 			catchListMap = (Map) ic.lookup(jndiName);
 		} catch (NamingException ex) {
-			// Debug.print("未能获取缓存列表" + jndiName + "：" + ex.toString(), this);
 		}
 		return catchListMap;
 	}
 
 	/**
-	 * setCatchList
 	 * 
 	 * @param jndiName
-	 *            String
 	 * @param catchListMap
-	 *            Map
-	 * @return boolean
+	 * @return
 	 */
 	public boolean setCatchList(String jndiName, Map catchListMap) {
 		try {
 			ic.rebind(jndiName, catchListMap);
 		} catch (NamingException ex) {
-			// Debug.print("绑定缓存列表时出错：" + ex.toString(), this);
 			return false;
 		}
 		return true;

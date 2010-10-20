@@ -16,10 +16,8 @@ import javax.sql.DataSource;
  * 
  */
 public class ConnectionContext {
-	// public static final String DEFAULT_JNDINAME = "jdbc/CRM";
-	public static final String DEFAULT_JNDINAME = Constants.DEFAULT_DATASOURCE;
 
-	public static final String RUN_MODE = "develop";// develop 开发模式 product 生产模式
+	public static final String DEFAULT_JNDINAME = Constants.DEFAULT_DATASOURCE;
 
 	private static ThreadLocal connectionContext = new ConnectionContextThreadLocal();
 

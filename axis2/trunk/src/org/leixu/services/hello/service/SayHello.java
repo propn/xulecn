@@ -7,7 +7,7 @@
 
 package org.leixu.services.hello.service;
 
-import org.leixu.oa.person.model.Person;
+import org.leixu.oa.person.entity.Person;
 
 public class SayHello {
 	public String say(String name) {
