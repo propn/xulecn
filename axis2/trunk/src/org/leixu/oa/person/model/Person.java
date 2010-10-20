@@ -1,4 +1,4 @@
-package org.leixu.services.hello.service;
+package org.leixu.oa.person.model;
 
 public class Person {
 	private String name;

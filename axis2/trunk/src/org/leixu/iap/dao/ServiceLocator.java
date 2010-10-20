@@ -23,7 +23,7 @@ public class ServiceLocator {
 	// used to hold references to EJBHomes/JMS Resources for re-use
 	private Map cache = Collections.synchronizedMap(new HashMap());
 
-	private static ServiceLocator instance = new ServiceLocator();
+	private static final ServiceLocator instance = new ServiceLocator();
 
 	public static ServiceLocator getInstance() {
 		return instance;
@@ -33,7 +33,6 @@ public class ServiceLocator {
 		try {
 			ic = new InitialContext();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
