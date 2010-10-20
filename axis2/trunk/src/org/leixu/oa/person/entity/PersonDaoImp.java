@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.leixu.oa.person.model;
+package org.leixu.oa.person.entity;
 
 import java.util.List;
 

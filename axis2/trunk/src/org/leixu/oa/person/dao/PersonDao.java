@@ -5,7 +5,7 @@ package org.leixu.oa.person.dao;
 
 import java.util.List;
 
-import org.leixu.oa.person.model.Person;
+import org.leixu.oa.person.entity.Person;
 
 /**
  * @author lei

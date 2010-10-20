@@ -1,4 +1,4 @@
-package org.leixu.oa.person.model;
+package org.leixu.oa.person.entity;
 
 public class Person {
 	private String name;
