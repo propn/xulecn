@@ -1,0 +1,1 @@
+%AXIS2_HOME%/bin/java2wsdl -cp . -cn org.leixu.services.hello.service.SayHello -of SayHello.wsdl
