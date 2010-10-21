@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AntBasedCI" default="all">
+
+	<property name="default.target.dir" value="target" />
+	<property name="classes.dir" value="${default.target.dir}/classes" />
+	<property name="test.classes.dir" value="${default.target.dir}/test-classes" />
+	<property name="test.report.dir" value="${default.target.dir}/test-reports" />
+	<property name="lib.dir" value="${basedir}/lib" />
+	<property name="javadoc.dir" value="${default.target.dir}/apidocs" />
+
+	<property name="source.dir" value="src" />
+	<property name="test.source.dir" value="test" />
+
+	<property name="test.pattern" value="**/**Test.java" />
+
+	<!-- Coverage reports are deposited into these directories -->
+	<property name="cobertura.dir" value="${default.target.dir}/cobertura"/>
+	<!-- Instrumented classes are deposited into this directory -->
+	<property name="instrumented.dir" value="instrumented" />
+	
+	<path id="cobertura.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	
+	<taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
+	
+	<target name="clean">
+		<delete dir="${classes.dir}"/>
+		<delete dir="${test.classes.dir}"/>
+		<delete dir="${default.target.dir}"/>
+	</target>
+	
+	<target name="init" depends="clean">
+		<mkdir dir="${classes.dir}" />
+		<mkdir dir="${test.classes.dir}" />
+		<mkdir dir="${javadoc.dir}" />
+		<mkdir dir="${default.target.dir}"/>
+		<mkdir dir="${instrumented.dir}"/>		
+		<path id="build.classpath">
+			<fileset dir="${lib.dir}">
+				<include name="**/*.jar" />
+			</fileset>
+			<fileset dir="${default.target.dir}">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+	</target>
+	
+	<target name="compile-source" depends="init" description="compiles all .java files in source directory ">
+		<javac destdir="${classes.dir}" srcdir="${source.dir}" classpathref="build.classpath" />
+	</target>
+	
+	<target name="instrument" depends="compile-source">
+		<delete file="cobertura.ser"/>
+		<delete dir="${instrumented.dir}" />
+		
+		<!--Instrument the application classes, writing the instrumented classes into ${build.instrumented.dir}.-->
+		<cobertura-instrument todir="${instrumented.dir}">
+			<ignore regex="org.apache.log4j.*" />
+			<fileset dir="${classes.dir}">
+				<!-- Instrument all the application classes, but don't instrument the test classes.-->
+				<include name="**/*.class" />
+				<exclude name="**/*Test.class" />
+			</fileset>
+		</cobertura-instrument>
+	</target>
+		
+	<target name="jar" depends="instrument">
+		<jar jarfile="${default.target.dir}/${ant.project.name}.jar" basedir="${classes.dir}" />
+	</target>
+	
+	<target name="compile-tests" depends="jar" description="compiles all .java files in test directory ">
+		<javac destdir="${test.classes.dir}" srcdir="${test.source.dir}" classpathref="build.classpath" />
+	</target>
+
+	<target name="javadoc" depends="init">
+		<javadoc author="true" charset="gbk" classpathref="build.classpath" 
+			destdir="${javadoc.dir}" version="true" use="true" sourcepath="${source.dir}"></javadoc>
+	</target>
+	
+	<target name="test" depends="compile-tests" description="runs JUnit tests">
+		<mkdir dir="${test.report.dir}" />
+		<junit dir="${basedir}" printSummary="on" fork="true" haltonfailure="true">
+			<sysproperty key="basedir" value="${basedir}" />
+			<formatter type="xml" />
+			<classpath>
+				<path refid="build.classpath" />
+				<pathelement path="${test.classes.dir}" />
+				<pathelement path="${classes.dir}" />
+			</classpath>
+			<batchtest todir="${test.report.dir}">
+				<fileset dir="${test.source.dir}">
+					<include name="${test.pattern}" />
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+			
+	<target name="coverage-check">
+		<cobertura-check branchrate="40" totallinerate="100" />
+	</target>
+
+	<target name="coverage-report">
+		<cobertura-report srcdir="${source.dir}" destdir="${cobertura.dir}" format="html" />
+	</target>
+	
+	<target name="alternate-coverage-report">
+		<!--
+                Generate a series of HTML files containing the coverage
+                data in a user-readable form using nested source filesets.
+            -->
+		<cobertura-report destdir="${cobertura.dir}">
+			<fileset dir="${source.dir}">
+				<include name="**/*.java"/>
+			</fileset>
+		</cobertura-report>
+	</target>
+			
+	<target name="coverage" depends="jar,instrument,test,coverage-report,alternate-coverage-report"/>	
+	
+	<target name="pmd" depends="test">
+		<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="build.classpath"/>
+		<pmd>
+			<ruleset>rulesets/basic.xml</ruleset>
+			<ruleset>rulesets/braces.xml</ruleset>
+			<ruleset>rulesets/javabeans.xml</ruleset>
+			<ruleset>rulesets/unusedcode.xml</ruleset>
+			<ruleset>rulesets/strings.xml</ruleset>
+			<ruleset>rulesets/design.xml</ruleset>
+			<ruleset>rulesets/coupling.xml</ruleset>
+			<ruleset>rulesets/codesize.xml</ruleset>
+			<ruleset>rulesets/imports.xml</ruleset>
+			<ruleset>rulesets/naming.xml</ruleset>
+			<formatter type="xml" toFile="${default.target.dir}/pmd_report.xml" />
+			<fileset dir="${source.dir}">
+				<include name="**/*.java" />
+			</fileset>
+		</pmd>
+	</target>
+	
+	<target name="findbugs" depends="jar">
+		<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
+	    classpathref="build.classpath" />
+		<findbugs classpathref="build.classpath" pluginlist="${lib.dir}/coreplugin-1.0.jar"
+	    output="xml" outputFile="${default.target.dir}/findbugs.xml">
+			<sourcePath path="${source.dir}" />
+			<class location="${default.target.dir}/${ant.project.name}.jar" />
+		</findbugs>
+	</target>
+
+	<target name="all" depends="coverage,pmd,findbugs,javadoc" />
+	
+</project>

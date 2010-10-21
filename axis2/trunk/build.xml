@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="javadoc" name="VsopWeb">
+
+	<property file="build.properties" />
+
+	<path id="project.class.path">
+		<fileset dir="${libPath}">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement location="${testClass.dir}" />
+		<pathelement location="${classes.dir}" />
+	</path>
+
+	<target name="dateFormat">
+		<tstamp />
+		<!--
+		    	属性                说明                                                         例子
+		    DSTAMP        设置为当前日期，默认格式为yyyymmdd        20100511
+		    TSTAMP        设置为当前时间，默认格式为 hhmm             2108
+		    TODAY         设置为当前日期，带完整的月份                    May 11 2010
+		    -->
+		<echo message="${DSTAMP}" />
+		<echo message="${TSTAMP}" />
+		<echo message="${TODAY}" />
+		<tstamp>
+			<format property="DSTAMP" pattern="yyyy-MM-dd HH:mm:ss" />
+		</tstamp>
+	</target>
+
+	<target name="init" depends="dateFormat">
+
+		<delete failonerror="false" includeEmptyDirs="true">
+			<fileset dir="${build.dir}" />
+			<fileset dir="${testClass.dir}" />
+			<fileset dir="${classes.dir}" />
+		</delete>
+
+		<mkdir dir="${classes.dir}" />
+		<mkdir dir="${testClass.dir}" />
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${buildlog.dir}" />
+		<mkdir dir="${report.dir}" />
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${report.xml}" />
+		<mkdir dir="${report.html}" />
+		<mkdir dir="${dist.dir}" />
+
+	</target>
+
+
+	<target name="compile" depends="init">
+
+		<record name="${buildlog.dir}/build.txt" action="start" />
+
+		<javac destdir="${classes.dir}" memoryInitialSize="128m" source="1.5" target="1.5" encoding="utf-8" memoryMaximumSize="512m" fork="true" failonerror="true" debug="true">
+			<compilerarg line="-encoding UTF-8 " />
+			<compilerarg value="-Xlint:unchecked -Xlint:deprecation" />
+			<src path="${src.dir}" />
+			<classpath refid="project.class.path" />
+		</javac>
+
+		<javac destdir="${testClass.dir}" memoryInitialSize="128m" source="1.5" target="1.5" encoding="utf-8" memoryMaximumSize="512m" fork="true" failonerror="true" debug="true">
+			<compilerarg line="-encoding UTF-8 " />
+			<compilerarg value="-Xlint:unchecked -Xlint:deprecation" />
+			<src path="${testSrc.dir}" />
+			<classpath refid="project.class.path" />
+		</javac>
+
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}">
+				<include name="*.properties" />
+				<include name="*.xml" />
+			</fileset>
+		</copy>
+
+		<record name="${buildlog.dir}/build.txt" action="stop" />
+
+	</target>
+
+	<target name="jar" depends="compile">
+		<mkdir dir="${dist.dir}/${DSTAMP}" />
+		<jar destfile="${dist.dir}/${DSTAMP}/${ant.project.name}-${DSTAMP}.jar" basedir="${classes.dir}">
+			<manifest>
+				<!--<attribute name="Main-Class" value="${main-class}" />-->
+				<attribute name="Created-Date" value="${DSTAMP}-${TSTAMP}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="javadoc" depends="init">
+		<javadoc author="true" charset="utf-8" classpathref="project.class.path" destdir="${javadoc.dir}" version="true" use="true" sourcepath="${src.dir}">
+		</javadoc>
+	</target>
+
+	<target name="test" depends="jar">
+		<junit printsummary="yes" haltonfailure="no">
+			<classpath refid="project.class.path" />
+			<formatter type="xml" />
+			<batchtest fork="yes" todir="${report.xml}">
+				<fileset dir="${testSrc.dir}" includes="**/*Test.java" />
+			</batchtest>
+		</junit>
+
+		<junitreport todir="${report.html}">
+			<fileset dir="${report.xml}">
+				<include name="*.xml" />
+			</fileset>
+			<report format="frames" todir="${report.html}" />
+		</junitreport>
+
+		<jar jarfile="${dist.dir}/${DSTAMP}/${project.name}-test-${DSTAMP}.jar" basedir="${testClass.dir}" />
+
+		<jar jarfile="${dist.dir}/${DSTAMP}/report-${DSTAMP}.jar" basedir="${report.dir}" />
+
+	</target>
+
+
+	<target name="deploy" depends="test">
+
+		<war compress="false" destfile="${project.dir}/build/VsopWeb.war" webxml="${project.dir}/WebContent/WEB-INF/web.xml">
+			<zipfileset dir="${project.dir}/WebRoot">
+			</zipfileset>
+		</war>
+
+		<copy todir="${deploy.dir}">
+			<fileset dir="${project.dir}/build/">
+				<include name="*.war" />
+			</fileset>
+		</copy>
+
+	</target>
+
+</project>
