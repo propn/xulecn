@@ -48,7 +48,7 @@
 	</target>
 
 
-	<target name="compile" depends="init">
+	<target name="compile" depends="init,utf8">
 
 		<record name="${buildlog.dir}/build.txt" action="start" />
 
@@ -128,6 +128,14 @@
 			</fileset>
 		</copy>
 
+	</target>
+
+	<!-- 清除utf-8标记 -->
+	<target name="utf8">
+		<echo>清除utf-8标记</echo>
+		<java dir="./${classes.dir}" classname="UTF8Parser" fork="true" failonerror="true" maxmemory="128m">
+			<arg line="${src.dir}" />
+		</java>
 	</target>
 
 </project>
