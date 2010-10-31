@@ -1,0 +1,24 @@
+10-31 13:47:28 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "insert into News values('0',[*]'成功‘)"; SQL statement:
+insert into News values('0','成功‘) [42000-144]
+10-31 13:47:52 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "NEWS" already exists; SQL statement:
+  create   table   News(title varchar(10),content  varchar(255)) [42101-144]
+10-31 13:48:18 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "insert into News values('0',[*]'成功‘)"; SQL statement:
+insert into News values('0','成功‘) [42000-144]
+10-31 13:49:18 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "insert into News values('0',[*]'成功‘)"; SQL statement:
+insert into News values('0','成功‘) [42000-144]
+10-31 13:50:11 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "insert into News values('vafsaf',[*]'成功‘)"; SQL statement:
+insert into News values('vafsaf','成功‘) [42000-144]
+10-31 13:51:18 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "insert into News(title,content) values('vafsaf',[*]'成功‘)"; SQL statement:
+insert into News(title,content) values('vafsaf','成功‘) [42000-144]
+10-31 13:51:40 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "insert into News (title,content) values('vafsaf',[*]'aaa‘)"; SQL statement:
+insert into News (title,content) values('vafsaf','aaa‘) [42000-144]
+10-31 13:52:06 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "NEWS" not found; SQL statement:
+select title from News  [42102-144]
