@@ -3,6 +3,7 @@
     <wb-module deploy-name="axis2">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/testsrc"/>
         <property name="context-root" value="axis2"/>
         <property name="java-output-path" value="/axis2/build/classes"/>
     </wb-module>

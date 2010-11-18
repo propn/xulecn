@@ -14,7 +14,7 @@ public class ParamsUtils {
 			property.load(Thread.currentThread().getContextClassLoader()
 					.getResourceAsStream(Constants.PROPERTIES_FILE_NAME));
 		} catch (Exception e) {
-			logger.error(Constants.PROPERTIES_FILE_NAME + "加载失败！");
+			logger.error(Constants.PROPERTIES_FILE_NAME + "");
 		}
 	}
 

@@ -1,10 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="javadoc" name="VsopWeb">
+<?xml version="1.0" encoding="GBK"?>
+<project basedir="." default="pmd" name="VsopWeb">
 
 	<property file="build.properties" />
 
 	<path id="project.class.path">
 		<fileset dir="${libPath}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${buildlib}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${findbugs.home}/lib">
 			<include name="*.jar" />
 		</fileset>
 		<pathelement location="${testClass.dir}" />
@@ -14,10 +20,10 @@
 	<target name="dateFormat">
 		<tstamp />
 		<!--
-		    	å±žæ€§                è¯´æ˜Ž                                                         ä¾‹å­
-		    DSTAMP        è®¾ç½®ä¸ºå½“å‰æ—¥æœŸï¼Œé»˜è®¤æ ¼å¼ä¸ºyyyymmdd        20100511
-		    TSTAMP        è®¾ç½®ä¸ºå½“å‰æ—¶é—´ï¼Œé»˜è®¤æ ¼å¼ä¸º hhmm             2108
-		    TODAY         è®¾ç½®ä¸ºå½“å‰æ—¥æœŸï¼Œå¸¦å®Œæ•´çš„æœˆä»½                    May 11 2010
+		    	ÊôÐÔ                ËµÃ÷                                                         Àý×Ó
+		    DSTAMP        ÉèÖÃÎªµ±Ç°ÈÕÆÚ£¬Ä¬ÈÏ¸ñÊ½Îªyyyymmdd        20100511
+		    TSTAMP        ÉèÖÃÎªµ±Ç°Ê±¼ä£¬Ä¬ÈÏ¸ñÊ½Îª hhmm             2108
+		    TODAY         ÉèÖÃÎªµ±Ç°ÈÕÆÚ£¬´øÍêÕûµÄÔÂ·Ý                    May 11 2010
 		    -->
 		<echo message="${DSTAMP}" />
 		<echo message="${TSTAMP}" />
@@ -48,19 +54,19 @@
 	</target>
 
 
-	<target name="compile" depends="init,utf8">
+	<target name="compile" depends="init">
 
 		<record name="${buildlog.dir}/build.txt" action="start" />
 
-		<javac destdir="${classes.dir}" memoryInitialSize="128m" source="1.5" target="1.5" encoding="utf-8" memoryMaximumSize="512m" fork="true" failonerror="true" debug="true">
-			<compilerarg line="-encoding UTF-8 " />
+		<javac destdir="${classes.dir}" executable="${javac.dir}" source="${leve}" target="${leve}" encoding="${encoding}" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" failonerror="true" debug="true">
+			<compilerarg line="-encoding ${encoding}" />
 			<compilerarg value="-Xlint:unchecked -Xlint:deprecation" />
 			<src path="${src.dir}" />
 			<classpath refid="project.class.path" />
 		</javac>
 
-		<javac destdir="${testClass.dir}" memoryInitialSize="128m" source="1.5" target="1.5" encoding="utf-8" memoryMaximumSize="512m" fork="true" failonerror="true" debug="true">
-			<compilerarg line="-encoding UTF-8 " />
+		<javac destdir="${testClass.dir}" executable="${javac.dir}" source="${leve}" target="${leve}" encoding="${encoding}" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" failonerror="true" debug="true">
+			<compilerarg line="-encoding ${encoding}" />
 			<compilerarg value="-Xlint:unchecked -Xlint:deprecation" />
 			<src path="${testSrc.dir}" />
 			<classpath refid="project.class.path" />
@@ -87,11 +93,6 @@
 		</jar>
 	</target>
 
-	<target name="javadoc" depends="init">
-		<javadoc author="true" charset="utf-8" classpathref="project.class.path" destdir="${javadoc.dir}" version="true" use="true" sourcepath="${src.dir}">
-		</javadoc>
-	</target>
-
 	<target name="test" depends="jar">
 		<junit printsummary="yes" haltonfailure="no">
 			<classpath refid="project.class.path" />
@@ -108,7 +109,7 @@
 			<report format="frames" todir="${report.html}" />
 		</junitreport>
 
-		<jar jarfile="${dist.dir}/${DSTAMP}/${project.name}-test-${DSTAMP}.jar" basedir="${testClass.dir}" />
+		<jar jarfile="${dist.dir}/${DSTAMP}/${ant.project.name}-test-${DSTAMP}.jar" basedir="${testClass.dir}" />
 
 		<jar jarfile="${dist.dir}/${DSTAMP}/report-${DSTAMP}.jar" basedir="${report.dir}" />
 
@@ -130,12 +131,63 @@
 
 	</target>
 
-	<!-- æ¸…é™¤utf-8æ ‡è®° -->
-	<target name="utf8">
-		<echo>æ¸…é™¤utf-8æ ‡è®°</echo>
-		<java dir="./${classes.dir}" classname="UTF8Parser" fork="true" failonerror="true" maxmemory="128m">
-			<arg line="${src.dir}" />
-		</java>
+	<!--Java´úÂë¾²Ì¬·ÖÎö-->
+	<target name="pmd" depends="test">
+		<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="project.class.path" />
+		<pmd>
+			<ruleset>${testSrc.dir}/rulesets/basic.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/braces.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/javabeans.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/unusedcode.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/strings.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/design.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/coupling.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/codesize.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/imports.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/naming.xml</ruleset>
+			<formatter type="xml" toFile="${report.dir}/pmd_report.xml" />
+			<fileset dir="${src.dir}">
+				<include name="**/*.java" />
+			</fileset>
+		</pmd>
+	</target>
+
+
+	<!--´úÂëcopy¼ì²é-->
+	<target name="cpd">
+		<taskdef name="cpd" classname="net.sourceforge.pmd.cpd.CPDTask" classpathref="project.class.path" />
+		<!-- Ö¸Ã÷Êä³öÎÄ¼þºÍÅÐ¶ÏÊôÓÚcopy & pasteµÄ±ê×¼ -->
+		<cpd minimumTokenCount="10" outputFile="${report.dir}/cpd.txt">
+			<fileset dir="${src.dir}">
+				<include name="**/*.java" />
+			</fileset>
+		</cpd>
+	</target>
+
+	<!--findbugs-->
+	<target name="findbugs" depends="init">
+		<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" classpathref="project.class.path" />
+		<findbugs classpathref="project.class.path" home="${findbugs.home}" output="xml" outputFile="${report.dir}/findbugs.xml">
+			<sourcePath path="${src.dir}" />
+			<!-- 
+				<auxClasspath path="${basedir}/lib/Regex.jar" /> 
+			-->
+			<class location="${dist.dir}/${DSTAMP}/${ant.project.name}-${DSTAMP}.jar" />
+		</findbugs>
+		<xslt in="${report.dir}/findbugs.xml" out="${report.dir}/findbugs.xls" extension=".xls" style="${findbugs.home}\src\xsl\default.xsl">
+		</xslt>
+	</target>
+
+	<!--checkstyle-->
+	<target name="checkstyle" depends="init">
+		<taskdef name="checkstyle" classname="com.puppycrawl.tools.checkstyle.CheckStyleTask" classpathref="project.class.path" />
+		
+		<checkstyle config="${project.dir}/tools/checkstyle_zte.xml">
+			<fileset dir="${src.dir}" includes="**/*.java" />
+			<formatter type="xml" toFile="${report.dir}/checkstyle-report.xml" />
+		</checkstyle>
+		
+		<style in="${report.dir}/checkstyle-report.xml" out="${report.dir}/checkstyle-report.html" style="${checkstyle.home}/contrib/checkstyle-frames.xsl" />
 	</target>
 
 </project>
