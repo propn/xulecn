@@ -1,0 +1,99 @@
+<component tagname="spliter">
+
+<attach event="oncontentready" onevent="contentready()" />
+
+<script>
+							  
+	function contentready(){	  
+	  
+      var type = element.className;
+      
+      switch(type){
+        case "spliter_top":
+        case "spliter_top_folded":{
+          element.title = "向上折叠";
+          break;
+        }
+        case "spliter_left":
+        case "spliter_left_folded":{
+          element.title = "向左折叠";
+          break;
+        }
+        case "spliter_right":
+        case "spliter_right_folded":{
+          element.title = "向右折叠";
+          break;
+        }
+        case "spliter_bottom":
+        case "spliter_bottom_folded":{
+          element.title = "向下折叠";
+          break;
+        }
+        case "spliterDiv_top":
+        case "spliterDiv_left":
+        case "spliterDiv_right":
+        case "spliterDiv_bottom":{
+          element.onclick = spliter_onClick;
+          break;
+        }
+      }     
+      
+   	}
+   	
+   	function spliter_onClick(){  	  
+   	  var spliterDiv = event.srcElement;
+   	  var img = null;
+   	  if(spliterDiv.tagName=="IMG"){
+   	    img = spliterDiv;
+   	    spliterDiv = spliterDiv.parentElement;
+   	  }
+   	  else{
+   	    img = spliterDiv.childNodes[0];
+   	  }
+   	  if(spliterDiv){
+   	    switch(spliterDiv.className){
+   	      case "spliterDiv_top":{
+   	        var target = spliterDiv.parentElement.previousSibling;
+   	        if(target){
+   	          target.style.display = (target.style.display=="" ? "none" : "");
+   	        }
+   	        break;
+   	      }
+   	      case "spliterDiv_left":{
+   	        var target = spliterDiv.previousSibling;
+   	        if(target){
+   	          target.style.display = (target.style.display=="" ? "none" : "");
+   	        }
+   	        break;   	      
+   	      }	 
+    	  case "spliterDiv_right":{
+   	        var target = spliterDiv.nextSibling;
+   	        if(target){
+   	          target.style.display = (target.style.display=="" ? "none" : "");
+   	        }
+   	        break;   	      
+   	      }	  	      
+   	      case "spliterDiv_bottom":{
+   	        var target = spliterDiv.parentElement.nextSibling;
+   	        if(target){
+   	          target.style.display = (target.style.display=="" ? "none" : "");
+   	        }
+   	        break;
+   	      }   	              	     
+   	    }
+   	  } 
+   	  
+   	  if(img){
+   	    if(img.className.indexOf("_folded")!=-1){
+   	      img.className=img.className.split("_folded")[0];
+   	    }
+   	    else{
+   	      img.className=img.className+"_folded";
+   	    }
+   	  }
+   	  
+   	}  	
+  	
+</script>
+
+</component>	

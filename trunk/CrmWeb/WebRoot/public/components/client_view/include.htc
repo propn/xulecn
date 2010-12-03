@@ -1,0 +1,15 @@
+<component tagname="include">
+
+<attach event="oncontentready" onevent="contentready()" />
+<property name="page" value=""/>
+
+<script>		  
+	function contentready(){	  
+		LocalAction.getIncludePage(element, element.page);
+	}	
+	
+	
+	  	
+</script>
+
+</component>	

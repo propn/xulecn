@@ -1,0 +1,21 @@
+<component>
+
+<attach event="ondocumentready" onevent="documentready()" />
+
+
+<script>
+	
+  function documentready(){
+    if(System.isTrue(element.initialized)) return;
+    
+    if(element.extra!="dockeditor"){
+      element.extra = "editor";
+    }
+	
+  	initEditor(element);  
+  }	
+
+
+</script>
+
+</component>	

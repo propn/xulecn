@@ -1,0 +1,52 @@
+<HTML>
+	<HEAD>
+		<title></title>
+		<link id="css" rel="stylesheet" type="text/css">
+			<meta id="meta" http-equiv="Content-Type">
+			<script id="errorConst" language="javascript"></script>
+			<script language="javascript">
+			var a=window.dialogArguments;
+			var language="zh-CN";
+			var btnArr=new Array();
+			if (a!=null)
+			{
+				document.title = a.title+document.title;
+				btnArr=a.button_type; //°´Å¥Êý×é
+				language=a.language;
+				document.all("errorConst").src="../const/"+language+"/const_error_handle.js";
+				document.all("css").href="../style/"+language+"/BSN.css";
+				document.all("meta").content="text/html;charset="+a.charset;
+			}
+
+
+			function init()
+			{
+				var innerHTML="";
+				for (var i=0;i<btnArr.length;i++)
+				{
+					innerHTML+="<input type='button' value='"+btnArr[i]+"' id='btn"+i+"' onclick='onOk("+i+");'>&nbsp;";
+				}
+				document.all("tdBtn").innerHTML=innerHTML;
+				document.all('btn'+(i-1)).focus();
+				//errorLabel.innerText = "\n"+a.content_name;
+			}
+
+			function onOk(i)
+			{
+				window.returnValue = i;
+				window.close();
+			}
+			</script>
+</HEAD>
+<body onload="init();" class="bg_pop" scroll=no>
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="10">
+  <tr>
+	<td width="30%" align="center"><img src="../images/icon_pop_prompt.gif" width="34" height="34" id="IMG1"></td>
+	<td><iframe src="Common_frame.html" width="100%" height="100%" frameborder=0 allowTransparency="true" style="background-color:transparent"></iframe></td>
+  </tr>
+  <tr>
+	<td height="30" colspan="2" align="right" id="tdBtn"></td>
+  </tr>
+</table>
+</body>
+</HTML>
