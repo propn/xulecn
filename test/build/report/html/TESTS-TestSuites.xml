@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="xulei" id="0" name="VersionTest" package="org.leixu" tests="1" time="0.203" timestamp="2010-10-22T06:08:05">
+      <properties>
+          <property name="java.vendor" value="Sun Microsystems Inc." />
+
+          <property name="eclipse.pdebuild.templates" value="/E:/Program Files/Eclipse EE/plugins/org.eclipse.pde.build_3.5.2.R35x_20100114/templates/" />
+
+          <property name="sun.management.compiler" value="HotSpot Client Compiler" />
+
+          <property name="testSrc.dir" value="E:/lei/workspace/test/testsrc" />
+
+          <property name="testClass.dir" value="E:/lei/workspace/test/build/classes" />
+
+          <property name="os.name" value="Windows XP" />
+
+          <property name="sun.boot.class.path" value="D:\bea\jdk150_06\jre\lib\rt.jar;D:\bea\jdk150_06\jre\lib\i18n.jar;D:\bea\jdk150_06\jre\lib\sunrsasign.jar;D:\bea\jdk150_06\jre\lib\jsse.jar;D:\bea\jdk150_06\jre\lib\jce.jar;D:\bea\jdk150_06\jre\lib\charsets.jar;D:\bea\jdk150_06\jre\classes" />
+
+          <property name="TODAY" value="October 22 2010" />
+
+          <property name="findbugs.home" value="E:/lei/workspace/test/tools/findbugs-1.3.9-rc1" />
+
+          <property name="sun.desktop" value="windows" />
+
+          <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+
+          <property name="ant.home" value="E:\Program Files\Eclipse EE\plugins\org.apache.ant_1.7.1.v20090120-1145" />
+
+          <property name="java.runtime.version" value="1.5.0_06-b05" />
+
+          <property name="user.name" value="Administrator" />
+
+          <property name="deploy.dir" value="D:/bea/user_projects/domains/base_domain/autodeploy" />
+
+          <property name="build.dir" value="E:/lei/workspace/test/build" />
+
+          <property name="report.xml" value="E:/lei/workspace/test/build/report/xml" />
+
+          <property name="user.language" value="zh" />
+
+          <property name="sun.boot.library.path" value="D:\bea\jdk150_06\jre\bin" />
+
+          <property name="ant.file.VsopWeb" value="E:\lei\workspace\test\build.xml" />
+
+          <property name="libPath" value="E:/lei/workspace/test/WebContent/WEB-INF/lib" />
+
+          <property name="ant.project.name" value="VsopWeb" />
+
+          <property name="DSTAMP" value="20101022" />
+
+          <property name="java.version" value="1.5.0_06" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="32" />
+
+          <property name="java.endorsed.dirs" value="D:\bea\jdk150_06\jre\lib\endorsed" />
+
+          <property name="sun.cpu.isalist" value="" />
+
+          <property name="sun.jnu.encoding" value="GBK" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="\" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="checkstyle.home" value="E:/lei/workspace/test/tools/checkstyle-5.3" />
+
+          <property name="classes.dir" value="E:/lei/workspace/test/WebContent/WEB-INF/classes" />
+
+          <property name="java.class.version" value="49.0" />
+
+          <property name="user.country" value="CN" />
+
+          <property name="java.home" value="D:\bea\jdk150_06\jre" />
+
+          <property name="dist.dir" value="E:/lei/workspace/test/dist" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="E:\lei\workspace\test\build.xml" />
+
+          <property name="os.version" value="5.1" />
+
+          <property name="path.separator" value=";" />
+
+          <property name="java.vm.version" value="1.5.0_06-b05" />
+
+          <property name="report.dir" value="E:/lei/workspace/test/build/report" />
+
+          <property name="user.variant" value="" />
+
+          <property name="ant.library.dir" value="E:\Program Files\Eclipse EE\plugins\org.apache.ant_1.7.1.v20090120-1145\lib" />
+
+          <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+
+          <property name="buildlib" value="E:/lei/workspace/test/tools/lib" />
+
+          <property name="buildlog.dir" value="E:/lei/workspace/test/build/log" />
+
+          <property name="eclipse.pdebuild.scripts" value="/E:/Program Files/Eclipse EE/plugins/org.eclipse.pde.build_3.5.2.R35x_20100114/scripts/" />
+
+          <property name="user.home" value="C:\Documents and Settings\Administrator" />
+
+          <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+
+          <property name="java.library.path" value="D:\bea\jdk150_06\jre\bin;.;C:\WINDOWS\system32;C:\WINDOWS;E:/Program Files/Java/jre6/bin/client;E:/Program Files/Java/jre6/bin;E:\lei\java\apache-ant-1.8.1\bin;E:\oracle\product\10.2.0\db_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;E:\Program Files\Java\jdk1.5.0_03\bin;;;e:\program files\Informax\bin;E:\Program Files\Subversion\bin;E:\Program Files\TortoiseSVN\bin;C:\Program Files\ibm\gsk7\bin;C:\Program Files\ibm\gsk7\lib;C:\informix\bin" />
+
+          <property name="java.vendor.url" value="http://java.sun.com/" />
+
+          <property name="java.vm.vendor" value="Sun Microsystems Inc." />
+
+          <property name="java.runtime.name" value="Java(TM) 2 Runtime Environment, Standard Edition" />
+
+          <property name="java.class.path" value="E:\lei\workspace\test\tools\lib\ant.jar;E:\lei\workspace\test\tools\lib\asm-3.1.jar;E:\lei\workspace\test\tools\lib\checkstyle-5.3-all.jar;E:\lei\workspace\test\tools\lib\jaxen-1.1.1.jar;E:\lei\workspace\test\tools\lib\junit-4.8.2.jar;E:\lei\workspace\test\tools\lib\pmd-4.2.5.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\annotations.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\ant.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\asm-3.1.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\asm-analysis-3.1.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\asm-commons-3.1.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\asm-tree-3.1.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\asm-util-3.1.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\asm-xml-3.1.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\bcel.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\commons-lang-2.4.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\dom4j-1.6.1.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\findbugs-ant.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\findbugs.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\jFormatString.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\jaxen-1.1.1.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\jdepend-2.9.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\jsr305.jar;E:\lei\workspace\test\tools\findbugs-1.3.9-rc1\lib\mysql-connector-java-5.1.7-bin.jar;E:\lei\workspace\test\build\classes;E:\lei\workspace\test\WebContent\WEB-INF\classes;E:\Program Files\Eclipse EE\plugins\org.apache.ant_1.7.1.v20090120-1145\lib\ant-launcher.jar;E:\Program Files\Eclipse EE\plugins\org.apache.ant_1.7.1.v20090120-1145\lib\ant.jar;E:\Program Files\Eclipse EE\plugins\org.apache.ant_1.7.1.v20090120-1145\lib\ant-junit.jar" />
+
+          <property name="ant.version" value="Apache Ant version 1.7.1 compiled on June 27 2008" />
+
+          <property name="report.html" value="E:/lei/workspace/test/build/report/html" />
+
+          <property name="TSTAMP" value="1407" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="java.vm.specification.version" value="1.0" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="sun.os.patch.level" value="Service Pack 3" />
+
+          <property name="eclipse.pdebuild.home" value="/E:/Program Files/Eclipse EE/plugins/org.eclipse.pde.build_3.5.2.R35x_20100114/./" />
+
+          <property name="java.io.tmpdir" value="C:\WINDOWS\TEMP\" />
+
+          <property name="pmd.home" value="E:/lei/workspace/test/tools/pmd-4.2.5" />
+
+          <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi" />
+
+          <property name="os.arch" value="x86" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="javac.dir" value="E:/Program Files/Java/jdk1.5.0_03/bin/javac.exe" />
+
+          <property name="java.ext.dirs" value="D:\bea\jdk150_06\jre\lib\ext" />
+
+          <property name="user.dir" value="E:\lei\workspace\test" />
+
+          <property name="line.separator" value=" " />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) Client VM" />
+
+          <property name="basedir" value="E:\lei\workspace\test" />
+
+          <property name="ant.java.version" value="1.5" />
+
+          <property name="ant.core.lib" value="E:\Program Files\Eclipse EE\plugins\org.apache.ant_1.7.1.v20090120-1145\lib\ant.jar" />
+
+          <property name="file.encoding" value="GBK" />
+
+          <property name="java.specification.version" value="1.5" />
+
+          <property name="leve" value="1.5" />
+
+          <property name="src.dir" value="E:/lei/workspace/test/src" />
+
+          <property name="project.dir" value="E:/lei/workspace/test" />
+
+          <property name="encoding" value="GBK" />
+
+      </properties>
+
+      <testcase classname="org.leixu.VersionTest" name="testGetVersion" time="0.016" />
+
+      <system-out />
+
+      <system-err />
+
+  </testsuite>
+</testsuites>

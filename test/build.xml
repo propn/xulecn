@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="GBK"?>
+<project basedir="." default="pmd" name="VsopWeb">
+
+	<property file="build.properties" />
+
+	<path id="project.class.path">
+		<fileset dir="${libPath}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${buildlib}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${findbugs.home}/lib">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement location="${testClass.dir}" />
+		<pathelement location="${classes.dir}" />
+	</path>
+
+	<target name="dateFormat">
+		<tstamp />
+		<!--
+		    	属性                说明                                                         例子
+		    DSTAMP        设置为当前日期，默认格式为yyyymmdd        20100511
+		    TSTAMP        设置为当前时间，默认格式为 hhmm             2108
+		    TODAY         设置为当前日期，带完整的月份                    May 11 2010
+		    -->
+		<echo message="${DSTAMP}" />
+		<echo message="${TSTAMP}" />
+		<echo message="${TODAY}" />
+		<tstamp>
+			<format property="DSTAMP" pattern="yyyy-MM-dd HH:mm:ss" />
+		</tstamp>
+	</target>
+
+	<target name="init" depends="dateFormat">
+
+		<delete failonerror="false" includeEmptyDirs="true">
+			<fileset dir="${build.dir}" />
+			<fileset dir="${testClass.dir}" />
+			<fileset dir="${classes.dir}" />
+		</delete>
+
+		<mkdir dir="${classes.dir}" />
+		<mkdir dir="${testClass.dir}" />
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${buildlog.dir}" />
+		<mkdir dir="${report.dir}" />
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${report.xml}" />
+		<mkdir dir="${report.html}" />
+		<mkdir dir="${dist.dir}" />
+
+	</target>
+
+
+	<target name="compile" depends="init">
+
+		<record name="${buildlog.dir}/build.txt" action="start" />
+
+		<javac destdir="${classes.dir}" executable="${javac.dir}" source="${leve}" target="${leve}" encoding="${encoding}" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" failonerror="true" debug="true">
+			<compilerarg line="-encoding ${encoding}" />
+			<compilerarg value="-Xlint:unchecked -Xlint:deprecation" />
+			<src path="${src.dir}" />
+			<classpath refid="project.class.path" />
+		</javac>
+
+		<javac destdir="${testClass.dir}" executable="${javac.dir}" source="${leve}" target="${leve}" encoding="${encoding}" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" failonerror="true" debug="true">
+			<compilerarg line="-encoding ${encoding}" />
+			<compilerarg value="-Xlint:unchecked -Xlint:deprecation" />
+			<src path="${testSrc.dir}" />
+			<classpath refid="project.class.path" />
+		</javac>
+
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}">
+				<include name="*.properties" />
+				<include name="*.xml" />
+			</fileset>
+		</copy>
+
+		<record name="${buildlog.dir}/build.txt" action="stop" />
+
+	</target>
+
+	<target name="jar" depends="compile">
+		<mkdir dir="${dist.dir}/${DSTAMP}" />
+		<jar destfile="${dist.dir}/${DSTAMP}/${ant.project.name}-${DSTAMP}.jar" basedir="${classes.dir}">
+			<manifest>
+				<!--<attribute name="Main-Class" value="${main-class}" />-->
+				<attribute name="Created-Date" value="${DSTAMP}-${TSTAMP}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="test" depends="jar">
+		<junit printsummary="yes" haltonfailure="no">
+			<classpath refid="project.class.path" />
+			<formatter type="xml" />
+			<batchtest fork="yes" todir="${report.xml}">
+				<fileset dir="${testSrc.dir}" includes="**/*Test.java" />
+			</batchtest>
+		</junit>
+
+		<junitreport todir="${report.html}">
+			<fileset dir="${report.xml}">
+				<include name="*.xml" />
+			</fileset>
+			<report format="frames" todir="${report.html}" />
+		</junitreport>
+
+		<jar jarfile="${dist.dir}/${DSTAMP}/${ant.project.name}-test-${DSTAMP}.jar" basedir="${testClass.dir}" />
+
+		<jar jarfile="${dist.dir}/${DSTAMP}/report-${DSTAMP}.jar" basedir="${report.dir}" />
+
+	</target>
+
+
+	<target name="deploy" depends="test">
+
+		<war compress="false" destfile="${project.dir}/build/VsopWeb.war" webxml="${project.dir}/WebContent/WEB-INF/web.xml">
+			<zipfileset dir="${project.dir}/WebRoot">
+			</zipfileset>
+		</war>
+
+		<copy todir="${deploy.dir}">
+			<fileset dir="${project.dir}/build/">
+				<include name="*.war" />
+			</fileset>
+		</copy>
+
+	</target>
+
+	<!--Java代码静态分析-->
+	<target name="pmd" depends="test">
+		<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="project.class.path" />
+		<pmd>
+			<ruleset>${testSrc.dir}/rulesets/basic.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/braces.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/javabeans.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/unusedcode.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/strings.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/design.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/coupling.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/codesize.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/imports.xml</ruleset>
+			<ruleset>${testSrc.dir}/rulesets/naming.xml</ruleset>
+			<formatter type="xml" toFile="${report.dir}/pmd_report.xml" />
+			<fileset dir="${src.dir}">
+				<include name="**/*.java" />
+			</fileset>
+		</pmd>
+	</target>
+
+
+	<!--代码copy检查-->
+	<target name="cpd">
+		<taskdef name="cpd" classname="net.sourceforge.pmd.cpd.CPDTask" classpathref="project.class.path" />
+		<!-- 指明输出文件和判断属于copy & paste的标准 -->
+		<cpd minimumTokenCount="10" outputFile="${report.dir}/cpd.txt">
+			<fileset dir="${src.dir}">
+				<include name="**/*.java" />
+			</fileset>
+		</cpd>
+	</target>
+
+	<!--findbugs-->
+	<target name="findbugs" depends="init">
+		<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" classpathref="project.class.path" />
+		<findbugs classpathref="project.class.path" home="${findbugs.home}" output="xml" outputFile="${report.dir}/findbugs.xml">
+			<sourcePath path="${src.dir}" />
+			<!-- 
+				<auxClasspath path="${basedir}/lib/Regex.jar" /> 
+			-->
+			<class location="${dist.dir}/${DSTAMP}/${ant.project.name}-${DSTAMP}.jar" />
+		</findbugs>
+		<xslt in="${report.dir}/findbugs.xml" out="${report.dir}/findbugs.xls" extension=".xls" style="${findbugs.home}\src\xsl\default.xsl">
+		</xslt>
+	</target>
+
+	<!--checkstyle-->
+	<target name="checkstyle" depends="init">
+		<taskdef name="checkstyle" classname="com.puppycrawl.tools.checkstyle.CheckStyleTask" classpathref="project.class.path" />
+
+		<checkstyle config="${project.dir}/tools/checkstyle_zte.xml">
+			<fileset dir="${src.dir}" includes="**/*.java" />
+			<formatter type="xml" toFile="${report.dir}/checkstyle-report.xml" />
+		</checkstyle>
+
+		<style in="${report.dir}/checkstyle-report.xml" out="${report.dir}/checkstyle-report.html" style="${checkstyle.home}/contrib/checkstyle-frames.xsl" />
+	</target>
+
+	<!--EMMA-->
+	<junit printsummary="yes" haltonfailure="no" fork="true">
+		<classpath location="${coverage.dir}" />
+		<classpath refid="compile.classpath" />
+		<classpath refid="emma.lib" />
+		<jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
+		<jvmarg value="-Demma.coverage.out.merge=true" />
+		<formatter type="xml" />
+
+		<batchtest fork="yes" todir="${report}">
+			<fileset dir="${classes.dir}">
+				<include name="**/GroupTest.class" />
+			</fileset>
+		</batchtest>
+	</junit>
+
+
+	<taskdef resource="emma_ant.properties" classpathref="emma.lib" />
+	<target name="coverage.instrument" depends="compile" description="runs the examples">
+		<emma enabled="yes">
+			<instr instrpathref="run.classpath" destdir="${coverage.dir}" metadatafile="${coverage.dir}/metadata.emma" merge="true">
+			</instr>
+		</emma>
+
+	</target>
+	<target name="test2" depends="coverage.instrument">
+		<junit printsummary="yes" haltonfailure="no" fork="true">
+			<classpath location="${coverage.dir}" />
+			<classpath refid="compile.classpath" />
+			<classpath refid="emma.lib" />
+			<jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
+			<jvmarg value="-Demma.coverage.out.merge=true" />
+			<formatter type="xml" />
+
+			<batchtest fork="yes" todir="${report}">
+				<fileset dir="${classes.dir}">
+					<include name="**/GroupTest.class" />
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+
+	<target name="coverage.report" depends="test">
+		<emma>
+			<merge outfile="${coverage.dir}/session.emma">
+
+				<fileset dir="${coverage.dir}">
+					<include name="*.emma" />
+				</fileset>
+			</merge>
+		</emma>
+
+		<emma enabled="true">
+			<report sourcepath="${src.dir}" sort="+block,+name,+method,+class" metrics="method:70,block:80,line:80,class:100">
+
+				<fileset dir="${coverage.dir}">
+					<include name="*.emma" />
+				</fileset>
+
+				<txt outfile="${coverage.dir}/coverage.txt" depth="package" columns="class,method,block,line,name" />
+				<xml outfile="${coverage.dir}/coverage.xml" depth="package" />
+				<html outfile="${coverage.dir}/index.html" depth="method" columns="name,class,method,block,line" />
+			</report>
+		</emma>
+
+	</target>
+
+
+</project>
