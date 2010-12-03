@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="service.xsd">
+	<!--创建服务订单-->
+	<service name="custOrderCreate">
+		<steps>
+			<step name="createOrder">
+				<property name="comp">
+					<ref component="custOrderCreateHandler"></ref>
+				</property>
+			</step>
+		</steps>
+	</service>
+	<service name="offerAccept">
+		<steps>
+			<step name="offerAcceptAnalysis">
+				<property name="comp">
+					<ref component="acceptHandler"></ref>
+				</property>
+				<property name="next">
+					<next step="saveOfferInstData"></next>
+				</property>
+			</step>
+			<step name="saveOfferInstData">
+				<property name="comp">
+					<ref component="saveInstHandler"></ref>
+				</property>
+				<property name="next">
+					<next step="saveOrdAskData"></next>
+				</property>
+			</step>
+			<step name="saveOrdAskData">
+				<property name="comp">
+					<ref component="saveOrdAskHandler"></ref>
+				</property>
+			</step>
+			
+		</steps>
+	</service>
+	<service name="servAccept">
+		<steps>
+			<step name="servAcceptAnalysis">
+				<property name="comp">
+					<ref component="acceptHandler"></ref>
+				</property>
+				<property name="next">
+					<next step="saveServInstData"></next>
+				</property>
+			</step>
+			<step name="saveServInstData">
+				<property name="comp">
+					<ref component="saveInstHandler"></ref>
+				</property>
+			</step>
+		</steps>
+	</service>
+	<components>
+		<component name="acceptHandler"	class="com.ztesoft.crm.business.accept.entry.bo.components.AcceptHandler">
+		</component>
+		<component name="saveInstHandler"	class="com.ztesoft.crm.business.accept.entry.bo.components.SaveInstHandler">
+		</component>
+		<component name="saveOrdAskHandler"	class="com.ztesoft.crm.business.accept.entry.bo.components.SaveOrdAskHandler">
+		</component>
+		<component name="custOrderCreateHandler"	class="com.ztesoft.crm.business.accept.entry.bo.components.SaveCustOrderHandler">
+		</component>
+	</components>
+</services>
+

@@ -1,0 +1,232 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from IsmpCrmEngineService WSDL service -->
+
+  <service name="IsmpCrmEngine" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="http://crm.ismp.chinatelecom.com"/>
+      <parameter name="wsdlServiceElement" value="IsmpCrmEngineService"/>
+      <parameter name="schemaUnqualified" value="http://req.crm.ismp.chinatelecom.com,http://rsp.crm.ismp.chinatelecom.com,http://crm.ismp.chinatelecom.com"/>
+      <parameter name="wsdlServicePort" value="IsmpCrmEngine"/>
+      <parameter name="className" value="com.chinatelecom.ismp.crm.IsmpCrmEngineSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="IsmpCrmEngine"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:QuerySubscriptionHistoryReq"
+        type="java:com.chinatelecom.ismp.crm.req.QuerySubscriptionHistoryReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:ModifySubscriptionReq"
+        type="java:com.chinatelecom.ismp.crm.req.ModifySubscriptionReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:SuspendSubscriptionReq"
+        type="java:com.chinatelecom.ismp.crm.req.SuspendSubscriptionReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:NotifyUserStateReq"
+        type="java:com.chinatelecom.ismp.crm.req.NotifyUserStateReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://rsp.crm.ismp.chinatelecom.com"
+        qname="ns:GetSubscriptionRsp"
+        type="java:com.chinatelecom.ismp.crm.rsp.GetSubscriptionRsp"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:WorkOrderNotifyReq"
+        type="java:com.chinatelecom.ismp.crm.req.WorkOrderNotifyReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://rsp.crm.ismp.chinatelecom.com"
+        qname="ns:WithdrawSubscriptionRsp"
+        type="java:com.chinatelecom.ismp.crm.rsp.WithdrawSubscriptionRsp"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:NotifyUserFeeTypeReq"
+        type="java:com.chinatelecom.ismp.crm.req.NotifyUserFeeTypeReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:WorkOrderNotifyCnfmReq"
+        type="java:com.chinatelecom.ismp.crm.req.WorkOrderNotifyCnfmReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://rsp.crm.ismp.chinatelecom.com"
+        qname="ns:CreateSubscriptionRsp"
+        type="java:com.chinatelecom.ismp.crm.rsp.CreateSubscriptionRsp"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://crm.ismp.chinatelecom.com"
+        qname="ns:ArrayOf_tns1_SubInfo"
+        type="java:com.chinatelecom.ismp.crm.rsp.SubInfo[]"
+        innerType="cmp-ns:SubInfo" xmlns:cmp-ns="http://rsp.crm.ismp.chinatelecom.com"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://crm.ismp.chinatelecom.com"
+        qname="ns:ArrayOf_tns1_SubHistoryInfo"
+        type="java:com.chinatelecom.ismp.crm.rsp.SubHistoryInfo[]"
+        innerType="cmp-ns:SubHistoryInfo" xmlns:cmp-ns="http://rsp.crm.ismp.chinatelecom.com"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:GetSubscriptionReq"
+        type="java:com.chinatelecom.ismp.crm.req.GetSubscriptionReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:OrderRelationUpdateNotifyReq"
+        type="java:com.chinatelecom.ismp.crm.req.OrderRelationUpdateNotifyReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:WithdrawAllSubscriptionReq"
+        type="java:com.chinatelecom.ismp.crm.req.WithdrawAllSubscriptionReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://rsp.crm.ismp.chinatelecom.com"
+        qname="ns:SubInfo"
+        type="java:com.chinatelecom.ismp.crm.rsp.SubInfo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:ResumeSubscriptionReq"
+        type="java:com.chinatelecom.ismp.crm.req.ResumeSubscriptionReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:ServiceCapabilitySubscriptionSyncReq"
+        type="java:com.chinatelecom.ismp.crm.req.ServiceCapabilitySubscriptionSyncReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://rsp.crm.ismp.chinatelecom.com"
+        qname="ns:ModifySubscriptionRsp"
+        type="java:com.chinatelecom.ismp.crm.rsp.ModifySubscriptionRsp"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:SubscriptionSyncReq"
+        type="java:com.chinatelecom.ismp.crm.req.SubscriptionSyncReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://rsp.crm.ismp.chinatelecom.com"
+        qname="ns:QuerySubscriptionHistoryRsp"
+        type="java:com.chinatelecom.ismp.crm.rsp.QuerySubscriptionHistoryRsp"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:CreateSubscriptionReq"
+        type="java:com.chinatelecom.ismp.crm.req.CreateSubscriptionReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:createISMPUserReq"
+        type="java:com.chinatelecom.ismp.crm.req.CreateISMPUserReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://rsp.crm.ismp.chinatelecom.com"
+        qname="ns:SubHistoryInfo"
+        type="java:com.chinatelecom.ismp.crm.rsp.SubHistoryInfo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://rsp.crm.ismp.chinatelecom.com"
+        qname="ns:Response"
+        type="java:com.chinatelecom.ismp.crm.rsp.Response"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://req.crm.ismp.chinatelecom.com"
+        qname="ns:WithdrawSubscriptionReq"
+        type="java:com.chinatelecom.ismp.crm.req.WithdrawSubscriptionReq"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+  </service>
+</deployment>
