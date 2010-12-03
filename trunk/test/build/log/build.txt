@@ -1,0 +1,2 @@
+    [javac] Compiling 1 source file to E:\lei\workspace\test\WebContent\WEB-INF\classes
+    [javac] Compiling 1 source file to E:\lei\workspace\test\build\classes
