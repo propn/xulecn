@@ -1,0 +1,63 @@
+<component tagname="property">
+
+<attach event="ondocumentready" onevent="documentready()" />
+
+<script>
+	function documentready(){		
+		
+		var dataset = Dataset.getDatasetByID(element.dataset);		
+		
+		if(dataset!=null){
+		  var datasource = "";		  
+		  datasource += 		
+			'<xml id="__'+dataset.id+'_tableForm">'+
+			  '<records>';
+		  for(var i=0; i<dataset.fields.fieldCount; i++){	  
+			var field = dataset.fields[i];
+			datasource +=
+			    '<record><new>'+field.name+','+field.label+',,</new></record>';
+	      }	
+		  datasource+=
+		 	  '</records>'+
+			'</xml>';		
+		
+		  var dataset2 = 
+		    '<ui:dataset datasetId="'+dataset.id+'_tableForm" editable="true">'+
+		  	  '<ui:field field="propertyId" label="属性编码" visible="false"></ui:field>'+
+			  '<ui:field field="propertyName" label="属性名称" readOnly="true"></ui:field>'+
+			  '<ui:field field="propertyValue" label="属性值"></ui:field>'+
+		    '</ui:dataset>';
+		    
+		  var script = "";
+		  script +=
+		    '<script defer>'+  
+		   	  'function table_'+dataset.id+'_tableForm_onInitCell(table, row, cell, field){'+
+			    'if(field.getName()=="propertyValue"){';
+	      for(var i=0; i<dataset.fields.fieldCount; i++){
+	        var field = dataset.fields[i];
+	        if(field.dropDown && field.dropDown!=""){
+	          script +=
+			      'if(row.record.getValue("propertyId")=="'+field.name+'")'+
+			        'cell.dropDown = "'+field.dropDown+'";';
+			}
+	      }
+		  script +=
+		  	    '}'+
+			 '}'+
+		    '<\/script>'; 
+		    
+		  var table = "";
+		  table = '<table class="datatable" dataset="'+dataset.id+'_tableForm"></table>';
+		  
+		 element.innerHTML = datasource + dataset2 + script + table;	
+		 
+		 var form_dataset = Dataset.getDatasetByID(dataset.id+"_tableForm");
+		 if( form_dataset ){
+		   setTimeout('Dataset.getDatasetByID("'+dataset.id+'_tableForm").refreshControls()', 1000);
+		 } 
+		}		  
+	}
+
+</script>
+
+</component>	

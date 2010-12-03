@@ -1,0 +1,88 @@
+<component tagname="permission">
+
+<attach event="ondocumentready" onevent="documentready()" />
+
+<attach event="onmouseover" onevent="domouseover()" />
+<attach event="onmouseout" onevent="domouseout()" />
+<attach event="onmousedown" onevent="domousedown()" />
+<attach event="onmouseup" onevent="domouseup()" />
+
+<property name="loadAction" value="PrivilegeService"/>
+<property name="loadActionMethod" value="privilegesCheck"/>
+
+<script>
+	
+
+	
+	function Security(){
+	  this.permissionId = "";
+	  this.controlId = "";
+	  this.controlType = "";
+	}
+	
+	
+	function documentready()
+	{	  
+	  for (var i = 0; i < element.childNodes.length; i++)
+	  {
+	    var child = element.childNodes[i];
+	    if(child.nodeType!=1) continue;
+
+      var security = new Security();      
+      security.permissionId = child.privilegeCode;
+      security.controlId = child.controlId;
+      security.controlType = child.controlType;      
+      array_security[array_security.length] = security;
+      
+      array_securityId[array_securityId.length] = child.privilegeCode;
+	  }
+	  
+	  fetchResultSecurity();
+	}
+	
+	function fetchResultSecurity(){
+	  if(array_securityId.length>0){
+	    var callback = function(reply){	    
+	      var array_targetSecurityId = reply.getResult();
+	      //var array_targetSecurityId = reply;
+	      var array_targetSecurity = new Array();
+	      
+	      if(array_targetSecurityId){
+	        for(var i=0; i<array_targetSecurityId.length; i++){
+			      for(var j=0; j<array_security.length; j++){
+			        if(array_security[j].permissionId == array_targetSecurityId[i]){
+			          array_targetSecurity[array_targetSecurity.length] = array_security[j];
+			          break;
+			        }
+			      }
+			    }
+		    }
+
+	      for(var i=0; i<array_targetSecurity.length; i++){
+	        var controlId = array_targetSecurity[i].controlId;
+	        var controlType = array_targetSecurity[i].controlType;
+	        if(controlId && controlId!=""){
+	          var control = $(controlId);
+	          if(controlType && controlType=="dsEnable"){
+	              control.disabled = true;
+	          }
+	          else if(controlType && controlType=="dsVisible"){
+	              control.style.display = "none";
+	          }
+	        }
+	      }
+		  }
+		  
+ 
+		  NDAjaxCall.getAsyncInstance().remoteCall(element.loadAction, element.loadActionMethod, [array_securityId], callback);
+	    //callback(["111", "222"]);
+	  }
+	}
+
+  function domouseover(){}
+  function domouseout(){}
+  function domousedown(){}
+  function domouseup(){}
+</script>
+
+</component>	

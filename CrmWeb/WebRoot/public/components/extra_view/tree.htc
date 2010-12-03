@@ -1,0 +1,242 @@
+<PUBLIC:COMPONENT>
+
+<PUBLIC:ATTACH EVENT="oncontentready" ONEVENT="initial()" />
+
+<PUBLIC:PROPERTY NAME="behavior" VALUE="classic" />
+<PUBLIC:PROPERTY NAME="desc" VALUE="" />
+
+<PUBLIC:PROPERTY NAME="loadDataAction" VALUE=""/>
+<PUBLIC:PROPERTY NAME="loadDataActionMethod" VALUE=""/>
+
+<PUBLIC:PROPERTY NAME="async" VALUE="true"/>
+<PUBLIC:PROPERTY NAME="loadDataLevel" VALUE="1"/>
+
+<PUBLIC:PROPERTY NAME="nodeId" VALUE=""/>
+<PUBLIC:PROPERTY NAME="staticObject" VALUE=""/>
+
+<PUBLIC:PROPERTY NAME="idField" value=""/>
+<PUBLIC:PROPERTY NAME="nameField" value=""/>
+
+<PUBLIC:PROPERTY NAME="descField" value=""/>
+<PUBLIC:PROPERTY NAME="typeField" value=""/>
+
+<PUBLIC:PROPERTY NAME="parentIdField" value=""/>
+
+<PUBLIC:PROPERTY NAME="routingDirect" value=""/>
+
+<PUBLIC:PROPERTY NAME="selectStyle" VALUE="" />
+
+<PUBLIC:PROPERTY NAME="routingDown" value="false"/>
+<PUBLIC:PROPERTY NAME="routingUp" value="false"/>
+<PUBLIC:PROPERTY NAME="checkbox" value="false"/>
+<PUBLIC:PROPERTY NAME="radio" value="false"/>
+
+<PUBLIC:PROPERTY NAME="indeterminate" value="false"/>
+
+<PUBLIC:PROPERTY NAME="autoLoad" value="true"/>
+
+<PUBLIC:PROPERTY NAME="fields" value=""/>
+
+<PUBLIC:METHOD NAME="getTree" />
+
+<PUBLIC:METHOD NAME="add" />
+<PUBLIC:METHOD NAME="addItems" />
+
+<PUBLIC:METHOD NAME="getStaticObject" />
+<PUBLIC:METHOD NAME="setStaticObject" />
+
+<PUBLIC:METHOD NAME="getLoadDataAction" />
+<PUBLIC:METHOD NAME="setLoadDataAction" />
+
+<PUBLIC:METHOD NAME="getLoadDataActionMethod" />
+<PUBLIC:METHOD NAME="setLoadDataActionMethod" />
+
+<PUBLIC:METHOD NAME="getLoadDataLevel" />
+<PUBLIC:METHOD NAME="setLoadDataLevel" />
+
+<PUBLIC:METHOD NAME="setNodeId" />
+
+<PUBLIC:METHOD NAME="getSelected" />
+<PUBLIC:METHOD NAME="getUnSelected" />
+
+<PUBLIC:METHOD NAME="reload" />
+<PUBLIC:METHOD NAME="clear" />
+
+
+
+<script>
+
+var imgList = "images/icon";
+
+function initial()
+{
+  
+  element.routingDown = System.isTrue(element.routingDown);
+  element.routingUp = System.isTrue(element.routingUp);
+  element.checkbox = System.isTrue(element.checkbox);
+  element.radio = System.isTrue(element.radio);
+  element.indeterminate = System.isTrue(element.indeterminate);
+    
+  if(element.selectStyle=="checkbox"){
+    element.checkbox = true;
+    element.radio = false;
+    
+    if(element.routingDirect=="down"){
+      element.routingDown = true;
+      element.routingUp = false;
+    }
+    else if(element.routingDirect=="up"){
+      element.routingDown = false;
+      element.routingUp = true;
+    }else if(element.routingDirect=="down-indeterminate"){
+      element.routingDown = true;
+      element.routingUp = false;
+      element.indeterminate = true;
+    }
+    
+  }else if(element.selectStyle=="radio"){
+    element.checkbox = false;
+    element.radio = true;
+  }
+  
+
+  element.style.display = "none";
+  
+  element.parameters = new ParameterSet();
+  
+  createTree();  
+  
+}
+
+function getStaticObject() {
+    if(element.tree)
+	  return element.tree.staticObject;
+	else
+	  return null;
+}
+
+function setStaticObject(_staticObject) {
+    if(element.tree)
+	  element.tree.staticObject = _staticObject;;
+}
+
+function setLoadDataAction( loadDataAction ) {
+    element.loadDataAction = loadDataAction;
+}
+
+function getLoadDataAction() {
+    return element.loadDataAction;
+}
+
+function setLoadDataAction( loadDataAction ) {
+    element.loadDataAction = loadDataAction;
+}
+
+function getLoadDataActionMethod(){
+	return element.loadDataActionMethod;
+}
+
+function setLoadDataActionMethod( loadDataActionMethod ){
+	element.loadDataActionMethod = loadDataActionMethod ;
+}
+
+function getLoadDataLevel(){
+	return element.loadDataLevel;
+}
+
+function setLoadDataLevel( loadDataLevel ){
+	element.loadDataLevel = loadDataLevel ;
+}
+
+function setNodeId( nodeId ){
+	element.nodeId = nodeId ;
+	if(element.tree)
+	element.tree.nodeId = nodeId;
+}
+
+function createTree(){
+
+  Document.fireUserEvent(Document.getElementEventName(element, "onCreate"), [element]);
+
+  //if(Global.onServer || element.staticObject!=""){
+    new WebFXLoadTree(element.desc,"","",element.behavior,"","",element);
+  /*
+  }else{
+    element.tree = new WebFXTree(element.desc,"",element.behavior,"","",element);
+    element.insertAdjacentHTML("afterEnd", element.tree);
+    processULTree(element, element.tree); 	
+  }
+  */
+}
+
+function createTreeItem(link){
+  var _item = null;
+  if(link.getAttribute("action") && link.getAttribute("action")!=""){
+    _item = new WebFXTreeItem(link.innerText, link.getAttribute("action"));
+  }
+  else if(element.checkbox=="true"){
+    _item = new WebFXCheckBoxTreeItem(link.innerText);
+  }
+  else{
+    _item = new WebFXTreeItem(link.innerText);
+  }
+  return _item;
+}
+
+function processULTree(ul, parentTreeItem)
+{
+  var children = ul.childNodes;
+  if (!children || children.length == 0)
+  {
+    return ;
+  }
+  for (var i = 0; i < children.length; i++)
+  {
+    var child = children[i];
+    if (child.nodeName == "LI")
+    {
+      var treeItem = null;
+      for (var j = 0; j < child.childNodes.length; j++)
+      {
+        var child_child = child.childNodes[j];
+        switch (child_child.nodeName)
+        {
+          case "A":
+            treeItem = createTreeItem(child_child);  
+      	    parentTreeItem.add(treeItem);            
+            break;
+          case "UL":
+            processULTree(child_child, treeItem);
+            break;
+        }
+      }
+    }
+  }
+}
+
+function getTree(){
+  return element.tree;
+}
+
+function add(sText, sAction, eParent, sIcon, sOpenIcon){
+  return element.tree.add(new WebFXTreeItem(sText, sAction, eParent, sIcon, sOpenIcon));
+}
+
+function getSelected(){
+  return element.tree.getSelectedChildNodes();
+}
+
+function getUnSelected(){
+  return element.tree.getUnSelectedChildNodes();
+}
+
+function reload(){
+  return element.tree.reload();
+}
+
+function clear(){
+  return element.tree.clear();
+}
+
+</script>
+</PUBLIC:COMPONENT>

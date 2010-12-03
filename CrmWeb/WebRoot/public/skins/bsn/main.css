@@ -1,0 +1,23 @@
+/*一级菜单风格*/
+
+#firstMenu{background:url(menu/firstmenu_03.gif) repeat-x top left;filter:;}
+#firstMenu #container{background:url(menu/firstmenu_01.gif) no-repeat top left;padding-left:140px;}
+#firstMenu #content{background:url(menu/firstmenu_02.gif) no-repeat top left;height:51px;}
+
+.menu#quickTurnel{margin:0;padding:0;text-align:right;background:url(menu/firstmenu_04.gif) no-repeat top left;padding-left:22px;float:right;}
+.menu#quickTurnel li{display:inline;background:url(menu/firstmenu_bg.jpg) repeat-x top left;padding-left:10px;}
+.menu#quickTurnel li a{text-decoration:none;text-align:center;color:black;margin:0;pdding:0;text-indent:16px;height:22px;line-height:22px;}
+.menu#quickTurnel li a:hover{text-decoration:none;color:red;}
+.menu#quickTurnel li a#notice_list{background:url(menu/firstmenu_note.gif) no-repeat left center;}
+.menu#quickTurnel li a#work_list{background:url(menu/firstmenu_list.gif) no-repeat left center;}  
+.menu#quickTurnel li a#modifyPassword{background:url(menu/firstmenu_mod.gif) no-repeat left center;}  
+.menu#quickTurnel li a#help{background:url(menu/firstmenu_help.gif) no-repeat left center;}  
+.menu#quickTurnel li a#exit{background:url(menu/firstmenu_out.gif) no-repeat left center;} 
+
+#marquee{float:right;width:500px;clear:both;margin-top:10px;}
+
+/* 版权信息 */
+.copyright{background:url(menu/footer_bg.jpg) repeat-x top left;height:21px;line-height:21px;text-align:center;color:#FFFFFF;}
+
+#mywindowsLayer{position:absolute;width:100%;height:100%;overflow:hidden;background:#EFF7FF;FILTER:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ddeeff);}
+#secondLevelMenuDiv{background:#EFF7FF;FILTER:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ddeeff);}
