@@ -1,0 +1,167 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+<title>中国电信增值业务订购管理系统</title>
+<script>
+			if(top!=self){
+				top.location="index.html";
+			}
+		</script>
+<!-- 登陆超时窗口单独js -->
+<script language="JavaScript" src="public/components/messageBox/timeOutMsgBox.js" charset="GBK"></script>
+<META HTTP-EQUIV="library" CONTENT="kernel,validator">
+<script type="text/javascript" src="public/components/common2.js"></script>
+<link type='text/css' rel='stylesheet' href='public/skins/bsn/index.css' charset='GBK' />
+<link type='text/css' rel='stylesheet' href='/CommonWeb/public/skins/bsn/skinbsn.css' charset='GBK' />
+<script type='text/javascript' language='JavaScript' src='/VsopWeb/public/components/log4js.js' charset='GBK'></script>
+<script type='text/javascript' language='JavaScript' src='/VsopWeb/public/components/kernel.js' charset='GBK'></script>
+<script type='text/javascript' language='JavaScript' src='/VsopWeb/public/components/prototype.js' charset='GBK'></script>
+<script type='text/javascript' language='JavaScript' src='/VsopWeb/public/components/buffalo.js' charset='GBK'></script>
+<script type='text/javascript' language='JavaScript' src='/VsopWeb/public/components/form.js' charset='GBK'></script>
+<script type='text/javascript' language='JavaScript' src='/VsopWeb/public/components/datatable.js' charset='GBK'></script>
+<script type='text/javascript' language='JavaScript' src='/VsopWeb/public/components/dataset.js' charset='GBK'></script>
+<script type='text/javascript' language='JavaScript' src='/VsopWeb/public/components/dropdown.js' charset='GBK'></script>
+<script type='text/javascript' language='JavaScript' src='/VsopWeb/public/components/messageBox/messageBox.js' charset='GBK'></script>
+<script type='text/javascript' language='JavaScript' src='/VsopWeb/public/components/messageBox/dialog.js' charset='GBK'></script>
+<script type='text/javascript' language='JavaScript' src='/VsopWeb/public/components/localAction.js' charset='GBK'></script>
+</HEAD>
+<script language="JavaScript" type="text/JavaScript">
+		function newWin(){
+			var width = screen.availWidth-3;
+			var height = screen.availHeight-20;
+			var left = -4;
+			var top = -4;  
+			var loginMainWin = window.open('basenew/main.jsp',"",'toolbar=no,status=no,location=no,scrollbars=no,resizable=yes,width='+width+',height='+height+',top=0,left=0');
+			//window.location.href = "basenew/main.jsp";
+			loginMainWin.moveTo(left, top);
+			loginMainWin.focus();
+			self.blur();
+		}
+		var logging = false ;//防止重复点击登陆按钮导致多次提交登陆请求
+
+		function submitData(){
+			if( logging ){
+				return;//如果正在登陆,则不在执行登陆请求.
+			}
+			logging = true ;//正在登陆
+			
+			if( !$("form_loginInfo").validate()){
+				return ;
+			}
+			var callBack = function( reply ) {
+				var loginRespond = new LoginRespond() ;
+				loginRespond = reply.getResult();
+				/**
+				 *	返回对象success属性的取值:
+				 * 1 :表示登陆成功;
+				 * 2 :表示需要强制用户修改密码;
+				 * 0 :表示登陆失败,可能是密码或者用户名错误.
+				 */
+				if( loginRespond["success"] != "1" ){
+					if( loginRespond["success"] == "0" ){//登陆失败
+						errMsg.innerText = loginRespond["reason"];
+						logging = false ;//登陆异常,取消正在登陆的状态
+					}else if( loginRespond["success"] == "2" ){
+						//该用户必须进行强制修改密码，直接进入“修改密码”的页面
+						alert("您是第一次登陆系统或者已经到了密码修改期限,请修改您的密码!");
+						window.showModalDialog("base/updatePassword.jsp?staffCode=" + loginInfo.getValue("username"),"1","dialogHeight: 240px; dialogWidth: 400px;");
+						logging = false ;
+					}
+					return ;
+				}
+				newWin();
+				window.opener = 'xxx';
+				window.close();
+				
+			}
+			
+			
+			var arr = new Array();
+			
+			var loginRequest = new LoginRequest();
+			
+			loginRequest["staffCode"] = loginInfo.getValue("username").toUpperCase(); //'1010101';
+			loginRequest["password"] = loginInfo.getValue("password"); //'1'
+			arr[0] = loginRequest ;
+			var ajaxCall = new NDAjaxCall(true);
+			loginRequest[Buffalo.BOCLASS] = 'com.ztesoft.oaas.struct.LoginRequest';
+			ajaxCall.remoteCall("SignOnService","login",arr,callBack);
+			
+		}
+		function LoginRequest(){
+			this.staffCode = ""; //工号
+			this.password = ""; //口令
+		}
+		function LoginRespond(){
+			this.strMsgNo = "";
+			this.success = ""; //返回信息是否成功: 0 失败 1 成功
+			this.reason = ""; //失败原因
+		}
+		function btn_login_onClick(){
+			submitData();
+		}
+
+		function btn_reset_onClick(){
+			loginInfo.setValue("username","");
+			loginInfo.setValue("password","");
+		}
+	</script>
+<body id="userLogin">
+<div id="datasetDefine">
+  <xml id='__loginInfo'></xml>
+  <script> var __t=createDataset({'id':'loginInfo'});  __t.type='reference';  __t.readOnly=false;  __t.editable=false;  __t.autoLoadPage=false;  __t.pageSize=30;  __t.pageIndex=1;  __t.pageCount=1;  __t.recordCount=0;  __t.async=true;  __t.loadDataAction='';  __t.loadDataActionMethod='';  __t._queryType='dataset';  __t.paginate=false;  __t.staticDataSource=true;  __t.xmlFormat='records';  __t.loadAsNeeded=false;  __t.masterDataset='';  __t.masterKeyFields='';  __t.detailKeyFields='';  __t.maskControl=false;  loginInfo=__t;  
+			var __f = __t.addField({'fn' : 'username','dt' : 'string' , 'l' : '工 号' , 'req' : false , 'vt' : 'require' , 'vm' :'请输入工号!' });  
+			var __f = __t.addField({'fn' : 'password','dt' : 'string' , 'l' : '密 码' , 'req' : false , 'vt' : 'require' , 'vm' :'请输入密码!' });  
+			
+			fillDataset(__t);
+			 if (__t.masterDataset) {    __t.setMasterDataset(__t.masterDataset, __t.masterKeyFields, __t.detailKeyFields); } 
+			 </script>
+</div>
+<table style="width:100%;height:100%;">
+  <tr>
+    <td style="vertical-align:center;text-align:center;"><table style="width:716px;height:366px;">
+        <tr>
+          <td><div id="container">
+              <div class="logo1"></div>
+              <div class="systemName1"></div>
+              <div class="loginForm">
+                <form id='form_loginInfo' class='formLayout3' onsubmit='return false;' submit='btn_login'>
+                  <table cellspacing='0' cellpadding='0' border-collapse='true' width='100%'>
+                    <tr>
+                      <td width="50" style='width:50px;text-align:center; vertical-align: middle; padding-top: 0px;'><label id='label_loginInfo_username' class='fieldlabel' for='text_loginInfo_username' style='padding-right:0px;color:#FFFFFF;font-weight:bold;font-size:12px;'>工号：</label></td>
+                      <td width="137" colspan='1'><input type='text' onKeyUp="value=value.replace(/\W/g,'')" id='text_loginInfo_username' class='editor' dataset='loginInfo' field='username' style='width:130px; height:25px;font-size:17px;font-weight:bold;color:#30558A;background-color:;ime-mode:Disabled' validType='require' msg='请输入工号!' required='false' />                      </td>
+                      <td width="54" class='not_require_td' id='_label_loginInfo_username'><label id='label_loginInfo_password' class='fieldlabel' for='text_loginInfo_password' style='padding-right:0px;color:#FFFFFF;font-weight:bold;font-size:12px;'> &nbsp;密码：</label></td>
+                      <td width="164" class='not_require_td' id='_label_loginInfo_username'><input type='password' id='text_loginInfo_password' class='editor' dataset='loginInfo' field='password' style='width:130px; height:25px;font-size:16px;font-weight:bold;color:#30558A;background-color:;' validtype='require' msg='请输入密码!' required='false' /></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" style='text-align:center; vertical-align: top; padding-top: 0px;'></td>
+                    </tr>
+                  </table>
+                </form>
+                <script>Form.initial('form_loginInfo');</script>
+                <div class="loginFormButton">
+                  <button class='coolButtonon' id='btn_login' initialized='true' style='' onclick='if(this.disabled) return false;Document.fireUserEvent(Document.getElementEventName(this, "onClick"), [this]);return false;'></span>登 录</button>&nbsp;
+                  <button class='coolButtonon' id='btn_reset' initialized='true' style='' onclick='if(this.disabled) return false;Document.fireUserEvent(Document.getElementEventName(this, "onClick"), [this]);return false;'>重 置</button>
+                </div>
+                <div id="errMsg" style="color:red;height:30px;text-align:center;"></div>
+              </div>
+              <div class="copyright"></div>
+            </div></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>
+<script>
+   	//被window.showModalDialog的处理；indow.open 已经在top!=self中处理。
+	if(window.dialogArguments!=undefined){
+		var winWidth = 435;
+		var winHeight = 204;
+		window.dialogWidth = winWidth+"px"; 
+		window.dialogHeight = winHeight+"px";
+		timeOutAlert();
+	}
+
+</script>
