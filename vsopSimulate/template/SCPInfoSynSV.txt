@@ -1,0 +1,62 @@
+CSPInfoSyncToVSOPReq消息字段描述：
+参数名	类型	出现次数	长度	注释
+StreamingNo	String	1	60	流水号
+TimeStamp	String	1	14	时间戳
+SystemId	String	1	3	交易发起系统标识
+具体编码请参考附录6.1.4：外系统编码
+OPFlag	Integer	1	1	动作类型:
+1：增加
+2：修改
+3：删除
+SPInfo	SPInfo	1	10	SP信息
+
+
+
+SPInfo定义
+参数名	类型	出现次数	长度	注释
+SPID	String	1	10	SP编号
+Type	Integer	1	1	CP/SP类型：
+0：CP+SP
+1：CP
+2：SP
+NameCN	String	1	64	CP/SP中文名称
+NameEN	String	1	64	CP/SP英文名称
+DescriptionCN	String	1	512	公司中文描述
+DescriptionEN	String	1	512	公司英文描述
+CustomerCare	String	1	20	SP客服电话
+WebsiteURL	String	1	512	SP网站的链接地址
+ProvinceID	String	1	2	SP归属省ID
+RoamProperty	Integer	1	3	0：不可以提供漫游地业务
+1：可以提供漫游地业务，也可以提供非漫游地业务
+CompanyAddress	String	1	512	SP公司地址
+LegalRepresentative	String	1	512	SP法人代表
+Principal	String	1	512	总负责人姓名
+PrincipalTel	String	1	20	总负责人电话
+PrincipalEmail	String	1	512	总负责人email
+ServiceManager	String	1	512	业务联系人
+ServiceManagerTel	String	1	20	业务联系人电话
+ServiceManagerEmail	String	1	512	业务联系人email
+ServiceManagerAddr	String	1	512	业务联系人通信地址
+ServiceManagerPC	String	1	512	业务联系人邮政编码
+ServiceManagerFax	String	1	512	业务联系人传真
+License	String	1	512	SP营业执照
+ContractExpireDate	String	1	14	SP合同到期日期
+AccessNO	String	1	21	接入号，可以为空
+SettlementCycle	Integer	1	1	结算周期：
+0：按月
+1：按季度
+2：按年
+SettlementPayType	Integer	1	1	结算付费方式：
+0：一次性付清
+1：分批付款
+SettlementPercent	String	1	1	结算百分比
+CSWebsite	String	1	512	客服网址
+Status	Integer	1	1	SP状态：
+0：正常
+1：申请
+2：预注销
+3：注销
+PlatForm	String	1..n	3	SP/CP接入的管理平台的列表：
+具体编码请参考5.1.4：外系统编码
+
+

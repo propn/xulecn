@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SOAP-ENV:Body>
+    <m:SubInstHisQryFromVSOPReq xmlns:m="http://www.mbossvsop.com.cn/vsop">
+      <request><![CDATA[
+                        <Request>
+        <SessionBody>
+                <SubInstHisQryFromVSOPReq>
+                        <StreamingNo>26666666666</StreamingNo>
+                        <TimeStamp>1</TimeStamp>
+                        <SystemId>211</SystemId>
+                        <ProdSpecCode>003</ProdSpecCode>
+                        <ProductNo>15307000017</ProductNo>
+                        <BeginTime>20030802</BeginTime>
+                        <EndTime>20101222</EndTime>
+                </SubInstHisQryFromVSOPReq>
+        </SessionBody>
+</Request>]]></request>
+    </m:SubInstHisQryFromVSOPReq>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

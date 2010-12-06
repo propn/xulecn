@@ -1,0 +1,42 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SOAP-ENV:Body>
+		<m:PackageSyncFromISMPReq xmlns:m="http://www.mbossvsop.com.cn/vsop">
+			<request>
+<![CDATA[
+<Request>
+	<SessionBody>
+		<PackageSyncFromISMPReq>
+			<StreamingNo>2010110316263420101103162634</StreamingNo>
+			<TimeStamp>20101103162634</TimeStamp>
+			<SystemId>203</SystemId>
+			<OPFlag>2</OPFlag>
+			<PackageID>19870131</PackageID>
+			<PNameCN>ISMP新增销售品jjj</PNameCN>
+			<PNameEN>ISMP NEWjjj </PNameEN>
+			<PDesCN>ISMP NEWjj</PDesCN>
+			<PDesEn>ISMP NEWjjj</PDesEn>
+			<Status>0</Status>
+			<ChargingPolicyCN>先收费后试用jjj</ChargingPolicyCN>
+			<ChargingPolicyID></ChargingPolicyID>
+			<SubOption>0</SubOption>
+			<PresentOption>0</PresentOption>
+			<CorpOnly>0</CorpOnly>
+			<ProductID>9122000002</ProductID>
+			<Scope>1</Scope>
+			<ProdOfferRelation>
+				<OPType></OPType>
+				<RelationType></RelationType>
+				<RProdOfferID></RProdOfferID>
+			</ProdOfferRelation>
+			<SubEffectMode>0</SubEffectMode>
+			<WithdrawEffectMode>0</WithdrawEffectMode>
+			<TrialType>0</TrialType>
+			<TrialTerm>67</TrialTerm>
+		</PackageSyncFromISMPReq>
+	</SessionBody>
+</Request>
+]]>			
+			</request>
+		</m:PackageSyncFromISMPReq>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

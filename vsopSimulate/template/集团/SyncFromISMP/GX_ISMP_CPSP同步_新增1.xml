@@ -1,0 +1,44 @@
+﻿<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:m0="http://req.vsop.ismp.chinatelecom.com" xmlns:m1="http://schemas.xmlsoap.org/soap/encoding/">
+	<SOAP-ENV:Body>
+		<m:syncCSPInfoToVSOP xmlns:m="http://vsop.ismp.chinatelecom.com" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+			<req xsi:type="m0:CSPInfoSyncToVSOPReq">
+				<opFlag xsi:type="m1:int">1</opFlag>
+				<spInfo xsi:type="m0:SPInfo">
+					<accessNO xsi:type="m1:string">02101205</accessNO>
+					<companyAddress xsi:type="m1:string">重庆科园4路</companyAddress>
+					<contractExpireDate xsi:type="xsd:dateTime">2001-12-17T09:30:47.0Z</contractExpireDate>
+					<csWebsite xsi:type="m1:string"/>
+					<customerCare xsi:type="m1:string">02366666666</customerCare>
+					<descriptionCN xsi:type="m1:string">ISMP_CPSP自动测试新增</descriptionCN>
+					<descriptionEN xsi:type="m1:string"/>
+					<legalRepresentative xsi:type="m1:string">测试</legalRepresentative>
+					<license xsi:type="m1:string">1234567890</license>
+					<nameCN xsi:type="m1:string">sptest1118</nameCN>
+					<nameEN xsi:type="m1:string"/>
+					<platForm xsi:type="m1:string">204</platForm>
+					<principal xsi:type="m1:string">张三ISMP_CPSP自动测试新</principal>
+					<principalEmail xsi:type="m1:string">13320341464@189.cn</principalEmail>
+					<principalTel xsi:type="m1:string">123456678</principalTel>
+					<provinceID xsi:type="m1:string">04</provinceID>
+					<roamProperty xsi:type="m1:int">0</roamProperty>
+					<serviceManager xsi:type="m1:string">张三ISMP自动测试新增</serviceManager>
+					<serviceManagerAddr xsi:type="m1:string">重庆</serviceManagerAddr>
+					<serviceManagerEmail xsi:type="m1:string">13320341464@189.cn</serviceManagerEmail>
+					<serviceManagerFax xsi:type="m1:string">02366012121</serviceManagerFax>
+					<serviceManagerPC xsi:type="m1:string">133201</serviceManagerPC>
+					<serviceManagerTel xsi:type="m1:string">13320341464</serviceManagerTel>
+					<settlementCycle xsi:type="m1:int">0</settlementCycle>
+					<settlementPayType xsi:type="m1:int">0</settlementPayType>
+					<settlementPercent xsi:type="m1:string"/>
+					<spId xsi:type="m1:string">02101205</spId>
+					<status xsi:type="m1:int">0</status>
+					<type xsi:type="m1:int">0</type>
+					<websiteURL xsi:type="m1:string"/>
+				</spInfo>
+				<streamingNo xsi:type="m1:string">201009011902330000000000000000000000000000000000000100000752</streamingNo>
+				<systemId xsi:type="m1:string">204</systemId>
+				<timeStamp xsi:type="xsd:dateTime">2001-12-17T09:30:47.0Z</timeStamp>
+			</req>
+		</m:syncCSPInfoToVSOP>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

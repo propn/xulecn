@@ -1,0 +1,37 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SOAP-ENV:Body>
+		<m:ProductSyncToVSOPReq xmlns:m="http://www.mbossvsop.com.cn/vsop">
+			<request>
+			<![CDATA[
+				<Request>
+					<SessionBody>
+						<ProductSyncToVSOPReq>
+							<StreamingNo>201010281634561234567822</StreamingNo>
+							<TimeStamp>20101028163456</TimeStamp>
+							<SystemId>202</SystemId>
+							<SPID>35100108</SPID>
+							<OPFlag>2</OPFlag>
+							<ProductType>1</ProductType>
+							<ProductID>860101</ProductID>
+							<PnameCN>x平台新增产品</PnameCN>
+							<PnameEN>xxx</PnameEN>
+							<PdescriptionCN>x平台新增产品</PdescriptionCN>
+							<PdescriptionEn>xxxjjj</PdescriptionEn>
+							<ServiceCapabilityID>1</ServiceCapabilityID>
+							<Status>2</Status>
+							<Scope>0</Scope>
+							<ProductHost>204</ProductHost>
+							<PlatForm>204</PlatForm>
+							<ProdRelation>
+								<OPType></OPType>
+								<RelationType></RelationType>
+								<RProductID></RProductID>
+							</ProdRelation>
+						</ProductSyncToVSOPReq>
+					</SessionBody>
+				</Request>
+			]]>					
+			</request>
+		</m:ProductSyncToVSOPReq>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

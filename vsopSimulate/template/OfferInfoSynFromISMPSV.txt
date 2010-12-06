@@ -1,0 +1,33 @@
+报文说明(一些参数选项请参考集团规范)：
+<Request>
+	<SessionBody>
+		<PackageSyncFromISMPReq>
+			<StreamingNo>流水号 60位</StreamingNo>
+			<TimeStamp>时间戳 14位  yymmddhhmmss</TimeStamp>
+			<SystemId>来源系统</SystemId>
+			<OPFlag>操作类型</OPFlag>
+			<PackageID>销售品编码</PackageID>
+			<PNameCN>销售品中文名称</PNameCN>
+			<PNameEN>销售品英文名称</PNameEN>
+			<PDesCN>销售品中文描述</PDesCN>
+			<PDesEn>销售品英文描述</PDesEn>
+			<Status>销售品状态</Status>
+			<ChargingPolicyCN>计费策略描述</ChargingPolicyCN>
+			<ChargingPolicyID>计费策略ID</ChargingPolicyID>
+			<SubOption>订购选项</SubOption>
+			<PresentOption>是否可赠送</PresentOption>
+			<CorpOnly>是否集团专用</CorpOnly>
+			<ProductID>增值产品ID</ProductID>
+			<Scope>业务适用范围</Scope>
+			<ProdOfferRelation>
+				<OPType>操作类型</OPType>
+				<RelationType>关系类型</RelationType>
+				<RProdOfferID>关联的增值产品ID</RProdOfferID>
+			</ProdOfferRelation>
+			<SubEffectMode>订购生效方式</SubEffectMode>
+			<WithdrawEffectMode>退订生效方式</WithdrawEffectMode>
+			<TrialType>是否有试用期</TrialType>
+			<TrialTerm>试用期时长</TrialTerm>
+		</PackageSyncFromISMPReq>
+	</SessionBody>
+</Request>

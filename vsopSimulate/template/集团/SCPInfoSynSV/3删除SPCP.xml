@@ -1,0 +1,51 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SOAP-ENV:Body>
+		<m:CSPInfoSyncToVSOPReq xmlns:m="http://www.mbossvsop.com.cn/vsop">
+			<request>
+			<![CDATA[
+<Request>
+    <SessionBody>
+        <CSPInfoSyncToVSOPReq>
+            <StreamingNo>123456782</StreamingNo>
+            <TimeStamp>20100929111621</TimeStamp>
+            <SystemId>201</SystemId>
+            <OPFlag>3</OPFlag>
+            <SPInfo>
+                <SPID>1234592</SPID>
+                <Type>0</Type>
+                <NameCN>3com短信sptest11</NameCN>
+                <NameEN></NameEN>
+                <DescriptionCN>3com</DescriptionCN>
+                <DescriptionEN></DescriptionEN>
+                <CustomerCare>010-65431234</CustomerCare>
+                <WebsiteURL></WebsiteURL>
+                <ProvinceID>01</ProvinceID>
+                <RoamProperty>1</RoamProperty>
+                <CompanyAddress>北京朝阳门28号11</CompanyAddress>
+                <LegalRepresentative></LegalRepresentative>
+                <Principal></Principal>
+                <PrincipalTel></PrincipalTel>
+                <PrincipalEmail></PrincipalEmail>
+                <ServiceManager></ServiceManager>
+                <ServiceManagerTel></ServiceManagerTel>
+                <ServiceManagerEmail></ServiceManagerEmail>
+                <ServiceManagerAddr></ServiceManagerAddr>
+                <ServiceManagerPC></ServiceManagerPC>
+                <ServiceManagerFax></ServiceManagerFax>
+                <License>111110023456789</License>
+                <ContractExpireDate>20150915000000</ContractExpireDate>
+                <AccessNO>41193</AccessNO>
+                <SettlementCycle>0</SettlementCycle>
+                <SettlementPayType>0</SettlementPayType>
+                <SettlementPercent></SettlementPercent>
+                <CSWebsite>http://www.3com.cn</CSWebsite>
+                <Status>0</Status>
+                <PlatForm>301</PlatForm>
+            </SPInfo>
+        </CSPInfoSyncToVSOPReq>
+    </SessionBody>
+</Request>			
+]]></request>
+		</m:CSPInfoSyncToVSOPReq>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,24 @@
+报文字段描述：
+<StreamingNo>  流水号  60位
+<TimeStamp>    时间戳  14位  例如：20100926161412
+<SystemId>100</SystemId>
+<OPFlag>       操作类型 1 增加 2删除  3修改
+<ProductOfferType> 销售品类型  1 纯增值销售品
+<ProductOfferID>   销售品ID
+<PNameCN>      中文描述
+<PNameEN>	   英文描述
+<PDesCN>销售品新增报文测试</PDesCN>
+<PDesEn>baowenceshi</PDesEn>
+<ProductID>20100930</ProductID>
+<Status>0</Status>
+<ChargingPolicyCN>完全免费</ChargingPolicyCN>
+<ServiceCapabilityID>1</ServiceCapabilityID>
+<Status>0</Status>
+<ProductHost>200</ProductHost>
+<Scope>0</Scope>
+<PlatForm>152</PlatForm>
+<ProdOfferRelation>
+<OPType>0</OPType>
+<RelationType>0</RelationType>
+<RProdOfferID>55555555555</RProdOfferID>
+</ProdOfferRelation>

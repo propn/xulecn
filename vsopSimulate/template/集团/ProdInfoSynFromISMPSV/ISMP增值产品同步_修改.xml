@@ -1,0 +1,44 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SOAP-ENV:Body>
+	<m:ProductSyncFromISMPReq xmlns:m="http://www.mbossvsop.com.cn/vsop">
+	   <request>
+	    <![CDATA[
+		<request>
+		  <SessionBody>
+			<ProductSyncFromISMPReq>
+			<StreamingNo>2010102911111112345678</StreamingNo>
+			<TimeStamp>20101029111111</TimeStamp>
+			<SystemId>203</SystemId>
+			<SPID>35100108</SPID>
+			<OPFlag>2</OPFlag>
+			<ProductID>20101029</ProductID>
+			<PnameCN>ISMP新增产品jjjj</PnameCN>
+			<PnameEN>ismp new </PnameEN>
+			<PdescriptionCN>ISMP新增产品jjjjj</PdescriptionCN>
+			<PdescriptionEn>yyyyy</PdescriptionEn>
+			<ServiceCapabilityID>1</ServiceCapabilityID>
+			<Status>0</Status>
+			<ChargingPolicyCN>dddddddddjjjjj</ChargingPolicyCN>
+			<ChargingPolicyID></ChargingPolicyID>
+			<SubOption>1</SubOption>
+			<Present>1</Present>
+			<CorpOnly>1</CorpOnly>
+			<PackageOnly>1</PackageOnly>
+			<SettlementCycle>1</SettlementCycle>
+			<SettlementPayType>1</SettlementPayType>
+			<SettlementPercent>1</SettlementPercent>
+			<Scope>1</Scope>
+			<PlatForm>200</PlatForm>
+			<ProdRelation>
+				<OPType></OPType>
+				<RelationType></RelationType>
+				<RProductID></RProductID>
+			</ProdRelation>
+			</ProductSyncFromISMPReq>
+		</SessionBody>
+	</request>
+	]]>			
+	</request>
+	</m:ProductSyncFromISMPReq>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

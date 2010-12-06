@@ -1,0 +1,25 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SOAP-ENV:Body>
+		<m:SPSignInfoSyncFromISMPReq xmlns:m="http://www.mbossvsop.com.cn/vsop">
+			<request>
+			<![CDATA[
+			<Request>
+	<SessionBody>
+		<SCPSignInfoSynFromISMPReq>
+	     <StreamingNo>1285487827967899</StreamingNo>
+	     <TimeStamp>201009261614</TimeStamp>	
+             <OPFlag>1</OPFlag>
+	     <SPSignInfo>
+	     		<SPSignID>22222222</SPSignID>
+	     		<SPID>100000017</SPID>
+	     		<serviceCapabilityID>100000017</serviceCapabilityID>
+	     		<effectiveTime>20111102121212</effectiveTime>
+	     		<expiryTime>20111102121212</expiryTime>
+			</SPSignInfo>
+		</SCPSignInfoSynFromISMPReq>
+	</SessionBody>
+</Request> ]]>
+			</request>
+		</m:SPSignInfoSyncFromISMPReq>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

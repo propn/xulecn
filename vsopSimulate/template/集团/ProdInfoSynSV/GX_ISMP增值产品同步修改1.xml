@@ -1,0 +1,37 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:m0="http://req.vsop.ismp.chinatelecom.com" xmlns:m1="http://schemas.xmlsoap.org/soap/encoding/">
+	<SOAP-ENV:Body>
+		<m:syncProductFromISMP xmlns:m="http://vsop.ismp.chinatelecom.com" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+			<req xsi:type="m0:ProductSyncFromISMPReq">
+				<chargingPolicyCN xsi:type="m1:string">包月，月租费 6 元。</chargingPolicyCN>
+				<chargingPolicyID xsi:type="m1:string"/>
+				<corpOnly xsi:type="m1:int">0</corpOnly>
+				<opFlag xsi:type="m1:int">2</opFlag>
+				<packageOnly xsi:type="m1:int">0</packageOnly>
+				<pdescriptionCN xsi:type="m1:string">GX_自动测试产品11</pdescriptionCN>
+				<pdescriptionEn xsi:type="m1:string"/>
+				<platForm xsi:type="m1:string">204</platForm>
+				<pnameCN xsi:type="m1:string">GX_自动测试产品11</pnameCN>
+				<pnameEN xsi:type="m1:string"/>
+				<present xsi:type="m1:int">0</present>
+				<prodRelation xsi:type="m0:ProdRelation">
+					<opType xsi:type="m1:int">1</opType>
+					<relationType xsi:type="m1:string"/>
+					<rproductID xsi:type="m1:string"/>
+				</prodRelation>
+				<productHost xsi:type="m1:int">204</productHost>
+				<productID xsi:type="m1:string">10200011</productID>
+				<scope xsi:type="m1:int">1</scope>
+				<serviceCapabilityID xsi:type="m1:string">29</serviceCapabilityID>
+				<settlementCycle xsi:type="m1:int">0</settlementCycle>
+				<settlementPayType xsi:type="m1:int">0</settlementPayType>
+				<settlementPercent xsi:type="m1:string"/>
+				<spID xsi:type="m1:string">35100108</spID>
+				<status xsi:type="m1:int">0</status>
+				<streamingNo xsi:type="m1:string">201008171403060000000000000000000000000000000000000100004709</streamingNo>
+				<subOption xsi:type="m1:int">1</subOption>
+				<systemId xsi:type="m1:string">204</systemId>
+				<timeStamp xsi:type="xsd:dateTime">2001-12-17T09:30:47.0Z</timeStamp>
+			</req>
+		</m:syncProductFromISMP>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

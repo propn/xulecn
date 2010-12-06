@@ -1,0 +1,46 @@
+报文说明(一些参数选项请参考集团规范)：
+<Request>
+	<SessionBody>
+		<ProductSyncFromISMPReq>
+			<StreamingNo>流水号 60位</StreamingNo>
+			<TimeStamp>时间戳 14为 yymmddhhmmss</TimeStamp>
+			<SystemId>来源系统</SystemId>
+			<SPID>合作合伙编码</SPID>
+			<OPFlag>操作类型</OPFlag>
+			<ProductID>产品编码</ProductID>
+			<PnameCN>产品中文名称</PnameCN>
+			<PnameEN>产品英文名称</PnameEN>
+			<PdescriptionCN>产品中文呢描述</PdescriptionCN>
+			<PdescriptionEn>产品英文描述</PdescriptionEn>
+			<ServiceCapabilityID>业务能力ID</ServiceCapabilityID>
+			<Status>产品状态</Status>
+			<ChargingPolicyCN>计费策略描述</ChargingPolicyCN>
+			<ChargingPolicyID>计费策略ID</ChargingPolicyID>
+			<SubOption>订购选项</SubOption>
+			<Present>是否可赠送</Present>
+			<CorpOnly>是否集团专用</CorpOnly>
+			<PackageOnly>是否产品组合专用</PackageOnly>
+			<ProductOPCode>
+				<accessNo>接入号</accessNo>
+				<accessNoMatchMode>接入号匹配模式</accessNoMatchMode>
+				<accessNoType>接入号类型</accessNoType>
+				<featureStr>特征码</featureStr>
+				<featureStrType>特征码类型</featureStrType>
+				<featureStrMatchMode>特征码匹配模式</featureStrMatchMode>
+			</ProductOPCode>
+			<SettlementCycle>结算周期</SettlementCycle>
+			<SettlementPayType>结算付费方式</SettlementPayType>
+			<SettlementPercent>分成比例</SettlementPercent>
+			<Scope>业务适用范围</Scope>
+			<ProdRelation>
+				<OPType></OPType>
+				<RelationType></RelationType>
+				<RProductID></RProductID>
+			</ProdRelation>
+			<SubEffectMode>订购生效方式</SubEffectMode>
+			<WithdrawEffectMode>退订生效方式</WithdrawEffectMode>
+			<TrialType>是否有试用期</TrialType>
+			<TrialTerm>试用期长 </TrialTerm>
+		</ProductSyncFromISMPReq>
+	</SessionBody>
+</Request>

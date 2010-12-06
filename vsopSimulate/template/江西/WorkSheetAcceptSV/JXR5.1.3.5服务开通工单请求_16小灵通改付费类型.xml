@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="GBK"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SOAP-ENV:Body>
+    <m:WorkListFKToVSOPReq xmlns:m="http://www.mbossvsop.com.cn/vsop">
+      <request><![CDATA[
+			<Request><SessionBody><SessionHead>
+<WorkListFKToVSOPReq>
+	<StreamingNo>186406644</StreamingNo>
+	<TimeStamp>20101129041129</TimeStamp>
+	<SystemId>206</SystemId>
+	<OrderId>234625477</OrderId>
+	<ActionType>16</ActionType>
+	<PorductInstID>169554722</PorductInstID>
+	<ProdSpecCode>76</ProdSpecCode>
+	<ProductNo>5328637</ProductNo>
+	<OldProductNo></OldProductNo>
+	<ReginID>0701</ReginID>
+	<ProductOfferId/>
+	<AProductInfo>
+		<ActionType/>
+		<AProductID/>
+	</AProductInfo>
+	<UserState>00A</UserState>
+	<UserPayType>1</UserPayType>
+</WorkListFKToVSOPReq>
+ </SessionHead></SessionBody></Request>
+			]]></request>
+    </m:WorkListFKToVSOPReq>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

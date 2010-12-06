@@ -1,0 +1,17 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:m0="http://req.vsop.ismp.chinatelecom.com">
+	<SOAP-ENV:Body>
+		<m:subsInstSynFromISMP xmlns:m="http://vsop.ismp.chinatelecom.com" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+			<req xsi:type="m0:SubsInstSynFromISMPReq">
+				<oldProductID xsi:type="xsd:string"></oldProductID>
+				<oldpackageID xsi:type="xsd:string"></oldpackageID>
+				<opType xsi:type="xsd:string">0</opType>
+				<packageID xsi:type="xsd:string"></packageID>
+				<productID xsi:type="xsd:string">135000000000000004236</productID>
+				<streamingNo xsi:type="xsd:string">201008310949260000000000000000000000000000000000000100000002</streamingNo>
+				<userID xsi:type="xsd:string">18930136269</userID>
+				<userIDType xsi:type="xsd:string">0</userIDType>
+				<verUserId xsi:type="xsd:string"></verUserId>
+			</req>
+		</m:subsInstSynFromISMP>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

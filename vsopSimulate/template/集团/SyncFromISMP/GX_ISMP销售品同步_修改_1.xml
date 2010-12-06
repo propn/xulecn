@@ -1,0 +1,31 @@
+﻿<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:m0="http://req.vsop.ismp.chinatelecom.com" xmlns:m1="http://schemas.xmlsoap.org/soap/encoding/">
+	<SOAP-ENV:Body>
+		<m:syncPackageFromISMP xmlns:m="http://vsop.ismp.chinatelecom.com" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+			<req xsi:type="m0:PackageSyncFromISMPReq">
+				<chargingPolicyCN xsi:type="m1:string"/>
+				<chargingPolicyID xsi:type="m1:string">85102</chargingPolicyID>
+				<corpOnly xsi:type="m1:int">0</corpOnly>
+				<opFlag xsi:type="m1:int">2</opFlag>
+				<packageHost xsi:type="m1:int">204</packageHost>
+				<packageID xsi:type="m1:string">302000000000000000121</packageID>
+				<pdesCN xsi:type="m1:string">产品组合自动测试修改</pdesCN>
+				<pdesEn xsi:type="m1:string"/>
+				<pnameCN xsi:type="m1:string">产品组合自动测试修改</pnameCN>
+				<pnameEN xsi:type="m1:string"/>
+				<presentOption xsi:type="m1:int">0</presentOption>
+				<prodOfferRelation xsi:type="m0:ProdOfferRelation">
+					<opType xsi:type="m1:string">1</opType>
+					<relationType xsi:type="m1:int"/>
+					<rprodOfferID xsi:type="m1:string"/>
+				</prodOfferRelation>
+				<productID xsi:type="m1:string">102000000000000008992,102000000000000008993</productID>
+				<scope xsi:type="m1:int">1</scope>
+				<status xsi:type="m1:int">0</status>
+				<streamingNo xsi:type="m1:string">201008171513380000000000000000000000000000000000000100005032</streamingNo>
+				<subOption xsi:type="m1:int">1</subOption>
+				<systemId xsi:type="m1:string">204</systemId>
+				<timeStamp xsi:type="xsd:dateTime">2001-12-17T09:30:47.0Z</timeStamp>
+			</req>
+		</m:syncPackageFromISMP>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

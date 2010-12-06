@@ -1,0 +1,36 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SOAP-ENV:Body>
+		<m:ProdOfferSyncToVSOPReq xmlns:m="http://www.mbossvsop.com.cn/vsop">
+			<request>
+			<![CDATA[
+				<Request>
+					<SessionBody>
+						<ProdOfferSyncToVSOPReq>
+							<StreamingNo>201010290845341234567811</StreamingNo>
+							<TimeStamp>20101029084534</TimeStamp>
+							<SystemId>204</SystemId>
+							<OPFlag>1</OPFlag>
+							<ProductOfferType>0</ProductOfferType>
+							<ProductOfferID>19860101</ProductOfferID>
+							<PNameCN>周瑜打黄盖</PNameCN>
+							<PNameEN>zhouyu</PNameEN>
+							<PDesCN>周瑜打黄盖</PDesCN>
+							<PDesEn>zydesc</PDesEn>
+							<ProductID>9100000001</ProductID>
+							<ProductID>9127000001</ProductID>
+							<Status>0</Status>
+							<ChargingPolicyCN>先试用后按月收费</ChargingPolicyCN>
+							<Scope>0</Scope>
+							<ProdOfferRelation>
+								<OPType></OPType>
+								<RProdOfferID></RProdOfferID>
+								<RelationType></RelationType>
+							</ProdOfferRelation>
+						</ProdOfferSyncToVSOPReq>
+					</SessionBody>
+				</Request>
+			]]>			
+			</request>
+		</m:ProdOfferSyncToVSOPReq>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

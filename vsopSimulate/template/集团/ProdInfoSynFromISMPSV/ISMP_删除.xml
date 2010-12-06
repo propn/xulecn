@@ -1,0 +1,55 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SOAP-ENV:Body>
+		<m:ProductSyncFromISMPReq xmlns:m="http://www.mbossvsop.com.cn/vsop">
+			<request>
+<![CDATA[
+<Request>
+	<SessionBody>
+		<ProductSyncFromISMPReq>
+			<StreamingNo>2010110315511220101103155112</StreamingNo>
+			<TimeStamp>20101103155112</TimeStamp>
+			<SystemId>204</SystemId>
+			<SPID>35100097</SPID>
+			<OPFlag>3</OPFlag>
+			<ProductID>20101029</ProductID>
+			<PnameCN>ISMP新增产品555</PnameCN>
+			<PnameEN>ismp new 55</PnameEN>
+			<PdescriptionCN>ismp new55 </PdescriptionCN>
+			<PdescriptionEn>ismp new55 </PdescriptionEn>
+			<ServiceCapabilityID>2</ServiceCapabilityID>
+			<Status>0</Status>
+			<ChargingPolicyCN>dfsfsf555</ChargingPolicyCN>
+			<ChargingPolicyID></ChargingPolicyID>
+			<SubOption>0</SubOption>
+			<Present>0</Present>
+			<CorpOnly>0</CorpOnly>
+			<PackageOnly>0</PackageOnly>
+			<ProductOPCode>
+				<accessNo>13660327349</accessNo>
+				<accessNoMatchMode>1</accessNoMatchMode>
+				<accessNoType>1</accessNoType>
+				<featureStr>00000</featureStr>
+				<featureStrType>1</featureStrType>
+				<featureStrMatchMode>1</featureStrMatchMode>
+			</ProductOPCode>
+			<SettlementCycle>0</SettlementCycle>
+			<SettlementPayType>0</SettlementPayType>
+			<SettlementPercent>0</SettlementPercent>
+			<Scope>0</Scope>
+			<ProdRelation>
+				<OPType></OPType>
+				<RelationType></RelationType>
+				<RProductID></RProductID>
+			</ProdRelation>
+			<SubEffectMode>1</SubEffectMode>
+			<WithdrawEffectMode>1</WithdrawEffectMode>
+			<TrialType>1</TrialType>
+			<TrialTerm>34</TrialTerm>
+		</ProductSyncFromISMPReq>
+	</SessionBody>
+</Request>
+]]>					
+			</request>
+		</m:ProductSyncFromISMPReq>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

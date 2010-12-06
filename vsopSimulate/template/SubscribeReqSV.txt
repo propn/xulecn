@@ -1,0 +1,35 @@
+StreamingNo	String	1	60	流水号
+TimeStamp	String	1	14	时间戳
+SystemId	String	1	3	交易发起系统标识
+具体编码请参考附录6.1.4：外系统编码
+ActionType	String	1	2	业务动作：
+0：订购
+1：退订
+2：全部退订
+OrderId	String	1	60	外系统订单标识
+ProdSpecCode	String	1	25	产品编码：
+使用CRM系统的产品编码
+ProductNo	String	1	20	用户号码
+ProductOfferInfo	ProductOfferInfo	0..n		销售品列表
+说明：全部退订的时候，该字段为空
+
+
+
+ProductOfferInfo增值产品字段描述：
+参数名	类型	出现次数	长度	注释
+ProductOfferType	String	1	1	增值销售品类型：
+0：纯增值销售品
+1：增值捆绑套餐
+2：（传统+增值）捆绑套餐
+ProductOfferID	String	1	25	销售品ID
+VSubProdInfo	VSubProdInfo	0..n		增值产品列表
+0：表示订购/退订该销售品下所有增值产品
+EffDate	String	0..1	14	生效时间
+ExpDate	String	0..1	14	失效时间
+
+
+VSubProdInfo增值产品字段描述：
+参数名	类型	出现次数	长度	注释
+VProductID	String	1	25	增值产品ID
+EffDate	String	0..1	14	生效时间
+ExpDate	String	0..1	14	失效时间

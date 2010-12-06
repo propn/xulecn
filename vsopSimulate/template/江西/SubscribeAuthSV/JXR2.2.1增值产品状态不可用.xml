@@ -1,0 +1,26 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SOAP-ENV:Body>
+		<m:SubAuthFromCRMReq xmlns:m="http://www.mbossvsop.com.cn/vsop">
+			<request><![CDATA[
+			<Request>
+	<SessionBody>
+		<SubAuthFromCRMReq>
+			<StreamingNo>624346</StreamingNo>
+			<TimeStamp>20101129165500</TimeStamp>
+			<SystemId>201</SystemId>
+			<ProductOfferId></ProductOfferId>
+			<ProductInfo>
+				<ProdSpecCode>C7</ProdSpecCode>
+				<ProductNo>18970186741</ProductNo>
+				<VProductInfo>
+					<ActionType>0</ActionType>
+					<VProductID>135000000000000016160</VProductID>
+				</VProductInfo>			
+			</ProductInfo>
+		</SubAuthFromCRMReq>
+	</SessionBody>
+</Request>
+			]]></request>
+		</m:SubAuthFromCRMReq>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

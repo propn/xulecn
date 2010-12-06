@@ -1,0 +1,32 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SOAP-ENV:Body>
+		<m:WorkListFKToVSOPReq xmlns:m="http://www.mbossvsop.com.cn/vsop">
+			<request><![CDATA[
+			<Request><SessionBody><SessionHead>
+			 <WorkListFKToVSOPReq>
+            <StreamingNo>77167777</StreamingNo>
+            <TimeStamp>20100927174319</TimeStamp>
+            <SystemId>206</SystemId>
+            <OrderId>77167776</OrderId>
+            <ActionType>13</ActionType>
+            <PorductInstID></PorductInstID>
+            <ReginID></ReginID>
+            <ProdSpecCode>2020966</ProdSpecCode>
+            <ProductNo>189001100011</ProductNo>
+            <OldProductNo></OldProductNo>
+            </VProductInfo>
+            <AProductInfo>
+				<ActionType>0</ActionType>
+				<AProductID>2000040</AProductID>
+            </AProductInfo>            
+            <ProductOfferId></ProductOfferId>
+            <UIMNo>110011189001100011</UIMNo>
+            <OldUIMNo></OldUIMNo>
+            <UserState>00A</UserState>
+            <UserPayType>0</UserPayType>
+        </WorkListFKToVSOPReq>
+        </SessionHead></SessionBody></Request>
+			]]></request>
+		</m:WorkListFKToVSOPReq>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

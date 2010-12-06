@@ -1,0 +1,24 @@
+报文说明：
+<ProductSyncToVSOPReq>
+	<StreamingNo>流水号</StreamingNo>
+	<TimeStamp>时间戳</TimeStamp>
+	<SystemId>来源系统</SystemId>
+	<SPID>35100108</SPID>
+	<OPFlag>1</OPFlag>
+	<ProductType>1</ProductType>
+	<ProductID>860101</ProductID>
+	<PnameCN>x平台新增产品</PnameCN>
+	<PnameEN>xxx</PnameEN>
+	<PdescriptionCN>x平台新增产品</PdescriptionCN>
+	<PdescriptionEn>xxxjjj</PdescriptionEn>
+	<ServiceCapabilityID>1</ServiceCapabilityID>
+	<Status>0</Status>
+	<Scope>0</Scope>
+	<ProductHost>204</ProductHost>
+	<PlatForm>204</PlatForm>
+	<ProdRelation>
+		<OPType></OPType>
+		<RelationType></RelationType>
+		<RProductID></RProductID>
+	</ProdRelation>
+</ProductSyncToVSOPReq>

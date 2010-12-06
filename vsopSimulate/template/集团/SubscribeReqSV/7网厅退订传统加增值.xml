@@ -1,0 +1,26 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<SOAP-ENV:Body>
+ <m:SubscribeToVSOPReq xmlns:m="http://www.mbossvsop.com.cn/vsop">
+  <request><![CDATA[
+   <Request><SessionBody>
+	      <SubscribeToVSOPReq>
+              <StreamingNo>12854878279678</StreamingNo>
+              <TimeStamp>201009261614</TimeStamp>
+              <SystemId>211</SystemId>
+              <ActionType>1</ActionType>
+              <OrderId>22222222</OrderId>
+              <ProdSpecCode>18900000017</ProdSpecCode>
+              <ProductNo>18900000017</ProductNo>
+              <ProductOfferInfo>
+                  <ProductOfferType>2</ProductOfferType>
+                  <ProductOfferID>400000021</ProductOfferID>
+                  <VSubProdInfo>0</VSubProdInfo>
+                  <EffDate>201009261622</EffDate>
+                  <ExpDate>201109301622</ExpDate>
+              </ProductOfferInfo>
+	      </SubscribeToVSOPReq>
+	</SessionBody></Request>
+   ]]></request>
+ </m:SubscribeToVSOPReq>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

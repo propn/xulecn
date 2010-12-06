@@ -1,0 +1,64 @@
+报文说明(一些参数选项请参考集团规范)：
+<Request>
+	<SessionBody>
+		<ChargingPolicySynFromISMPReq>
+			<streamingNo>2010110309555512345678</streamingNo>
+			<OPFlag>0</OPFlag>
+			<chargingPolicyID>计费策略ID</chargingPolicyID>
+			<chargingExecutionID>
+				<chargingExecutionID>计费信息ID</chargingExecutionID>
+				<chargingPoint>计费请求发起时机：0：MO计费1：MT计费2：其他</chargingPoint>
+				<chargeParty>计费方：0：OA1：DA2：SP仅对于点对点业务，运营商可以选择对OA或DA计费；SP业务能力签约时，选择对SP计费</chargeParty>
+				<subOption>是否需要定购：0：需要定购1：不需要定购</subOption>
+				<presentOption>是否可赠送：0：不可以赠送1：可以赠送</presentOption>
+			</chargingExecutionID>
+			<chargingModeID>
+				<chargingModeID>计费模式ID</chargingModeID>
+				<usageLimited>是否限制使用量：0：限使用量1：不限使用量</usageLimited>
+				<timeLimited>是否限制时间：0：限时间1：不限时间</timeLimited>
+				<usageType>仅当“是否限制使用量”为“0”时有效</usageType>
+				<timeStartValue>使用时间的最低限制值，仅当“是否限制时间”为“0”时有效</timeStartValue>
+				<timeEndValue>使用时间的最高限制值，仅当“是否限制时间”为“0”时有效</timeEndValue>
+				<moneyStartValue>金额的最低限制值，仅当“是否限制金额”为“0”时有效</moneyStartValue>
+				<moneyLimited>是否限制金额：0：限金额1：不限金额</moneyLimited>
+				<moneyEndValue>金额的最高限制值，仅当“是否限制金额”为“0”时有效</moneyEndValue>
+				<chargingCycle>计费周期：0：按月1：按天2：按年3：按时</chargingCycle>
+				<canUse>封顶是否让用：0：是1：否</canUse>
+				<subscriptionExtend>定购关系是否自动续定：1：是，自动继续定购关系2：否，计费周期结束自动解除定购</subscriptionExtend>
+				<baseFee>基本费用</baseFee>
+				<usageStartValue>仅当“是否限制使用量”为“0”时有效</usageStartValue>
+				<usageEndValue>仅当“是否限制使用量”为“0”时有效</usageEndValue>
+				<FeeType>计费类型：1：包月2：包天3：包年4：包流量5：按次</FeeType>
+				<amount>当feeType为1时，本字段有效，单位为月；当feeType为2时，本字段有效，单位为天；当feeType为3时，本字段有效，单位为年；以此类推</amount>
+				<firstMonth>仅当“计费类型”为“1：包月”时有效（本期天翼视讯专用）1：首月按天计算包月费，资费精确到分，四舍五入2：首月分段：上半月（15日前，包括15日）全价，下半月半价3：首月分段：25日前全价，26日到月末免费4：首月全价</firstMonth>
+			</chargingModeID>
+			<DOverD>0</DOverD>
+			<discountInfo>
+				<discountIDtype>
+					<discountID>折扣方式ID</discountID>
+					<discountType>折扣类型：0：指定时间折扣1：指定日期折扣2：指定星期折扣3：节假日折扣4：按使用量折扣5：特定用户折扣6：跨业务折扣</discountType>
+					<priority>折扣优先级：1：一级2：二级3：三级4：四级5：五级…一级>二级>三级>四级>五级>…  优先级可扩展</priority>
+					<startTime>时间折扣开始时间，仅当“折扣类型”为“0”是有效</startTime>
+					<endTime>时间折扣结束时间，仅当“折扣类型”为“0”是有效</endTime>
+					<date>年月日列表，用于日期折扣，仅当“折扣类型”为“1”是有效</date>
+					<day>星期一到星期日，用于星期折扣1：星期一2：星期二3：星期三4：星期四5；星期五6：星期六7：星期日仅当“折扣类型”为“2”是有效</day>
+					<holiday>节假日日期列表，用于节假日折扣，仅当“折扣类型”为“3”是有效</holiday>
+					<usageType>使用量单位：0：次1：条2：流量（K）3：时间（秒）4：金额（分）仅当“折扣类型”为“4”是有效</usageType>
+					<usage>使用量，用于按使用量折扣，仅当“折扣类型”为“4”是有效</usage>
+					<userType>用户类型，用于特定用户类型折扣，仅当“折扣类型”为“5”是有效</userType>
+					<serviceList>业务ID列表，用于跨业务折扣，仅当“折扣类型”为“6”是有效</serviceList>
+					<totalValueUnit>跨业务使用量单位：0：次1：条2：流量（K）3：时间（秒）4：金额（分）仅当“折扣类型”为“6”是有效</totalValueUnit>
+					<totalValue>使用量，用于跨业务折扣，仅当“折扣类型”为“6”是有效</totalValue>
+					<radix>折扣基数：0：原始值1：上一级值</radix>
+					<productID>返还对象， 返还类型中0-3，返还对应的产品（必须是定购类产品，并且用户已定购）</productID>
+					<returnType>返还类型：0：流量返还1：次数返还2：条数返还3：时长返还4：金额返还0-3，返还类型与返还的产品的计费策略一致；4，返还到使用者帐户</returnType>
+					<returnValue>折扣返还的实际值</returnValue>
+					<accumulative>返还值是否记入下次折扣基数：0：否1：是</accumulative>
+					<returnPoint>返还的时机：0：即时返还1：下帐期返还</returnPoint>
+				</discountIDtype>
+				<effectiveTime>折扣生效时间：YYYYMMDDhhmmss，用于日常折扣、星期折扣、节假日折扣</effectiveTime>
+				<expireTime>折扣时效时间： YYYYMMDDHhmmss，用于日常折扣、星期折扣、节假日折扣</expireTime>
+			</discountInfo>
+		</ChargingPolicySynFromISMPReq>
+	</SessionBody>
+</Request>

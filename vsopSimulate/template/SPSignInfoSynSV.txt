@@ -1,0 +1,18 @@
+
+参数名	类型	出现次数	长度	注释
+streamingNo	String	1	60	流水号
+TimeStamp	DateTime	1	14	时间戳
+OPFlag	Integer	1	1	1：增加2：修改3：删除
+SPSignInfo	SPInfo	1...n		
+
+
+SPSignInfo数据：
+表1. 	SPSignInfo定义
+参数名	类型	出现次数	长度	备注
+SPSignID	String	1		CP/SP业务能力签约编号
+SPID	String	1	8	CP/SP 编码
+serviceCapabilityID	String	1		业务能力编码：
+参见附录A
+effectiveTime	DateTime	1	14	生效时间
+expiryTime	DateTime	1	14	失效时间
+

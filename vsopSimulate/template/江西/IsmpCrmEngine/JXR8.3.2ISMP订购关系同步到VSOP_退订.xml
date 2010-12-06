@@ -1,0 +1,16 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:m0="http://req.crm.ismp.chinatelecom.com">
+	<SOAP-ENV:Body>
+		<m:subscriptionSync xmlns:m="http://crm.ismp.chinatelecom.com" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+			<subscriptionSyncReq xsi:type="m0:SubscriptionSyncReq">
+				<OPType xsi:type="xsd:int">3</OPType>
+				<packageID xsi:type="xsd:string"></packageID>
+				<oldPackageID xsi:type="xsd:string"></oldPackageID>
+				<productID xsi:type="xsd:string">135000000000000000851</productID>
+				<oldProductID xsi:type="xsd:string"></oldProductID>
+				<streamingNo xsi:type="xsd:string">000000000000000000000000000000000000000020100823161640000003</streamingNo>
+				<userID xsi:type="xsd:string">15307000068</userID>
+				<userIDType xsi:type="xsd:int">0</userIDType>
+			</subscriptionSyncReq>
+		</m:subscriptionSync>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
