@@ -17,23 +17,5 @@ public class JdbcTemplate {
 			e.printStackTrace();
 		}
 	}
-
-	public List queryList(String sql, Object[] agrs, RowMapper rowMapper)
-			throws Exception {
-
-		Statement stmt = DbCtx.getConnection(null).createStatement();
-
-		ResultSet rs = stmt.executeQuery("SELECT * FROM News");
-
-		while (rs.next()) {
-			String title = rs.getString("title");
-			String content = rs.getString("content");
-			System.out.println(title + ": " + content + " ");
-		}
-
-		return null;
-	}
-	
-
 	
 }
