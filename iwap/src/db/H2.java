@@ -20,11 +20,9 @@ public class H2 {
 
 	public static void startServer() {
 		try {
-			System.out.println("正在启动h2...");
 			server = Server.createTcpServer(new String[] { "-tcpPort", port })
 					.start();
 		} catch (SQLException e) {
-			System.out.println("启动h2出错：" + e.toString());
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -32,9 +30,7 @@ public class H2 {
 
 	public static void stopServer() {
 		if (server != null) {
-			System.out.println("正在关闭h2...");
 			server.stop();
-			System.out.println("关闭成功.");
 		}
 	}
 
