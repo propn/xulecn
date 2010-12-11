@@ -11,9 +11,6 @@ public class ObjectRowMapper implements RowMapper {
 		this.clz = clz;
 	}
 
-	/*
-	 * 该方法自动将数据库字段对应到Object中相应字段 要求：数据库与Object中字段名相同
-	 */
 	public Object mapRow(ResultSet rs, int rowNum) throws Exception {
 
 		Object nt = new Object();
@@ -21,20 +18,17 @@ public class ObjectRowMapper implements RowMapper {
 		try {
 			nt = clz.newInstance();
 			for (Field field : fields) {
-				// 如果结果中没有改field项则跳过
 				try {
 					rs.findColumn(field.getName());
 				} catch (Exception e) {
 					continue;
 				}
-				// 修改相应filed的权限
 				boolean accessFlag = field.isAccessible();
 				field.setAccessible(true);
 				String value = rs.getString(field.getName());
 				value = value == null ? "" : value;
 				setFieldValue(nt, field, value);
 
-				// 恢复相应field的权限
 				field.setAccessible(accessFlag);
 			}
 		} catch (Exception e) {
@@ -43,9 +37,6 @@ public class ObjectRowMapper implements RowMapper {
 		return nt;
 	}
 
-	/*
-	 * 根据类型对具体对象属性赋值
-	 */
 	public static void setFieldValue(Object form, Field field, String value) {
 
 		String elemType = field.getType().toString();
