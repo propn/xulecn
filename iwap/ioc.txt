@@ -1,0 +1,246 @@
+http://butterfly.jenkov.com/container/docs/getting-started.html#examples
+Using the Butterfly Container requires the following steps: 
+
+Create a Container instance 
+Add object factories to the container (AKA configuration) 
+Initialize the container 
+Obtain instances from the container 
+Dispose the container (when you are done) 
+Each of these steps are covered in more detail in the sections below. The impatient reader can skip ahead to the examples to see how the container is configured and used. 
+
+Creating a Container
+First you create a Container instance. It looks like this: 
+
+  import com.jenkov.container.*;
+
+  ...
+
+  Container container = new Container();
+
+
+
+Choose Configuration Mechanism
+After creation you need to configure the container by adding factories to it. This can be done using either plain Java factories or using Butterfly Container Script (BCS), or a combination of both. 
+
+Java factories has the advantage that they are written in plain Java. No annotations are used, and no reflection is needed at runtime when obtaining beans from the factory. This means better performance than for factories configured using Butterfly Container Script. Plain Java factories also give you full control of the instantiation process. Some things may be possible in plain Java that is not possible in BCS. Plain Java factories are also easier to work with if you need to obfuscate the code later. 
+
+The disadvantage of Java factories is that they are more verbose to write. What can be expressed in a single line of Butterfly Container Script may take 3-4-5-6 lines in pure Java. Another disadvantage is that all instantiation modes (singleton, thread singleton, flyweight etc.) must be handled manually in Java factories. This may change in a future release. 
+
+Butterfly Container Script (BCS) is a lot more concise to write than the equivalent Java factories. This means that the BCS configuration files are easier to read and write than the equivalent Java factories. In addition BCS is more suitable for tasks like application configuration, internationalization, GUI building etc. which dependency injection does a fine job at. 
+
+The primary disadvantage of BCS is that the resulting factories use reflection when instantiating objects. This is a bit slower, but in many cases this performance loss is insignificant. See the discussion of performance (whenever we get it posted online). 
+
+
+
+Turning BCS into Java Factories
+In the future it will be possible to generate plain Java factories from BCS at build time with a code generator supplied by Butterfly Container. During development the BCS is then interpreted as it is today, with no extra build step required. Then, when building for production you can generate Java factories from the BCS to replace it. This yields the best of both worlds. In addition the runtime needed by the container is much smaller when only Java factories need to be supported (about 20 KB). This will make Butterfly Container an obvious choice for embedded devices. 
+
+It will of course be 100% transparent to your code if interpreted BCS or generated Java factories are used. No change in your code will be necessary. 
+
+
+
+Wrapping the Container in a JavaFactoryBuilder
+If you want to add plain Java factories to the container you must wrap it in a JavaFactoryBuilder. Here is an example: 
+
+public class MyFactory extends JavaFactory{
+  public IGlobalFactory<OtherClass> otherFactory;
+
+  public Object instance(Object... parameters) {
+    return new MyObject(otherfactory.instance());
+  }
+}
+
+IContainer container = new Container();
+JavaFactoryBuilder builder = new JavaFactoryBuilder(container);
+
+builder.addFactory("test", MyObject.class, new MyFactory());
+
+MyObject myObject = (MyObject) container.instance("test");
+
+IMPORTANT:
+Notice how the MyFactory class is made public. If you use an anonymous subclass of JavaFactory, inserted instead of "new MyFactory()", the JavaFactoryBuilder cannot access the "otherFactory" field, even if it is public. You must separate your Java factories into their own classes. Inner classes will do just fine too, as long as they are declared "public static". 
+
+First a container is created and wrapped in a JavaFactoryBuilder. Then the builder's addFactory method is called. This method takes 3 parameters: The name of the factory, the return type of the factory, and a subclass of JavaFactory which implements the factory. The name is used when calling the container.instance("name") method to obtain an instance from the factory. The return type is used if you reference this factory from other factories later. It helps determine if the type returned from the factory can be injected into another object. The factory implementation, well, creates the needed instance and returns it. 
+
+The return type is not necessary to set. JavaFactoryBuilder has a method that omits the return type and instead extracts that information from the return type of the JavaFactory subclass's instance method. Here is an example: 
+
+public class MyFactory extends JavaFactory{
+  public IGlobalFactory<OtherClass> otherFactory;
+
+  public MyObject instance(Object... parameters) {
+    return new MyObject(otherfactory.instance());
+  }
+}
+
+IContainer container = new Container();
+JavaFactoryBuilder builder = new JavaFactoryBuilder(container);
+
+builder.addFactory("test", new MyFactory());
+
+MyObject myObject = (MyObject) container.instance("test");
+
+Notice how no return type is passed in the addFactory() call. Also notice how the return type of the instance() method is now MyObject. 
+
+You might be wondering how the Java factories access other factories in the container. The truth is, they have their factory dependencies injected. By declaring a field of type IGlobalFactory in the JavaFactory subclass the JavaFactoryBuilder knows that the factory depends on another factory. The JavaFactoryBuilder uses the name of the field as the name of the factory to inject from the container. So, in the example above where the factory field is name "otherFactory", the JavaFactoryBuilder will try to inject the factory named "otherFactory" stored in the container. If no factory exists named "otherFactory" an exception will be thrown. 
+
+If you do not want to tie your field names to factory names in the container, or if you can't because of issues like code obfuscation, you can annotate the factory field with the name of the factory to inject into it. Here is an example: 
+
+public class MyFactory extends JavaFactory{
+  @Factory("otherFactory")
+  public IGlobalFactory<OtherClass> aFactoryField;
+
+  public MyObject instance(Object... parameters) {
+    return new MyObject(otherfactory.instance());
+  }
+}
+
+
+IContainer container = new Container();
+JavaFactoryBuilder builder = new JavaFactoryBuilder(container);
+
+builder.addFactory("test", new MyFactory());
+
+MyObject myObject = (MyObject) container.instance("test");
+
+Wrapping the Container in a ScriptFactoryBuilder
+If you want to use Butterfly Container Script to configure the container, you use a ScriptFactoryBuilder instance, like this: 
+
+  import com.jenkov.container.*;
+  import com.jenkov.container.script.*;
+
+  ...
+
+  IContainer container = new Container();
+  ScriptFactoryBuilder builder 
+          = new ScriptFactoryBuilder(container);
+
+Now you are ready to add some object factories. You can either put the configuration script in an external file, or embed it directly in the code. 
+
+Embedded Scripts
+Here is how it looks when the script is embedded: 
+
+
+  import com.jenkov.container.*;
+  import com.jenkov.container.script.*;
+
+  ...
+
+  Container container = new Container();
+  ScriptFactoryBuilder builder 
+          = new ScriptFactoryBuilder(container);
+
+  builder.addFactory("bean1 = com.jenkov.SomeObject();");
+  builder.addFactory("bean2 = com.jenkov.OtherObject();");
+
+You can add as many factories as you want, using the addFactory() method. 
+
+External Scripts
+The ScriptFactoryBuilder has a addFactories() method that takes an InputStream as parameter instead of a String. Using this method you can load a container script from disk, over a network, from the classpath and also from inside a Jar file. 
+
+You can load as many external scripts into the container as you want. 
+
+Loading a Script from the File System
+To configure the container using a script contained in a file, do like this: 
+
+  import com.jenkov.container.*;
+  import com.jenkov.container.script.*;
+
+  ...
+
+  Container container = new Container();
+  ScriptFactoryBuilder builder 
+          = new ScriptFactoryBuilder(container);
+
+  FileInputStream input = new FileInputStream("myScript.txt");
+  builder.addFactories(input);
+  input.close();
+
+Note that the addFactories method doesn't close the InputStream. You must do so yourself. 
+
+Loading a Script from the classpath
+To configure the container using a script contained in a file located on the classpath (including inside a Jar file), you can do like this: 
+
+  import com.jenkov.container.*;
+  import com.jenkov.container.script.*;
+
+  ...
+
+  Container container = new Container();
+  ScriptFactoryBuilder builder 
+          = new ScriptFactoryBuilder(container);
+
+  InputStream input = getClass().
+     getResourceAsStream("/com/jenkov/myScript.txt");
+
+  builder.addFactories(input);
+  input.close();
+
+This example will read the myScript.txt file located in the /com/jenkov/ subdirectory of any of the directories or Jar files on the classpath. 
+
+Mixing Embedded and External Scripts
+You can mix embedded and external scripts as you please. There is no restriction on wherefrom the scripts are obtained. In other words, a factory defined in an external script can be referenced in a factory defined in an embedded script and vice versa. 
+
+Mixing Scripts and Java Factories
+You can mix factories defined in scripts with plain java factories. That means that factories defined in a script can be referenced by a Java factory, and Java factories can be referenced by factories defined in scripts. 
+
+Script and Factory Dependency Order
+An object factory can use other object factories. How this is done is explained in the Butterfly Container Script documentation. An object factory can use any object factories defined earlier than itself, regardless of whether the used object factory is located in the same script, an earlier script, an embedded script or a Java factory. 
+
+Initializing the Container
+Once all object factories are added to the container, the container needs to be intialized. This is done using the init() method, like this: 
+
+  container.init();
+
+The init() method creates all singletons, starts services and other stuff that need to be done before the instances in the container can be used. 
+
+Obtainining Object Instances from the Container
+You obtain instances from the container using the instance() method. The instance() method needs the name of the object factory to get an instance from. Here is how it looks: 
+
+  SomeObject someObject = (SomeObject) container.instance("bean1");
+
+It is possible to pass input parameters to the object factories. Providing input parameters is done like this: 
+
+  SomeObject someObject = (SomeObject) container
+     .instance("bean1", "param1", new Integer(2));
+
+You can put as many input parameters into the instance() call as you like. The input parameters are defined as an optional parameter (Object ... parameters). 
+
+Disposing the Container
+Disposing the container is easy. Just call the Container.dispose() method, like this: 
+
+    container.dispose();
+
+When the dispose() method is called, the dispose life cycle phase is executed for all factories in the container, before the method call returns. 
+
+
+
+Examples
+Here are a couple of examples of container configurations and use: 
+
+IContainer container = new Container();
+ScriptFactoryBuilder scriptBuilder = new ScriptFactoryBuilder(container);
+JavaFactoryBuilder javaBuilder = new JavaFactoryBuilder(container);
+
+scriptBuilder.addFactory("myBean   = * com.myapp.MyBean(); ");
+scriptBuilder.addFactory("yourBean = * com.myapp.YourBean(myBean); ");
+
+javaBuilder.addFactory("hisBean", new JavaFactory(){
+   public HisBean instance(Object ... param){
+      public IGlobalFactory<MyBean> myBean;
+      public IGlobalFactory<YourBean> yourBean;
+      return new HisBean(
+         myBean.instance() ,
+         yourBean.instance()
+         );
+   }
+});
+
+scriptBuilder.addFactory("herBean = * com.myapp.HerBean(hisBean); ");
+
+MyBean   myBean   = (MyBean)   container.instance("myBean");
+YourBean yourBean = (YourBean) container.instance("yourBean");
+HisBean  hisBean  = (HisBean)  container.instance("hisBean");
+HerBean  herBean  = (HerBean)  container.instance("herBean");
+
+
+

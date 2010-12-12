@@ -1,0 +1,48 @@
+http://butterfly.jenkov.com/scheduling/documentation.html
+
+Using Butterfly Scheduling requires 3 steps: 
+
+Create a SchedulerService instance 
+Add Tasks 
+Call run() 
+
+
+Creating a SchedulerService
+To use Butterfly Scheduling you must first create a SchedulerService. Here is how that is done: 
+
+SchedulerService schedulerService = new SchedulerService();
+
+
+
+Adding Tasks
+In order to get the SchedulerService to actually do anything sensible, you need to add some tasks to it. 
+
+Here is an example that adds a task to be executed once a day, at 23:30:00 (11:30:00 PM): 
+
+IscheduledTask myTask = new MyTask();
+
+schedulerService.addDailyScheduledTask(myTask, 23, 30, 0);
+
+There are a few more convenience methods for adding tasks to be scheduled at certain intervals, daily, weekly, monthly etc. 
+
+You can also create your own ISchedulingStrategy if you need more complex scheduling strategies. Just implement the ISchedulingStrategy, and add your task by calling this method: 
+
+IscheduledTask myTask = new MyTask();
+
+ISchedulingStrategy mySchedulingStrategy = new MySchedulingStrategy();
+    
+shedulerService.addScheduledTask(myTask, mySchedulingStrategy)
+
+
+
+Calling run()
+To start the SchedulerService you need to call the run() method. You can call the run() method directly, or start a Thread and pass the SchedulerService to it. Here is how the code looks in those two cases: 
+
+//Run in current thread
+schedulerService.run();
+
+//Run in new thread
+Thread thread = new Thread(schedulerService);
+thread.start();
+
+
