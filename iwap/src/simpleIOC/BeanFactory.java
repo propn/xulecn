@@ -31,17 +31,19 @@ public class BeanFactory {
                   SAXReader reader = new SAXReader();
                   ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
                   //从class目录下获取指定的xml文件
-                  InputStream ins = classLoader.getResourceAsStream(xml);
+                  InputStream ins = ClassLoader.getSystemResourceAsStream(xml);
+                  
+                  
                   Document doc = reader.read(ins);
                   Element root = doc.getRootElement();   
-                  Element foo;
+                  Element element;
                   
                   //遍历bean
                   for (Iterator i = root.elementIterator("bean"); i.hasNext();) {   
-                         foo = (Element) i.next();
+                         element = (Element) i.next();
                          //获取bean的属性id和class
-                         Attribute id = foo.attribute("id");   
-                         Attribute cls = foo.attribute("class");
+                         Attribute id = element.attribute("id");   
+                         Attribute cls = element.attribute("class");
                          
                          //利用Java反射机制，通过class的名称获取Class对象
                          Class bean = Class.forName(cls.getText());
@@ -56,14 +58,14 @@ public class BeanFactory {
                          Object obj = bean.newInstance();
                          
                          //遍历该bean的property属性
-                         for (Iterator ite = foo.elementIterator("property"); ite.hasNext();) {   
-                                Element foo2 = (Element) ite.next();
+                         for (Iterator ite = element.elementIterator("property"); ite.hasNext();) {   
+                                Element foo = (Element) ite.next();
                                 //获取该property的name属性
-                                Attribute name = foo2.attribute("name");
+                                Attribute name = foo.attribute("name");
                                 String value = null;
-                                
+                                 
                                 //获取该property的子元素value的值
-                                for(Iterator ite1 = foo2.elementIterator("value"); ite1.hasNext();) {
+                                for(Iterator ite1 = foo.elementIterator("value"); ite1.hasNext();) {
                                        Element node = (Element) ite1.next();
                                        value = node.getText();
                                        break;
