@@ -1,0 +1,111 @@
+一.代码修改
+1.
+com.ztesoft.crm.business.common.query.SqlMapExe
+需继承
+com.ztesoft.common.dao.SqlMapExe
+
+
+2.
+com.ztesoft.sysw.dao.DcPublicDAO 
+继续与一个AbstractDAOWithLog的类,它继承与AbstractDAO,新增下面方法
+
+	
+	/**
+	 * Insert 操作,并插入日志
+	 * @param vo
+	 * @return
+	 * @throws FrameException
+	 * 
+	 */
+	public boolean insertWithLog(Map vo) throws FrameException {
+		List insertParams = translateInsertParams(vo) ;
+		String SQL = getInsertSQL() ;
+		int count =  Base.update(this.getDbName(), SQL, insertParams,  1, Const.UN_JUDGE_ERROR, "");
+		
+		//插入日志
+		MlSystemOperateBO mlSystemOperateBO = new MlSystemOperateBO();
+		mlSystemOperateBO.insertSys(SQL,new HashMap(),insertParams);
+		
+		return count> 0 ;
+	}
+	
+	/**
+	 * 根据主键Update操作,并插入日志
+	 * @param vo
+	 * @param keyCondMap
+	 * @return
+	 * @throws FrameException
+	 * 
+	 */
+  	public boolean updateByKeyWithLog( Map vo , Map keyCondMap ) throws FrameException {
+  		List updateParams = translateUpdateParamsByKey( vo ,  keyCondMap ) ;
+  		String SQL = this.getUpdateSQLByKey() ;
+  		
+  		// 插入日志
+		MlSystemOperateBO mlSystemOperateBO = new MlSystemOperateBO();
+		mlSystemOperateBO.insertSys(SQL,keyCondMap,updateParams);
+		
+  		return Base.update(this.getDbName(), SQL, updateParams, 1, Const.UN_JUDGE_ERROR, "") > 0 ;
+  		
+
+	}
+  	
+  	/**
+	 * 
+	 * 根据主键集delete操作,并插入日志
+	 * @param keyCondMap
+	 * @return
+	 * @throws FrameException
+	 * 
+	 */
+	public long deleteByKeyWithLog(Map keyCondMap ) throws FrameException {
+		String SQL = this.getDeleteSQLByKey() ;
+		List whereCondParams = translateKeyCondMap( keyCondMap) ;
+		
+		
+		// 插入日志
+		MlSystemOperateBO mlSystemOperateBO = new MlSystemOperateBO();
+		mlSystemOperateBO.insertSys(SQL,keyCondMap,new ArrayList());
+		
+		return Base.update(this.getDbName(), SQL, whereCondParams, 1, Const.UN_JUDGE_ERROR, "") ;
+	}
+	
+	
+	
+二.需要一出来的类
+1.com.ztesoft.common.dao.SqlDAOStackTrace
+一处java包,当单独文件处理
+
+2.
+com.ztesoft.framework.CRMFrameworkBuffaloInvoker
+一处java包,当单独文件处理
+
+
+===========================================java framework 打包方式=====================================================
+buffalo.jar
+powerise.jar
+crm-ui.jar
+
+
+
+========================================   JS/JSP修改 ==============================================
+1.每个系统需要修改参数
+environment.js 、common2.js、ZX.js(Crm2.0特有)内容如下:
+
+//定义系统相关上下文参数
+SystemContext = {
+	appName :  'CrmWeb' ,
+	appContextPath : '/CrmWeb' ,
+	appWebRoot :  'CrmWeb\\CrmWeb\\' ,
+	appBuffaloServlet : '/CrmWeb/nfapp' 
+}
+
+2.需要引入public/components/environment.js 资源
+a)crm2.0 :
+/WebRoot/customer/query/queryInfoFrame.jsp
+/WebRoot/base/first.jsp
+<script language="javascript" src="/CrmWeb/public/components/environment.js"></script>
+
+b)vsop:
+
+

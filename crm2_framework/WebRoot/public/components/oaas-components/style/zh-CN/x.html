@@ -1,0 +1,330 @@
+<html>
+	<head>
+	  	<meta http-equiv="Content-Language" content="zh-cn">
+		<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+		<title>中国电信江西CRM</title>
+		<script>
+			if(top!=self){
+				top.location="index.html";
+			}
+		</script>
+		<style>
+			#demotip {
+				display:none;
+				background:transparent url(/CrmWeb/business/core/style/images/black_arrow.png);
+				font-size:12px;
+				height:120px;
+				width:200px;
+				padding:25px;
+				font-size:20px;
+				text-align:center;
+				color:white;
+				zoom:0.8;
+			}
+			
+		</style>
+		<!-- 登陆超时窗口单独js -->
+		<script language="JavaScript" src="public/components/messageBox/timeOutMsgBox.js" charset="GBK"></script>
+		<META HTTP-EQUIV="library" CONTENT="kernel,validator">
+		<script type="text/javascript" src='../../x.js'></script>
+		<link type='text/css' rel='stylesheet' href='public/skins/crm/login/index.css' charset='GBK' />
+
+		<LINK rel=stylesheet type=text/css href=".../public/widgets/window/codebase/dhtmlxwindows.css"/>
+		<LINK rel=stylesheet type=text/css href="/CrmWeb/public/widgets/window/codebase/skins/dhtmlxwindows_dhx_skyblue.css"/>
+
+	
+		<script language="JavaScript" src="/CrmWeb/public/components/jquery-1.4.1.min.js"></script>
+		<script language="JavaScript" src="/CrmWeb/public/components/tools.tooltip-1.1.2.js"></script>
+		<script language="JavaScript" src="/CrmWeb/public/components/tools.tooltip.dynamic-1.0.1.js"></script>
+
+		<script language="JavaScript" src="/CrmWeb/public/widgets/window/codebase/dhtmlxcommon.js"></script>
+		<script language="JavaScript" src="/CrmWeb/public/widgets/window/codebase/dhtmlxwindows.js"></script>
+		<script language="JavaScript" src="/CrmWeb/public/widgets/window/codebase/dhtmlxcontainer.js"></script>
+		<script language="javascript" src="/CrmWeb/business/core/script/public_fun.js"></script>
+
+		<script type='text/javascript' language='JavaScript' src='/CrmWeb/public/components/log4js.js' charset='GBK'></script>
+		<script type='text/javascript' language='JavaScript' src='/CrmWeb/public/components/kernel.js' charset='GBK'></script>
+
+		<script type='text/javascript' language='JavaScript' src='/CrmWeb/public/components/prototype.js' charset='GBK'></script>
+		<script type='text/javascript' language='JavaScript' src='/CrmWeb/public/components/buffalo.js' charset='GBK'></script>
+		<script type='text/javascript' language='JavaScript' src='/CrmWeb/public/components/form.js' charset='GBK'></script>
+		<script type='text/javascript' language='JavaScript' src='/CrmWeb/public/components/datatable.js' charset='GBK'></script>
+		<script type='text/javascript' language='JavaScript' src='/CrmWeb/public/components/dataset.js' charset='GBK'></script>
+		<script type='text/javascript' language='JavaScript' src='/CrmWeb/public/components/dropdown.js' charset='GBK'></script>
+		<script type='text/javascript' language='JavaScript' src='/CrmWeb/public/components/messageBox/messageBox.js' charset='GBK'></script>
+		<script type='text/javascript' language='JavaScript' src='/CrmWeb/public/components/messageBox/dialog.js' charset='GBK'></script>
+		<script type='text/javascript' language='JavaScript' src='/CrmWeb/public/components/localAction.js' charset='GBK'></script>
+		<script>
+			jQ(function(){
+				
+				jQ("#loginTable input[title]").tooltip({tip:"#demotip",	position: ['top', 'center'],"onBeforeShow":function(){
+					if(!!arguments[2].getTrigger().attr("showTip"))
+					{
+						return true;
+					}else
+					{
+						return false;
+					}
+					
+				}});
+
+			})
+		</script>
+	</HEAD>
+
+	<script language="JavaScript" type="text/JavaScript">
+		var exist=getUrlParameter("exist");	
+		function getUrlParameter(param){
+			var url=window.location.search;
+			var pos1=0,pos2=0;
+			pos1=url.indexOf("&"+param+"=");
+			if(pos1<0)
+				pos1=url.indexOf("?"+param+"=");
+			if(pos1>-1){
+				pos2=url.indexOf("&",pos1+1);
+				if(pos2==-1)
+					pos2=url.length;
+				return url.substring(pos1+param.length+2,pos2);
+			}
+			else return null;
+		}
+			
+		function checkExistCrmWindow(){
+			var width = screen.availWidth-3;
+			var height = screen.availHeight-20;
+			var left = -4;
+			var top = -4;	
+			var windowPar='toolbar=no,alwaysLowered=yes,status=no,location=no,titlebar=no,menubar=no, scrollbars=no,resizable=yes,width='+width+',height='+height+',top=0,left=0';
+			var loginMainWin = window.open("","crmloginwindow",windowPar); 
+			var url='base/frame.htm';
+			try{
+				self.focus();
+				if(loginMainWin.location.href.indexOf(url)>=0){
+					alert('请不要打开多个CRM系统窗口进行受理谢谢合作!');
+					//loginMainWin.focus();
+					//self.blur();
+					return false;
+				}
+			}catch(e){
+			}
+			if(exist!='false'){
+				loginMainWin.close();
+			}
+			return true;
+		}
+	
+		function page_onLoad(){
+			
+				 document.all.text_loginInfo_username.focus();
+			// loginInfo.setValue("username",'1010101');
+			// loginInfo.setValue("password",'111bbb');
+		}
+		var winName = null;
+		function newWin(){
+			var width = screen.availWidth-3;
+			var height = screen.availHeight-20;
+			var left = -4;
+			var top = -4;
+			var loginMainWin = window.open('base/frame.htm',"crmloginwindow",'toolbar=no,status=no,location=no,scrollbars=no,resizable=yes,width='+width+',height='+height+',top=0,left=0');
+			loginMainWin.moveTo(left, top);
+			loginMainWin.focus();
+			//self.blur();
+
+		}
+		var logging = false ;//防止重复点击登陆按钮导致多次提交登陆请求
+
+		function submitData(){
+			
+			if( logging ){
+				return;//如果正在登陆,则不在执行登陆请求.
+			}
+			logging = true ;//正在登陆
+			if(!checkExistCrmWindow()){
+				logging=false;
+				return;
+			}
+			//if( !$("form_loginInfo").validate()){
+			//	return ;
+			//}
+			var callBack = function( reply ) {
+				var loginRespond = new LoginRespond() ;
+				loginRespond = reply.getResult();
+				/**
+				 *	返回对象success属性的取值:
+				 * 1 :表示登陆成功;
+				 * 2 :表示需要强制用户修改密码;
+				 * 0 :表示登陆失败,可能是密码或者用户名错误.
+				 */
+
+				if( loginRespond["success"] != "1" ){
+					if( loginRespond["success"] == "0" ){//登陆失败
+						errMsg.innerText = loginRespond["reason"];
+						logging = false ;//登陆异常,取消正在登陆的状态
+					}else if( loginRespond["success"] == "2" ){
+						//该用户必须进行强制修改密码，直接进入“修改密码”的页面
+						alert("您是第一次登陆系统或者已经到了密码修改期限,请修改您的密码!");
+
+						var url = "/CrmWeb/base/updatePassword.jsp?staffCode="
+						+ 	loginInfo.getValue("username");
+
+						winName = opendhtmlxWin(url, 400, 240, "江西电信客户关系管理系统:修改密码",
+								true);
+
+						logging = false ;
+					}
+					return ;
+				}
+				newWin();
+				window.opener = 'xxx';
+				if(exist!='false'){
+					window.close();
+				}
+				logging = false;
+			}
+
+
+			var arr = new Array();
+
+			var loginRequest = new LoginRequest();
+			var staffCode = loginInfo.getValue("username").toUpperCase();
+			if(staffCode == ''){
+				
+				logging = false;
+				jQ("#text_loginInfo_username").attr("showTip",true);
+				jQ("#text_loginInfo_username").trigger("mouseover");
+				jQ("#text_loginInfo_username").attr("showTip",false);
+				
+				
+				return;
+			}
+			var password = loginInfo.getValue("password");
+			
+			if(password == ''){
+				logging = false;
+				jQ("#text_loginInfo_password").attr("showTip",true);
+				jQ("#text_loginInfo_password").trigger("mouseover");
+				jQ("#text_loginInfo_password").attr("showTip",false);
+				return;
+			}
+			loginRequest["staffCode"] = staffCode;
+			loginRequest["password"] = password;
+			arr[0] = loginRequest ;
+			var ajaxCall = new NDAjaxCall(false);
+			loginRequest[Buffalo.BOCLASS] = 'com.ztesoft.oaas.struct.LoginRequest';
+			var check = false ;
+			ajaxCall.remoteCall("SignOnService","getSessionInfo",[],function(reply){
+				var result = reply.getResult() ;
+				if(result) {
+					//alert('用户已登录，请确认 !') ;
+				 	check = false ;
+				}
+			});
+
+			if(!check)
+			ajaxCall.remoteCall("SignOnService","login",arr,callBack);
+
+		}
+		function LoginRequest(){
+			this.staffCode = ""; //工号
+			this.password = ""; //口令
+		}
+		function LoginRespond(){
+			this.strMsgNo = "";
+			this.success = ""; //返回信息是否成功: 0 失败 1 成功
+			this.reason = ""; //失败原因
+		}
+		function btn_login_onClick(){
+			submitData();
+		}
+
+		function btn_reset_onClick(){
+			loginInfo.setValue("username","");
+			loginInfo.setValue("password","");
+		}
+	</script>
+
+	<body id="userLogin">
+		<div id="demotip">&nbsp;</div>
+<OBJECT ID="ibssInstall" CLASSID="CLSID:6F67C010-965A-4534-B790-EDEA6C17CB5F" codebase="/CrmWeb/ibssprn.dll#version=1,0,0,10" style="display:none;"></OBJECT>
+
+		<div id="datasetDefine">
+			<xml id='__loginInfo'></xml>
+			<script> var __t=createDataset({'id':'loginInfo'});  __t.type='reference';  __t.readOnly=false;  __t.editable=false;  __t.autoLoadPage=false;  __t.pageSize=30;  __t.pageIndex=1;  __t.pageCount=1;  __t.recordCount=0;  __t.async=true;  __t.loadDataAction='';  __t.loadDataActionMethod='';  __t._queryType='dataset';  __t.paginate=false;  __t.staticDataSource=true;  __t.xmlFormat='records';  __t.loadAsNeeded=false;  __t.masterDataset='';  __t.masterKeyFields='';  __t.detailKeyFields='';  __t.maskControl=false;  loginInfo=__t;
+			var __f = __t.addField({'fn' : 'username','dt' : 'string' , 'l' : '工 号'   });
+			var __f = __t.addField({'fn' : 'password','dt' : 'string' , 'l' : '密 码'  });
+
+			fillDataset(__t);
+			 if (__t.masterDataset) {    __t.setMasterDataset(__t.masterDataset, __t.masterKeyFields, __t.detailKeyFields); }
+			 </script>
+
+		</div>
+		<table style="width:100%;height:460;">
+			<tr>
+				<td valign="top" style="vertical-align:center;text-align:center;"><table width="791" height="458" border="0" cellspacing="0" cellpadding="0" background="public/skins/crm/login/images/login2.png">
+				  <tr>
+				    <td height="200" colspan="4">&nbsp;</td>
+			      </tr>
+				  <tr>
+				    <td width="450"><div class="infobox">
+            <ul>
+            	<li><strong>业务办理快捷性提升</strong><br />
+           	    利用crm2.0创新技术极大提升业务办理快捷性</li>
+                <li><strong>运营支撑能力提高</strong><br />友好、方便、灵活的配置方式快速支持需求</li>
+                <li><strong>稳定高速的性能</strong><br />
+                利用新框架实现保证系统稳定的性能</li>
+            </ul>
+        </div></td>
+				    <td width="250" valign="top">
+				    <form id='form_loginInfo' class='formLayout3' onsubmit='return false;' submit='btn_login'>
+				    <table width="100%" border="0" cellspacing="2" cellpadding="2" id="loginTable">
+				      <tr>
+				        <td height="30" align="right" nowrap id='text_loginInfo_username2' style="color:#000; font-size:12px; font-weight:bold;"  for='text_loginInfo_username'>&nbsp;</td>
+				        <td>&nbsp;</td>
+				        <td>&nbsp;</td>
+			          </tr>
+				      <tr>
+				        <td width="60" nowrap align="right" style="color:#2E7AB2; font-size:12px; font-weight:bold;" id='label_loginInfo_username'  for='text_loginInfo_username'>用户：</td>
+				        <td><input type='text' onKeyUp="value=value.replace(/\W/g,'')" id='text_loginInfo_username' class='editor' dataset='loginInfo' field='username' style='border:1px solid #4C9AC9; background:#EFF7FF; height:23px; line-height:23px; font-size:16px;width:120px;font-size:bold;;ime-mode:Disabled' validType='require' msg='请输入工号!' required='false' title='请输入工号' /></td>
+				        <td>&nbsp;</td>
+			          </tr>
+				      <tr>
+				        <td width="60" nowrap align="right" style="color:#2E7AB2; font-size:12px; font-weight:bold;" id='label_loginInfo_password' for='text_loginInfo_password'>密码：</td>
+				        <td><input type='password' id='text_loginInfo_password' class='editor' dataset='loginInfo' field='password' style='border:1px solid #4C9AC9;background:#EFF7FF; height:23px; line-height:23px; font-size:16px;width:120px;font-size:bold;' validType='require' msg='请输入密码!' required='false' title='请输入密码'/></td>
+				        <td></td>
+			          </tr>
+				      <tr>
+				        <td nowrap align="right" style="color:#000; font-size:12px; font-weight:bold;" id='text_loginInfo_password2' for='text_loginInfo_password'>&nbsp;</td>
+				        <td><button class='coolButton2' id='btn_login' initialized='true' style='' onclick='if(this.disabled) return false;Document.fireUserEvent(Document.getElementEventName(this, "onClick"), [this]);return false;'>
+												<span class='button_left'>&nbsp;</span><span class='button_center'>登 录</span><span class='button_right'>&nbsp;</span></button></td>
+				        <td></td>
+			          </tr>
+				      <tr>
+				        <td colspan="3" id="errMsg" style="color:red;height:20px;text-align:left;font-weight:bold;padding-left:20px;">&nbsp;</td>
+			          </tr>
+			        </table>
+			        </form>
+                    <script>Form.initial('form_loginInfo');</script>
+			        </td>
+				    <td>&nbsp;</td>
+				    <td>&nbsp;</td>
+			      </tr>
+				  <tr>
+				    <td colspan="4">&nbsp;</td>
+			      </tr>
+			    </table></td>
+			</tr>
+		</table>
+		
+	</body>
+</html>
+<script>
+   	//被window.showModalDialog的处理；indow.open 已经在top!=self中处理。
+	if(window.dialogArguments!=undefined){
+		var winWidth = 435;
+		var winHeight = 204;
+		window.dialogWidth = winWidth+"px";
+		window.dialogHeight = winHeight+"px";
+		timeOutAlert();
+	}
+
+</script>

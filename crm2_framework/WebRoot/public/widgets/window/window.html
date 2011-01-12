@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>URL Event</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="title" content="Samples" />
+	</head>
+	<body onload="doOnLoad();">
+  <link rel="stylesheet" type="text/css" href="codebase/dhtmlxwindows.css">
+	<link rel="stylesheet" type="text/css" href="codebase/skins/dhtmlxwindows_dhx_skyblue.css">
+	<script src="codebase/dhtmlxcommon.js"></script>
+	<script src="codebase/dhtmlxwindows.js"></script>
+	<script src="codebase/dhtmlxcontainer.js"></script>
+	
+	<div id="winVP" style="position: relative; height: 500px; border: #cecece 0px solid; margin: 10px;"></div>
+	
+</body>
+</html>
+
+<script>
+	var dhxWins, w1;
+	function doOnLoad() {
+		dhxWins = new dhtmlXWindows();
+		dhxWins.enableAutoViewport(false);
+		dhxWins.attachViewportTo("winVP");
+		dhxWins.setImagePath("codebase/imgs/");
+		dhxWins.attachEvent("onContentLoaded", function(){ alert("onContentLoaded event fired."); });
+		w1 = dhxWins.createWindow("w1", 200, 30, 520, 440);
+		w1.setText("弹出提示信息框");
+		w1.attachURL('test.html',true);
+		//w1.button("close").disable();
+	}
+	function attachURL() {
+		var obj = document.getElementById("sel");
+		var url = obj.options[obj.selectedIndex].firstChild.nodeValue;
+		w1.setText(url);
+		w1.attachURL(url);
+	}
+	function attachURLAJAX() {
+		w1.attachURL("../common/attach_url_ajax_inner.html", true);
+	}
+
+</script>

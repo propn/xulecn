@@ -1,0 +1,46 @@
+<public:component tagname="button">
+<public:attach event="oncontentready" onevent="contentready()" />
+<script>  
+  function contentready(){  
+  	    	
+    var button = null;
+    var innerHTML = element.innerHTML;
+    var old_class = element.className;
+    
+    if(element.className != "coolButton"){
+	    button = document.createElement("BUTTON");
+	    element.insertAdjacentElement("afterEnd", button);
+    }
+    else{
+    	button = element;
+    }
+    
+	button.id = element.id;
+   	button.className = "coolButton2";
+    button.disabled = element.disabled;
+    if(element.style.cssText!="")
+    	button.style.cssText += element.style.cssText;
+	button.innerHTML = '<span class="button_left">&nbsp;</span><span class="button_center"></span><span class="button_right">&nbsp;</span>';
+    
+	if(element.accessKey!=""){
+		button.accesskey = element.accessKey;
+		button.children[1].innerHTML = innerHTML+"(<span style='text-decoration:underline;'>"+button.accesskey+"</span>)";
+	}
+	else{
+    	button.children[1].innerHTML = innerHTML;	   
+	}
+    
+    if(!button.onclick){
+	    button.onclick = function(){	
+		  Document.fireUserEvent(Document.getElementEventName(this, "onClick"), [this]);
+		  //为了使得A标签在点击时失去连接效果，必须将返回值设为false.
+		  return false;			
+		}
+	}
+	
+	if(old_class != "coolButton"){
+	 	element.outerHTML = "";
+	}
+  }	  
+</script>
+</public:component>

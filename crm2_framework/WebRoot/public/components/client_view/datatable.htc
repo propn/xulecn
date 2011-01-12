@@ -1,0 +1,62 @@
+<component tagname="table">
+
+<attach event="ondocumentready" onevent="documentready()" />
+
+<property name="initialized" value="false" />
+
+<property name="extra" value="datatable" />
+
+<property name="readOnly" value="false" />
+<property name="editable" value="false" />
+<property name="showHeader" value="true" />
+<property name="showFooter" value="false" />
+<property name="showIndicator" value="true" />
+
+<property name="highlightSelection" value="true" />
+<property name="maxRow" value="0" />
+<property name="skipRebuild" value="false" />
+<property name="confirmCancel" value="false" />
+<property name="confirmDelete" value="false" />	
+
+<script>
+	function documentready(){
+	  var datatable = window.document.createElement("TABLE");
+	  element.insertAdjacentElement("afterEnd", datatable);
+	  
+	  datatable.className = "datatable";
+	  datatable.style.width = "100%";	  
+	  datatable.cellPadding = "2";
+	  datatable.cellSpacing = "0";
+	  datatable.style.border = "0";
+	  datatable.rules = "all"; 
+
+      if(element.id=="")
+        datatable.id = "table_"+element.dataset;
+       
+      datatable.extra = element.extra;
+      datatable.readOnly = element.readOnly;
+      datatable.editable = element.editable;
+      datatable.showHeader = element.showHeader;
+      datatable.showFooter = element.showFooter;
+      datatable.showIndicator = element.showIndicator;
+
+      datatable.highlightSelection = element.highlightSelection;
+      datatable.maxRow = element.maxRow;
+      datatable.skipRebuild = element.skipRebuild;
+      datatable.confirmCancel = element.confirmCancel;
+      datatable.confirmDelete = element.confirmDelete; 
+      
+      datatable.dataset = element.dataset;
+      datatable.fields = element.fields;
+      
+      datatable.style.borderRight = "1px solid #A9BDE9";
+      datatable.style.borderBottom = "1px solid #A9BDE9";
+      
+      makeDataTable(datatable);
+      element.outerHTML = "";
+ 
+    }	
+		
+</script>
+
+</component>	

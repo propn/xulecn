@@ -1,0 +1,4 @@
+[1]jquery.easyui.min.js是总的JS，有208K，尽量使用PLUGINS按需加载插件
+[2]plugins目录插件JS依赖说明.js为插件之间的依赖说明
+[3]themes是样式文件夹，同样也是按需使用
+[4]http://jquery-easyui.wikidot.com/start官网说明

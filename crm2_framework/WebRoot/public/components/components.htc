@@ -1,0 +1,13 @@
+<component>
+<attach event="oncontentready" onevent="contentready()" />
+
+<script>  
+
+  function contentready(){
+    if(element.tagName=="DL"){ makeDataset(element); }
+    else if(element.tagName=="CODE"){	makeDropDown(element); }
+  } 
+
+</script>
+</component>
+
