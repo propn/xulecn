@@ -1,0 +1,23 @@
+thead.fixedHeader tr{position: relative; top: expression(document.getElementById("div9_").scrollTop)}
+thead.fixedHeader td{font-size:12px;color:#0033CC;height: 20px;border-left: 1px solid #FFF;border-right: 1px solid #505050; border-top: 1px solid #FFF; border-bottom: 1px solid #505050; background-color: #F4F4F4; background-image:url(images/colheadbg.gif);}
+tbody.hasBorder td{font-size:12px; height:17px; border-bottom: 1px solid #AAA; border-right: 1px solid #AAA; border-top: 1px solid #EEE; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; padding-left:2;}
+tbody.rowWrap td{font-size:12px; height:17px; border-bottom: 1px solid #AAA; border-right: 1px solid #AAA; border-top: 1px solid #EEE; padding-left:2;}
+tbody.noBorder td{font-size:12px; height: 16px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+div.popTips{background-color:#FFFFE7; top:0; display:none; height:20px; font-size:12px; border:1px #000000 solid; padding:2px 4px 2px 4px; position:absolute; z-index:3;}
+input.pageInput{font-size:12px;color:#000000; background-color: #FFFFFF; border:1 solid #888888;}
+input{height:16px;width:16px}
+thead.noHeader tr{display: none;}
+img{vertical-align : middle}
+div.container {clear: both; border-color:#A9BDE9; cursor:default; overflow: auto;
+	SCROLLBAR-FACE-COLOR: #f6f6f6;
+    SCROLLBAR-HIGHLIGHT-COLOR: #ffffff;
+    SCROLLBAR-SHADOW-COLOR: #cccccc;
+    SCROLLBAR-3DLIGHT-COLOR: #cccccc;
+    SCROLLBAR-ARROW-COLOR: #330000;
+    SCROLLBAR-TRACK-COLOR: #f6f6f6;
+    SCROLLBAR-DARKSHADOW-COLOR: #ffffff;}
+
+A:link {COLOR: #0033CC; TEXT-DECORATION: underline}
+A:visited {COLOR: #0033CC; TEXT-DECORATION: underline}
+a:active {color: #0033CC; text-decoration: underline}
+A:hover {COLOR: #000000; TEXT-DECORATION: underline}

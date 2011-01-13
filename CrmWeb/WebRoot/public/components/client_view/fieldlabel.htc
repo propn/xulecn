@@ -1,0 +1,50 @@
+<component>
+
+<attach event="ondocumentready" onevent="documentready()" />
+
+<property name="extra" value="fieldlabel" />
+<property name="popup" value="false" />
+<property name="initialized" value="false"/>
+
+<script>
+	function documentready(){	
+
+     if(System.isTrue(element.initialized))
+       return;
+	
+	  if(!element.indicator || element.indicator==""){
+	    if(element.form)
+	      element.indicator = element.form.labelIndicator;
+	    if(!element.indicator)
+	      element.indicator = "£º";
+	  }
+	  if(element.field && element.field!=""){
+	    if(!element.htmlFor)
+	      element.htmlFor = element.field;
+	  }	  
+
+
+		var dataset;
+
+		var _dataset= element.getAttribute("dataset");
+
+		if(!_dataset && element.form)
+		  _dataset = element.form.getAttribute("dataset");
+		  
+		if (typeof(_dataset)=="string"){
+			dataset=Dataset.getDatasetByID(_dataset);
+		}
+		else{
+			dataset=_dataset;
+		}
+		element.dataset=dataset;
+		
+		Control.refreshElementValue(element);
+		
+		element.window=window;  			
+	}
+	
+
+</script>
+
+</component>	

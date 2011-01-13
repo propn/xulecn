@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryInfos>
+<libraryInfo home="D:\Program Files\MyEclipse 6.6\jre" version="1.5.0_11">
+<bootpath>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\rt.jar"/>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\i18n.jar"/>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\sunrsasign.jar"/>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\jsse.jar"/>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\jce.jar"/>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\charsets.jar"/>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="D:\Program Files\MyEclipse 6.6" version="1.5.0_11">
+<bootpath>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\rt.jar"/>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\i18n.jar"/>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\sunrsasign.jar"/>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\jsse.jar"/>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\jce.jar"/>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\charsets.jar"/>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\Program Files\MyEclipse 6.6\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

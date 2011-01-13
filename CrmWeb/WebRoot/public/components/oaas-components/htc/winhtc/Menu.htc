@@ -1,0 +1,142 @@
+<PUBLIC:COMPONENT tagname="Menu">
+<PUBLIC:PROPERTY Name="xmlsrc" PUT="putxmlsrc"/>
+<PUBLIC:EVENT Name="onMenuClick" ID="menuClick" />
+<PUBLIC:ATTACH EVENT="ondocumentready" For="element" ONEVENT="MenuInit()" />
+<PUBLIC:ATTACH EVENT="onmouseover"  for="element" ONEVENT="MenuOver()" />
+<PUBLIC:ATTACH EVENT="onmouseout" for="element" ONEVENT="MenuOut()" />
+<PUBLIC:ATTACH EVENT="onclick"  for="element" ONEVENT="MenuClick()" />
+<Script language="JavaScript">
+var xmldoc=null;// xml文档对象变量
+var activeMenu=null;//打开子菜单的父菜单对象变量
+var menuContainer=null;//包含子菜单项容器对象变量
+function putxmlsrc(str){//载入菜单数据文件
+  xmldoc= new ActiveXObject("Microsoft.XMLDOM");//创建xml文档对象
+  xmldoc.async=false;
+  xmldoc.load(str);//载入菜单数据
+}
+function MenuInit(){//初始化菜单
+  var parentMenuItems = xmldoc.selectNodes("//Itemlist/Item"); //读取一级菜单数据    
+  var xmlElement = parentMenuItems.nextNode(); 
+  var newElement;     
+  while (xmlElement != null){     
+    newElement = document.createElement("span"); //创建菜单元素
+    newElement.type = "parentMenu";    
+    with (newElement){
+      innerHTML = xmlElement.getAttribute("name"); 
+      id=xmlElement.getAttribute("value"); 
+      className="Menu";      
+    }     
+    with (newElement.style){     
+      position="relative";
+      width= 60;
+      cursor="default";
+    }     
+    element.appendChild(newElement); //element指附加行为的元素     
+    xmlElement = parentMenuItems.nextNode();       
+  }
+}
+function MenuOver(){
+  var EventSource=event.srcElement;//捕获触发事件的对象
+  switch(activeMenu){//判断子菜单是否存在
+    case null://不存在子菜单
+      if(EventSource.type=="parentMenu")EventSource.className="Up_Menu";
+      break;
+    default:
+      switch(EventSource.type){//判断触发事件对象类型
+        case  "parentMenu"://移入到一级菜单
+          if(activeMenu!=EventSource){//判断是否移入到新一级菜单
+            removeSubMenu();//删除原有子菜单
+            buildSubMenu(EventSource.id);//建立新子菜单
+            EventSource.setCapture();//对新菜单设置鼠标捕获
+            activeMenu.className="Menu";
+            activeMenu=EventSource; //更新打开子菜单的父菜单对象变量
+            activeMenu.className="Dn_Menu";
+            }
+          break;
+        case "subMenu"://移入到子菜单
+          EventSource.style.color="#FF0000";
+          EventSource.style.textDecoration="underline";
+          break;
+      }
+      break;
+  }
+}
+function MenuOut(){
+  EventSource=event.srcElement         
+  switch(activeMenu){
+    case null:
+      if(EventSource.type=="parentMenu")EventSource.className="Menu";
+      break;
+    default:
+      if(EventSource.type=="subMenu"){
+        EventSource.style.color="#000000";
+        EventSource.style.textDecoration="none";
+      }
+      break;
+  }
+}
+function MenuClick(){
+  EventSource=event.srcElement
+  switch(EventSource.type){
+    case "parentMenu":
+      if(activeMenu!=EventSource){
+        removeSubMenu();
+        buildSubMenu(EventSource.id);
+        EventSource.setCapture();
+        EventSource.className="Dn_Menu";
+        activeMenu=EventSource;
+      }
+      break;
+    case "subMenu":
+      removeSubMenu();
+      activeMenu.className="Menu";
+      activeMenu.releaseCapture();//释放鼠标捕获设置
+      activeMenu=null;
+      var eventObject = createEventObject();//创建事件对象
+      eventObject.menuId = EventSource.id;//通过事件对象属性传递所选子菜单ID
+      menuClick.fire(eventObject);//将事件触发到容器页面
+      break;  
+    default:
+      removeSubMenu();
+      if(activeMenu!=null){
+        activeMenu.releaseCapture();
+        activeMenu.className="Menu";
+        activeMenu=null;
+       } 
+      break;
+  } 
+}
+function buildSubMenu(EventSourceid){//建立子菜单
+  menuContainer = document.createElement("div");
+  with (menuContainer.style){ 
+    position="absolute";
+    left=0;
+    top=15;
+    color="#000000";
+    cursor="default";
+  }
+  eval(EventSourceid).appendChild(menuContainer);
+  var subMenuItems = xmldoc.selectNodes("//Item[@value='"+EventSourceid+"']/SubMenu");
+  var xmlElement = subMenuItems.nextNode();  
+  var newElement;
+  while (xmlElement != null){      
+    newElement = document.createElement("div");      
+    newElement.type = "subMenu";
+    with (newElement){      
+      innerHTML ="□ "+xmlElement.getAttribute("name");      
+      id=xmlElement.getAttribute("value");
+    }      
+    with (newElement.style){
+      width=75;
+      height=18;
+    }      
+    menuContainer.appendChild(newElement);
+    menuContainer.className="Up_Menu";       
+    xmlElement = subMenuItems.nextNode();        
+  }
+}
+function removeSubMenu(){//删除子菜单
+  if(menuContainer!=null)menuContainer.removeNode(true);
+}
+</Script>
+</Component>

@@ -1,0 +1,22 @@
+<component tagname="tabpane">
+<attach event="oncontentready" onevent="contentready()" />
+
+<property name="selectedPageIndex" value="0" />
+
+<property name="type" value="L"/>
+<property name="checkable" value="false"/>
+<property name="scroll" value="false"/>
+<property name="direction" value="top"/>
+<property name="minimizable" value="false"/>
+<property name="maximizable" value="false"/>
+
+<script>
+
+	function contentready(){
+     makeTabset(element);
+     element.outerHTML = "";
+	}
+
+</script>
+
+</component>

@@ -1,0 +1,41 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<style>
+/* Slider */
+body{margin:0;padding:0;}
+body.sliderOff{background:url(../public/skins/bsn/menu/menu_off2.gif) left center no-repeat #84B8F1;}
+body.sliderOn{background:url(../public/skins/bsn/menu/menu_on2.gif) left center no-repeat #84B8F1;}
+</style>
+<script>
+	function switchSysBar(){
+		if (top.secondLevelFrameset.cols=="180,10,*"){
+			document.body.title = "展开菜单";
+			document.body.className = "sliderOn";
+			top.secondLevelFrameset.cols="0,10,*";
+		}else{
+			document.body.title = "折叠菜单";
+			document.body.className = "sliderOff";
+			top.secondLevelFrameset.cols="180,10,*";
+		}
+	}
+	function openSysBar(){
+			document.body.title = "折叠菜单";
+			document.body.className = "sliderOff";
+			top.secondLevelFrameset.cols="180,10,*";
+	}	
+
+  window.attachEvent("onload", function(){
+    if(window.screen.width<'1024'){
+      switchSysBar();
+    }
+  });
+
+</script>
+
+</head>
+
+
+<body scroll="no" style="cursor: hand;" onclick="switchSysBar()" class="sliderOff" oncontextmenu="return false;" onselectstart="return false;"></body>
+</html>
