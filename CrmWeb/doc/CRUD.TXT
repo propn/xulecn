@@ -1,0 +1,74 @@
+
+CRUD交易开发步骤：
+
+1.确定要用到的表：在数据库中创建表结构 dc_public  
+		select * from dc_public 
+
+2。创建目录：SRC下建包，WebRoot建了页面文件夹、包含二级文件夹js
+
+3。试用代码生成工具生成代码：Dao.dbName=DEFAULT
+
+4. copy生成后的代码：java文件复制到SRC下的包中 ，web文件复制到WebRoot下的页面文件夹中，js文件复制到js文件夹中
+
+5。配置buffalo-service.properties 文件，DcPublicService=com.ztesoft.vsop.learn.service.DcPublicService
+
+6。配置service BEAN调用，相当于Spring的javaBean定义:
+
+	 6.1 在类com.ztesoft.common.dict.ServiceList中配置javaBean 
+	         public static final String DcPublicBO="DcPublicBO";
+	 6.2 执行以下SQL语句，在数据中增加JAVABean定义： [注意：service_name配置为大写字母]
+	 
+				insert into tfm_services (SERVICE_NAME, ENV_ID, VERSION, SERVICE_DESC, SERVICE_TYPE, STATE, CACHE_FLAG, MODULE_NAME, IF_LOG)
+ 				 values ('DCPUBLICBO', '', '', 'DcPublic的CRUD操作', '1', '1', '', '3', '');
+				insert into tfm_serv_class_def (SERVICE_NAME, CLASS_NAME) 
+ 				 values ('DCPUBLICBO', 'com.ztesoft.vsop.learn.bo.DcPublicBO');
+ 				
+ 	 6.3	select * from tfm_services 
+				select * from tfm_serv_class_def 
+
+
+7. 修改代码生成工具生成的jsp页面参数
+	 7.1	替换修改说明 ：
+	  <%--
+		1.dsQuery数据集，参数字段、名称
+		2.dsDcPublicList 参数
+		3.dsDcPublicList 字段显隐，字段类型
+		4.dsDcPublicForm 字段显隐，字段类型、验证信息
+ 		--%>
+ 		
+ 		7.2 下拉列表数据字典配置说明
+ 		
+ 		<ui:field field="pkey" label="pkey" attrCode="DC_LAN_CODE" visible="true"  blankValue="true"></ui:field>
+ 		显示为下拉列表：数据为以下sql语句查询出来的数据；
+ 		select * from dc_sql where DC_NAME='DC_LAN_CODE';	select pkey,pname from dc_public p where p.stype=2002;
+ 	
+8。修改代码生成工具生成的js参数
+	/**
+		替换修改说明 ：
+		1.queryData() 参数信息
+		2.DcPublicCheck() 
+		3. 替换完毕，删除此段文字！
+	 */
+		
+9。修改service类：相当于struts的Action，用来供axjs调用；每个函数在一个事务中
+	/**
+	 * 需要替换位置 说明 ： 1. ServiceList.MyService 替换为ServiceList注册的服务 2.
+	 * searchDcPublicData 改方法的参数名称 3. findDcPublicByCond(String stype,String
+	 * pkey) 参数需要根据实际情况修改 4. 不需要的方法，可以根据实际情况进行裁剪 
+	 */
+
+10。修改bo类：业务逻辑写在BO中
+	/**
+	 * 需要替换位置 说明 ： 1. 错误参数处理,根据实际情况修改 2. searchDcPublicData 改方法的参数名称 3.
+	 * findDcPublicByCond(String stype,String pkey) 参数需要根据实际情况修改 4.
+	 * 不需要的方法，可以根据实际情况进行裁剪 
+	 */
+
+
+
+
+
+
+
+
+
