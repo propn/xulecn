@@ -29,18 +29,21 @@
 				<ui:field field="superPartyId" label="上级部门编号" visible="false"></ui:field>
 				<ui:field field="superPartyName" label="上级部门" popup="true" required="true" validType="require" validMsg="请选择上级部门!"></ui:field>
 			</ui:dataset>
+			
 			<ui:dataset datasetId="logicalAddrList" loadDataAction="PartyService" loadDataActionMethod="getLogicalAddrsByPartyId" async="false" staticDataSource="true">
 				<ui:field field="logicalAddrId" label="逻辑地址标识"></ui:field>
 				<ui:field field="addrId" label="地址标识" visible="false"></ui:field>
 				<ui:field field="logicalAddrType" label="逻辑地址类型" dropDown="logicalAddrTypeDropdown"></ui:field>
 				<ui:field field="logicalAddrDeta" label="逻辑地址详细信息"></ui:field>
 			</ui:dataset>
+			
 			<ui:dataset datasetId="logicalAddrInfo" staticDataSource="true" readOnly="true">
 				<ui:field field="logicalAddrId" label="逻辑地址标识" visible="false"></ui:field>
 				<ui:field field="addrId" label="地址标识" visible="false"></ui:field>
 				<ui:field field="logicalAddrType" label="逻辑地址类型" dropDown="logicalAddrTypeDropdown"></ui:field>
 				<ui:field field="logicalAddrDeta" label="逻辑地址详细信息" required="true"></ui:field>
 			</ui:dataset>
+			
 			<!-- 组织常规信息Dataset-->
 			<ui:dataset datasetId="commonInfor" readOnly="true"> 
 				<ui:field field="partyId" label="参与人标识" visible="false"></ui:field>
@@ -58,6 +61,7 @@
 				<ui:field field="orgClass" label="组织分类" visible="true" attrCode="ORG_CLASS_NEW"></ui:field>
 				<ui:field field="orgType" label="计费组织类型" visible="true" attrCode="BSN_ORG_TYPE"></ui:field>
 			</ui:dataset>
+			
 			<!-- 联系信息Dataset-->
 			<ui:dataset datasetId="contactInfor" readOnly="true">
 				<ui:field field="addrId" label="地址标识" visible="false"></ui:field>
@@ -76,6 +80,7 @@
 				<ui:field field="incrTaxNo" label="增值税号" size="30"></ui:field>												
 			</ui:dataset>
 		</div>
+		
 		<div id="dropdownDefine">
 			<ui:dropdown id="logicalAddrTypeDropdown" attrCode="LOGICAL_ADDR_TYPE" staticDataSource="false"></ui:dropdown>
 			<ui:dropdown id="isOrgManagerSelect" attrCode="IS_ORG_MANAGER" staticDataSource="false"></ui:dropdown>
@@ -83,6 +88,7 @@
 			<ui:dropdown id="orgTypeDropdown" attrCode="DC_ORG_TYPE" staticDataSource="false"></ui:dropdown>
 
 		</div>
+		
 		<div id="layoutDefine">
 			<ui:layout type="border">
 				<ui:pane position="top" style="height:325px">
@@ -124,6 +130,7 @@
 				<ui:pane position="center">
 					<!-- 详细信息面板，显示多个Tab Page控件-->
 					<ui:tabpane id="mainPage">
+						
 						<ui:tabpage desc="常规">
 							<ui:layout type="border">
 								<ui:pane position="center">
@@ -142,6 +149,7 @@
 								</ui:pane>
 							</ui:layout>
 						</ui:tabpage>
+						
 						<ui:tabpage desc="详细信息">
 							<ui:layout type="border">
 								<ui:pane position="center">
@@ -153,27 +161,7 @@
 								</ui:pane>
 							</ui:layout>
 						</ui:tabpage>
-						<ui:tabpage desc="扩展信息">
-							<ui:layout type="border">
-								<ui:pane position="top">
-									<ui:bar type="search" desc="扩展信息">
-										<ui:content>
-											<ui:button id="addLogicAddr">增加</ui:button>
-											<ui:button id="editLogicAddr">编辑</ui:button>
-											<ui:button id="deleteLogicAddr">删除</ui:button>
-										</ui:content>
-									</ui:bar>
-								</ui:pane>
-								<ui:pane position="center">
-									<ui:table dataset="logicalAddrList"></ui:table>
-								</ui:pane>
-								<ui:pane position="bottom">
-									<ui:form submit="commitLogicAddr" dataset="logicalAddrInfo" labelLayout="15%" inputLayout="34%"></ui:form>
-									<ui:button id="commitLogicAddr">确定</ui:button>
-									<ui:button id="cancelLogicAddr">取消</ui:button>
-								</ui:pane>
-							</ui:layout>
-						</ui:tabpage>
+						
 					</ui:tabpane>
 				</ui:pane>
 			</ui:layout>
