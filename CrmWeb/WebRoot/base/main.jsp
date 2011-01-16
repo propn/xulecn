@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="GBK"%>
+<%@ page import="java.util.Calendar" %>
 <%@ taglib uri="/WEB-INF/crm-ui.tld" prefix="ui"%>
 <html>
 	<head>
@@ -6,92 +7,65 @@
 		<script language="JavaScript" src="../public/components/common2.js" charset="gb2312"></script>
 		<ui:import library=""></ui:import>
 		<link type='text/css' rel='stylesheet' href='../public/skins/bsn/main.css' charset='GBK'/>
+		<link type='text/css' rel='stylesheet' href='css/topmenu.css' charset='GBK'/>
 		<script language="JavaScript" src="../public/components/mdiWin.js" charset="gb2312"></script>
 		<script language="JavaScript" src="script/AlternateData.js" charset="gb2312"></script>
 		<script language="JavaScript" src="../cs/cc/script/DualScreen.js" charset="gb2312"></script>
-
-		
-		<title>中国电信增值业务订购管理系统</title>
-		<style>
-		  table td{padding:0;}
-		  body{fileter:;};
-		</style> 
-		<style media="print" type="text/css">
-		  #firstMenu{display:none;}
-		  #secondLevelMenuDiv{display:none;}
-		  #workspaceTitleTable{display:none;}
-		  #copyright{display:none;}
-		  #slider{display:none;}
-		  body{background:white;filter:;}
-		  #layoutDefine{background:white;filter:;}
-		  #mywindowsLayer{background:white;filter:;}
-		</style>
-		<script>		
-		Global.disableAsyncRemoteCallProcessingBar=true;
-		Global.disableSystemContextMenu=true;
-		Global.disableContextSelect=true;
-		Global.disableContextRefresh=true;
-		var console = null; //创建双屏全局实例，保存在CRM客户端全局	
-		document.onpropertychange = function(){}
-		document.oncontextmenu = function(){
-		  event.returnValue=false;
-		}		
-		document.onselectstart = function(){
-			event.returnValue=false;
-		}
-		function page_onUnload(){
-		}
+		<script type="text/javascript">
 		function page_onLoad(){
-		  var top = (window.document.body.clientHeight-80)/2;
-		  if(top>100){
-		    $("slider").style.display = "";
-		    $("slider").style.top = top;
-		  }
-		  else{
-		    $("slider").style.display = "none";
-		  }		  
-		  
-		  initMenu();
-		  //AddWin("../pbnews/PbNews.jsp", "首页") 
-		  AddWin("PbNews.jsp", "首页");
-		  initMarquee();
-		  //add by huangf 12.19 登陆之后判断是否有要接着处理的一次性费用 -- shield by wzg 
-		  //chargeFeeNotes();
-		  
+			//initMenu();
+			getUserInfo();
+			initTopMenu();
+			AddWin("../base/PbNews.jsp", "首页");
+		}
+		function getUserInfo(){
+			var ajaxCall = new NDAjaxCall(false);
+			var callBack = function( reply ){
+				var loginInfo = reply.getResult() ;
+				userCode = loginInfo["staffCode"];
+				userName = loginInfo["partyName"];
+				$('login_code').innerText = userCode;
+				$('login_name').innerText = userName;
+				
+			}
+			ajaxCall.remoteCall("LoginService","getLoginInfo",[],callBack);
 		}
 		
-		function getConsole(){ 
-		  	var param_code = "DUAL_URL" ; 
-			if(console == null){
-			   try{
-			  	var dsIP = null ;
-				NDAjaxCall.getSyncInstance().remoteCall("CcQueryService", "getSwitchDualScreen", [param_code], function callback(reply){
-					var dsIP = reply.getResult();
-			    	if(dsIP!=null){
-			    		console = new DualScreen({root:dsIP});
-			      	}
-			      	else{
-			      		alert("取双屏参数出错，请确认！");
-			      	}
-				}); 
+		function initTopMenu(){
+			var oXmlDom = new ActiveXObject("MSXML2.DOMDocument.5.0");
+			var ajaxCall = new NDAjaxCall(true);
+			
+			ajaxCall.remoteCall("LoginService","getRootMenuTree",[],function(reply){
+				var xml = reply.getResult();
+				oXmlDom.loadXML(xml);
+				var items = oXmlDom.selectNodes('/items/item');
+				var topMenu = $('top_menu');
+				for(var i=items.length-1;i>=0;i--){
+					var item = items[i];
+					var ali = document.createElement('li');
+					
+					ali.innerHTML = '<a href="#" onclick="loadSubMenu('+item.getAttribute('menuId')+') " > <span > <img src="'+item.getAttribute('imagePath')+ '"  class="topmenu" align="absmiddle" /> ' +item.getAttribute('menuName') + '</span></a>';
+					
+					//alert(ali.innerHTML);
+					
+					topMenu.appendChild(ali);
 				}
-				catch(e){
-				//alert(e.name + ": " + e.message); 
-				}	
-			} 
-		 	return console;
-       }
-		function switchMenu(img){
-		  var menu = $("secondLevelMenuDiv");
-		  menu.style.display = (menu.style.display == "" ? "none" : "");
-		  if(menu.style.display=="none"){
-		  	img.src = "../public/skins/bsn/menu/menu_on2.gif";
-		  	img.style.left = 0;
-		  }
-		  else{
-		  	img.src = "../public/skins/bsn/menu/menu_off2.gif";
-		  	img.style.left = 170;		  
-		  }
+			});
+		}
+		
+		function loadSubMenu(superId){
+			var queryResult = null ;
+			var ajaxCall = new NDAjaxCall(true);
+			var callBack = function( reply ){
+				queryResult = reply.getResult() ;
+				menuTreeView.loadByXML(queryResult);
+				
+				var items = menuTreeView.items ;
+				for( var i = 0 ; i < items.length ; i ++ ){
+					items[i].setImage("../public/skins/bsn/xtree/xp/flod1.gif");//根节点的图片
+				}
+			}
+			ajaxCall.remoteCall("LoginService","getSubMenus",[''+superId],callBack);
 		}
 		
 		function initMenu(){
@@ -108,58 +82,8 @@
 			}
 			ajaxCall.remoteCall("LoginService","getRootMenuTree",[],callBack);
 		}
-		
-		function downloadSubMenu(){
-			var selItem = menuTreeView.selectedItem ;
-			if( selItem == null ){
-				return ;
-			}
-			if( selItem.items ){
-				return ;
-			}
-	
-			if( selItem.openFlag == "0" ){//当前菜单是叶子菜单
-				selItem.setImage("../public/skins/bsn/xtree/xp/file.png");//叶子节点的图片
-				if(selItem.targetName==""){
-				    AddWin("construct.htm?" + selItem.para,selItem.menuName,selItem.menuCode);
-				}
-				return ;
-			}
-			
-			var ajaxCall = new NDAjaxCall( false ) ;
-			
-			var callBack = function( reply ){
-				var result = reply.getResult() ;
-				if( result != "<items/>" ){
-					if( !selItem.items ) {
-						selItem.insertByXML( result ) ;
-					}
-					selItem.expand(true);
-					selItem.setImage("../public/skins/bsn/xtree/xp/flodopen.gif");//非叶子节点图片
-				}else{
-					selItem.setImage("../public/skins/bsn/xtree/xp/file.png");//叶子节点的图片
-					if(selItem.targetName==""){
-					    AddWin("construct.htm?" + selItem.para,selItem.menuName,selItem.menuCode);
-					}
-				}
-			}
-			
-			var menuId = selItem.menuId ;
-			ajaxCall.remoteCall("LoginService","getSubMenus",[menuId ], callBack);		
-		}
-		//获取一万号登陆知识库的工号和密码
-		function getUserOf10000(type){
-			var ajaxCall = new NDAjaxCall( false ) ;
-			var userOf10000 = new Array;
-			var callBack = function( reply ){
-				userOf10000 = reply.getResult() ;
-			}
-			
-			ajaxCall.remoteCall("PartyService","getUserOf10000",[type ], callBack);
-			return userOf10000;
-		}
 		function dbclickMenu(){
-			clickMenu() ;
+				clickMenu() ;
 		}
 		function clickMenu(){
 			var loginInfo=getStaffLoginInfo();
@@ -202,64 +126,117 @@
 				}
 			}
 		}
+		function downloadSubMenu(){
+			var selItem = menuTreeView.selectedItem ;
+			if( selItem == null ){
+				return ;
+			}
+			if( selItem.items ){
+				return ;
+			}
 	
-		var userInfoBean = new Object();
-		
-		function initMarquee(){
-			var ajaxCall = new NDAjaxCall(false);
-			var callBack = function( reply ){
-				var loginInfo = reply.getResult() ;
-	//			spanBusiness.innerText = loginInfo["businessName"] ;//显示员工所在的营业区
-				spanOrgName.innerText = loginInfo["operOrgName"];//显示员工所属的组织
-				spanStaff.innerText = loginInfo["partyName"];//显示员工姓名
-				
-				//初始化员工的一些基本信息
-				userInfoBean.operOrgId = loginInfo["operOrgId"];
-				userInfoBean.operOrgName = loginInfo["operOrgName"];
-				
-				userInfoBean.userId = loginInfo["partyId"];
-				userInfoBean.userCode = loginInfo["staffCode"];
-				userInfoBean.userName = loginInfo["partyName"];
-				userInfoBean.ip = loginInfo["ip"];
-				userInfoBean.macAddress = "";
-				userInfoBean.agentFlag = "0";
-				
-				Global.userInfoBean = userInfoBean;
+			if( selItem.openFlag == "0" ){//当前菜单是叶子菜单
+				selItem.setImage("../public/skins/bsn/xtree/xp/file.png");//叶子节点的图片
+				if(selItem.targetName==""){
+				    AddWin("construct.htm?" + selItem.para,selItem.menuName,selItem.menuCode);
+				}
+				return ;
 			}
-			ajaxCall.remoteCall("LoginService","getLoginInfo",[],callBack);
-		}
-		
-		//设置BSN页面需要使用的权限数据
-		function setRoleInfo(){
-			var ajaxCall = new NDAjaxCall(false);
+			
+			var ajaxCall = new NDAjaxCall( false ) ;
+			
 			var callBack = function( reply ){
-			    var result = reply.getResult() ;
-			    userInfoBean.roleStateBsnStrucArr = result;
-				
-				altData = new AlternateData();
-	    		altData.setValue(userInfoBean);
-			}
-			ajaxCall.remoteCall("LoginService","getLogInRolesInfo",[],callBack);
-		}		
-		
-		//提醒登陆员工要收取一次性费用
-		function chargeFeeNotes(){
-			chargeFeeNotesDs.clearData();
-			chargeFeeNotesDs.staticDataSource="false";
-			chargeFeeNotesDs.reloadData(
-				function(){
-					if (chargeFeeNotesDs.getCount()>0){
-						var ls_windowinfo1 = "dialogWidth: 720px; dialogHeight: 500px; help: no; status: no";
-						var url = "../ss/fm/ChargeFeeNotes.jsp";
-						showModalDialog(url, [chargeFeeNotesDs], ls_windowinfo1);
+				var result = reply.getResult() ;
+				if( result != "<items/>" ){
+					if( !selItem.items ) {
+						selItem.insertByXML( result ) ;
+					}
+					selItem.expand(true);
+					selItem.setImage("../public/skins/bsn/xtree/xp/flodopen.gif");//非叶子节点图片
+				}else{
+					selItem.setImage("../public/skins/bsn/xtree/xp/file.png");//叶子节点的图片
+					if(selItem.targetName==""){
+					    AddWin("construct.htm?" + selItem.para,selItem.menuName,selItem.menuCode);
 					}
 				}
-			);
+			}
+			
+			var menuId = selItem.menuId ;
+			ajaxCall.remoteCall("LoginService","getSubMenus",[menuId ], callBack);		
 		}
 		</script>
+		
+		<title>中国电信增值业务订购管理系统</title>
+		<style type="text/css">
+<!-- top.jsp
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.STYLE1 {font-size: 12px}
+.STYLE2 {
+	color: #03515d;
+	font-size: 12px;
+}
+-->
+a:link {font-size:12px; text-decoration:none; color:#fff;}
+a:visited {font-size:12px; text-decoration:none; color:#fff;}
+a:hover {font-size:12px; text-decoration:none; color:#FF0000;}
+
+a.v1:link {font-size:12px; text-decoration:none; color:#03515d;}
+a.v1:visited {font-size:12px; text-decoration:none; color:#03515d;}
+</style>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+<style> 
+.navPoint { 
+COLOR: white; CURSOR: hand; FONT-FAMILY: Webdings; FONT-SIZE: 9pt 
+} 
+</style>
+<style>
+<!--   multiwin
+.wintitle{
+	position:relative;
+	left:-10px;
+	z-index:0;
+	background: url(../public/skins/bsn/multiwin/tab1.gif);
+	background-repeat: no-repeat;
+	width:150px;
+	height:23px;
+	padding-left:25px;
+	padding-top:6px;
+	cursor:hand;
+}
+.win1{
+	width:100%; 
+	height:100%; 
+}
+.win{
+	/*position:absolute; */
+	width:100%; 
+	/*height:100%; */
+}
+.close{
+	border:1pt solid red;
+	width:15px;
+	height:15px;
+	cursor:hand;
+}
+-->
+</style>
 	</head>
-	<body>
-		<img id="slider" src="../public/skins/bsn/menu/menu_off2.gif" style="position:absolute;left:170px;display:none;" onClick="switchMenu(this);" />
+<body>
+	<img id="slider" src="../public/skins/bsn/menu/menu_off2.gif" style="position:absolute;left:170px;display:none;" onClick="switchMenu(this);" />
 		
 		<div id="datasetDefine">
 			<ui:dataset datasetId="chargeFeeNotesDs" loadDataAction="FeeManagetService" loadDataActionMethod="chargeFeeNotes" staticDataSource="true">
@@ -273,27 +250,53 @@
 		<div id="layoutDefine">
 			<ui:layout type="border">
 				<ui:pane position="top" withSlider="false">
-					<jsp:include page="firstLevelMenu.jsp"></jsp:include>
+				  <jsp:include page="top.jsp"></jsp:include>
 				</ui:pane>
 				<ui:pane position="left" withSlider="false">
-					<jsp:include page="secondLevelMenu.jsp"></jsp:include>
+				  <jsp:include page="left.jsp"></jsp:include>
 				</ui:pane>
 				<ui:pane position="center">
 					<jsp:include page="multiwin.jsp"></jsp:include>
 				</ui:pane>
 				<ui:pane position="bottom" withSlider="false">
 					<div>
-						<table width="100%" height="21" border="0" cellspacing="0" cellpadding="0">
-  <tr class="copyright">
-    <td align="center">中兴软创科技有限责任公司所有 2002-2010</td>
-    <td width="220px" background="../public/skins/bsn/menu/bottomright.gif">&nbsp;</td>
-  </tr>
-</table>
-
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						  <tr>
+						    <td width="22" height="30"><img src="images/main_38.gif" width="22" height="30" /></td>
+						    <td background="images/main_40.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+						      <tr>
+						       	<td >
+						        	<div align="left" class="STYLE1">版本：</div>
+						        </td>
+						       
+						        <td>
+						        	<div align="center" class="STYLE1">版权所有：中兴软创科技股份有限公司 2010 </div>
+						        </td>
+						       
+						        <%
+							        Calendar calendar = Calendar.getInstance();
+							        String year = String.valueOf(calendar.get(Calendar.YEAR));
+							        String mon = String.valueOf(calendar.get(Calendar.MONTH)+1);
+							        String day = String.valueOf(calendar.get(Calendar.DATE));
+							        String dayw = "";
+							        int dayweek = calendar.get(Calendar.DAY_OF_WEEK);
+							        if(dayweek == 1) dayw = "日";
+							        if(dayweek == 2) dayw = "一";
+							        if(dayweek == 3) dayw = "二";
+							        if(dayweek == 4) dayw = "三";
+							        if(dayweek == 5) dayw = "四";
+							        if(dayweek == 6) dayw = "五";
+							        if(dayweek == 7) dayw = "六";
+						        %>
+						        <td width="200"><div align="right" class="STYLE1"><%=year %>年<%=mon %>月<%=day %>日 星期</div></td>
+						      </tr>
+						    </table></td>
+						    <td width="28"><img src="images/main_43.gif" width="28" height="30" /></td>
+						  </tr>
+						</table>
 					</div>					
 				</ui:pane>
 			</ui:layout>
 		</div>
-	</body>
-
+</body>
 </html>
