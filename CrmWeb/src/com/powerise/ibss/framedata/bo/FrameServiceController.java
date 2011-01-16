@@ -29,14 +29,14 @@ import com.ztesoft.common.dict.DataTranslate;
 
 public class FrameServiceController {
 
-	//	private List iservices = new ArrayList() ;
+	// private List iservices = new ArrayList() ;
 	private Map iserviceMap = new HashMap();
 
-	private static final String AUTOM = "1";//1 业务原子类
+	private static final String AUTOM = "1";// 1 业务原子类
 
-	private static final String QUERY = "3";//3 查询类
+	private static final String QUERY = "3";// 3 查询类
 
-	private static final String COMB = "2";//2 业务组合类
+	private static final String COMB = "2";// 2 业务组合类
 
 	private FrameServiceController() {
 		try {
@@ -52,6 +52,7 @@ public class FrameServiceController {
 
 	/**
 	 * 根据服务名获取服务
+	 * 
 	 * @param serviceName
 	 * @return
 	 * @throws FrameException
@@ -62,8 +63,8 @@ public class FrameServiceController {
 			throw new FrameException("传递服务名不能为空，请确认！");
 
 		TfmServicesVO vo = null;
-		//不存在，加载数据库数据
-		serviceName = serviceName.toUpperCase() ;
+		// 不存在，加载数据库数据
+		serviceName = serviceName.toUpperCase();
 		if (this.iserviceMap.get(serviceName) != null) {
 			vo = (TfmServicesVO) this.iserviceMap.get(serviceName);
 		} else {
@@ -74,6 +75,7 @@ public class FrameServiceController {
 
 	/**
 	 * 缓存中清除服务
+	 * 
 	 * @param serviceName
 	 */
 	public void removeService(String serviceName) {
@@ -82,12 +84,13 @@ public class FrameServiceController {
 
 	/**
 	 * 服务调用
+	 * 
 	 * @param serviceName
 	 * @param dto
 	 * @throws FrameException
-	 * @throws ClassNotFoundException 
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
+	 * @throws ClassNotFoundException
+	 * @throws IllegalAccessException
+	 * @throws InstantiationException
 	 */
 	public void callService(String serviceName, DynamicDict dto)
 			throws Exception {
@@ -97,15 +100,15 @@ public class FrameServiceController {
 
 	/**
 	 * 服务调用
+	 * 
 	 * @param serviceName
 	 * @param dto
 	 * @throws FrameException
-	 * @throws ClassNotFoundException 
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
+	 * @throws ClassNotFoundException
+	 * @throws IllegalAccessException
+	 * @throws InstantiationException
 	 */
-	public void callService(TfmServicesVO v, DynamicDict dto)
-			throws Exception {
+	public void callService(TfmServicesVO v, DynamicDict dto) throws Exception {
 		execService(v, dto);
 	}
 
@@ -115,6 +118,7 @@ public class FrameServiceController {
 
 	/**
 	 * 加载所用服务
+	 * 
 	 * @throws FrameException
 	 */
 	private void loadAllService() throws FrameException {
@@ -124,23 +128,23 @@ public class FrameServiceController {
 
 		whereCond.append(" and state=? ");
 		para.add("1");
-		
+
 		whereCond.append(" and cache_flag=? ");
 		para.add("1");
 
 		whereCond.append(" and if_log=? ");
 		para.add("1");
-		
-		List services = dao.findByCond(whereCond.toString(), para);
-		//关闭连接
 
-		//转成VO处理
+		List services = dao.findByCond(whereCond.toString(), para);
+		// 关闭连接
+
+		// 转成VO处理
 		toTfmServicesVO(services);
 
-		//组合关系树 servie_type=2
+		// 组合关系树 servie_type=2
 		getServiceCombTree();
 
-		//查询SQL servie_type=3
+		// 查询SQL servie_type=3
 		loadSQLTypeData();
 
 		dbProc(dao);
@@ -168,7 +172,7 @@ public class FrameServiceController {
 		Iterator it = iserviceMap.values().iterator();
 		while (it.hasNext()) {
 			TfmServicesVO serviceVO = (TfmServicesVO) it.next();
-			//组合类型服务
+			// 组合类型服务
 			if (COMB.equals(serviceVO.getService_type())) {
 				List servRelationList = loadTfmServRelationByServiceName(serviceVO
 						.getService_name());
@@ -179,6 +183,7 @@ public class FrameServiceController {
 
 	/**
 	 * HashMap > VO
+	 * 
 	 * @param tfmServicesMaps
 	 */
 	private void toTfmServicesVO(List tfmServicesMaps) {
@@ -200,16 +205,17 @@ public class FrameServiceController {
 		whereCond.append(" and service_name= ? ");
 		para.add(serviceName);
 
-		//调用DAO代码
+		// 调用DAO代码
 		TfmServRelationDAO dao = new TfmServRelationDAO();
 		List result = dao.findByCond(whereCond.toString(), para);
-		//转成VO
+		// 转成VO
 		result = toTfmServRelationVO(result);
 		return result;
 	}
 
 	/**
 	 * HashMap > VO
+	 * 
 	 * @param tfmServicesMaps
 	 */
 	private List toTfmServRelationVO(List tfmServRelationMaps) {
@@ -232,7 +238,7 @@ public class FrameServiceController {
 		Iterator it = iserviceMap.values().iterator();
 		while (it.hasNext()) {
 			TfmServicesVO serviceVO = (TfmServicesVO) it.next();
-			//SQL查询类型服务
+			// SQL查询类型服务
 			if (QUERY.equals(serviceVO.getService_type())) {
 				String serviceName = serviceVO.getService_name();
 				String sql = loadTfmServExtByServiceName(serviceName);
@@ -260,7 +266,7 @@ public class FrameServiceController {
 		whereCond.append(" and service_name= ? ").append(" order by seq asc");
 		para.add(serviceName);
 
-		//调用DAO代码
+		// 调用DAO代码
 		TfmServExtDAO dao = new TfmServExtDAO();
 		List tresult = dao.findByCond(whereCond.toString(), para);
 		if (tresult == null || tresult.isEmpty())
@@ -287,7 +293,7 @@ public class FrameServiceController {
 
 		whereCond.append(" and action_id= ? order by arg_seq asc ");
 		para.add(serviceName);
-		//调用DAO代码
+		// 调用DAO代码
 		TfmActArgsDAO dao = new TfmActArgsDAO();
 		List result = dao.findByCond(whereCond.toString(), para);
 		return toTfmServArgsVO(result);
@@ -295,6 +301,7 @@ public class FrameServiceController {
 
 	/**
 	 * HashMap > VO
+	 * 
 	 * @param tfmServicesMaps
 	 */
 	private List toTfmServArgsVO(List tfmServArgsMaps) {
@@ -333,7 +340,7 @@ public class FrameServiceController {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -358,14 +365,14 @@ public class FrameServiceController {
 		Map ms = (Map) services.get(0);
 		TfmServicesVO serviceVO = TfmServicesVO.getVOFromHashMap(ms);
 
-		//组合关系树 servie_type=2
+		// 组合关系树 servie_type=2
 		if (COMB.equals(serviceVO.getService_type())) {
 			List servRelationList = loadTfmServRelationByServiceName(serviceVO
 					.getService_name());
 			serviceVO.setTfmServRelationVOList(servRelationList);
 		}
 
-		//查询SQL servie_type=3
+		// 查询SQL servie_type=3
 		if (QUERY.equals(serviceVO.getService_type())) {
 			String sql = loadTfmServExtByServiceName(serviceName);
 			if (sql != null && !"".equals(sql.trim())) {
@@ -375,7 +382,7 @@ public class FrameServiceController {
 				serviceVO.setSqlArgs(sqlArgs);
 			}
 		}
-		//存储于Map
+		// 存储于Map
 		putToMap(serviceVO);
 		dbProc(dao);
 		return serviceVO;
@@ -394,13 +401,13 @@ public class FrameServiceController {
 		execService(v, dto);
 	}
 
-	private void execute(TfmServicesVO v, DynamicDict dto)
-			throws Exception{
+	private void execute(TfmServicesVO v, DynamicDict dto) throws Exception {
 		String className = v.getClassName();
 		String serviceName = v.getService_name();
 		IAction action = IActionCache.getInstance().get(serviceName);
 		if (action == null) {
-			System.out.println("className==="+className+",serviceName=="+serviceName) ;
+			System.out.println("className===" + className + ",serviceName=="
+					+ serviceName);
 			action = (IAction) Class.forName(className).newInstance();
 			IActionCache.getInstance().put(serviceName, action);
 		}
@@ -409,6 +416,7 @@ public class FrameServiceController {
 
 	/**
 	 * 配置SQL方式处理方法
+	 * 
 	 * @param dict
 	 * @param strDBName
 	 * @return
@@ -424,7 +432,7 @@ public class FrameServiceController {
 		if (sql == null || "".equals(sql.trim()))
 			throw new FrameException("服务:" + v.getService_name()
 					+ ",对应的执行SQL为空!");
-		//		List args =  sqlArgs.getArgs() ;
+		// List args = sqlArgs.getArgs() ;
 
 		try {
 			SQLAction action = new SQLAction(dict, v);
@@ -473,10 +481,9 @@ public class FrameServiceController {
 		}
 	}
 
-	private void execService(TfmServicesVO v, DynamicDict dto)
-			throws Exception {
+	private void execService(TfmServicesVO v, DynamicDict dto) throws Exception {
 		String type = v.getService_type();
-		//原子类型
+		// 原子类型
 		if (AUTOM.equals(type)) {
 			execute(v, dto);
 		} else if (COMB.equals(type)) {
@@ -484,13 +491,13 @@ public class FrameServiceController {
 			if (mi != null && !mi.isEmpty()) {
 				for (int i = 0, j = mi.size(); i < j; i++) {
 					TfmServRelationVO trv = (TfmServRelationVO) mi.get(i);
-					String f = trv.getCondition_flag();//1需要条件 0 不用，默认为0
+					String f = trv.getCondition_flag();// 1需要条件 0 不用，默认为0
 
 					if (AUTOM.equals(f)) {
 						TfmServicesVO condv = trv.getCondService();
 						execute(condv, dto);
-						boolean check = getBooleanFromDto(dto, trv
-								.getCond_arg_name());
+						boolean check = getBooleanFromDto(dto,
+								trv.getCond_arg_name());
 						if (check) {
 							TfmServicesVO cv = trv.getCoService();
 							execute(cv, dto);
