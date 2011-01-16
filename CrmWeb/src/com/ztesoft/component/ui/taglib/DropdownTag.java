@@ -40,9 +40,9 @@ public class DropdownTag extends TagSupport {
 	private String subList;
 	private String blankValue;
 	private String blankId;
-	//private String configParams;
 
-	
+	// private String configParams;
+
 	public String getBlankId() {
 		return blankId;
 	}
@@ -139,54 +139,61 @@ public class DropdownTag extends TagSupport {
 		this.id = id;
 	}
 
-	public static void setPageContextAttribute(PageContext pageContext,  String blankId, ArrayList items, String AttributeId){
+	public static void setPageContextAttribute(PageContext pageContext,
+			String blankId, ArrayList items, String AttributeId) {
 
-		if(pageContext.getAttribute(AttributeId)==null || "".equals(pageContext.getAttribute(AttributeId))){
-			if(blankId==null){
-				pageContext.setAttribute(AttributeId, ((StaticAttrVO)(items.get(0))).getAttrValue());
-			}
-			else{
+		if (pageContext.getAttribute(AttributeId) == null
+				|| "".equals(pageContext.getAttribute(AttributeId))) {
+			if (blankId == null) {
+				pageContext.setAttribute(AttributeId,
+						((StaticAttrVO) (items.get(0))).getAttrValue());
+			} else {
 				pageContext.setAttribute(AttributeId, blankId);
 			}
-		}	
-		
+		}
+
 	}
-	
-	public static String getDropdownControl(PageContext pageContext, String attrCode, String parentValue, String blankId, String blankValue, String maxHeight, String configParams) throws Exception{
-		if(attrCode==null) return "";
-		
+
+	public static String getDropdownControl(PageContext pageContext,
+			String attrCode, String parentValue, String blankId,
+			String blankValue, String maxHeight, String configParams)
+			throws Exception {
+		if (attrCode == null)
+			return "";
+
 		StringBuffer sbuffer = new StringBuffer();
 		StringBuffer errbuffer = new StringBuffer();
-		CrmException crmEx = null;			
-        
-		
+		CrmException crmEx = null;
+
 		sbuffer.append("<xml id='__" + attrCode + "'>");
 		sbuffer.append("<items>");
-		
+
 		String bak_attrCode = attrCode;
 		ArrayList items = null;
 		try {
-			if(!"".equals(attrCode)){
-				if(parentValue!=null && !"".equalsIgnoreCase(parentValue)){
+			if (!"".equals(attrCode)) {
+				if (parentValue != null && !"".equalsIgnoreCase(parentValue)) {
 					StaticAttrService service = new StaticAttrService();
 					service.setSession(pageContext.getSession());
 					items = service.getSubStaticAttr(attrCode, parentValue);
-				
-				}else if(configParams!=null && !"".equalsIgnoreCase(configParams)){
-					
-					items = (new StaticAttrService()).loadDataByConfigParams(attrCode, configParams);
-				
-				}else {
-					HashMap static_data_map = (HashMap)pageContext.getRequest().getAttribute("____static_data");
-					if( static_data_map != null ){
-						items = (ArrayList)static_data_map.get(attrCode);
+
+				} else if (configParams != null
+						&& !"".equalsIgnoreCase(configParams)) {
+					items = null;
+
+				} else {
+					HashMap static_data_map = (HashMap) pageContext
+							.getRequest().getAttribute("____static_data");
+					if (static_data_map != null) {
+						items = (ArrayList) static_data_map.get(attrCode);
 					}
-					if( items == null ){
-						items = (new StaticAttrService()).getStaticAttr(attrCode);
+					if (items == null) {
+						items = (new StaticAttrService())
+								.getStaticAttr(attrCode);
 					}
 				}
 			}
-			
+
 		} catch (Exception e) {
 			logger.error("读取下拉控件数据失败！", e);
 			e.printStackTrace();
@@ -195,72 +202,77 @@ public class DropdownTag extends TagSupport {
 				crmEx = (CrmException) e;
 				errbuffer.append((new ExceptionVO(crmEx)).toJsObject());
 			} else {
-				crmEx = new CommonException(new CommonError(CommonError.COMMON_ERROR), e);
+				crmEx = new CommonException(new CommonError(
+						CommonError.COMMON_ERROR), e);
 				errbuffer.append((new ExceptionVO(crmEx)).toJsObject());
 			}
-		}	
+		}
 		if (items != null) {
-			if(items.size()>0){
-				if("DC_LAN_CODE".equalsIgnoreCase(bak_attrCode)){
-					setPageContextAttribute(pageContext, blankId, items, "LAN_ID");								
-				}
-				else if("DC_BUSINESS_CODE".equalsIgnoreCase(bak_attrCode)){
-					setPageContextAttribute(pageContext, blankId, items, "BUSINESS_ID");
-				}
-				else if("DC_DEAL_EXCH_ID".equalsIgnoreCase(bak_attrCode)){
-					setPageContextAttribute(pageContext, blankId, items, "DEAL_EXCH_ID");
-				}
-				else if("DC_MASTER_EXCH_ID".equalsIgnoreCase(bak_attrCode)){
-					setPageContextAttribute(pageContext, blankId, items, "MASTER_EXCH_ID");					
-				}	
-				else if("Z_DC_LAN_CODE".equalsIgnoreCase(bak_attrCode)){
-					setPageContextAttribute(pageContext, blankId, items, "Z_LAN_ID");									
-				}
-				else if("Z_DC_BUSINESS_CODE".equalsIgnoreCase(bak_attrCode)){
-					setPageContextAttribute(pageContext, blankId, items, "Z_BUSINESS_ID");	
-				}
-				else if("Z_DC_DEAL_EXCH_ID".equalsIgnoreCase(bak_attrCode)){
-					setPageContextAttribute(pageContext, blankId, items, "Z_DEAL_EXCH_ID");	
-				}
-				else if("Z_DC_MASTER_EXCH_ID".equalsIgnoreCase(bak_attrCode)){
-					setPageContextAttribute(pageContext, blankId, items, "Z_MASTER_EXCH_ID");						
+			if (items.size() > 0) {
+				if ("DC_LAN_CODE".equalsIgnoreCase(bak_attrCode)) {
+					setPageContextAttribute(pageContext, blankId, items,
+							"LAN_ID");
+				} else if ("DC_BUSINESS_CODE".equalsIgnoreCase(bak_attrCode)) {
+					setPageContextAttribute(pageContext, blankId, items,
+							"BUSINESS_ID");
+				} else if ("DC_DEAL_EXCH_ID".equalsIgnoreCase(bak_attrCode)) {
+					setPageContextAttribute(pageContext, blankId, items,
+							"DEAL_EXCH_ID");
+				} else if ("DC_MASTER_EXCH_ID".equalsIgnoreCase(bak_attrCode)) {
+					setPageContextAttribute(pageContext, blankId, items,
+							"MASTER_EXCH_ID");
+				} else if ("Z_DC_LAN_CODE".equalsIgnoreCase(bak_attrCode)) {
+					setPageContextAttribute(pageContext, blankId, items,
+							"Z_LAN_ID");
+				} else if ("Z_DC_BUSINESS_CODE".equalsIgnoreCase(bak_attrCode)) {
+					setPageContextAttribute(pageContext, blankId, items,
+							"Z_BUSINESS_ID");
+				} else if ("Z_DC_DEAL_EXCH_ID".equalsIgnoreCase(bak_attrCode)) {
+					setPageContextAttribute(pageContext, blankId, items,
+							"Z_DEAL_EXCH_ID");
+				} else if ("Z_DC_MASTER_EXCH_ID".equalsIgnoreCase(bak_attrCode)) {
+					setPageContextAttribute(pageContext, blankId, items,
+							"Z_MASTER_EXCH_ID");
 				}
 			}
-			
+
 			Iterator iterator = items.iterator();
 			while (iterator.hasNext()) {
 				StaticAttrVO item = (StaticAttrVO) iterator.next();
 				sbuffer.append("<i l='" + item.getAttrValueDesc() + "' v='"
-						+ item.getAttrValue() + "' vi='" + item.getAttrValueId() + "'/>");
+						+ item.getAttrValue() + "' vi='"
+						+ item.getAttrValueId() + "'/>");
 			}
-		}	
-		
-		
-		
+		}
 
 		sbuffer.append("</items>");
 		sbuffer.append("</xml>");
-		
-		sbuffer.append("<CODE id='" + bak_attrCode + "' attrCode='"+attrCode+"'");
-		if(blankValue!=null){
-			if("true".equalsIgnoreCase(blankValue)){
-				sbuffer.append(" blankValue='' blankId='"+(blankId==null?"":blankId)+"'");				
-			}else{
-				sbuffer.append(" blankValue='"+blankValue+"' blankId='"+(blankId==null?"":blankId)+"'");					
-			}							
+
+		sbuffer.append("<CODE id='" + bak_attrCode + "' attrCode='" + attrCode
+				+ "'");
+		if (blankValue != null) {
+			if ("true".equalsIgnoreCase(blankValue)) {
+				sbuffer.append(" blankValue='' blankId='"
+						+ (blankId == null ? "" : blankId) + "'");
+			} else {
+				sbuffer.append(" blankValue='" + blankValue + "' blankId='"
+						+ (blankId == null ? "" : blankId) + "'");
+			}
 		}
-		if(maxHeight!=null)sbuffer.append(" maxHeight='"+maxHeight+"'");
-		if(configParams!=null)sbuffer.append(" configParams='"+configParams+"'");
-		
+		if (maxHeight != null)
+			sbuffer.append(" maxHeight='" + maxHeight + "'");
+		if (configParams != null)
+			sbuffer.append(" configParams='" + configParams + "'");
+
 		sbuffer.append("></CODE>");
 		if (crmEx != null) {
 			sbuffer.append(errbuffer);
 		}
-		
+
 		return sbuffer.toString();
-		
+
 	}
-		
+
 	public int doEndTag() throws JspException {
 
 		StringBuffer sbuffer = new StringBuffer();
@@ -273,100 +285,107 @@ public class DropdownTag extends TagSupport {
 			sbuffer.append("<items>");
 			if (this.getAttrCode() != null) {
 				ArrayList items = null;
-				
-				HashMap static_data_map = (HashMap)pageContext.getRequest().getAttribute("____static_data");
-				if( static_data_map != null ){
-					items = (ArrayList)static_data_map.get(this.getAttrCode());
+
+				HashMap static_data_map = (HashMap) pageContext.getRequest()
+						.getAttribute("____static_data");
+				if (static_data_map != null) {
+					items = (ArrayList) static_data_map.get(this.getAttrCode());
 				}
-				
-				if( items == null ){
-					try {				
-						items = (new StaticAttrService()).getStaticAttr(this.getAttrCode());
+
+				if (items == null) {
+					try {
+						items = (new StaticAttrService()).getStaticAttr(this
+								.getAttrCode());
 					} catch (Exception e) {
 						logger.error("读取下拉控件数据失败！", e);
-		
+
 						if (e instanceof CrmException) {
 							crmEx = (CrmException) e;
-							errbuffer.append((new ExceptionVO(crmEx)).toJsObject());
+							errbuffer.append((new ExceptionVO(crmEx))
+									.toJsObject());
 						} else {
-							crmEx = new CommonException(new CommonError(CommonError.COMMON_ERROR), e);
-							errbuffer.append((new ExceptionVO(crmEx)).toJsObject());
+							crmEx = new CommonException(new CommonError(
+									CommonError.COMMON_ERROR), e);
+							errbuffer.append((new ExceptionVO(crmEx))
+									.toJsObject());
 						}
 					}
 				}
-				
+
 				if (items != null) {
 					Iterator iterator = items.iterator();
 					while (iterator.hasNext()) {
 						StaticAttrVO item = (StaticAttrVO) iterator.next();
-						sbuffer.append("<item label='" + item.getAttrValueDesc() + "' value='"
-								+ item.getAttrValue() + "' valueId='" + item.getAttrValueId() + "'></item>");
+						sbuffer.append("<item label='"
+								+ item.getAttrValueDesc() + "' value='"
+								+ item.getAttrValue() + "' valueId='"
+								+ item.getAttrValueId() + "'></item>");
 					}
 				}
 			}
-				
 
 			sbuffer.append("</items>");
 			sbuffer.append("</xml>");
-		
+
 		}
 
-		//sbuffer.append("<script>jspTaglibErrors[jspTaglibErrors.length]=new JspTaglibError('1','2','3','4','5');</script>");
-		
-		
+		// sbuffer.append("<script>jspTaglibErrors[jspTaglibErrors.length]=new JspTaglibError('1','2','3','4','5');</script>");
+
 		sbuffer.append("<CODE");
 		sbuffer.append(" id='" + this.getId() + "'");
-		
-		if(!"list".equalsIgnoreCase(this.getType()))
+
+		if (!"list".equalsIgnoreCase(this.getType()))
 			sbuffer.append(" type='" + this.getType() + "' ");
-		
-		if(!"true".equalsIgnoreCase(this.getMapValue()))
+
+		if (!"true".equalsIgnoreCase(this.getMapValue()))
 			sbuffer.append(" mapValue='" + this.getMapValue() + "' ");
-		
-		if(this.getAttrCode()!=null)
-			sbuffer.append(" attrCode='" + this.getAttrCode() + "' ");	
-		
-		if (this.getBlankValue() != null) 
+
+		if (this.getAttrCode() != null)
+			sbuffer.append(" attrCode='" + this.getAttrCode() + "' ");
+
+		if (this.getBlankValue() != null)
 			sbuffer.append(" blankValue='" + this.getBlankValue() + "' ");
 
-		if (this.getBlankId() != null) 
-			sbuffer.append(" blankId='" + this.getBlankId() + "' ");		
-		
-		if (this.getFixed() != null) 
+		if (this.getBlankId() != null)
+			sbuffer.append(" blankId='" + this.getBlankId() + "' ");
+
+		if (this.getFixed() != null)
 			sbuffer.append(" fixed='" + this.getFixed() + "' ");
-		
-		if (this.getMaxHeight() != null) 
+
+		if (this.getMaxHeight() != null)
 			sbuffer.append(" maxHeight='" + this.getMaxHeight() + "' ");
-		
-		if (this.getCachable() != null) 
+
+		if (this.getCachable() != null)
 			sbuffer.append(" cachable='" + this.getCachable() + "' ");
-		
-		if (this.getShowColumnHeader() != null) 
-			sbuffer.append(" showColumnHeader='" + this.getShowColumnHeader() + "' ");
-		
+
+		if (this.getShowColumnHeader() != null)
+			sbuffer.append(" showColumnHeader='" + this.getShowColumnHeader()
+					+ "' ");
+
 		if (this.getSubList() != null) {
 			sbuffer.append(" subList='" + this.getSubList() + "' ");
 			sbuffer.append(" staticDataSource='true' ");
-		}else{
-			sbuffer.append(" staticDataSource='" + this.getStaticDataSource() + "' ");
+		} else {
+			sbuffer.append(" staticDataSource='" + this.getStaticDataSource()
+					+ "' ");
 		}
 
 		sbuffer.append("></CODE>");
-		//error js object
+		// error js object
 		if (crmEx != null) {
 			sbuffer.append(errbuffer);
 		}
-		try {			
+		try {
 			String result = sbuffer.toString();
-			if(!ContentManage.isSetParentContent(this, result)){	
-				pageContext.getOut().println(result);		
+			if (!ContentManage.isSetParentContent(this, result)) {
+				pageContext.getOut().println(result);
 			}
 		} catch (Exception e) {
 			logger.error("下拉组件标签解释错误", e);
 		}
 		return super.doEndTag();
-	}	
-	
+	}
+
 	public void release() {
 		super.release();
 
@@ -384,6 +403,5 @@ public class DropdownTag extends TagSupport {
 		this.blankId = null;
 
 	}
-
 
 }

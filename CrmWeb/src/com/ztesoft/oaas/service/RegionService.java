@@ -26,16 +26,13 @@ public class RegionService extends DictService {
 	 * @throws Exception
 	 */
 	public boolean isPubCreatedBureau(String regionId) throws Exception {
-		
 
 		Map param = new HashMap();
 		param.put("regionId", regionId);
-		
-		return  DataTranslate._boolean(ServiceManager.callJavaBeanService(
+
+		return DataTranslate._boolean(ServiceManager.callJavaBeanService(
 				"RegionBO", "isPubCreatedBureau", param));
-		
-		
-	
+
 	}
 
 	/**
@@ -45,44 +42,42 @@ public class RegionService extends DictService {
 	 * @return OrganizationVO
 	 * @throws Exception
 	 */
-	public VO getOrganizationByRegionId(String regionId)
-			throws Exception {
-		
+	public VO getOrganizationByRegionId(String regionId) throws Exception {
+
 		Map param = new HashMap();
 		param.put("regionId", regionId);
-		
-		return  DataTranslate._VO(ServiceManager.callJavaBeanService(
-			"RegionBO", "getOrganizationByRegionId", param));
-	
+
+		return DataTranslate._VO(ServiceManager.callJavaBeanService("RegionBO",
+				"getOrganizationByRegionId", param));
+
 	}
 
 	public VO getRegionByCode(String regionCode) throws Exception {
 
 		Map param = new HashMap();
 		param.put("regionCode", regionCode);
-		return  DataTranslate._VO(ServiceManager.callJavaBeanService(
-				"RegionBO", "getRegionByCode", param));
-		
-		
+		return DataTranslate._VO(ServiceManager.callJavaBeanService("RegionBO",
+				"getRegionByCode", param));
+
 	}
 
 	public VO getRegionById(String regionId) throws Exception {
 		Map param = new HashMap();
 		param.put("regionId", regionId);
-		return  DataTranslate._VO(ServiceManager.callJavaBeanService(
-				"RegionBO", "getRegionById", param));	
+		return DataTranslate._VO(ServiceManager.callJavaBeanService("RegionBO",
+				"getRegionById", param));
 	}
 
 	public boolean checkSubRegionNGNFlag(String regionId) throws Exception {
 		Map param = new HashMap();
 		param.put("regionId", regionId);
-		return  DataTranslate._boolean(ServiceManager.callJavaBeanService(
-				"RegionBO", "checkSubRegionNGNFlag", param));			
+		return DataTranslate._boolean(ServiceManager.callJavaBeanService(
+				"RegionBO", "checkSubRegionNGNFlag", param));
 	}
 
 	public ArrayList getProductFamily() throws Exception {
-		return  (ArrayList)ServiceManager.callJavaBeanService(
-				"RegionBO", "getProductFamily", null);			
+		return (ArrayList) ServiceManager.callJavaBeanService("RegionBO",
+				"getProductFamily", null);
 	}
 
 	// **************************************ENTITY[Region]**************************************
@@ -109,9 +104,9 @@ public class RegionService extends DictService {
 		param.put("privCode", privCode);
 		param.put("regionType", regionType);
 		param.put("regionLevel", regionLevel);
-		return  (ArrayList)ServiceManager.callJavaBeanService(
-				"RegionBO", "getStaffRegionInfo", param);
-		
+		return (ArrayList) ServiceManager.callJavaBeanService("RegionBO",
+				"getStaffRegionInfo", param);
+
 	}
 
 	public ArrayList getStaffRegionInfo(String regionType, String regionLevel,
@@ -120,8 +115,8 @@ public class RegionService extends DictService {
 		param.put("regionType", regionType);
 		param.put("regionLevel", regionLevel);
 		param.put("regionIds", regionIds);
-		return  (ArrayList)ServiceManager.callJavaBeanService(
-				"RegionBO", "getStaffRegionInfo", param);
+		return (ArrayList) ServiceManager.callJavaBeanService("RegionBO",
+				"getStaffRegionInfo", param);
 	}
 
 	/**
@@ -153,8 +148,8 @@ public class RegionService extends DictService {
 		Map param = new HashMap();
 		param.put("regionId", regionId);
 		param.put("regionLevel", regionLevel);
-		return  (ArrayList)ServiceManager.callJavaBeanService(
-				"RegionBO", "getSubLevelRegion", param);	
+		return (ArrayList) ServiceManager.callJavaBeanService("RegionBO",
+				"getSubLevelRegion", param);
 	}
 
 	/**
@@ -167,10 +162,9 @@ public class RegionService extends DictService {
 	public String getRegionPathCode(String regionId) throws Exception {
 		Map param = new HashMap();
 		param.put("regionId", regionId);
-		return  DataTranslate._String(ServiceManager.callJavaBeanService(
-				"RegionBO", "getRegionPathCode", param));	
-		
-		
+		return DataTranslate._String(ServiceManager.callJavaBeanService(
+				"RegionBO", "getRegionPathCode", param));
+
 	}
 
 	/**
@@ -182,17 +176,17 @@ public class RegionService extends DictService {
 	 */
 	public String[] getAllParentRegionIds(String regionId) throws Exception {
 		VO vo = getRegion(regionId);
-	    if(vo == null)
-	    	return null;   
-		String pathCode = ((RegionVO)vo).getPathCode();
+		if (vo == null)
+			return null;
+		String pathCode = ((RegionVO) vo).getPathCode();
 		return pathCode.split("\\.");
 	}
 
 	public VO getRegion(String region_id) throws Exception {
 		Map param = new HashMap();
 		param.put("region_id", region_id);
-		return  DataTranslate._VO(ServiceManager.callJavaBeanService(
-				"RegionBO", "getRegion", param));			
+		return DataTranslate._VO(ServiceManager.callJavaBeanService("RegionBO",
+				"getRegion", param));
 	}
 
 	/**
@@ -239,15 +233,15 @@ public class RegionService extends DictService {
 	 * @return 操作结果
 	 */
 	public long deleteRegion(String pregion_id) throws Exception {
-		 return pdeleteRegion(pregion_id);
+		return pdeleteRegion(pregion_id);
 	}
 
 	public long pdeleteRegion(String region_id) throws Exception {
 		Map param = new HashMap();
 		param.put("region_id", region_id);
-     
+
 		return DataTranslate._long(ServiceManager.callJavaBeanService(
-				"RegionBO", "pdeleteRegion", param));	
+				"RegionBO", "pdeleteRegion", param));
 	}
 
 	/**
@@ -268,7 +262,7 @@ public class RegionService extends DictService {
 		param.put("regionLevel", regionLevel);
 		param.put("regionType", regionType);
 		return DataTranslate._String(ServiceManager.callJavaBeanService(
-				"RegionBO", "getRegionByCond", param));		
+				"RegionBO", "getRegionByCond", param));
 	}
 
 	/**
@@ -281,7 +275,7 @@ public class RegionService extends DictService {
 		Map param = new HashMap();
 		param.put("parentRegionId", parentRegionId);
 		return DataTranslate._String(ServiceManager.callJavaBeanService(
-				"RegionBO", "getBillRegionList", param));	 		
+				"RegionBO", "getBillRegionList", param));
 	}
 
 	/**
@@ -294,15 +288,14 @@ public class RegionService extends DictService {
 	 */
 	public String getPrivilegeRegion(String menuCode, String regionType)
 			throws Exception {
-	    
+
 		Map param = new HashMap();
 		param.put("menuCode", menuCode);
 		param.put("regionType", regionType);
-		
-		return DataTranslate._String(ServiceManager.callJavaBeanService(
-				"RegionBO", "getPrivilegeRegion", param));	
-	}
 
+		return DataTranslate._String(ServiceManager.callJavaBeanService(
+				"RegionBO", "getPrivilegeRegion", param));
+	}
 
 	/**
 	 * 获取用于TreeList组件的XML格式营销区域树（营销线）
@@ -313,17 +306,17 @@ public class RegionService extends DictService {
 		Map param = new HashMap();
 		param.put("parentRegionId", parentRegionId);
 		return DataTranslate._String(ServiceManager.callJavaBeanService(
-				"RegionBO", "getSaleRegionList", param));	
+				"RegionBO", "getSaleRegionList", param));
 	}
 
 	public String getRootResourceRegionListByPrivControl(String menuCode)
 			throws Exception {
-       
+
 		Map param = new HashMap();
 		param.put("menuCode", menuCode);
-		
+
 		return DataTranslate._String(ServiceManager.callJavaBeanService(
-				"RegionBO", "getRootResourceRegionListByPrivControl", param));	
+				"RegionBO", "getRootResourceRegionListByPrivControl", param));
 	}
 
 	/**
@@ -336,8 +329,7 @@ public class RegionService extends DictService {
 		param.put("parentRegionId", parentRegionId);
 		return DataTranslate._String(ServiceManager.callJavaBeanService(
 				"RegionBO", "getResourceRegionList", param));
-		
-		
+
 	}
 
 	// 查询资源区域当前节点(当前节点是再用户的权限范围内的)下的所有节点,并为这些下级节点加上权限标志.
@@ -347,7 +339,7 @@ public class RegionService extends DictService {
 		param.put("parentRegionId", parentRegionId);
 		return DataTranslate._String(ServiceManager.callJavaBeanService(
 				"RegionBO", "getResourceRegionListWithPrivFlag", param));
-		
+
 	}
 
 	// 查询组织区域当前节点(当前节点是再用户的权限范围内的)下的所有节点,并为这些下级节点加上权限标志.
@@ -357,15 +349,15 @@ public class RegionService extends DictService {
 		param.put("parentRegionId", parentRegionId);
 		return DataTranslate._String(ServiceManager.callJavaBeanService(
 				"RegionBO", "getOrganizationRegionListWithPrivFlag", param));
-		
+
 	}
 
 	// 查询组织线区域(当前节点不是用户的权限范围),并过滤掉没有权限的区域
 	public String getOrganizationRegionListByFilter(String parentRegionId,
 			String privType, String privCode, String orgTypeId)
 			throws Exception {
-		Object obj = RequestContext.getContext().getHttpSession().getAttribute(
-				"LoginRespond");// 从Session中获取鉴权服务器返回的登陆结果
+		Object obj = RequestContext.getContext().getHttpSession()
+				.getAttribute("LoginRespond");// 从Session中获取鉴权服务器返回的登陆结果
 		LoginRespond loginRespond = (LoginRespond) obj;
 		Map param = new HashMap();
 		param.put("parentRegionId", parentRegionId);
@@ -381,8 +373,8 @@ public class RegionService extends DictService {
 	public String getResourceRegionListByFilter(String parentRegionId,
 			String regionLevel, String privType, String privCode)
 			throws Exception {
-		Object obj = RequestContext.getContext().getHttpSession().getAttribute(
-				"LoginRespond");// 从Session中获取鉴权服务器返回的登陆结果
+		Object obj = RequestContext.getContext().getHttpSession()
+				.getAttribute("LoginRespond");// 从Session中获取鉴权服务器返回的登陆结果
 		LoginRespond loginRespond = (LoginRespond) obj;
 
 		Map param = new HashMap();
@@ -417,11 +409,8 @@ public class RegionService extends DictService {
 		param.put("privType", privType);
 		param.put("privCode", privCode);
 		return DataTranslate._String(ServiceManager.callJavaBeanService(
-				"RegionBO", "getFilteredResourceRegionList", param));	
-		
-		
-		
-		
+				"RegionBO", "getFilteredResourceRegionList", param));
+
 	}
 
 	public String getXmlItemsOfFilteredResourceRegions(String parentRegionId,
@@ -430,8 +419,8 @@ public class RegionService extends DictService {
 		param.put("parentRegionId", parentRegionId);
 		param.put("regionIds", regionIds);
 		return DataTranslate._String(ServiceManager.callJavaBeanService(
-				"RegionBO", "getXmlItemsOfFilteredResourceRegions", param));		
-		
+				"RegionBO", "getXmlItemsOfFilteredResourceRegions", param));
+
 	}
 
 	// **************************************ENTITY[RrProvince]**************************************
@@ -442,13 +431,12 @@ public class RegionService extends DictService {
 	 *            标识
 	 * @return 操作结果, 成功时ServiceResult.resultObject为RrProvinceVO
 	 */
-	public VO getProvinceByRegionId(String prrprovince_id)
-			throws Exception {
+	public VO getProvinceByRegionId(String prrprovince_id) throws Exception {
 		Map param = new HashMap();
 		param.put("prrprovince_id", prrprovince_id);
-		return DataTranslate._VO(ServiceManager.callJavaBeanService(
-				"RegionBO", "getProvinceByRegionId", param));
-		
+		return DataTranslate._VO(ServiceManager.callJavaBeanService("RegionBO",
+				"getProvinceByRegionId", param));
+
 	}
 
 	/**
@@ -505,9 +493,9 @@ public class RegionService extends DictService {
 	public RrLanVO getLanByRegionId(String prrlan_id) throws Exception {
 		Map param = new HashMap();
 		param.put("prrlan_id", prrlan_id);
-		return (RrLanVO)ServiceManager.callJavaBeanService(
-				"RegionBO", "getLanByRegionId", param);
-	
+		return (RrLanVO) ServiceManager.callJavaBeanService("RegionBO",
+				"getLanByRegionId", param);
+
 	}
 
 	/**
@@ -553,7 +541,7 @@ public class RegionService extends DictService {
 		param.put("RrLanVO", voLan);
 		param.put("RegionVO", voRegion);
 		return DataTranslate._boolean(ServiceManager.callJavaBeanService(
-				"RegionBO", "pupdateRrLan", param));	
+				"RegionBO", "pupdateRrLan", param));
 	}
 
 	// **************************************ENTITY[RrBusiness]**************************************
@@ -568,8 +556,8 @@ public class RegionService extends DictService {
 			throws Exception {
 		Map param = new HashMap();
 		param.put("prrbusiness_id", prrbusiness_id);
-		return (RrBusinessVO)ServiceManager.callJavaBeanService(
-				"RegionBO", "getBusinessByRegionId", param);	
+		return (RrBusinessVO) ServiceManager.callJavaBeanService("RegionBO",
+				"getBusinessByRegionId", param);
 
 	}
 
@@ -607,18 +595,20 @@ public class RegionService extends DictService {
 	 *            待更新营业区实体
 	 * @return 操作结果
 	 */
-	
-	public boolean updateBusiness(RegionVO voRegion, RrBusinessVO voBusi) throws Exception {
+
+	public boolean updateBusiness(RegionVO voRegion, RrBusinessVO voBusi)
+			throws Exception {
 		return pupdateRrBusiness(voBusi, voRegion);
 	}
-	
-	public boolean pupdateRrBusiness(RrBusinessVO voBusi,RegionVO voRegion) throws Exception{
-		
+
+	public boolean pupdateRrBusiness(RrBusinessVO voBusi, RegionVO voRegion)
+			throws Exception {
+
 		Map param = new HashMap();
 		param.put("RrBusinessVO", voBusi);
 		param.put("RegionVO", voRegion);
 		return DataTranslate._boolean(ServiceManager.callJavaBeanService(
-				"RegionBO", "pupdateRrBusiness", param));		
+				"RegionBO", "pupdateRrBusiness", param));
 	}
-	
+
 }

@@ -1,9 +1,6 @@
 package com.ztesoft.component.common.signon;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -17,13 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.ztesoft.common.util.CrmConstants;
-import com.ztesoft.common.util.MD5Util;
 
 public class SignOnFilter implements Filter {
+	
 	private static Logger logger = Logger.getLogger(SignOnFilter.class);
+	
 	private static String signOnErrorPage = "index.html";
 	private static String signOnPage = "index.html";
 	private static String loginWan="LoginWan.jsp";
+	
 	private static String[] noSignOnPages = CrmConstants.NOT_FILTER_PAFGES;//{"base/updatePassword.jsp","VsopWebFor10000.jsp"};
 	
 	public void init(FilterConfig config) throws ServletException {
@@ -48,6 +47,7 @@ public class SignOnFilter implements Filter {
         } 
 
         logger.info("signedOn:" + signedOn);
+        
         if (signedOn) {
              chain.doFilter(request,response);
              return;

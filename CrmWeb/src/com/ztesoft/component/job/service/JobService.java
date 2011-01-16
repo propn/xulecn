@@ -27,7 +27,8 @@ public class JobService extends BaseService {
 	 * @param pageSize
 	 * @return
 	 */
-	public PageModel getJobPageModal(String jobtype, String endBeginTime, String endEndTime, String jobState, int pageIndex, int pageSize) {
+	public PageModel getJobPageModal(String jobtype, String endBeginTime,
+			String endEndTime, String jobState, int pageIndex, int pageSize) {
 		Map param = new HashMap();
 		param.put("jobtype", jobtype);
 		param.put("endBeginTime", endBeginTime);
@@ -47,7 +48,8 @@ public class JobService extends BaseService {
 	 * @param pageSize
 	 * @return
 	 */
-	public PageModel getJobLoging(String jobid, String endBeginTime, String endEndTime, int pageIndex, int pageSize) {
+	public PageModel getJobLoging(String jobid, String endBeginTime,
+			String endEndTime, int pageIndex, int pageSize) {
 		Map param = new HashMap();
 		param.put("jobid", jobid);
 		param.put("endBeginTime", endBeginTime);
@@ -155,8 +157,6 @@ public class JobService extends BaseService {
 	 * @return 0 任务已启动，1任务启动成功 2任务正在停止中
 	 */
 	public int startup() {
-//		int port =  this.getRequest().getServerPort();
-		//更改为buffalo 2.0的方法
 		int port = RequestContext.getContext().getHttpRequest().getServerPort();
 		String ipAddress = "127.0.0.1";
 		try {
@@ -167,7 +167,8 @@ public class JobService extends BaseService {
 		}
 		CrmJobInstanceManager.clustorId = ipAddress + ":" + port;
 
-		if ((CrmJobInstanceManager.isShutDonw) && (!CrmJobInstanceManager.isStopped)) {
+		if ((CrmJobInstanceManager.isShutDonw)
+				&& (!CrmJobInstanceManager.isStopped)) {
 			return 2;
 		}
 
@@ -201,7 +202,8 @@ public class JobService extends BaseService {
 	 */
 	public int getCurrentState() {
 
-		if ((CrmJobInstanceManager.isShutDonw) && (!CrmJobInstanceManager.isStopped)) {
+		if ((CrmJobInstanceManager.isShutDonw)
+				&& (!CrmJobInstanceManager.isStopped)) {
 			return 2;
 		}
 

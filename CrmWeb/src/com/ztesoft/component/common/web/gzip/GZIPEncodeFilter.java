@@ -13,11 +13,9 @@ import javax.servlet.http.*;
 
 /**
  * 
- * GZip压缩过滤器
- * 根据需要开启过相关资源进行压缩
- * css/js/jsp 等，只需在web.xml去掉相应注释
+ * GZip压缩过滤器 根据需要开启过相关资源进行压缩 css/js/jsp 等，只需在web.xml去掉相应注释
  * 
- *
+ * 
  */
 
 public class GZIPEncodeFilter implements Filter {
@@ -27,12 +25,12 @@ public class GZIPEncodeFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		String transferEncoding = getGZIPEncoding((HttpServletRequest) request);
-		//不支持，按普通处理
+		// 不支持，按普通处理
 		if (transferEncoding == null) {
 			chain.doFilter(request, response);
 
 		} else {
-			//浏览器支持gzip处理
+			// 浏览器支持gzip处理
 			((HttpServletResponse) response).setHeader("Content-Encoding",
 					transferEncoding);
 			GZIPEncodableResponse wrappedResponse = new GZIPEncodableResponse(
@@ -48,6 +46,7 @@ public class GZIPEncodeFilter implements Filter {
 
 	/**
 	 * 判断浏览器是否支持gzip 压缩
+	 * 
 	 * @param request
 	 * @return
 	 */
@@ -66,5 +65,4 @@ public class GZIPEncodeFilter implements Filter {
 
 	}
 
-	
 }
