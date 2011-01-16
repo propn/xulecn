@@ -3,6 +3,7 @@
 
 <web-app>
 	<display-name>CrmWeb</display-name>
+	<!--
 	<filter>
 		<filter-name>SignOnFilter</filter-name>
 		<filter-class>com.ztesoft.component.common.signon.SignOnFilter</filter-class>
@@ -12,7 +13,9 @@
 		</init-param>
 	</filter>
 	
-	<!-- gzip压缩过滤器,根据实际情况需要,选择是否资源都采用压缩技术 -->
+	-->
+	
+	<!-- gzip -->
 	<filter>
 		<filter-name>GZipFilter</filter-name>
 		<filter-class>
@@ -22,6 +25,12 @@
 	
 	<!-- 
 	<filter-mapping>
+		<filter-name>SignOnFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	 -->
+	
+	<filter-mapping>
 		<filter-name>GZipFilter</filter-name>
 		<url-pattern>*.js</url-pattern>
 	</filter-mapping>
@@ -30,94 +39,27 @@
 		<filter-name>GZipFilter</filter-name>
 		<url-pattern>*.css</url-pattern>
 	</filter-mapping>
-	<filter-mapping>
-		<filter-name>GZipFilter</filter-name>
-		<url-pattern>*.jsp</url-pattern>
-	</filter-mapping>
-	 
-	<filter-mapping>
-		<filter-name>GZipFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-   -->
-	<filter-mapping>
-		<filter-name>SignOnFilter</filter-name>
-		<url-pattern>*.jsp</url-pattern>
-	</filter-mapping>
 	
 	
-	<!--
-	<listener>
-		<listener-class>com.ztesoft.crm.common.signon.SessionListener</listener-class>
-	</listener>
-	-->
+	<!-- 
 	<servlet>
 		<servlet-name>CrmInitServlet</servlet-name>
 		<servlet-class>com.ztesoft.component.common.web.CrmInitServlet</servlet-class>
-		<load-on-startup>2</load-on-startup>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>nfapp</servlet-name>
-		<!--easonwu 替换为buffalo ApplicationServlet  -->
-		<!-- <servlet-class>com.ztesoft.buffalo.NFAppServlet</servlet-class> -->
-		<servlet-class>com.ztesoft.framework.CRMFrameworkServlet</servlet-class>
-		<!-- servlet-class>net.buffalo.web.servlet.ApplicationServlet</servlet-class-->
-	</servlet>
-	
-	
-	<!-- jfree chart sevlet -->
-	 <servlet>
-		<servlet-name>DisplayChart</servlet-name>
-		<servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class>
-  	</servlet>
-  	<servlet>
-		<servlet-name>GetDynaHtml</servlet-name>
-		<servlet-class>com.ztesoft.crm.business.views.web.HtmlBuilderServlet</servlet-class>
-  	</servlet>
-  	
-  	<servlet>
-    	<servlet-name>ProduceGraphicServlet</servlet-name>
-    	<servlet-class>com.ztesoft.uiext.jfreechart.graphic.servlet.ProduceGraphicServlet</servlet-class>
-  	</servlet>
- 	
-	<servlet>
-		<servlet-name>BrandCache</servlet-name>
-		<servlet-class>com.ztesoft.common.cache.BrandCache</servlet-class>
-  	</servlet>
-	
-	<!-- 上传公共类
-	<servlet>
-		<servlet-name>fileUpload</servlet-name>
-		<servlet-class>
-			com.ztesoft.component.file.servlet.FileUploadServlet
-		</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>fileUpload</servlet-name>
-		<url-pattern>
-			/fileUpload/*
-		</url-pattern>
-	</servlet-mapping>
+	
 	 -->
+	 
+	<servlet>
+		<servlet-name>nfapp</servlet-name>
+		<servlet-class>com.ztesoft.framework.CRMFrameworkServlet</servlet-class>
+	</servlet>
+	
+	
 	<servlet-mapping>
 		<servlet-name>nfapp</servlet-name>
 		<url-pattern>/nfapp/*</url-pattern>
 	</servlet-mapping>
-  	<servlet-mapping>
-		<servlet-name>GetDynaHtml</servlet-name>
-		<url-pattern>/servlet/GetDynaHtml</url-pattern>
-  	</servlet-mapping>
- 	<servlet-mapping>
-		<servlet-name>DisplayChart</servlet-name>
-		<url-pattern>/servlet/DisplayChart</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>ProduceGraphicServlet</servlet-name>
-    	<url-pattern>/servlet/ProduceGraphicServlet</url-pattern>
-  	</servlet-mapping>
   	
   	
 	<session-config>
@@ -129,26 +71,8 @@
 		<mime-type>text/x-component</mime-type>
 	</mime-mapping>
 	
-	<!-- 解决weblogic10下 html/htm文件乱码问题 -->
-	<mime-mapping>
-		<extension>html</extension>
-		<mime-type>text/html;charset=GB2312</mime-type>
-	</mime-mapping>
-	<mime-mapping>
-		<extension>htm</extension>
-		<mime-type>text/html;charset=GB2312</mime-type>
-	</mime-mapping>
-	
-	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 	
-	<resource-ref>
-		<description>DB Connection</description>
-		<res-ref-name>CRMDB</res-ref-name>
-		<res-type>javax.sql.DataSource</res-type>
-		<res-auth>Container</res-auth>
-	</resource-ref>
-
 </web-app>
