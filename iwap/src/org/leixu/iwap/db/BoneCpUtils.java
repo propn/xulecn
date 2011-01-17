@@ -40,7 +40,7 @@ public class BoneCpUtils {
 	public static void main(String[] args) {
 		try {
 			Connection connection;
-			connection = DbCtx.getConnection();
+			connection = ConnUtils.getConnection();
 
 			Statement stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM News");

@@ -7,7 +7,7 @@ import java.lang.reflect.ParameterizedType;
 import java.sql.Connection;
 import java.util.List;
 
-import org.leixu.iwap.db.DbCtx;
+import org.leixu.iwap.db.ConnUtils;
 import org.leixu.iwap.dbutils.QueryRunner;
 import org.leixu.iwap.dbutils.handlers.BeanListHandler;
 import org.slf4j.Logger;
@@ -20,9 +20,9 @@ import org.slf4j.LoggerFactory;
  */
 public class BaseDao<T> {
 
-	private static final Logger log = LoggerFactory.getLogger(DbCtx.class);
+	private static final Logger log = LoggerFactory.getLogger(ConnUtils.class);
 
-	// ÔÚ¹¹Ôìº¯ÊýÖÐ·´Éä³ö·ºÐÍÀà¶ÔÏó
+	// ï¿½Ú¹ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private Class<T> _class;
 	private String dateSource = null;
 
@@ -34,21 +34,21 @@ public class BaseDao<T> {
 	}
 
 	/**
-	 * ²åÈë¶ÔÏó
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param sql
 	 * @param params
 	 * @throws Exception
 	 */
 	public int add(String sql, Object... params) throws Exception {
-		Connection conn = DbCtx.getConn(null);
+		Connection conn = ConnUtils.getConn(null);
 		QueryRunner qr = new QueryRunner();
 		int inserts = qr.update(conn, sql, params);
 		return inserts;
 	}
 
 	/**
-	 * ²éÕÒ¶à¸ö¶ÔÏó
+	 * ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param sql
 	 * @param params
@@ -58,7 +58,7 @@ public class BaseDao<T> {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<T> query(String sql, Object... params) throws Exception {
 		List<T> beans = null;
-		Connection conn = DbCtx.getConn(null);
+		Connection conn = ConnUtils.getConn(null);
 		QueryRunner qRunner = new QueryRunner();
 		beans = (List<T>) qRunner.query(conn, sql, new BeanListHandler(_class),
 				params);
@@ -66,7 +66,7 @@ public class BaseDao<T> {
 	}
 
 	/**
-	 * ²éÕÒ¶ÔÏó
+	 * ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½
 	 * 
 	 * @param sql
 	 * @param params
@@ -76,7 +76,7 @@ public class BaseDao<T> {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public T get(String sql, Object... params) throws Exception {
 		T obj = null;
-		Connection conn = DbCtx.getConn(null);
+		Connection conn = ConnUtils.getConn(null);
 
 		QueryRunner qRunner = new QueryRunner();
 
@@ -90,7 +90,7 @@ public class BaseDao<T> {
 	}
 
 	/**
-	 * Ö´ÐÐ¸üÐÂµÄsqlÓï¾ä,²åÈë,ÐÞ¸Ä,É¾³ý
+	 * Ö´ï¿½Ð¸ï¿½ï¿½Âµï¿½sqlï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½,ï¿½Þ¸ï¿½,É¾ï¿½ï¿½
 	 * 
 	 * @param sql
 	 * @return
@@ -99,7 +99,7 @@ public class BaseDao<T> {
 	public boolean update(String sql) throws Exception {
 		Connection conn = null;
 		boolean flag = false;
-		conn = DbCtx.getConn(null);
+		conn = ConnUtils.getConn(null);
 		QueryRunner qRunner = new QueryRunner();
 		int i = qRunner.update(conn, sql);
 		if (i > 0) {
