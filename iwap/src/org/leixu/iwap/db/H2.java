@@ -12,6 +12,7 @@ import java.sql.Statement;
 import org.h2.tools.Server;
 
 public class H2 {
+
 	private static Server server;
 	private static final String port = "9094";
 	private static final String dbDir = "./db/db";
