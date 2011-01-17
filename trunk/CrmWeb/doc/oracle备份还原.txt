@@ -1,7 +1,0 @@
-exp vsoplinux/vsoplinux@GXCRM  file=vsopdb.dmp log=vsopdb.log buffer=10024000 owner=vsoplinux
-
-imp vsoplinux/vsoplinux@GXCRM file = vsoptest.dmp log=vsoptestimp.log ignore=Y  buffer=102400000 full=y tablespaces=xxx touser = vsoplinux
-
-
-
-imp vsoptest/vsoptest@GXCRM file = vsopdb.dmp log=vsoptestimp.log ignore=Y fromuser =vsoplinux buffer=102400000  tablespaces=VSOPDB touser = vsoptest
