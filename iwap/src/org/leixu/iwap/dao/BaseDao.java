@@ -23,13 +23,13 @@ public class BaseDao<T> {
 	private static final Logger log = LoggerFactory.getLogger(ConnUtils.class);
 
 	private Class<T> _class;
-	private String dateSource = null;
+	private String dateSource = _class.getSimpleName();
 
 	@SuppressWarnings("unchecked")
 	public BaseDao() {
 		_class = (Class<T>) ((ParameterizedType) getClass()
 				.getGenericSuperclass()).getActualTypeArguments()[0];
-		log.debug("init {}", _class);
+		log.debug("init Dao by VO {}", _class);
 	}
 
 	/**
@@ -38,8 +38,8 @@ public class BaseDao<T> {
 	 * @param params
 	 * @throws Exception
 	 */
-	public int add(String sql, Object... params) throws Exception {
-		Connection conn = ConnUtils.getConn(null);
+	public int add(String sql, Object... params) throws Exception  {
+		Connection conn = ConnUtils.getConn(dateSource);
 		QueryRunner qr = new QueryRunner();
 		int inserts = qr.update(conn, sql, params);
 		return inserts;
@@ -102,4 +102,5 @@ public class BaseDao<T> {
 		}
 		return flag;
 	}
+	
 }
