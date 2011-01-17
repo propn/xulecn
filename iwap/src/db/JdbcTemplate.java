@@ -6,16 +6,15 @@ import java.sql.Statement;
 import java.util.List;
 
 public class JdbcTemplate {
-	
-	private Connection conn=null;
-	
-	private JdbcTemplate(Class clz){
+
+	private Connection conn = null;
+
+	private JdbcTemplate(Class clz) {
 		try {
-			conn=DbCtx.getConnection(clz.getSimpleName());
+			conn = DbCtx.getConnection(clz.getSimpleName());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 }

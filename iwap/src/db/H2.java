@@ -40,17 +40,15 @@ public class H2 {
 
 	public static void main(String[] args) {
 		H2.startServer();
-		
+
 		try {
 			Class.forName("org.h2.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:h2:" + dbDir,
 					user, password);
 			Statement stat = conn.createStatement();
 			stat.execute("  drop   table   News");
-			stat
-					.execute("  create   table   News( title varchar(10),content  varchar(255))");
-			stat
-					.execute("  insert into News(title,content) values('adfafs','asdffaasdfa' )");
+			stat.execute("  create   table   News( title varchar(10),content  varchar(255))");
+			stat.execute("  insert into News(title,content) values('adfafs','asdffaasdfa' )");
 			ResultSet result = stat.executeQuery("select * from News ");
 			int i = 1;
 			while (result.next()) {
@@ -63,7 +61,7 @@ public class H2 {
 			e.printStackTrace();
 		}
 		H2.stopServer();
-		
+
 		System.out.println("==END==");
 	}
 

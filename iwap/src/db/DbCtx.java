@@ -12,12 +12,14 @@ public class DbCtx {
 
 	public static final ThreadLocal<Map<String, Connection>> ctx = new ThreadLocal<Map<String, Connection>>();
 
-	public static Connection getConnection(String dataSourceName) throws Exception {
-		
-		if(null == dataSourceName){
-			dataSourceName=ParamsUtils.getParamValue(Constants.DEFAULT_DATASOURCE);
+	public static Connection getConnection(String dataSourceName)
+			throws Exception {
+
+		if (null == dataSourceName) {
+			dataSourceName = ParamsUtils
+					.getParamValue(Constants.DEFAULT_DATASOURCE);
 		}
-		
+
 		Map<String, Connection> cache = ctx.get();
 
 		Connection conn = null;
@@ -47,9 +49,9 @@ public class DbCtx {
 	 */
 	private static Connection getConn(String dataSourceName) throws Exception {
 
-//		return ServiceLocator.getInstance().getDataSource(dataSourceName)
-//				.getConnection();
-		
+		// return ServiceLocator.getInstance().getDataSource(dataSourceName)
+		// .getConnection();
+
 		return BoneCpUtils.getConn();
 	}
 
