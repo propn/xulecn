@@ -7,6 +7,8 @@ import java.util.Map;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import org.leixu.iwap.config.ParamsUtils;
+
 public class Cache {
 
 	private InitialContext ic;
@@ -28,10 +30,14 @@ public class Cache {
 		}
 	}
 
-	public DataSource getDataSource(String dataSourceName) throws Exception {
+	DataSource getDataSource(String dataSourceName) throws Exception {
 		DataSource dataSource = (DataSource) cache.get(dataSourceName);
 		if (dataSource == null) {
-			dataSource = (DataSource) ic.lookup(dataSourceName);
+			if (Boolean.valueOf(ParamsUtils.getParamValue("debug"))) {
+				dataSource = BoneCpUtils.getDataSource(dataSourceName);
+			} else {
+				dataSource = (DataSource) ic.lookup(dataSourceName);
+			}
 			cache.put(dataSourceName, dataSource);
 		}
 		return dataSource;

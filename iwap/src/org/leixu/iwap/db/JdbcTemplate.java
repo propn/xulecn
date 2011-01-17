@@ -11,7 +11,7 @@ public class JdbcTemplate {
 
 	private JdbcTemplate(Class clz) {
 		try {
-			conn = DbCtx.getConnection(clz.getSimpleName());
+			conn = DbCtx.getConn(clz.getSimpleName());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

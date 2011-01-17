@@ -7,10 +7,14 @@ import java.util.Map;
 
 import org.leixu.iwap.config.Constants;
 import org.leixu.iwap.config.ParamsUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DbCtx {
 
 	public static final ThreadLocal<Map<String, Connection>> ctx = new ThreadLocal<Map<String, Connection>>();
+
+	private static final Logger log = LoggerFactory.getLogger(DbCtx.class);
 
 	/**
 	 * 
@@ -18,8 +22,7 @@ public class DbCtx {
 	 * @return
 	 * @throws Exception
 	 */
-	public static Connection getConnection(String dataSourceName)
-			throws Exception {
+	public static Connection getConn(String dataSourceName) throws Exception {
 
 		if (null == dataSourceName) {
 			dataSourceName = ParamsUtils
@@ -31,49 +34,53 @@ public class DbCtx {
 		Connection conn = null;
 
 		if (null == cache) {
+			
 			cache = Collections
 					.synchronizedMap(new HashMap<String, Connection>());
-			conn = getConn(dataSourceName);
+			
+			conn = Cache.getInstance().getDataSource(dataSourceName)
+					.getConnection();
+
 			cache.put(dataSourceName, conn);
 			ctx.set(cache);
+			
+			log.debug("init cache ");
+
 		} else {
+			
 			conn = cache.get(dataSourceName);
+			
 			if (null == conn) {
-				conn = getConn(dataSourceName);
+
+				conn = Cache.getInstance().getDataSource(dataSourceName)
+						.getConnection();
+
 				cache.put(dataSourceName, conn);
+				
+				log.debug("init {} cache ", dataSourceName);
 			}
 		}
 
 		conn.setAutoCommit(false);
 
+		log.debug("getConn:{} . Thread:{} .", dataSourceName, Thread
+				.currentThread().getId());
+
 		return conn;
+		
 	}
 
+	
 	/**
 	 * 
 	 * @return
 	 * @throws Exception
 	 */
 	public static Connection getConnection() throws Exception {
-		return getConnection(null);
+		return getConn(null);
 	}
 
-	/**
-	 * 
-	 * @param dataSourceName
-	 * @return
-	 * @throws Exception
-	 */
-	private static Connection getConn(String dataSourceName) throws Exception {
-
-		if (Boolean.valueOf(ParamsUtils.getParamValue("debug"))) {
-			return BoneCpUtils.getConn(dataSourceName);
-		} else {
-			return Cache.getInstance().getDataSource(dataSourceName)
-					.getConnection();
-		}
-	}
-
+	
 	/**
 	 * @throws Exception
 	 * 
