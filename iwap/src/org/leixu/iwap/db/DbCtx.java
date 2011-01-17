@@ -12,6 +12,12 @@ public class DbCtx {
 
 	public static final ThreadLocal<Map<String, Connection>> ctx = new ThreadLocal<Map<String, Connection>>();
 
+	/**
+	 * 
+	 * @param dataSourceName
+	 * @return
+	 * @throws Exception
+	 */
 	public static Connection getConnection(String dataSourceName)
 			throws Exception {
 
@@ -37,8 +43,19 @@ public class DbCtx {
 				cache.put(dataSourceName, conn);
 			}
 		}
+
 		conn.setAutoCommit(false);
+
 		return conn;
+	}
+
+	/**
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public static Connection getConnection() throws Exception {
+		return getConnection(null);
 	}
 
 	/**
@@ -49,10 +66,12 @@ public class DbCtx {
 	 */
 	private static Connection getConn(String dataSourceName) throws Exception {
 
-		// return ServiceLocator.getInstance().getDataSource(dataSourceName)
-		// .getConnection();
-
-		return BoneCpUtils.getConn();
+		if (Boolean.valueOf(ParamsUtils.getParamValue("debug"))) {
+			return BoneCpUtils.getConn(dataSourceName);
+		} else {
+			return Cache.getInstance().getDataSource(dataSourceName)
+					.getConnection();
+		}
 	}
 
 	/**
@@ -110,5 +129,4 @@ public class DbCtx {
 		}
 		ctx.set(null);
 	}
-
 }

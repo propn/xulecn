@@ -27,7 +27,7 @@ public class BoneCpUtils {
 				System.out.println(title + ": " + content + " ");
 			}
 			connection.close();
-			
+
 			distroy();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -36,17 +36,24 @@ public class BoneCpUtils {
 	}
 
 	public static void initBoneCP() throws Exception {
+
 		BoneCPConfig config = new BoneCPConfig();
-		
+
 		Class.forName(ParamsUtils.getParamValue("driver"));
 		config.setJdbcUrl(ParamsUtils.getParamValue("url"));
 		config.setUsername(ParamsUtils.getParamValue("username"));
 		config.setPassword(ParamsUtils.getParamValue("password"));
-		
+
+		config.setMaxConnectionsPerPartition(Integer.parseInt(ParamsUtils
+				.getParamValue("maxConnections")));
+		config.setMinConnectionsPerPartition(Integer.parseInt(ParamsUtils
+				.getParamValue("minConnections")));
+
 		connectionPool = new BoneCP(config);
+
 	}
 
-	public static Connection getConn() throws Exception {
+	public static Connection getConn(String dataSourceName) throws Exception {
 		return connectionPool.getConnection();
 	}
 

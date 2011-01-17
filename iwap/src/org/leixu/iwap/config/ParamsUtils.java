@@ -18,7 +18,7 @@ public class ParamsUtils {
 			property.load(ClassLoader
 					.getSystemResourceAsStream(Constants.PROPERTIES_FILE_NAME));
 		} catch (Exception e) {
-			
+
 		}
 	}
 
@@ -35,12 +35,12 @@ public class ParamsUtils {
 	 */
 	public static void main(String[] args) {
 		try {
-			System.out.println(getParamValue("JNDI"));
+			System.out.println(getParamValue("DEFAULT_JNDI"));
 			System.out.println(getParamValue("url"));
 			System.out.println(getParamValue("driver"));
 			System.out.println(getParamValue("username"));
 			System.out.println(getParamValue("password"));
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
