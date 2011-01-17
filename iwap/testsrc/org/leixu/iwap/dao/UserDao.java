@@ -4,6 +4,7 @@
 package org.leixu.iwap.dao;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -53,6 +54,18 @@ public class UserDao extends BaseDao<BaseEntity> {
 		videoEntity.setUrl("11111111");
 		
 		userDao.save(videoEntity);
+		
+		List<BaseEntity> list=userDao.getAll();
+		
+		for(Iterator<BaseEntity> it=list.iterator();it.hasNext();){
+			BaseEntity e=it.next();
+			System.out.println(e.getSite());
+			System.out.println(e.getUrl());
+			System.out.println(e.getClass());
+			System.out.println(e.getId());
+			System.out.println(e.getInDate());
+			System.out.println(e.getPubDate());
+		}
 
 	}
 

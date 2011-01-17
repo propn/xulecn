@@ -14,19 +14,10 @@ public class BaseEntity {
 
 	private String url;
 
-	/**
-	 * 添加到数据库日期
-	 */
 	private Date inDate;
 
-	/**
-	 * 来自网站简称
-	 */
 	private String site;
 
-	/**
-	 * 原始站点发布日期
-	 */
 	private Date pubDate;
 
 	public BaseEntity() {
