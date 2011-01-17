@@ -10,6 +10,8 @@ import java.util.List;
 import org.leixu.iwap.db.DbCtx;
 import org.leixu.iwap.dbutils.QueryRunner;
 import org.leixu.iwap.dbutils.handlers.BeanListHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Administrator
@@ -17,13 +19,18 @@ import org.leixu.iwap.dbutils.handlers.BeanListHandler;
  * 
  */
 public class BaseDao<T> {
+
+	private static final Logger log = LoggerFactory.getLogger(DbCtx.class);
+
 	// 在构造函数中反射出泛型类对象
 	private Class<T> _class;
+	private String dateSource = null;
 
 	@SuppressWarnings("unchecked")
 	public BaseDao() {
 		_class = (Class<T>) ((ParameterizedType) getClass()
 				.getGenericSuperclass()).getActualTypeArguments()[0];
+		log.debug("init {}", _class);
 	}
 
 	/**

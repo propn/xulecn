@@ -55,6 +55,10 @@ public class H2 {
 			while (result.next()) {
 				System.out.println(i++ + ":" + result.getString("title"));
 			}
+
+			String sql = "CREATE TABLE BaseEntity( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,url VARCHAR(100),  site VARCHAR(50), pubDate TIMESTAMP(8), inDate TIMESTAMP(8) )";
+			stat.execute(sql);
+			
 			result.close();
 			stat.close();
 			conn.close();
