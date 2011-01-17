@@ -14,32 +14,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dbutils.handlers;
+package org.leixu.iwap.dbutils.handlers;
 
 import java.sql.SQLException;
 
-import dbutils.BaseTestCase;
-import dbutils.ResultSetHandler;
+import org.leixu.iwap.dbutils.BaseTestCase;
+import org.leixu.iwap.dbutils.ResultSetHandler;
+import org.leixu.iwap.dbutils.TestBean;
+
 
 /**
- * ArrayHandlerTest
+ * BeanHandlerTest
  */
-public class ArrayHandlerTest extends BaseTestCase {
+public class BeanHandlerTest extends BaseTestCase {
 
 	public void testHandle() throws SQLException {
-		ResultSetHandler<Object[]> h = new ArrayHandler();
-		Object[] results = (Object[]) h.handle(this.rs);
+		ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
+        TestBean results = h.handle(this.rs);
         
 		assertNotNull(results);
-		assertEquals(COLS, results.length);
-		assertEquals("1", results[0]);
-		assertEquals("2", results[1]);
-		assertEquals("3", results[2]);
+		assertEquals("1", results.getOne());
+		assertEquals("2", results.getTwo());
+		assertEquals("3", results.getThree());
+        assertEquals("not set", results.getDoNotSet());
 	}
     
     public void testEmptyResultSetHandle() throws SQLException {
-        ResultSetHandler<Object[]> h = new ArrayHandler();
-        Object[] results = (Object[]) h.handle(this.emptyResultSet);
+        ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
+        TestBean results = (TestBean) h.handle(this.emptyResultSet);
         
         assertNull(results);
     }

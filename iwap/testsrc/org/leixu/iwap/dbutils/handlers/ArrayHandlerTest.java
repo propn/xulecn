@@ -14,36 +14,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dbutils;
+package org.leixu.iwap.dbutils.handlers;
 
-import java.util.Iterator;
+import java.sql.SQLException;
+
+import org.leixu.iwap.dbutils.BaseTestCase;
+import org.leixu.iwap.dbutils.ResultSetHandler;
+
 
 /**
- * ResultSetIteratorTest
+ * ArrayHandlerTest
  */
-public class ResultSetIteratorTest extends BaseTestCase {
+public class ArrayHandlerTest extends BaseTestCase {
 
-	public void testNext() {
-		
-		Iterator<Object[]> iter = new ResultSetIterator(this.rs);
-
-		Object[] row = null;
-		assertTrue(iter.hasNext());
-		row = (Object[]) iter.next();
-		assertEquals(COLS, row.length);
-		assertEquals("1", row[0]);
-		assertEquals("2", row[1]);
-		assertEquals("3", row[2]);
-		
-		assertTrue(iter.hasNext());
-		row = (Object[]) iter.next();
-		assertEquals(COLS, row.length);
-
-		assertEquals("4", row[0]);
-		assertEquals("5", row[1]);
-		assertEquals("6", row[2]);
-		
-		assertFalse(iter.hasNext());
+	public void testHandle() throws SQLException {
+		ResultSetHandler<Object[]> h = new ArrayHandler();
+		Object[] results = (Object[]) h.handle(this.rs);
+        
+		assertNotNull(results);
+		assertEquals(COLS, results.length);
+		assertEquals("1", results[0]);
+		assertEquals("2", results[1]);
+		assertEquals("3", results[2]);
 	}
+    
+    public void testEmptyResultSetHandle() throws SQLException {
+        ResultSetHandler<Object[]> h = new ArrayHandler();
+        Object[] results = (Object[]) h.handle(this.emptyResultSet);
+        
+        assertNull(results);
+    }
 
 }

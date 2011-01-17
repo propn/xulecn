@@ -14,14 +14,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dbutils.wrappers;
+package org.leixu.iwap.dbutils.wrappers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dbutils.BaseTestCase;
-import dbutils.MockResultSet;
-import dbutils.ProxyFactory;
+import org.leixu.iwap.dbutils.BaseTestCase;
+import org.leixu.iwap.dbutils.MockResultSet;
+import org.leixu.iwap.dbutils.ProxyFactory;
+
 
 /**
  * StringTrimmedResultSetTest

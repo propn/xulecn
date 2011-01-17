@@ -14,15 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dbutils.handlers;
+package org.leixu.iwap.dbutils.handlers;
 
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 
-import dbutils.BaseTestCase;
-import dbutils.ResultSetHandler;
-import dbutils.TestBean;
+import org.leixu.iwap.dbutils.BaseTestCase;
+import org.leixu.iwap.dbutils.ResultSetHandler;
+import org.leixu.iwap.dbutils.TestBean;
+
 
 /**
  * BeanListHandlerTest

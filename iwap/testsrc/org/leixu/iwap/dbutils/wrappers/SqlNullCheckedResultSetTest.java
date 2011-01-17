@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dbutils.wrappers;
+package org.leixu.iwap.dbutils.wrappers;
 
 import java.io.ByteArrayInputStream;
 import java.io.CharArrayReader;
@@ -38,8 +38,9 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Map;
 
-import dbutils.BaseTestCase;
-import dbutils.ProxyFactory;
+import org.leixu.iwap.dbutils.BaseTestCase;
+import org.leixu.iwap.dbutils.ProxyFactory;
+
 
 /**
  * Test cases for <code>SqlNullCheckedResultSet</code> class.
