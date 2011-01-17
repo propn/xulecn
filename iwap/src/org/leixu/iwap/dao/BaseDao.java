@@ -22,7 +22,6 @@ public class BaseDao<T> {
 
 	private static final Logger log = LoggerFactory.getLogger(ConnUtils.class);
 
-	// �ڹ��캯���з�������������
 	private Class<T> _class;
 	private String dateSource = null;
 
@@ -34,7 +33,6 @@ public class BaseDao<T> {
 	}
 
 	/**
-	 * �������
 	 * 
 	 * @param sql
 	 * @param params
@@ -48,7 +46,6 @@ public class BaseDao<T> {
 	}
 
 	/**
-	 * ���Ҷ������
 	 * 
 	 * @param sql
 	 * @param params
@@ -66,7 +63,6 @@ public class BaseDao<T> {
 	}
 
 	/**
-	 * ���Ҷ���
 	 * 
 	 * @param sql
 	 * @param params
@@ -90,7 +86,6 @@ public class BaseDao<T> {
 	}
 
 	/**
-	 * ִ�и��µ�sql���,����,�޸�,ɾ��
 	 * 
 	 * @param sql
 	 * @return
