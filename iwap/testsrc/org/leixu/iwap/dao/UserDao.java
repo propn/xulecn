@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.leixu.iwap.db.ConnUtils;
+
 /**
  * @author Administrator
  * @param <T>
@@ -31,6 +33,8 @@ public class UserDao extends BaseDao<BaseEntity> {
 				videoEntity.getPubDate(), videoEntity.getInDate() };
 
 		this.add(sql, insertParams);
+		
+		throw new RuntimeException("error");
 	}
 
 	public void save(List<BaseEntity> entityList) throws Exception {
@@ -46,15 +50,6 @@ public class UserDao extends BaseDao<BaseEntity> {
 	public static void main(String[] args) throws Exception {
 		UserDao userDao = new UserDao();
 		
-		BaseEntity videoEntity=new BaseEntity();
-		videoEntity.setId(1);
-		videoEntity.setInDate(new Date());
-		videoEntity.setPubDate(new Date());
-		videoEntity.setSite("qqqqqqqqq");
-		videoEntity.setUrl("11111111");
-		
-		userDao.save(videoEntity);
-		
 		List<BaseEntity> list=userDao.getAll();
 		
 		for(Iterator<BaseEntity> it=list.iterator();it.hasNext();){
@@ -66,7 +61,24 @@ public class UserDao extends BaseDao<BaseEntity> {
 			System.out.println(e.getInDate());
 			System.out.println(e.getPubDate());
 		}
-
+		
+		try{
+			BaseEntity videoEntity=new BaseEntity();
+			videoEntity.setId(1);
+			videoEntity.setInDate(new Date());
+			videoEntity.setPubDate(new Date());
+			videoEntity.setSite("qqqqqqqqq");
+			videoEntity.setUrl("11111111");
+			
+			userDao.save(videoEntity);
+			
+			ConnUtils.commit();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			ConnUtils.rollback();
+		}
 	}
 
 }
