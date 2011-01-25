@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContractRoot>
+	<TcpCont>
+		<TransactionID>6001020001201006291000002913</TransactionID>
+		<ActionCode>0</ActionCode>		
+		<BusCode>BUS14001</BusCode>
+		<ServiceCode>SVC14001</ServiceCode>	
+		<ServiceContractVer>SVC1100120100501</ServiceContractVer>
+		<ServiceLevel>09</ServiceLevel>		
+		<SrcOrgID>100000</SrcOrgID>
+		<SrcSysID>1000000001</SrcSysID>		
+		<SrcSysSign>1000000002</SrcSysSign>
+		<DstOrgID>600305</DstOrgID>
+		<DstSysID>6003050001</DstSysID>
+		<ReqTime>20101213121212</ReqTime>
+	</TcpCont>
+	<SvcCont>
+		<!--撤销订单项分组输入-->
+		<SOO type="CAL_ORDER_ITEM_GROUP_REQ_TYPE">
+			<!--查询公共请求消息-->
+			<PUB_REQ>
+				<!--请求ID-->
+				<SOO_ID>12345678</SOO_ID>
+			</PUB_REQ>
+			<!--订单项分组ID-->
+			<ORDER_ITEM_GROUP_ID>12345678</ORDER_ITEM_GROUP_ID>
+			<!--撤单原因-->
+			<CAL_REASON>用户要求</CAL_REASON>
+		</SOO>
+		<SOO type="CAL_ORDER_ITEM_GROUP_REQ_TYPE">
+			<!--查询公共请求消息-->
+			<PUB_REQ>
+				<!--请求ID-->
+				<SOO_ID>12345679</SOO_ID>
+			</PUB_REQ>
+			<!--订单项分组ID-->
+			<ORDER_ITEM_GROUP_ID>12345679</ORDER_ITEM_GROUP_ID>
+			<!--撤单原因-->
+			<CAL_REASON>用户要求</CAL_REASON>
+		</SOO>
+	</SvcCont>
+</ContractRoot>

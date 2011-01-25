@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContractRoot>
+	<TcpCont>
+		<BusCode>BUS22001</BusCode>
+		<ServiceCode>SVC22001</ServiceCode>
+		<ServiceContractVer>SVC2200120091103</ServiceContractVer>
+		<ActionCode>0</ActionCode>
+		<TransactionID>6099020001200911041000000001</TransactionID>
+		<ServiceLevel>1</ServiceLevel>
+		<SrcOrgID>609902</SrcOrgID>
+		<SrcSysID>6099020001</SrcSysID>
+		<SrcSysSign>123</SrcSysSign>
+		<DstOrgID>100000</DstOrgID>
+		<DstSysID>1000000022</DstSysID>
+		<ReqTime>20091021131415</ReqTime>
+	</TcpCont>
+	<SvcCont>
+		<NPObjectEvent>
+			<MessageID>0010221000000001</MessageID>
+			<NPObjectSet>
+				<CommandCode>APPLY_REQ</CommandCode>
+				<ServiceType>MOBILE</ServiceType>
+				<NpCode>移动号码（11位数字型）</NpCode>
+				<FlowID/>
+				<NetWorkID>
+					<PortOutNetID>00230220</PortOutNetID>
+					<PortInNetID>00110220</PortInNetID>
+					<HomeNetID>00230220</HomeNetID>
+				</NetWorkID>
+				<Party>
+					<UserName>王红</UserName>
+					<PartyType>PT001</PartyType>
+					<IdentityInfo>
+						<IdentType>CIVIC_ID</IdentType>
+						<IdentNum>130524198001010025</IdentNum>
+					</IdentityInfo>
+					<Telephone>022-63221199</Telephone>
+				</Party>
+				<CardType>10000000</CardType>
+				<ReqTime>2009-10-21 13:14:15</ReqTime>
+				<SuperSet>
+					<PropertyInfo>
+						<ItemID/>
+						<ItemName/>
+						<ItemValue/>
+						<ItemValueName/>
+					</PropertyInfo>
+				</SuperSet>
+			</NPObjectSet>
+			<Remark>remark</Remark>
+		</NPObjectEvent>
+	</SvcCont>
+</ContractRoot>

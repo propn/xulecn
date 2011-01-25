@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by et8 (et8) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:comm="http://www.chinatelecom.com/crm/comm/" xmlns:prod_inst_bo="http://www.chinatelecom.com/crm/prod_inst_bo/" xmlns="http://www.chinatelecom.com/crm/prod_inst/" targetNamespace="http://www.chinatelecom.com/crm/prod_inst/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.chinatelecom.com/crm/prod_inst_bo/" schemaLocation="..\PROD_INST_BO.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/comm/" schemaLocation="..\COMM.xsd"/>
+	<xs:complexType name="QRY_PROD_OFFER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询可订购销售品输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AREA_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>区号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RECOMMEND_FLAG" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>推荐标志</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="员工工号" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>STAFF_ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_OFFER_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询可订购销售品输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

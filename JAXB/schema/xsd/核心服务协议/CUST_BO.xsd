@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.chinatelecom.com/crm/cust_bo/"
+	targetNamespace="http://www.chinatelecom.com/crm/cust_bo/" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:complexType name="CUST_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 主键 -->
+			<xs:element name="CUST_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录统一编码。 -->
+			<xs:element name="CUST_NUMBER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户地址。 -->
+			<!-- 记录客户名称。 -->
+			<xs:element name="GROUP_CUST_SEQ" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>集团客户序号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户战略分群，如：政企、家庭、个人 -->
+			<xs:element name="CUST_ADDRESS" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户地址</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户战略分群</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户战略下属分群 -->
+			<xs:element name="CUST_SUB_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户战略下属分群</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 客户履行承诺，在特定时间内付款或还款的意愿和能力 -->
+			<!-- 客户拥有的用来支付特定的电信产品服务费用的实体 -->
+			<!-- 记录客户归属区域级别，包括集团客户、跨省客户、省内客户。 -->
+			<xs:element name="CUST_BRAND" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户品牌</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="COMMON_REGION_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>归属地</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录集团客户序号 -->
+			<!-- 记录是否重要客户 -->
+			<!-- 记录客户重要级别。 -->
+			<xs:element name="LAN_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>归属本地网标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_AREA_GRADE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户级别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录入网时间。 -->
+			<!-- 描述客户的离网原因。 -->
+			<!-- 已划配、未划配。 -->
+			<!-- 记录创建时间。 -->
+			<!-- 记录客户生命周期状态，如潜在、在网、离网。 -->
+			<xs:element name="SERVICE_LEVEL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户服务级别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREDIT_LEVEL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>信用度级别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="INDUSTRY_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>行业类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_PWD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户密码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 状态变更的时间。 -->
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 描述客户对电信的贡献度等级 -->
+			<!-- 记录客户附加属性 -->
+			<!-- 客户服务等级描述根据客户消费水平等对客户形成的服务等级评估 -->
+			<!-- 客户信用度描述根据客户的欠费时长、欠费次数、欠费金额、缴费方式、缴费及时性、违章情况等形成的对客户的信用评估 -->
+			<!-- 是指电信用于确认客户接入电信系统的身份和权限信息 -->
+			<xs:element name="ENTER_DATE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>入网时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CUST_CERT_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户证件</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 记录参与人证件的唯一标识，作为主键。 -->
+			<!-- 记录参与人的唯一标识，作为外键。 -->
+			<!-- 描述参与人证件的类型。 -->
+			<xs:element name="CUST_CERTI_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>客户证件标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CERTI_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>证件类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录证件的发证机关。 -->
+			<xs:element name="CERT_NUMBER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>证件号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CERT_ADDRESS" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>证件地址</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人的证件上的详细地址。 -->
+			<!-- 记录参与人的证件号码。 -->
+			<!-- 记录参与人标识信息的生效时间。 -->
+			<!-- 记录参与人标识的失效时间。 -->
+			<xs:element name="CERT_ORG" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>发证机关</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFF_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXP_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人标识的创建时间。 -->
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CUST_CONTACT_INFO_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户联系人类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 记录参与人联系信息的唯一标识，作为主键。 -->
+			<!-- 记录参与人的联系人名称。 -->
+			<xs:element name="CONTACT_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>客户联系人标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HEAD_FLAG" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>是否首选联系人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系人类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系人名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人联系人的性别。 -->
+			<xs:element name="CONTACT_GENDER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系人性别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人的联系地址。 -->
+			<xs:element name="CONTACT_ADDRESS" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系地址</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人的联系单位。 -->
+			<xs:element name="CONTACT_EMPLOYER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系单位</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人的家庭联系电话。 -->
+			<xs:element name="HOME_PHONE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>家庭电话</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 描述参与人办公室的电话号码。 -->
+			<xs:element name="OFFICE_PHONE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>办公电话</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人的移动电话号码。 -->
+			<xs:element name="MOBILE_PHONE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>移动电话</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人联系详细信息。 -->
+			<xs:element name="CONTACT_DESC" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>详细信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人的eMail地址。 -->
+			<xs:element name="E_MAIL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>eMail</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人联系地址的邮政编码。 -->
+			<xs:element name="POSTCODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>邮政编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人的邮件地址。 -->
+			<xs:element name="POST_ADDRESS" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>邮件地址</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人的传真号码。 -->
+			<xs:element name="FAX" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>传真</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录参与人联系信息的状态。 -->
+			<!-- 记录参与人联系信息最近一次状态变更的时间。 -->
+			<!-- 记录参与人联系信息的创建时间。 -->
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CUST_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户扩展属性类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 主键 -->
+			<!-- 客户标识 -->
+			<!-- 记录属性值。 -->
+			<xs:element name="CUST_ATTR_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户附加属性标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录状态。 -->
+			<!-- 记录状态时间。 -->
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ACCOUNT_TYPE">
+		<xs:annotation>
+			<xs:documentation>帐户类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 主键 -->
+			<xs:element name="ACCOUNT_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户标识 -->
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录付款帐户的名称 -->
+			<!-- 为处理集团一点支付业务，记录帐户归属区域级别，包括集团帐户、跨省帐户、省内帐户。 -->
+			<!-- 记录付款帐户编码 -->
+			<xs:element name="COMMON_REGION_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>归属地</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>帐户名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT_AREA_GRADE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>帐户级别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT_NUMBER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>帐户编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 当帐户级别为集团级或跨省级时候，记录集团收费方式，包括一点收费、部分一点收费 -->
+			<!-- 记录付款周期 -->
+			<xs:element name="GROUP_PAY_METHOD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>集团收费方式</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAY_CYCLE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>付费周期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录帐户的联系电话 -->
+			<!-- 当需要短信提醒帐户的时候，记录账单的移动联系电话 -->
+			<!-- 记录是否客户的默认帐户 -->
+			<!-- 记录帐户状态 -->
+			<xs:element name="CONTACT_PHONE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系电话</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MOBILE_PHONE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>移动联系电话</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IF_DEFAULT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>是否默认帐户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录状态时间 -->
+			<xs:element name="EXT_ACCOUNT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>外部帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 定义帐户的各种支付方案，包括现金、银行托收、买断、信用卡等。 -->
+			<!-- 主键 -->
+			<!-- 记录客户标识 -->
+			<!-- 记录付款帐户的名称 -->
+			<!-- 为处理集团一点支付业务，记录帐户归属区域级别，包括集团帐户、跨省帐户、省内帐户。 -->
+			<!-- 记录付款帐户编码 -->
+			<!-- 当帐户级别为集团级或跨省级时候，记录集团收费方式，包括一点收费、部分一点收费 -->
+			<!-- 记录付款周期 -->
+			<!-- 记录帐户的联系电话 -->
+			<!-- 当需要短信提醒帐户的时候，记录账单的移动联系电话 -->
+			<!-- 记录是否客户的默认帐户 -->
+			<!-- 记录帐户状态 -->
+			<!-- 记录状态时间 -->
+			<!-- 定义帐户的各种支付方案，包括现金、银行托收、买断、信用卡等。 -->
+			<xs:element name="LAN_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>归属本地网标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PAYMENT_PLAN_TYPE">
+		<xs:annotation>
+			<xs:documentation>支付方案类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 主键 -->
+			<xs:element name="PAYMENT_PLAN_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>支付方案标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录帐户标识 -->
+			<!-- 记录付款方式，包括现金方式、银行转账方式、信用卡方式等。 -->
+			<xs:element name="ACCOUNT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAYMENT_METHOD_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>付款方式标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 该支付方案的帐户提供标识，当为现金时不填，为托收时，填对应的银行标识，为信用卡时，填对应的卡银行标识，等等 -->
+			<xs:element name="PAYMENT_BANK_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>支付提供标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 该支付方式下对应的帐号，现金方式不用填写，托收方式填写银行帐号，信用卡方式填写信用卡号 -->
+			<xs:element name="PAYMENT_ACCOUNT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>支付帐户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 当支付方式为银行转账方式和信用卡方式的时候，记录银行帐户名称。 -->
+			<xs:element name="PAYMENT_ACCOUNT_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>支付帐户名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 当前帐户所定制的各付款方式的优先级 -->
+			<xs:element name="PAYMENT_ACCOUNT_TYPE" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>支付帐户类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRIORITY" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>优先级</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录帐户状态。 -->
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录状态时间。 -->
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 主键 -->
+			<!-- 记录帐户标识 -->
+			<!-- 记录付款方式，包括现金方式、银行转账方式、信用卡方式等。 -->
+			<!-- 该支付方案的帐户提供标识，当为现金时不填，为托收时，填对应的银行标识，为信用卡时，填对应的卡银行标识，等等 -->
+			<!-- 该支付方式下对应的帐号，现金方式不用填写，托收方式填写银行帐号，信用卡方式填写信用卡号 -->
+			<!-- 当支付方式为银行转账方式和信用卡方式的时候，记录银行帐户名称。 -->
+			<!-- 当前帐户所定制的各付款方式的优先级 -->
+			<!-- 记录帐户状态。 -->
+			<!-- 记录状态时间。 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CUST_REL_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户关联类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 主键 -->
+			<!-- A端客户群ID -->
+			<!-- Z端客户群ID -->
+			<xs:element name="CUST_REL_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>客户关联ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户群之间的关系。 -->
+			<xs:element name="RELATION_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>关系类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 状态。 -->
+			<xs:element name="CUST_ID_A" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A端客户ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID_B" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Z端客户ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RELATIVE_DIRECTION" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>关系方向</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 状态变更的时间。 -->
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录创建时间。 -->
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CUST_CLUB_MEMBER_TYPE">
+		<xs:annotation>
+			<xs:documentation>俱乐部成员类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 主键 -->
+			<!-- 客户标识 -->
+			<xs:element name="MEMBER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>成员标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 客户群ID -->
+			<!-- 记录状态。 -->
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MEMBER_CODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>会员编号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MEMBER_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>会员姓名</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MEMBER_LEVEL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>会员级别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_CARD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>会员证件</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PASSWORD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>会员密码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ASSESS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>评定日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXP_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFF_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ENTER_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>加入时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录状态时间。 -->
+			<xs:element name="STATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录创建时间。 -->
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>入群时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MODIFY_DATE" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>最近物理修改时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ACTION_TYPE">
+			<xs:annotation>
+				<xs:documentation>A:新增 M：修改 D：删除 R：重置 Q：查询</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CUST_CLUB_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户俱乐部类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 主键 -->
+			<!-- 客户群特征ID -->
+			<!-- 记录客户群统一编码。 -->
+			<!-- 记录客户群名称。 -->
+			<!-- 记录客户群描述。 -->
+			<!-- 记录生效时间。 -->
+			<!-- 记录失效时间。 -->
+			<!-- 记录状态。 -->
+			<!-- 状态变更的时间。 -->
+			<!-- 记录创建时间。 -->
+			<!-- 主键 -->
+			<!-- 客户群特征ID -->
+			<!-- 记录客户群统一编码。 -->
+			<!-- 记录客户群名称。 -->
+			<!-- 记录客户群描述。 -->
+			<!-- 记录生效时间。 -->
+			<!-- 记录失效时间。 -->
+			<!-- 记录状态。 -->
+			<!-- 状态变更的时间。 -->
+			<!-- 记录创建时间。 -->
+			<!-- 主键 -->
+			<xs:element name="CUST_CLUB_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>俱乐部标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 客户群特征ID -->
+			<!-- 记录客户群统一编码。 -->
+			<xs:element name="CUST_CLUB_CODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>俱乐部编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户群名称。 -->
+			<xs:element name="CUST_CLUB_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>俱乐部名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户群描述。 -->
+			<xs:element name="CUST_CLUB_DESC" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>俱乐部描述</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录生效时间。 -->
+			<xs:element name="CUST_CLUB_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>俱乐部类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFF_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录失效时间。 -->
+			<xs:element name="EXP_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录状态。 -->
+			<xs:element name="STATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 状态变更的时间。 -->
+			<xs:element name="STATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>变更的时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录创建时间。 -->
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CLUB_MEMBER" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户群成员</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="CUST_CLUB_MEMBER_TYPE" />
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MODIFY_DATE" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>最近物理修改时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ACTION_TYPE">
+			<xs:annotation>
+				<xs:documentation>A:新增 M：修改 D：删除 R：重置 Q：查询</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CUST_CERTIFICATION_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户认证类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 主键 -->
+			<xs:element name="CUST_CERTIFICATION_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户认证信息标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 主键。 -->
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 客户标识。 -->
+			<xs:element name="PASSWORD_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>密码类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PASSWORD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>密码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 状态变更的时间。 -->
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录创建时间。 -->
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BILL_FORMAT_CUSTOMIZE_TYPE">
+		<xs:annotation>
+			<xs:documentation>账单定制关系类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BILL_FORMAT_CUSTOMIZE_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>账单定制关系标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BILL_FORMAT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>默认账单格式标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BILL_POST_CYCLE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>账单投递周期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BILL_POST_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>账单投递方式</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BILL_POST_CONTENT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>账单投递内容</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POST_ADDRESS" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>账单邮递地址</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POST_CODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>邮政编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EMAIL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>email地址</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CUST_TYPE_UP">
+		<xs:annotation>
+			<xs:documentation>客户类型类型(数据上传用)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 主键 -->
+			<xs:element name="CUST_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>客户ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录统一编码。 -->
+			<xs:element name="CUST_NUMBER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>统一编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户地址。 -->
+			<!-- 记录客户名称。 -->
+			<xs:element name="GROUP_CUST_SEQ" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>集团客户序号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_AREA_GRADE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户级别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户战略分群，如：政企、家庭、个人 -->
+			<xs:element name="ENGLISH_NAME" type="xs:string" minOccurs="0" />
+			<xs:element name="CUST_ADDRESS" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户地址</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户战略分群</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户战略下属分群 -->
+			<xs:element name="CUST_SUB_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户战略下属分群</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户归属区域级别，包括集团客户、跨省客户、省内客户。 -->
+			<xs:element name="CUST_BRAND" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户品牌</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="COMMON_REGION_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户归属区域</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录集团客户序号 -->
+			<!-- 记录是否重要客户 -->
+			<!-- 记录客户重要级别。 -->
+			<xs:element name="IMPORTANT_LEVEL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户重要级别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_GRADE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户重要级别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录入网时间。 -->
+			<!-- 描述客户的离网原因。 -->
+			<!-- 已划配、未划配。 -->
+			<!-- 记录创建时间。 -->
+			<!-- 记录客户生命周期状态，如潜在、在网、离网。 -->
+			<xs:element name="SERVICE_LEVEL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户服务级别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREDIT_LEVEL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>信用度级别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="INDUSTY_CODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>行业编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_PWD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户密码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户生命周期状态，如潜在、在网、离网</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 状态变更的时间。 -->
+			<xs:element name="STATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态变更的时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 描述客户对电信的贡献度等级 -->
+			<!-- 记录客户附加属性 -->
+			<!-- 客户服务等级描述根据客户消费水平等对客户形成的服务等级评估 -->
+			<!-- 客户信用度描述根据客户的欠费时长、欠费次数、欠费金额、缴费方式、缴费及时性、违章情况等形成的对客户的信用评估 -->
+			<!-- 是指电信用于确认客户接入电信系统的身份和权限信息 -->
+			<xs:element name="ENTER_DATE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>入网时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 客户履行承诺，在特定时间内付款或还款的意愿和能力 -->
+			<!-- 客户拥有的用来支付特定的电信产品服务费用的实体 -->
+			<xs:element name="CUST_CERT" type="CUST_CERT_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户证件</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CONTACT_INFO" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>联系人</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="CUST_CONTACT_INFO_TYPE" />
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CUST_ATTR" type="CUST_ATTR_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>扩展属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_REL" type="CUST_REL_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MODIFY_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>最近物理修改时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ACTION_TYPE">
+			<xs:annotation>
+				<xs:documentation>A:新增 M：修改 D：删除 R：重置 Q：查询</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CUST_CREDIT_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户信用度类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 主键 -->
+			<xs:element name="CUST_CREDIT_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>客户信用度标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录统一编码。 -->
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户地址。 -->
+			<!-- 记录客户名称。 -->
+			<xs:element name="CREDIT_LEVEL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>信用度等级</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREDIT_VALUE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>信用度值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EVALUATE_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>评估时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户战略分群，如：政企、家庭、个人 -->
+			<xs:element name="EFF_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXP_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户战略下属分群 -->
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户归属区域级别，包括集团客户、跨省客户、省内客户。 -->
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录集团客户序号 -->
+			<!-- 记录是否重要客户 -->
+			<!-- 记录客户重要级别。 -->
+			<!-- 记录入网时间。 -->
+			<!-- 描述客户的离网原因。 -->
+			<!-- 已划配、未划配。 -->
+			<!-- 记录创建时间。 -->
+			<!-- 记录客户生命周期状态，如潜在、在网、离网。 -->
+			<!-- 状态变更的时间。 -->
+			<!-- 描述客户对电信的贡献度等级 -->
+			<!-- 记录客户附加属性 -->
+			<!-- 客户服务等级描述根据客户消费水平等对客户形成的服务等级评估 -->
+			<!-- 客户信用度描述根据客户的欠费时长、欠费次数、欠费金额、缴费方式、缴费及时性、违章情况等形成的对客户的信用评估 -->
+			<!-- 是指电信用于确认客户接入电信系统的身份和权限信息 -->
+			<!-- 客户履行承诺，在特定时间内付款或还款的意愿和能力 -->
+			<!-- 客户拥有的用来支付特定的电信产品服务费用的实体 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CREDIT_LIMIT_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户信用额度类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 主键 -->
+			<xs:element name="CREDIT_LIMIT_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>信用额度标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录统一编码。 -->
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户地址。 -->
+			<!-- 记录客户名称。 -->
+			<xs:element name="CREDIT_OBJECT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>信用额度对象</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREDIT_OBJECT_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>信用额度对象标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户战略分群，如：政企、家庭、个人 -->
+			<xs:element name="CREDIT_LIMIT_FEE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>信用额度值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AVALABLE_CREDIT_LIMIT_FEE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>可用信用额度值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户战略下属分群 -->
+			<!-- 记录客户归属区域级别，包括集团客户、跨省客户、省内客户。 -->
+			<!-- 记录集团客户序号 -->
+			<!-- 记录是否重要客户 -->
+			<!-- 记录客户重要级别。 -->
+			<!-- 记录入网时间。 -->
+			<!-- 描述客户的离网原因。 -->
+			<!-- 已划配、未划配。 -->
+			<!-- 记录创建时间。 -->
+			<!-- 记录客户生命周期状态，如潜在、在网、离网。 -->
+			<!-- 状态变更的时间。 -->
+			<!-- 描述客户对电信的贡献度等级 -->
+			<!-- 记录客户附加属性 -->
+			<!-- 客户服务等级描述根据客户消费水平等对客户形成的服务等级评估 -->
+			<!-- 客户信用度描述根据客户的欠费时长、欠费次数、欠费金额、缴费方式、缴费及时性、违章情况等形成的对客户的信用评估 -->
+			<!-- 是指电信用于确认客户接入电信系统的身份和权限信息 -->
+			<!-- 客户履行承诺，在特定时间内付款或还款的意愿和能力 -->
+			<!-- 客户拥有的用来支付特定的电信产品服务费用的实体 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CUST_CREDIT_LOG_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户信用度变更记录类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- 主键 -->
+			<xs:element name="CUST_CREDIT_LOG_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>客户信用度变更记录标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录统一编码。 -->
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户地址。 -->
+			<!-- 记录客户名称。 -->
+			<xs:element name="CREDIT_LEVEL_CHANGE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>变更信用度等级</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREDIT_VALUE_CHANGE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>变更信用度值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户战略分群，如：政企、家庭、个人 -->
+			<xs:element name="CREDIT_CHANGE_REASON" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>变更信用度原因</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANGE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>变更时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- 记录客户战略下属分群 -->
+			<!-- 记录客户归属区域级别，包括集团客户、跨省客户、省内客户。 -->
+			<!-- 记录集团客户序号 -->
+			<!-- 记录是否重要客户 -->
+			<!-- 记录客户重要级别。 -->
+			<!-- 记录入网时间。 -->
+			<!-- 描述客户的离网原因。 -->
+			<!-- 已划配、未划配。 -->
+			<!-- 记录创建时间。 -->
+			<!-- 记录客户生命周期状态，如潜在、在网、离网。 -->
+			<!-- 状态变更的时间。 -->
+			<!-- 描述客户对电信的贡献度等级 -->
+			<!-- 记录客户附加属性 -->
+			<!-- 客户服务等级描述根据客户消费水平等对客户形成的服务等级评估 -->
+			<!-- 客户信用度描述根据客户的欠费时长、欠费次数、欠费金额、缴费方式、缴费及时性、违章情况等形成的对客户的信用评估 -->
+			<!-- 是指电信用于确认客户接入电信系统的身份和权限信息 -->
+			<!-- 客户履行承诺，在特定时间内付款或还款的意愿和能力 -->
+			<!-- 客户拥有的用来支付特定的电信产品服务费用的实体 -->
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

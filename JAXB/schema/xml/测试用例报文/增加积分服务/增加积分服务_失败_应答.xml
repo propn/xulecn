@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContractRoot>
+	<!--协议头-->
+	<TcpCont>
+		<TransactionID>6003020001201005110000036599</TransactionID>
+		<ActionCode>1</ActionCode>
+		<RspTime>20100511175534</RspTime>
+		<Response>
+			<RspType>1</RspType>
+			<!--异常编码尚未定义-->
+			<RspCode>业务异常编码</RspCode>
+			<RspDesc>业务异常描述</RspDesc>
+		</Response>
+	</TcpCont>
+</ContractRoot>

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by et8 (et8) -->
+<xs:schema xmlns="http://www.chinatelecom.com/crm/mkt_res/" xmlns:channel_bo="http://www.chinatelecom.com/crm/channel_bo/" xmlns:mkt_res_bo="http://www.chinatelecom.com/crm/mkt_res_bo/" xmlns:comm="http://www.chinatelecom.com/crm/comm/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.chinatelecom.com/crm/mkt_res/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.chinatelecom.com/crm/channel_bo/" schemaLocation="..\CHANNEL_BO.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/comm/" schemaLocation="..\COMM.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/mkt_res_bo/" schemaLocation="..\MKT_RES_BO.xsd"/>
+	<xs:complexType name="CHECK_LOGIN_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>工号鉴权验证输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STAFF_CODE" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>账号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PASSWORD" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>口令</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACC_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>绑定手机号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_BULLETIN_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询公告输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STAFF_CODE">
+				<xs:annotation>
+					<xs:documentation>账号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_BULLETIN_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询公告信息输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BULLETIN" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>公告信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_NBR_BEGLON_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询号码归属地信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACC_NBR">
+				<xs:annotation>
+					<xs:documentation>接入号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_NBR_BEGLON_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询号码归属地信息输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AREA_NBR">
+				<xs:annotation>
+					<xs:documentation>归属区号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REGION_NAME">
+				<xs:annotation>
+					<xs:documentation>归属地名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_MKT_TERMINAL_REPAIR_STATION_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询终端维修站点输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_MKT_TERMINAL_REPAIR_STATION_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询终端维修站点输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_TERMINAL_REPAIR_STATION" type="mkt_res_bo:MKT_TERMINAL_REPAIR_STATION_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>终端维修站点</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHECK_RULE_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>规则校验输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RULE_EVEN_INST" type="comm:RULE_EVENT_INST_TYPE" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>规则事件实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHECK_RULE_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>规则校验输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RULE_EVEN_INST" type="comm:RULE_EVENT_INST_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>规则事件实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SOO_GROUP_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>SOO分组输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SOO" type="xs:anyType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>子SOO</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="CODE" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>分组编码</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="SOO_GROUP_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>SOO分组输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SOO" type="xs:anyType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>子SOO</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="CODE" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>分组编码</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="QRY_GROUP_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>SOO分组输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SOO" type="xs:anyType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>子SOO</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="CODE" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>分组编码</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="MAIN_SOO_ID" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>主SOO_ID</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="QRY_GROUP_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>SOO分组输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SOO" type="xs:anyType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>子SOO</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="CODE" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>分组编码</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="MAIN_SOO_ID" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>主SOO_ID</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

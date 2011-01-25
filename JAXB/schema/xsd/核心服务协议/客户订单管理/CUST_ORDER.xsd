@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:comm="http://www.chinatelecom.com/crm/comm/" xmlns:cust_order_bo="http://www.chinatelecom.com/crm/cust_order_bo/" xmlns="http://www.chinatelecom.com/crm/cust_order" targetNamespace="http://www.chinatelecom.com/crm/cust_order" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.chinatelecom.com/crm/comm/" schemaLocation="..\COMM.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/cust_order_bo/" schemaLocation="..\CUST_ORDER_BO.xsd"/>
+	<xs:complexType name="ADD_CUSTOMER_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加客户订单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUSTOMER_ORDER" type="cust_order_bo:CUSTOMER_ORDER_TYPE">
+				<xs:annotation>
+					<xs:documentation>客户订单对象</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MOD_CUSTOMER_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>修改客户订单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUSTOMER_ORDER" type="cust_order_bo:CUSTOMER_ORDER_TYPE">
+				<xs:annotation>
+					<xs:documentation>客户订单对象</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUSTOMER_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户订单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUSTOMER_ORDER_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加客户订单输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUSTOMER_ORDER" type="cust_order_bo:CUSTOMER_ORDER_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户订单对象</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_ORDER_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存客户订单属性信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_ATTR" type="cust_order_bo:ORDER_ATTR_TYPE" maxOccurs="20">
+				<xs:annotation>
+					<xs:documentation>客户订单扩展属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_ORDER_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户订单属性信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_ORDER_ATTR_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户订单属性信息输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUSTORDER_ORDER_ATTR" type="cust_order_bo:ORDER_ATTR_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户订单扩展属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_ORDER_CONTACT_INFO_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存客户订单联系人信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_CONTACT_INFO" type="cust_order_bo:ORDER_CONTACT_INFO_TYPE" maxOccurs="20">
+				<xs:annotation>
+					<xs:documentation>客户订单联系人信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_ORDER_CONTACT_INFO_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户订单联系人信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_ITEM_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单项标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>			
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_ORDER_CONTACT_INFO_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户订单联系人信息输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_CONTACT_INFO" type="cust_order_bo:ORDER_CONTACT_INFO_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户订单联系人信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_CUST_ORDER_HANDLE_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存客户订单经办人信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_HANDLE" type="cust_order_bo:CUST_ORDER_HANDLE_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>客户订单经办人信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_ORDER_HANDLE_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户订单经办人信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_ORDER_HANDLE_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户订单经办人信息输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_HANDLE" type="cust_order_bo:CUST_ORDER_HANDLE_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户订单经办人信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_ORDER_ITEM_GROUP_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加订单项分组输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_ITEM" type="cust_order_bo:ORDER_ITEM_GROUP_TYPE">
+				<xs:annotation>
+					<xs:documentation>订单项分组</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_ORDER_ITEM_GROUP_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询订单项分组输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_ITEM_GROUP_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单项分组ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_ORDER_ITEM_GROUP_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询订单项分组输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_ITEM_GROUP" type="cust_order_bo:ORDER_ITEM_GROUP_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>订单项分组</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CAL_ORDER_ITEM_GROUP_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>撤销订单项分组输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>查询公共请求消息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_ITEM_GROUP_ID">
+				<xs:annotation>
+					<xs:documentation>订单项分组ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CAL_REASON" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>撤单原因</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NOTIFY_FINISH_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>订单项分组竣工通知输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_ITEM_GROUP_ID">
+				<xs:annotation>
+					<xs:documentation>订单项分组ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RENT_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>起租时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REMARK" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>备注信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_ACCT_ITEM_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询订单费用详情输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_ACCT_ITEM_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询订单费用详情输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCT_ITEM" type="cust_order_bo:ACCT_ITEM_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>帐目</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_PAYMEMNT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加订单费用支付信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAMENT_ATTR" type="cust_order_bo:PAYMENT_TYPE">
+				<xs:annotation>
+					<xs:documentation>支付信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_PAYMEMNT_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存订单费用支付属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAMENT_ATTR" type="cust_order_bo:PAYMENT_ATTR_TYPE" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>支付信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

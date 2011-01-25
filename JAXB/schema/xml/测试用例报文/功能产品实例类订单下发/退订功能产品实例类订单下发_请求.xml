@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContractRoot>
+	<!--Эөͷ-->
+	<TcpCont>
+		<TransactionID>6001020001201006291000002913</TransactionID>
+		<ActionCode>0</ActionCode>		
+		<BusCode>BUS14001</BusCode>
+		<ServiceCode>SVC30112</ServiceCode>		
+		<ServiceContractVer>SVC3011220100501</ServiceContractVer>
+		<ServiceLevel>1</ServiceLevel>		
+		<SrcOrgID>100000</SrcOrgID>
+		<SrcSysID>1000000001</SrcSysID>		
+		<SrcSysSign>1000000002</SrcSysSign>
+		<DstOrgID>600305</DstOrgID>
+		<DstSysID>6003050001</DstSysID>
+		<ReqTime>20101213121212</ReqTime>
+	</TcpCont>
+	<SvcCont>
+	  <!--ն¼ӿͻ§¶©µ¥-->
+		<SOO type="ADD_CUSTOMER_ORDER_REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>999999999999</SOO_ID>
+			</PUB_REQ>
+			<CUSTOMER_ORDER>
+				<CUST_ORDER_ID>$-11111$</CUST_ORDER_ID>
+				<CUST_ID>$-1002$</CUST_ID>
+				<PRE_HANDLE_FLAG>10</PRE_HANDLE_FLAG>
+				<REMARKS>ն¼ӿͻ§¶©µ¥</REMARKS>
+				<SOURCE_ID>20101213145001</SOURCE_ID>
+			</CUSTOMER_ORDER>
+		</SOO>
+		<!--±£´瀍»§¶©µ¥jϵɋ-->
+		<SOO type="SAVE_ORDER_CONTACT_INFO_REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>999999999997</SOO_ID>
+			</PUB_REQ>
+			<ORDER_CONTACT_INFO>
+				<CUST_ORDER_ID>$-11111$</CUST_ORDER_ID>
+				<CONTACT_NAME>µ葅</CONTACT_NAME>
+				<CONTACT_TYPE>0</CONTACT_TYPE>
+				<CONTACT_NBR>18900000001</CONTACT_NBR>
+			</ORDER_CONTACT_INFO>
+		</SOO>	
+		<!--±£´瀍»§¶©µ¥¾­°퉋хϢ-->
+		<SOO type="SAVE_CUST_ORDER_HANDLE_REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>999999999996</SOO_ID>
+			</PUB_REQ>
+			<CUST_ORDER_HANDLE>
+				<CUST_ORDER_ID>$-11111$</CUST_ORDER_ID>
+				<AREA_NBR>020</AREA_NBR>
+				<HANDLE_PEOPLE_NAME>օɽ</HANDLE_PEOPLE_NAME>
+				<CERT_TYPE>1</CERT_TYPE>
+				<CERT_NBR>3500000000000000000</CERT_NBR>
+				<CONTACT_NBR>18900000001</CONTACT_NBR>
+			</CUST_ORDER_HANDLE>
+		</SOO>
+		<!--ն¼Ӷ©µ¥Ю·ח竭>
+		<SOO type="ADD_ORDER_ITEM_GROUP_REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>999999999996</SOO_ID>
+			</PUB_REQ>
+			<ORDER_ITEM_GROUP>
+				<ORDER_ITEM_GROUP_ID>904</ORDER_ITEM_GROUP_ID>
+				<CUST_ORDER_ID>$-11111$</CUST_ORDER_ID>
+				<SERVICE_OFFER_ID>501</SERVICE_OFFER_ID>
+				<SERVICE_OFFER_NAME>΋¶©</SERVICE_OFFER_NAME>
+			</ORDER_ITEM_GROUP>
+		</SOO>
+		<!--΋¶©¹¦Ŝ²�}`¶©µ¥Ђ·¢-->
+		<SOO type="DEL_PROD_INST_REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>999999999997</SOO_ID>
+			</PUB_REQ>
+			<ORDER_REQ>
+				<ORDER_ITEM_GROUP_ID>904</ORDER_ITEM_GROUP_ID>
+			</ORDER_REQ>
+			<PROD_INST_ID>:getProdInstIdByAccNbr(020,888888)</PROD_INST_ID>
+		</SOO>
+	</SvcCont>
+</ContractRoot>

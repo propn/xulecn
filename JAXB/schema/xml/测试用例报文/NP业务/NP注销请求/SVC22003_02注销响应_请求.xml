@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContractRoot>
+	<TcpCont>
+		<BusCode>BUS22001</BusCode>
+		<ServiceCode>SVC22003</ServiceCode>
+		<ServiceContractVer>SVC2200320091103</ServiceContractVer>
+		<ActionCode>0</ActionCode>
+		<TransactionID>6099020001200910051000000072</TransactionID>
+		<ServiceLevel>1</ServiceLevel>
+		<SrcOrgID>609902</SrcOrgID>
+		<SrcSysID>6099020001</SrcSysID>
+		<SrcSysSign>123</SrcSysSign>
+		<DstOrgID>100000</DstOrgID>
+		<DstSysID>1000000022</DstSysID>
+		<ReqTime>20091021131415</ReqTime>
+	</TcpCont>
+	<SvcCont>
+		<NPObjectEvent>
+			<MessageID>0010221000000072</MessageID>
+			<OrigMessageID/>
+			<NPObjectSet>
+				<CommandCode>DACT_RESP</CommandCode>
+				<ServiceType>MOBILE</ServiceType>
+				<NpCode>移动号码（11位数字型）</NpCode>
+				<FlowID>0221091022000003</FlowID>
+				<Signalled>
+					<SignalledCode>200</SignalledCode>
+					<SignalledMessage>用户退网成功</SignalledMessage>
+				</Signalled>
+			</NPObjectSet>
+			<Remark>remark</Remark>
+		</NPObjectEvent>
+	</SvcCont>
+</ContractRoot>

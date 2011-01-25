@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.chinatelecom.com/crm/cust" xmlns:comm="http://www.chinatelecom.com/crm/comm/" xmlns:cust_bo="http://www.chinatelecom.com/crm/cust_bo/" xmlns:point_account_bo="http://www.chinatelecom.com/crm/point_account_bo/" xmlns:ns1="http://www.chinatelecom.com/crm/ORDER" targetNamespace="http://www.chinatelecom.com/crm/cust" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.chinatelecom.com/crm/comm/" schemaLocation="..\COMM.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/cust_bo/" schemaLocation="..\CUST_BO.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/point_account_bo/" schemaLocation="..\POINT_ACCOUNT_BO.xsd"/>
+	<xs:complexType name="QRY_CUST_POINT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户积分输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_POINT_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户积分输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_ACCOUNT" type="point_account_bo:POINT_ACCOUNT_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>积分帐户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_POINT_ACCOUNT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询积分账户输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_POINT_ACCOUNT_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询积分账户输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_ACCOUNT" type="point_account_bo:POINT_ACCOUNT_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>积分帐户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_POINT_ACCT_BALA_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询积分帐本输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_POINT_ACCT_BALA_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询积分帐本输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_POINT_ACCT_BALA" type="point_account_bo:POINT_ACCT_BALA_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>积分账本</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_POINT_SERVICE_REC_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加积分服务记录输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE"/>
+			<xs:element name="POINT_SERVICE_REC" type="point_account_bo:POINT_SERVICE_REC_TYPE">
+				<xs:annotation>
+					<xs:documentation>积分服务记录</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_POINT_SERVICE_REC_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询积分服务记录输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_POINT_SERVICE_REC_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询积分服务记录输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_SERVICE_REC" type="point_account_bo:POINT_SERVICE_REC_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>积分服务记录</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_POINT_SERVICE_REC_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存积分服务记录属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_SERVICE_REC_ATTR" type="point_account_bo:POINT_SERVICE_REC_ATTR_TYPE">
+				<xs:annotation>
+					<xs:documentation>积分服务记录属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_POINT_SERVICE_REC_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询积分服务记录属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_POINT_SERVICE_REC_ATTR_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询积分服务记录属性输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_SERVICE_REC_ATTR" type="point_account_bo:POINT_SERVICE_REC_ATTR_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>积分服务记录属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_POINT_SERVICE_REC_DETAIL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加积分服务明细输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_SERVICE_REC_DETAIL" type="point_account_bo:POINT_SERVICE_REC_DETAIL_TYPE" maxOccurs="20">
+				<xs:annotation>
+					<xs:documentation>积分兑换明细</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_POINT_SERVICE_REC_DETAIL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询积分服务明细输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_POINT_SERVICE_REC_DETAIL_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询积分服务明细输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_SERVICE_REC_DETAIL" type="point_account_bo:POINT_SERVICE_REC_DETAIL_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>积分兑换明细</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_POINT_SERVICE_REC_DETAIL_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存积分服务明细属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_SERVICE_REC_DETAIL_ATTR" type="point_account_bo:POINT_SERVICE_REC_DETAIL_ATTR_TYPE">
+				<xs:annotation>
+					<xs:documentation>积分兑换明细属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_POINT_SERVICE_REC_DETAIL_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询积分服务明细属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_POINT_SERVICE_REC_DETAIL_ATTR_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询积分服务明细属性输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_SERVICE_REC_DETAIL_ATTR" type="point_account_bo:POINT_SERVICE_REC_DETAIL_ATTR_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>积分兑换明细属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

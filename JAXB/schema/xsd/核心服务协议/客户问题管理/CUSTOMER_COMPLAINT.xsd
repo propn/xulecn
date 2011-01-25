@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by et8 (et8) -->
+<xs:schema xmlns="http://www.chinatelecom.com/crm/customer_complaint/" xmlns:customer_complaint_bo="http://www.chinatelecom.com/crm/customer_complaint_bo/" xmlns:prod_inst_bo="http://www.chinatelecom.com/crm/prod_inst_bo/" xmlns:comm="http://www.chinatelecom.com/crm/comm/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.chinatelecom.com/crm/customer_complaint/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.chinatelecom.com/crm/customer_complaint_bo/" schemaLocation="..\CUSTOMER_COMPLAINT_BO.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/comm/" schemaLocation="..\COMM.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/prod_inst_bo/" schemaLocation="..\PROD_INST_BO.xsd"/>
+	<xs:complexType name="ADD_CUST_CPN_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加客户投诉单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CPN_ORDER" type="customer_complaint_bo:CUST_CPN_ORDER_TYPE">
+				<xs:annotation>
+					<xs:documentation>客户投诉单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MOD_CUST_CPN_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>修改客户投诉单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CPN_ORDER_REQ_TYPE" type="customer_complaint_bo:CUST_CPN_ORDER_TYPE">
+				<xs:annotation>
+					<xs:documentation>客户投诉单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_CPN_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户投诉单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUSTOMER_COMPLAINT_ORDER_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户投诉单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_CPN_ORDER_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户投诉单输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CPN_ORDER_REQ_TYPE" type="customer_complaint_bo:CUST_CPN_ORDER_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户投诉单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_COMPLAINT_WORKSHEET_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询投诉工单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUSTOMER_COMPLAINT_ORDER_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户投诉单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_COMPLAINT_WORKSHEET_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询投诉工单输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="COMPLAINT_WORKSHEET" type="customer_complaint_bo:CUST_APPEAL_ORDER_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>投诉工单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_CUST_APPEAL_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加客户障碍申告单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_APPEAL_ORDER" type="customer_complaint_bo:CUST_APPEAL_ORDER_TYPE">
+				<xs:annotation>
+					<xs:documentation>客户障碍申告单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MOD_CUST_APPEAL_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>修改客户障碍申告单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_APPEAL_ORDER" type="customer_complaint_bo:CUST_APPEAL_ORDER_TYPE">
+				<xs:annotation>
+					<xs:documentation>客户障碍申告单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_APPEAL_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户障碍申告单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_APPEAL_ORDER_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户障碍申告单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_APPEAL_ORDER_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户障碍申告单输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_APPEAL_ORDER" type="customer_complaint_bo:CUST_APPEAL_ORDER_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户障碍申告单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_APPEAL_ORDER_ITEM_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询障碍申告工单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_APPEAL_ORDER_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户障碍申告单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_APPEAL_ORDER_ITEM_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询障碍申告工单输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPEAL_ORDER_ITEM" type="customer_complaint_bo:APPEAL_ORDER_ITEM_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>障碍申告工单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_CUST_SERV_REQMT_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加客户服务输入单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_SERV_REQMT_ORDER" type="customer_complaint_bo:CUST_SERV_REQMT_ORDER_TYPE">
+				<xs:annotation>
+					<xs:documentation>客户服务请求单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MOD_CUST_SERV_REQMT_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>修改客户服务输入单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_SERV_REQMT_ORDER" type="customer_complaint_bo:CUST_SERV_REQMT_ORDER_TYPE">
+				<xs:annotation>
+					<xs:documentation>客户服务请求单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_SERV_REQMT_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户服务输入单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUSTOMER_SERVICE_REQURIE_ORDER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户服务请求单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_SERV_REQMT_ORDER_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户服务输入单输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_SERV_REQMT_ORDER" type="customer_complaint_bo:CUST_SERV_REQMT_ORDER_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户服务请求单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

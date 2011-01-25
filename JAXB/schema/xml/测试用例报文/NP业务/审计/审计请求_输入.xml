@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContractRoot>
+	<TcpCont>
+		<BusCode>BUS22001</BusCode>
+		<ServiceCode>SVC22006</ServiceCode>
+		<ServiceContractVer>SVC2200620091103</ServiceContractVer>
+		<ActionCode>0</ActionCode>
+		<TransactionID>6099020001200910041000000060</TransactionID>
+		<ServiceLevel>1</ServiceLevel>
+		<SrcOrgID>609902</SrcOrgID>
+		<SrcSysID>6099020001</SrcSysID>
+		<SrcSysSign>123</SrcSysSign>
+		<DstOrgID>100000</DstOrgID>
+		<DstSysID>1000000022</DstSysID>
+		<ReqTime>20091021131415</ReqTime>
+	</TcpCont>
+	<SvcCont>
+		<NPObjectEvent>
+			<MessageID>0010221000000060</MessageID>
+			<NPObjectSet>
+				<CommandCode>DACT_REQ</CommandCode>
+				<ServiceType>MOBILE</ServiceType>
+				<NpCodeList>国内手机号码1，国内手机号码2</NpCodeList>			
+			</NPObjectSet>
+			<Remark>查是否能够接收来自移动号码机主本人或代办人向携入方提出的号码携带申请</Remark>
+		</NPObjectEvent>
+	</SvcCont>
+</ContractRoot>

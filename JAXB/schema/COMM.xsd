@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.chinatelecom.com/crm/comm/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.chinatelecom.com/crm/comm/" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:complexType name="PUB_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>通用输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SOO_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>请求ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PUB_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>通用输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SOO_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>返回请求ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>订单通用输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ORDER_ITEM_GROUP_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>订单项分组ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContractRoot">
+		<xs:annotation>
+			<xs:documentation>协议根对象</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TcpCont" type="TcpCont">
+				<xs:annotation>
+					<xs:documentation>控制对象</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SvcCont" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>业务对象</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SOO" type="xs:anyType" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>标准对象操作</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TcpCont">
+		<xs:annotation>
+			<xs:documentation>控制对象</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TransactionID">
+				<xs:annotation>
+					<xs:documentation>交易流水号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="28" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ActionCode">
+				<xs:annotation>
+					<xs:documentation>请求标识</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="1" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BusCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>业务功能编码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="8" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ServiceCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>服务编码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="8" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ServiceContractVer" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>服务版本号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="16" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ServiceLevel" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>服务等级</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="1" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SrcOrgID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>发起方机构代码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="6" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SrcSysID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>发起方编码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="10" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SrcSysSign" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>发起方签名</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DstOrgID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>落地方省机构编码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="6" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DstSysID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>落地方编码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="10" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ReqTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>请求时间</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="14" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RspTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>应答时间</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="14" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Request" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>请求/扩展信息</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ReqType">
+							<xs:annotation>
+								<xs:documentation>请求/扩展类型</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:length value="1" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="ReqCode">
+							<xs:annotation>
+								<xs:documentation>请求/扩展代码</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:length value="4" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="ReqDesc" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>请求/扩展描述</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="0" />
+									<xs:maxLength value="128" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Response" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>应答/错误信息</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="RspType">
+							<xs:annotation>
+								<xs:documentation>应答类型</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:length value="14" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="RspCode">
+							<xs:annotation>
+								<xs:documentation>应答代码</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:length value="14" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="RspDesc" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>应答描述</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:length value="14" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询通用输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FIELD" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>返回字段列表</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询类型</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PARAM" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>查询参数表</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:attribute name="PARAM_CD" type="xs:string" />
+								<xs:attribute name="PARAM_VALUE" type="xs:string" />
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="TYPE_CD" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>查询类型</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PAGE_INDEX" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>当前页数</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAGE_SIZE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>每页条数</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询通用输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TOTAL_COUNT" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>总数</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAGE_SIZE" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>当前页数</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAGE_INDEX" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>每页条数</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RULE_EVENT_INST_TYPE">
+		<xs:annotation>
+			<xs:documentation>规则事件实例</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RULE_EVENT_INST_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>事件实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RULE_EVENT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>规则事件ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RULE_EVENT_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>规则事件编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RSP_CODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>应答代码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RSP_DESC" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>应答描述</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RULE_EVEN_INST_ATTR" type="RULE_EVENT_INST_ATTR_TYPE" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>规则事件实例属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RULE_EVENT_INST_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>规则事件实例属性</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RULE_EVENT_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>事件实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

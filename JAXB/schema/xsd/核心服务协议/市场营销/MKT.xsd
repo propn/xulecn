@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by et8 (et8) -->
+<xs:schema xmlns="http://www.chinatelecom.com/crm/channel/" xmlns:sale_bo="http://www.chinatelecom.com/crm/sale_bo/" xmlns:comm="http://www.chinatelecom.com/crm/comm/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.chinatelecom.com/crm/channel/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.chinatelecom.com/crm/comm/" schemaLocation="..\COMM.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/sale_bo/" schemaLocation="..\SALE_BO.xsd"/>
+	<xs:complexType name="ADD_MKT_CAMPAIGN_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加营销维挽活动输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_CAMPAIGN">
+				<xs:annotation>
+					<xs:documentation>营销维挽活动</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MOD_MKT_CAMPAIGN_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>修改营销维挽活动输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_CAMPAIGN">
+				<xs:annotation>
+					<xs:documentation>营销维挽活动</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_MKT_CAMPAIGN_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询营销维挽活动输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_CAMPAIGN_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销活动标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_MKT_CAMPAIGN_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询营销维挽活动输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_CAMPAIGN" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>营销维挽活动</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

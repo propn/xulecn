@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContractRoot>
+	<TcpCont>
+		<BusCode>BUS22001</BusCode>
+		<ServiceCode>SVC22004</ServiceCode>
+		<ServiceContractVer>SVC2200420091103</ServiceContractVer>
+		<ActionCode>0</ActionCode>
+		<TransactionID>6099020001200910041000000060</TransactionID>
+		<ServiceLevel>1</ServiceLevel>
+		<SrcOrgID>609902</SrcOrgID>
+		<SrcSysID>6099020001</SrcSysID>
+		<SrcSysSign>123</SrcSysSign>
+		<DstOrgID>100000</DstOrgID>
+		<DstSysID>1000000022</DstSysID>
+		<ReqTime>20091021131415</ReqTime>
+	</TcpCont>
+	<SvcCont>
+		<NPObjectEvent>
+			<MessageID>0010221000000060</MessageID>
+			<NPObjectSet>
+				<CommandCode>CANCEL</CommandCode>
+				<ServiceType>MOBILE</ServiceType>
+				<NpCode>国内有效手机号码</NpCode>
+				<FlowID>1100</FlowID>			
+				<Signalled>				   
+					<SignalledCode>200</SignalledCode>
+					<SignalledMessage>已经生成CRM订购，不充许取消</SignalledMessage>
+				</Signalled>
+			</NPObjectSet>
+			<Remark>业务取消结果告知</Remark>
+		</NPObjectEvent>
+	</SvcCont>
+</ContractRoot>

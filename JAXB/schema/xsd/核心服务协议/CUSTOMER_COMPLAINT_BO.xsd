@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by et8 (et8) -->
+<xs:schema xmlns="http://www.chinatelecom.com/crm/customer_complaint_bo/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.chinatelecom.com/crm/customer_complaint_bo/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="CUST_CPN_ORDER_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户投诉单</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CUSTOMER_COMPLAINT_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>客户投诉单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AREA_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>区号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STAFF_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>受理员工标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT_PEOPLE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系人。</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT_PHONE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系电话。</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="COMPLAINT_PHONE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>投诉号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="COMPLAINT_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>投诉类别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="COMPLAINT_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>投诉时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BOOKING_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户预约时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REQUIRE_DEAL_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>要求解决时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXPECTED_RESULT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户期望结果 </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SERVICE_GRADE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户服务等级 </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="COMPLAINT_INFO" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>投诉内容</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CPN_DEAL_SOLUTION" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>投诉处理方案</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DEAL_PRIOR_LEVEL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>处理优先级</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VERIFY_REASON" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查证原因</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRI_RESPONSIBILITY_ORG" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>投诉主要责任部门</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RESPONSIBILITY_ASSESS" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>责任评定描述</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FINISH_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>竣工时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="COMPLAINT_WORKSHEET_TYPE">
+		<xs:annotation>
+			<xs:documentation>投诉工单</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="COMPLAINT_WORKSHEET_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>投诉工单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUSTOMER_COMPLAINT_ORDER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户投诉单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RECEIVE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>收单时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DEAL_REQUIRE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>处理要求</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FINISH_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>完成时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>工单状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DEAL_LIMIT_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>处理时限</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RETURN_REASON" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>回单原因</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DEAL_RESULT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>处理结果</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CUST_APPEAL_ORDER_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户障碍申告单</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CUST_APPEAL_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>客户障碍申告单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STAFF_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>员工标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPEAL_ACC_NUMBER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>障碍号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPEAL_FAULT_INST" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>重复障碍标志</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CALL_APPEAL_NUMBER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>报障电话</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCEPT_MODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>受理模式</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPEAL_DEAL_INFO" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>障碍预处理信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPEAL_PREDEAL_PEOPLE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>故障预处理人员</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPEAL_PREDEAL_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>故障预处理修复时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPEAL_PREDEAL_DESC" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>故障预处理详情</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPEAL_PREDEAL_TESTRESULT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>预处理测试结果</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="COMMON_APPEAL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>公共障碍标志</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="COMMON_APPEAL_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>公共障碍类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HANDLE_PEOPLE_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>经办人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT_PHONE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系电话</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT_PEOPLE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REQUIRE_DEAL_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>要求解决时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BESPOKEN_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>预约处理时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FAULT_PRIOR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>障碍优先级</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUSTOMER_EMOTION" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户情绪</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCEPT_NUMBER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>受理次数</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HANDLE_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>受理时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_STATE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户障碍申告单状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CHANGE_REASON" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态变更原因</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SATISFACTION_GRADE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>满意度</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="APPEAL_ORDER_ITEM_TYPE">
+		<xs:annotation>
+			<xs:documentation>障碍申告工单</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="APPEAL_ORDER_ITEM_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>障碍申告工单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_APPEAL_ORDER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户障碍申告单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPEAL_REASON_DESC" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>障碍原因描述</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPEAL_INFO_DESC" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>障碍现象描述</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPEAL_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>障碍类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FAULT_NUM" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>报障次数</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPEAL_ACC_NUMBER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>障碍号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CUST_SERV_REQMT_ORDER_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户服务请求单</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CUSTOMER_SERVICE_REQURIE_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>客户服务请求单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STAFF_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>员工标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SERVICE_REQUIRE_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>服务请求事件类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SERVICE_REQUIRE_EVENT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>服务请求事件标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SERVICE_REQUIREDETAIL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>服务请求内容</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DEAL_LEVEL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>处理级别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DEAL_TIME_LIMIT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>处理时限</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>处理状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="URGENCY_GRADE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>紧急程度</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DEAL_RESULT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>处理结果</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT_MANNER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系方式</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT_INFO" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SATISFIED_DEGREE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户满意度</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

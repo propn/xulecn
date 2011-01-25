@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by et8 (et8) -->
+<ContractRoot>
+	<TcpCont>
+		<TransactionID>20101213121212123456790</TransactionID>
+		<ActionCode>0</ActionCode>		
+		<BusCode>BUS14001</BusCode>
+		<ServiceCode>SVC11001</ServiceCode>		
+		<ServiceContractVer>SVC0000120080808</ServiceContractVer>
+		<ServiceLevel>09</ServiceLevel>		
+		<SrcOrgID>100000</SrcOrgID>
+		<SrcSysID>1000000001</SrcSysID>		
+		<SrcSysSign>1000000002</SrcSysSign>
+		<DstOrgID>600305</DstOrgID>
+		<DstSysID>6003050001</DstSysID>
+		<ReqTime>20101213121212</ReqTime>
+	</TcpCont>
+	<SvcCont>
+		<!-- 客户订单 -->
+		<SOO type="ADD_CUSTOMER_ORDER_REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>8801</SOO_ID>
+			</PUB_REQ>
+			<CUSTOMER_ORDER>			
+				<CUST_ORDER_ID>$-1001$</CUST_ORDER_ID>
+				<CUST_ID>$-2001$</CUST_ID>			
+				<PRE_HANDLE_FLAG>10</PRE_HANDLE_FLAG>			
+				<SOURCE_ID>20101213145001</SOURCE_ID>			
+				<LAN_ID>6401</LAN_ID>		
+			</CUSTOMER_ORDER>
+		</SOO>
+		<SOO type="ADD_ORDER_ITEM_GROUP_REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>8802</SOO_ID>
+			</PUB_REQ>
+			<ORDER_ITEM_GROUP>
+				<ORDER_ITEM_GROUP_ID>901</ORDER_ITEM_GROUP_ID>						
+				<CUST_ORDER_ID>$1001$</CUST_ORDER_ID>		
+				<SERVICE_OFFER_ID>104</SERVICE_OFFER_ID>				
+				<SERVICE_OFFER_NAME>改产品属性</SERVICE_OFFER_NAME>							
+			</ORDER_ITEM_GROUP>
+		</SOO>
+		
+		<SOO type="MOD_PROD_INST_REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>8805</SOO_ID>
+			</PUB_REQ>
+			<ORDER_REQ>
+				<ORDER_ITEM_GROUP_ID>901</ORDER_ITEM_GROUP_ID>
+			</ORDER_REQ>
+			<PROD_INST>
+				<PROD_INST_ID>wwwwwwwwwwwwwww</PROD_INST_ID>			
+				<ACC_PROD_INST_ID>201012140001</ACC_PROD_INST_ID>
+				<PROD_INST_CODE>201012141450001</PROD_INST_CODE>
+				<AREA_NBR>0951</AREA_NBR>
+				<ADDRESS_DETAIL>宁夏银川兴庆区新华东街国芳百盛商厦三楼</ADDRESS_DETAIL>
+				<ACC_NBR>31000000010001</ACC_NBR>
+				<PRODUCT_ID>201012140001</PRODUCT_ID>
+				<PRODUCT_CODE>201012140001111QH</PRODUCT_CODE>
+				<PROD_TYPE_CD>13</PROD_TYPE_CD>			
+				<PAYMENT_MODE_CD>10</PAYMENT_MODE_CD>			
+				<USE_CUST_ID>wwwwwwwwwwwwww</USE_CUST_ID>			
+				<OWNER_CUST_ID>wwwwwwwwwwwwwwww</OWNER_CUST_ID>				
+			</PROD_INST>
+		</SOO>
+	</SvcCont>	
+</ContractRoot>

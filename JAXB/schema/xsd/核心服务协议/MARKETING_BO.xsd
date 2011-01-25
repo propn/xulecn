@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by songfq (shenzhen) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.chinatelecom.com/crm/sale_bo/" targetNamespace="http://www.chinatelecom.com/crm/sale_bo/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="MKT_CAMPAIGN_TYPE">
+		<xs:annotation>
+			<xs:documentation>营销维挽活动类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MKT_CAMPAIGN_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>营销活动标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_SOLUTION_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>营销维挽方案标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_GROUP_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户群标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_CAMPAIGN_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销活动名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PLAN_BEGIN_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>计划开始时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PLAN_END_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>计划结束时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="START_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>实际开始时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="END_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>实际结束时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_CAMPAIGN_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销活动分类</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_ACTIVITY_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销活动编号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_ACTIVITY_TARGET" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销活动目标</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_CAMPAIGN_DESC" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销活动描述</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACTIVITY_STATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销活动状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATOR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MKT_WORK_SHEET_TYPE">
+		<xs:annotation>
+			<xs:documentation>营销工单类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MKT_WORK_SHEET_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>营销工单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_CAMPAIGN_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>活动标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_WORKSHEET_GRADE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>工单级别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TARGET_CUST" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>目标客户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXEC_CHANNEL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>执行渠道</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXEC_RESULT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>执行结果</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_WORK_SHEET_NO" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>工单编号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_WORK_SHEET_STATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>工单状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANGE_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态变更时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PLAN_COMPLETE_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>计划完成时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TOUCH_INFO" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>接触信息描述</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TOUCH_SCRIPT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>接触脚本</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXEC_MODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>接触方式</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TOUCH_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>接触时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

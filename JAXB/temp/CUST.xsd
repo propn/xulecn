@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.chinatelecom.com/crm/cust" xmlns:comm="http://www.chinatelecom.com/crm/comm/" xmlns:cust_bo="http://www.chinatelecom.com/crm/cust_bo/" xmlns:ns1="http://www.chinatelecom.com/crm/ORDER" targetNamespace="http://www.chinatelecom.com/crm/cust" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.chinatelecom.com/crm/comm/" schemaLocation="..\COMM.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/cust_bo/" schemaLocation="..\CUST_BO.xsd"/>
+	
+	<xs:complexType name="ADD_CUST_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加客户输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST" type="cust_bo:CUST_TYPE">
+				<xs:annotation>
+					<xs:documentation>客户实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MOD_CUST_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>修改客户输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST" type="cust_bo:CUST_TYPE">
+				<xs:annotation>
+					<xs:documentation>客户实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST" type="cust_bo:CUST_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_CUST_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存客户属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ATTR" type="cust_bo:CUST_ATTR_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>客户属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUS_ATTR_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户属性输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ATTR" type="cust_bo:CUST_ATTR_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_CUST_REL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加客户关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_REL" type="cust_bo:CUST_REL_TYPE">
+				<xs:annotation>
+					<xs:documentation>客户实例关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DEL_CUST_REL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>删除客户关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_REL_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>客户关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_REL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_REL_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户关系输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_REL" type="cust_bo:CUST_REL_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户实例关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_CUST_CERT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存客户证件信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CERT" type="cust_bo:CUST_CERT_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>客户证件信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_CERT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户证件信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_CERT_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户证件信息输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CERT" type="cust_bo:CUST_CERT_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户证件信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_CUST_CONTACT_INFO_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存客户联系信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CONTACT" type="cust_bo:CUST_CONTACT_INFO_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>客户联系信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_CONTACT_INFO_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户联系信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_CONTACT_INFO_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户联系信息输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CONTACT" type="cust_bo:CUST_CONTACT_INFO_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户联系信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CUST_AUTHENTICATE_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户认证输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AREA_NBR">
+				<xs:annotation>
+					<xs:documentation>区号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AUTH_MOTHOD"/>
+			<xs:element name="AUTH_VALUE1"/>
+			<xs:element name="AUTH_VALUE2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_CUST_CERTIFICATION_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存客户认证信息输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CERTIFICATION" type="cust_bo:CUST_CERTIFICATION_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>客户认证实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MERGE_CUST_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户归并输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MERGERED_CUST_ID" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_ACCOUNT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加客户帐户输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT" type="cust_bo:ACCOUNT_TYPE">
+				<xs:annotation>
+					<xs:documentation>帐户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MOD_ACCOUNT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>修改客户帐户输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT" type="cust_bo:ACCOUNT_TYPE">
+				<xs:annotation>
+					<xs:documentation>帐户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_ACCOUNT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户帐户输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_ACCOUNT_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户帐户输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT" type="cust_bo:ACCOUNT_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>账户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_PAYMENT_PLAN_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存支付方案输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAYMENT_PLAN" type="cust_bo:PAYMENT_PLAN_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>支付方案</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PAYMENT_PLAN_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询支付方案输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>账户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PAYMENT_PLAN_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询支付方案输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAYMENT_PLAN" type="cust_bo:PAYMENT_PLAN_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>支付方案</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_BILL_FORMAT_CUSTOMIZE_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存账单定制关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BILL_FORMAT_CUSTOMIZE" type="cust_bo:BILL_FORMAT_CUSTOMIZE_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>账单定制关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_BILL_FORMAT_CUSTOMIZE_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询账单定制关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>账户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_BILL_FORMAT_CUSTOMIZE_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询账单定制关系输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BILL_FORMAT_CUSTOMIZE" type="cust_bo:BILL_FORMAT_CUSTOMIZE_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>账单定制关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_CREDIT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户信用度输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_CREDIT_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户信用度输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CREDIT" type="cust_bo:CUST_CREDIT_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户信用度信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_CREDIT_LOG_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户信用度变更记录输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_CREDIT_LOG_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户信用度变更记录输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CREDIT_LOG" type="cust_bo:CUST_CREDIT_LOG_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户信用度变更记录</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_CREDIT_LIMIT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户信用额度输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_CREDIT_LIMIT_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询客户信用额度输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_CREDIT_LIMIT" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户信用额度信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_CUST_TEMP_CREDIT_LIMIT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>申请临时信用额度输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_TEMP_CUST_CREDIT_LIMIT_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>申请临时信用额度输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_TEMP_CREDIT_LIMIT">
+				<xs:annotation>
+					<xs:documentation>客户临时信用额度信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CUST_TEMP_CREDIT_LIMIT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询临时信用额度输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_TEMP_CUST_CREDIT_LIMIT_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询临时信用额度输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_TEMP_CREDIT_LIMIT" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>客户临时信用额度信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

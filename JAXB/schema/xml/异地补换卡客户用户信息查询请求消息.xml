@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<ContractRoot>
+	<TcpCont>
+		<BusCode>BUS25001</BusCode>
+		<ServiceCode>SVC11001</ServiceCode>
+		<ServiceContractVer>SVC1100120100501</ServiceContractVer>
+		<ActionCode>0</ActionCode>
+		<TransactionID>6001020001201006291000002913</TransactionID>
+		<ServiceLevel>1</ServiceLevel>
+		<SrcOrgID>600102</SrcOrgID>
+		<SrcSysID>6001020001</SrcSysID>
+		<SrcSysSign>******</SrcSysSign>
+		<DstOrgID>609001</DstOrgID>
+		<DstSysID>6090010001</DstSysID>
+		<ReqTime>20101018164815</ReqTime>
+	</TcpCont>
+	<SvcCont>
+		<!--暂未定义原子服务: 根据证件号查询客户信息 -->
+		<QRY_CUST_INFO_BY_IDEN_REQ_TYPE NodeType="Serv">
+			<PUB_REQ>
+				<SVC_CONT_ID>1001</SVC_CONT_ID>
+				<SVC_CONT_VER>1.0.0</SVC_CONT_VER>
+				<SF>AS</SF>
+			</PUB_REQ>
+			<IdentityInfo>
+				<IdentType>1</IdentType>
+				<IdentNum>320723198070900987</IdentNum>
+				<CUST_ID>-1000</CUST_ID>
+			</IdentityInfo>
+		</QRY_CUST_INFO_BY_IDEN_REQ_TYPE>
+		<!--暂未定义原子服务: 根据CDMA手机号查询用户实例信息 -->
+		<QRY_PROD_INST_BY_ACCNBR_REQ_TYPE NodeType="Serv">
+			<PUB_REQ>
+				<SVC_CONT_ID>1002</SVC_CONT_ID>
+				<SVC_CONT_VER>1.0.0</SVC_CONT_VER>
+				<SF>AS</SF>
+			</PUB_REQ>
+			<AccnbrInfo>
+				<CodeValue>13301006698</CodeValue>
+				<CodeType>11</CodeType>
+				<CityCode/>
+				<PROD_INST_ID>-2000</PROD_INST_ID>
+			</AccnbrInfo>
+		</QRY_PROD_INST_BY_ACCNBR_REQ_TYPE>
+		<!-- 查询客户基本信息 -->
+		<QRY_CUST_REQ_TYPE NodeType="Serv">
+			<PUB_REQ>
+				<SVC_CONT_ID>1003</SVC_CONT_ID>
+				<SVC_CONT_VER>1.0.0</SVC_CONT_VER>
+				<SF>AS</SF>
+			</PUB_REQ>
+			<CUST_ID>-1000</CUST_ID>			
+		</QRY_CUST_REQ_TYPE>
+		<!-- 查询用户基本信息 -->
+		<QRY_PROD_INST_REQ_TYPE NodeType="Serv">
+			<PUB_REQ>
+				<SVC_CONT_ID>1004</SVC_CONT_ID>
+				<SVC_CONT_VER>1.0.0</SVC_CONT_VER>
+				<SF>AS</SF>
+			</PUB_REQ>
+			<PROD_INST_ID>-2000</PROD_INST_ID>
+			<QRY_FLAG>?</QRY_FLAG>
+		</QRY_PROD_INST_REQ_TYPE>
+		<!-- 用户实例关联的营销资源信息查询 -->
+		<QRY_PROD_RES_INST_RELA_REQ_TYPE  NodeType="Serv">
+			<PUB_REQ>
+				<SVC_CONT_ID>1005</SVC_CONT_ID>
+				<SVC_CONT_VER>1.0.0</SVC_CONT_VER>
+				<SF>AS</SF>
+			</PUB_REQ>
+			<PROD_INST_ID>-2000</PROD_INST_ID>
+		</QRY_PROD_RES_INST_RELA_REQ_TYPE>
+		<!-- 通过产品实例查询销售品产品实例关联关系 -->
+		<QRY_OFFER_PROD_INST_RELA_BY_PROD_INST_REQ_TYPE NodeType="Serv">
+			<PUB_REQ>
+				<SVC_CONT_ID>1006</SVC_CONT_ID>
+				<SVC_CONT_VER>1.0.0</SVC_CONT_VER>
+				<SF>AS</SF>
+			</PUB_REQ>
+			<PROD_INST_ID>-2000</PROD_INST_ID>
+		</QRY_OFFER_PROD_INST_RELA_BY_PROD_INST_REQ_TYPE>
+		<!--暂未定义原子服务: 通过销售品实例ID查询销售品实例信息 -->
+		<QRY_PROD_OFFER_INST  NodeType="Serv">
+			<PUB_REQ>
+				<SVC_CONT_ID>1007</SVC_CONT_ID>
+				<SVC_CONT_VER>1.0.0</SVC_CONT_VER>
+				<SF>AS</SF>
+			</PUB_REQ>
+			<PROD_OFFER_INST_ID>-3000</PROD_OFFER_INST_ID>
+		</QRY_PROD_OFFER_INST>		
+		<!--暂未定义原子服务: 用户的费用信息查询（余额与欠费信息） -->
+		<QRY_BILL_PRODINST_BANLANCE_AND_OWE  NodeType="Serv">
+			<PUB_REQ>
+				<SVC_CONT_ID>1008</SVC_CONT_ID>
+				<SVC_CONT_VER>1.0.0</SVC_CONT_VER>
+				<SF>AS</SF>
+			</PUB_REQ>
+			<PROD_INST_ID>-2000</PROD_INST_ID>
+		</QRY_BILL_PRODINST_BANLANCE_AND_OWE>
+		<!--暂未定义原子服务: 客户积分信息查询 -->
+		<QRY_BILL_CUST_POINTS  NodeType="Serv">
+			<PUB_REQ>
+				<SVC_CONT_ID>1009</SVC_CONT_ID>
+				<SVC_CONT_VER>1.0.0</SVC_CONT_VER>
+				<SF>AS</SF>
+			</PUB_REQ>
+			<CUST_ID>-1000</CUST_ID>
+		</QRY_BILL_CUST_POINTS>			
+		<!--暂未定义原子服务: UIM卡资源信息查询 -->
+		<QRY_UIMCARD_INFO_BY_UIMCODE>
+			<PUB_REQ>
+				<SVC_CONT_ID>1010</SVC_CONT_ID>
+				<SVC_CONT_VER>1.0.0</SVC_CONT_VER>
+				<SF>AS</SF>
+			</PUB_REQ>
+			<UIMCODE>-4000</UIMCODE>	
+		</QRY_UIMCARD_INFO_BY_UIMCODE>
+		<!--暂未定义原子服务: VIP等级查询 -->
+		<QRY_VIP_INFO_BY_CUST>
+			<PUB_REQ>
+				<SVC_CONT_ID>1011</SVC_CONT_ID>
+				<SVC_CONT_VER>1.0.0</SVC_CONT_VER>
+				<SF>AS</SF>
+			</PUB_REQ>
+			<CUST_ID>-1000</CUST_ID>
+		</QRY_VIP_INFO_BY_CUST>
+	</SvcCont>
+</ContractRoot>

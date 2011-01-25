@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="GBK"?>
+<ContractRoot>
+	<TcpCont>
+		--- 数据不全，排列顺序不一样
+		<ActionCode>0</ActionCode>
+		<TransactionID>20101213121212123456790</TransactionID>
+		<ServiceLevel>1</ServiceLevel>
+		<SrcOrgID>100000</SrcOrgID>
+		<SrcSysID>1000000001</SrcSysID>
+		<SrcSysSign>1000000002</SrcSysSign>
+		<DstOrgID>600305</DstOrgID>
+		<DstSysID>6003050001</DstSysID>
+		<ReqTime>20101213121212</ReqTime>
+	</TcpCont>
+	<SvcCont>
+		------- 报文分组没有，请查看具体的全网服务
+		
+<!-- 异地补换卡下发 -->
+		<SOO type="ADD_CUSTOMER_ORDER_REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>8801</SOO_ID>
+			</PUB_REQ>
+			<CUSTOMER_ORDER>		
+				-------- $$ 里面必须为负数	
+				<CUST_ORDER_ID>$1001$1</CUST_ORDER_ID>
+				-------- 异地补换卡的客户必须是已经存在的，所以这里必须传已经存在的客户
+				<CUST_ID>$2001$</CUST_ID>			
+				<PRE_HANDLE_FLAG>10</PRE_HANDLE_FLAG>	
+				------ 缺少本地网字段
+			</CUSTOMER_ORDER>
+		</SOO>
+
+		<!-- 订单项分组 -->
+		<SOO type="ADD_ORDER_ITEM_GROUP _REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>8803</SOO_ID>
+			</PUB_REQ>
+			<ORDER_ITEM_GROUP>
+				<ORDER_ITEM_GROUP_ID>901</ORDER_ITEM_GROUP_ID>						
+				<CUST_ORDER_ID>$1001$</CUST_ORDER_ID>		
+				<SERVICE_OFFER_ID>100</SERVICE_OFFER_ID>				
+			</ORDER_ITEM_GROUP>
+		</SOO>
+		
+		<!-- 删除产品实例营销类资源实例关系 -->
+		
+		-- type 错误，没有 REQ_TYPE
+		<SOO type="DEL_PROD_RES_INST_REL">
+			<PUB_REQ>
+				<SOO_ID>8804</SOO_ID>
+			</PUB_REQ>
+			<ORDER_REQ>
+				<ORDER_ITEM_GROUP_ID>901</ORDER_ITEM_GROUP_ID>
+			</ORDER_REQ>
+			<PROD_RES_INST_REL_ID>99999999999999999</PROD_RES_INST_REL_ID>							
+		</SOO>
+		
+		<!-- 增加产品实例营销类资源实例关系 -->
+		
+		-- type 错误，没有 REQ_TYPE
+		<SOO type="ADD_PROD_RES_INST_REL">
+			<PUB_REQ>
+				<SOO_ID>8805</SOO_ID>
+			</PUB_REQ>
+			<ORDER_REQ>
+				<ORDER_ITEM_GROUP_ID>901</ORDER_ITEM_GROUP_ID>
+			</ORDER_REQ>
+			<PROD_RES_INST_RE>
+				<PROD_INST_ID>$9001$</PROD_INST_ID>		
+				<TYPE_CD>100</TYPE_CD>				
+				<MKT_RES_TYPE>xxxx</MKT_RES_TYPE>							
+				<PROPERTY_TYPE >xxxx</PROPERTY_TYPE >
+			</PROD_RES_INST_RE>
+		</SOO>
+	</SvcCont>	
+</ContractRoot>

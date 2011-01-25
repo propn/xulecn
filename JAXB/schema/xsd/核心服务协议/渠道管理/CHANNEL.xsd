@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by et8 (et8) -->
+<xs:schema xmlns="http://www.chinatelecom.com/crm/channel/" xmlns:channel_bo="http://www.chinatelecom.com/crm/channel_bo/" xmlns:comm="http://www.chinatelecom.com/crm/comm/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.chinatelecom.com/crm/channel/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.chinatelecom.com/crm/channel_bo/" schemaLocation="..\CHANNEL_BO.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/comm/" schemaLocation="..\COMM.xsd"/>
+	<xs:complexType name="ADD_CHANNEL_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加渠道业务单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER" type="channel_bo:CHANNEL_ORDER_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>业务订单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHANNEL_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道业务单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>业务订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHANNEL_ORDER_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道业务单输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER" type="channel_bo:CHANNEL_ORDER_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>业务订单</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_CHANNEL_ORDER_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存渠道业务单属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ATTR" type="channel_bo:CHANNEL_ORDER_ATTR_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>渠道业务订单属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHANNEL_ORDER_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道业务单属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>业务订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHANNEL_ORDER_ATTR_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道业务单属性输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ATTR" type="channel_bo:CHANNEL_ORDER_ATTR_TYPE" minOccurs="0" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>渠道业务订单属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_CHANNEL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加渠道输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>业务订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL" type="channel_bo:CHANNEL_TYPE">
+				<xs:annotation>
+					<xs:documentation>渠道</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MOD_CHANNEL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>修改渠道输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>业务订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL" type="channel_bo:CHANNEL_TYPE">
+				<xs:annotation>
+					<xs:documentation>渠道</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHANNEL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>渠道ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHANNEL_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL" type="channel_bo:CHANNEL_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>渠道</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_CHANNEL_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存渠道属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>业务订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ATTRIBUTE" type="xs:int" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>渠道属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHANNEL_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHANNEL_ATTR_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道属性输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ATTR" type="channel_bo:CHANNEL_ATTRIBUTE_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>渠道属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_CHANNEL_AUTHORIZATION_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加渠道授权输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>业务订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_AUTHORIZATION" type="channel_bo:CHANNEL_AUTHORIZATION_TYPE">
+				<xs:annotation>
+					<xs:documentation>渠道授权</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_CHANNEL_RESOURCE_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加渠道资源输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>业务订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_RESOURCE" type="channel_bo:CHANNEL_RESOURCE_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>渠道资源</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHANNEL_CONTRACT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道合同输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHANNEL_CONTRACT_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道合同输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_CONTRACT" type="channel_bo:CHANNEL_CONTRACT_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>渠道合同</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHN_ABNL_INFO_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道违规输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHN_ABNL_INFO_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道违规输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_CHN_ABNL_INFO" type="channel_bo:CHN_ABNL_INFO_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>渠道违规信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHN_EVAL_REC_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道评价输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHN_EVAL_REC_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道评价输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHN_EVAL_REC" type="channel_bo:CHN_EVAL_REC_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>渠道评价记录</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_CHANNEL_ACCOUNT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加渠道账户输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>业务订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ACCOUNT" type="channel_bo:CHANNEL_ACCOUNT_TYPE">
+				<xs:annotation>
+					<xs:documentation>渠道账户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHANNEL_ACCOUNT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道账户输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHN_ACC_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>社会渠道帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHANNEL_ACCOUNT_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道账户输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ACCOUNT" type="channel_bo:CHANNEL_ACCOUNT_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>渠道账户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHN_ASSESS_REC_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道考核输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHN_ASSESS_REC_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道考核输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ASSESS_REC" type="channel_bo:CHN_ASSESS_REC_TYPE" minOccurs="0" maxOccurs="100">
+				<xs:annotation>
+					<xs:documentation>渠道考核记录</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_CHN_AMT_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加渠道账户费用单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ID">
+				<xs:annotation>
+					<xs:documentation>业务订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHN_ACC_AMT_ORDER" type="channel_bo:CHN_ACC_AMT_ORDER_TYPE">
+				<xs:annotation>
+					<xs:documentation>渠道帐户费用变动</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHN_AMT_ORDER_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道账户费用单输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHN_ACC_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>社会渠道帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHN_AMT_ORDER_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道账户费用单输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHN_ACC_AMT_ORDER" type="channel_bo:CHN_ACC_AMT_ORDER_TYPE" minOccurs="0" maxOccurs="100">
+				<xs:annotation>
+					<xs:documentation>渠道帐户费用变动</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_CHN_AMT_ORDER_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存渠道账户费用单属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ID">
+				<xs:annotation>
+					<xs:documentation>业务订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHN_AMT_ORDER_ATTR" type="channel_bo:CHN_ACC_AMT_ORDER_ATTR_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>渠道帐户费用变动属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHN_AMT_ORDER_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道账户费用单属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHN_ACC_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>社会渠道帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_CHN_AMT_ORDER_ATTR_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询渠道账户费用单属性输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHN_AMT_ORDER_ATTR" type="channel_bo:CHN_ACC_AMT_ORDER_ATTR_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>渠道帐户费用变动属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

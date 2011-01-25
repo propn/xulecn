@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContractRoot>
+	<TcpCont>
+		<BusCode>BUS22001</BusCode>
+		<ServiceCode>SVC22006</ServiceCode>
+		<ServiceContractVer>SVC2200620091103</ServiceContractVer>
+		<ActionCode>0</ActionCode>
+		<TransactionID>6099020001200910041000000060</TransactionID>
+		<ServiceLevel>1</ServiceLevel>
+		<SrcOrgID>609902</SrcOrgID>
+		<SrcSysID>6099020001</SrcSysID>
+		<SrcSysSign>123</SrcSysSign>
+		<DstOrgID>100000</DstOrgID>
+		<DstSysID>1000000022</DstSysID>
+		<ReqTime>20091021131415</ReqTime>
+	</TcpCont>
+	<SvcCont>
+		<NPObjectEvent>
+			<MessageID>0010221000000060</MessageID>
+			<OrigMessageID>0010221000000005</OrigMessageID>
+			<NPObjectSet>
+				<CommandCode>ACK</CommandCode>
+				<ServiceType>MOBILE</ServiceType>
+				<NpCodeList>国内手机号码1,国内手机号码2</NpCodeList>
+				<FlowID></FlowID>			
+				<Signalled>				   
+					<SignalledCode>200</SignalledCode>
+					<SignalledMessage>审核结果为通过，提交</SignalledMessage>
+				</Signalled>
+			</NPObjectSet>
+			<Remark>网间号码携带通知</Remark>
+		</NPObjectEvent>
+	</SvcCont>
+</ContractRoot>

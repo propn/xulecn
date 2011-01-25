@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by  () -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="Signalled">
+		<xs:annotation>
+			<xs:documentation>告知原因</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SignalledCode" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>返回代码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SignalledMessage" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>拒绝消息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NPObjectSet">
+		<xs:annotation>
+			<xs:documentation>NP对象</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CommandCode" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>消息命令码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ServiceType" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>业务类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NpCode" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>NP号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FlowID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>NP流程ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Signalled" type="Signalled" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>告知原因</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NPObjectEvent">
+		<xs:annotation>
+			<xs:documentation>网间号码携带通知</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MessageID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>消息ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrigMessageID">
+				<xs:annotation>
+					<xs:documentation>请求消息ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NPObjectSet" type="NPObjectSet" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>NP对象</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Remark" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>备注</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SvcCont">
+		<xs:annotation>
+			<xs:documentation>业务对象</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="NPObjectEvent" type="NPObjectEvent">
+				<xs:annotation>
+					<xs:documentation>网间号码携带通知</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by et8 (et8) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.chinatelecom.com/crm/prod_offer_inst_bo/" targetNamespace="http://www.chinatelecom.com/crm/prod_offer_inst_bo/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="PROD_OFFER_INST_TYPE">
+		<xs:annotation>
+			<xs:documentation>销售品实例</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_OFFER_INST_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>销售品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXT_PROD_OFFER_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>外部销售品实例标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER_NAME" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER_CODE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品集团统一编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFF_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXP_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LAN_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>归属本地网标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROD_OFFER_INST_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>销售品实例属性类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_OFFER_INST_ATTR_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>销售品实例属性ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFF_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXP_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROD_OFFER_INST_REL_TYPE">
+		<xs:annotation>
+			<xs:documentation>销售品实例关系类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_OFFER_INST_REL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品实例关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RELA_PROD_OFFER_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A销售品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RELATED_PROD_OFFER_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Z销售品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RELATION_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>关系类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ROLE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>角色CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ROLE_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>角色名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OFFER_PROD_INST_REL_TYPE">
+		<xs:annotation>
+			<xs:documentation>销售品产品实例关系类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OFFER_PROD_INST_REL_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>销售品产品实例关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACC_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ROLE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>角色CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ROLE_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>角色名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFF_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXP_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OFFER_RES_INST_REL_TYPE">
+		<xs:annotation>
+			<xs:documentation>销售品营销资源实例关系类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OFFER_RES_INST_REL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品资源实例关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_INST_ID" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_INST_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源编码/串号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>资源大类</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_NUM" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源数量</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROPERTY_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产权归属/提供方式</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>资源类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>资源类型名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USE_PROD_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>使用产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OFFER_RES_INST_REL_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>销售品营销资源实例关系类型属性类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OFFER_RES_INST_REL_ATTR_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品营销资源实例关系属性ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OFFER_RES_INST_REL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品营销资源实例关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROD_OFFER_INST_TYPE_UP">
+		<xs:annotation>
+			<xs:documentation>销售品实例(上传)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_OFFER_INST_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>销售品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER_INST_CODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品实例集团统一编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USE_CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>使用客户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OWNER_CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产权客户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER_NAME" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER_CODE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品集团统一编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFF_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXP_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REGION_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>归属区域</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFF_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品生效方式</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXP_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售品失效方式</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRICE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>价格档次</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REMARKS" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>备注</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER_INST_ATTR" type="PROD_OFFER_INST_ATTR_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>销售品实例属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OFFER_RES_INST_REL" type="OFFER_RES_INST_REL_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>销售品营销资源实例关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OFFER_PROD_INST_RELA" type="OFFER_PROD_INST_REL_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>销售品产品实例关联</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_OFFER_INST_RELA" type="PROD_OFFER_INST_REL_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>销售品实例关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MODIFY_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>最近物理修改时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ACTION_TYPE" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>操作类型</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

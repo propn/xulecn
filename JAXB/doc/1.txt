@@ -1,0 +1,1 @@
+xjc.sh -p test.jaxb books.xsd -d work

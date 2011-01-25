@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.chinatelecom.com/crm/cust_order_bo/" xmlns:cust_bo="http://www.chinatelecom.com/crm/cust_bo/" xmlns:prod_inst_bo="http://www.chinatelecom.com/crm/prod_inst_bo/" xmlns:prod_offer_inst_bo="http://www.chinatelecom.com/crm/prod_offer_inst_bo/" xmlns:ns1="http://www.chinatelecom.com/crm/comm/" targetNamespace="http://www.chinatelecom.com/crm/cust_order_bo/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.chinatelecom.com/crm/comm/" schemaLocation="COMM.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/prod_inst_bo/" schemaLocation="PROD_INST_BO.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/prod_offer_inst_bo/" schemaLocation="PROD_OFFER_INST_BO.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/cust_bo/" schemaLocation="CUST_BO.xsd"/>
+	<xs:complexType name="CUSTOMER_ORDER_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户订单</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CUST_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>客户订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>受理渠道名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STAFF_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>员工标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STAFF_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>受理员工名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_SO_NUMBER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单流水号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRE_HANDLE_FLAG" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>预受理标志</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRIORITY" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>优先级</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REASON" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>改撤单原因</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REMARKS" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>备注</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SOURCE_SYSTEM" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>来源系统</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SOURCE_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>来源标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCEPT_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>受理时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXT_CUST_ORDER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>外部客户订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LAN_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>归属本地网标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ORDER_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户订单扩展属性</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ORDER_ATTR_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单扩展属性ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_ITEM_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单项标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CUST_ORDER_HANDLE_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户订单经办人信息</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CUST_ORDER_HANDLE_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单经办人信息ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AREA_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>经办人归属区号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HANDLE_PEOPLE_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>经办人姓名</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CERT_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>经办人证件类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CERT_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>经办人证件号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>经办人联系号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ORDER_CONTACT_INFO_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户订单联系人信息</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ORDER_CONTACT_INFO_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单联系人信息ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>			
+			<xs:element name="ORDER_ITEM_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单项标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>			
+			<xs:element name="CONTACT_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系人姓名</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系人联系方式</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ORDER_ITEM_GROUP_TYPE">
+		<xs:annotation>
+			<xs:documentation>订单项分组</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ORDER_ITEM_GROUP_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>订单项分组ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SERVICE_OFFER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>服务提供ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SERVICE_OFFER_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>服务提供名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CHANGE_REASON" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态原因</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ORDER_ITEM_REL_TYPE">
+		<xs:annotation>
+			<xs:documentation>订单项关系</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ORDER_ITEM_REL_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>订单项关联关系标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="A_ORDER_ITEM_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A端订单项标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Z_ORDER_ITEM_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Z端订单项标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REL_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>关系类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ACCT_ITEM_TYPE">
+		<xs:annotation>
+			<xs:documentation>帐目</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ACCT_ITEM_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>帐目标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ORDER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCT_ITME_TYPE_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>帐目类型标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_ITEM_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单项标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AMOUNT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATED_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生成日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAYED_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>缴费日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PAYMENT_TYPE">
+		<xs:annotation>
+			<xs:documentation>付款记录</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PAYMENT_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>付款流水号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAYMENT_METHOD_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>付款方式标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCT_ITME_TYPE_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>帐目类型标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AMOUNT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATED_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生成日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAYMENT_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>付款时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STAFF_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>员工ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PAYMENT_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>付款记录属性</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PAYMENT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>付款流水号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

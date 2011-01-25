@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by et8 (et8) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.chinatelecom.com/crm/prod_inst_bo/" targetNamespace="http://www.chinatelecom.com/crm/prod_inst_bo/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="PROD_INST_PARTY_TYPE">
+		<xs:annotation>
+			<xs:documentation>产品实例参与人关系类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_INST_PARTY_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>产品实例参与人关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RELATION_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>关联类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PARTY_AREA_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>参与人归属区号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PARTY_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>参与人编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PARTY_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>参与人名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PARTY_PHONE_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>参与人联系电话</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROD_INST_TYPE">
+		<xs:annotation>
+			<xs:documentation>产品实例类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_INST_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACC_PROD_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>接入产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXT_PROD_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>外部产品实例标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="COMMON_REGION_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>公用管理区域标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ADDRESS_ID" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>地址标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACC_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>接入号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRODUCT_PASSWORD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品密码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRODUCT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRODUCT_CODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品标准编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRODUCT_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAYMENT_MODE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>付费模式CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USE_CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>使用客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OWNER_CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产权客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BEGIN_RENT_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>起租时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STOP_RENT_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>停租时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FINISH_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>竣工时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LAN_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>归属本地网标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ADDRESS_DESC" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>地址描述信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROD_INST_ACC_NBR_TYPE">
+		<xs:annotation>
+			<xs:documentation>产品实例接入号码类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_INST_ACC_NBR_ID" type="xs:long">
+				<xs:annotation>
+					<xs:documentation>产品实例接入号码ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACC_NBR_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>接入号类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACC_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>接入号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROD_INST_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>产品实例属性类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_INST_ATTR_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>产品实例属性ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFF_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXP_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROD_INST_REL_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>产品实例关系属性类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_INST_REL_ATTR_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>产品实例关系属性ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_REL_ID" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFF_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXP_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROD_INST_STATE_TYPE">
+		<xs:annotation>
+			<xs:documentation>产品实例状态类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_INST_STATE_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例状态ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STOP_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>停机状态类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STOP_TYPE_NAME" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>停机状态l类型名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFF_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXP_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROD_INST_REL_TYPE">
+		<xs:annotation>
+			<xs:documentation>产品实例关系类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_INST_REL_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>产品实例关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RELA_PROD_INST_ID" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A端产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RELA_ACC_NBR" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A端产品号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RELATED_PROD_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Z端产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RELATED_ACC_NBR" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Z端产品号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RELATION_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>关系类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ROLE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>角色CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_REL_ROLE_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>角色实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROD_INST_ACCT_TYPE">
+		<xs:annotation>
+			<xs:documentation>账务定制关系类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_INST_ACCT_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>账务定制关系标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCT_ITEM_TYPE_GROUP_ID" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>账目类型组标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAYMENT_LIMIT_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>支付额度类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAYMENT_LIMIT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>支付额度</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRIORITY" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>优先级</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROD_RES_INST_REL_TYPE">
+		<xs:annotation>
+			<xs:documentation>产品实例营销类资源实例关系类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_RES_INST_REL_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>产品资源关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>关系类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_INST_ID" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_INST_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源编码/串号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>资源大类</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_NUM" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源数量</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROPERTY_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产权归属类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>资源类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>资源类型名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROD_RES_INST_REL_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>产品实例营销类资源实例关系属性类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_RES_INST_REL_ATTR_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例营销类资源实例关系属性ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_RES_INST_REL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品营销资源实例关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ACCESS_PROD_INST_TYPE">
+		<xs:annotation>
+			<xs:documentation>接入产品实例类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_INST_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_CODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>集团统一产品实例编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRODUCT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRODUCT_CODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品标准编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRODUCT_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="USE_CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>使用客户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OWNER_CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产权客户</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAYMENT_MODE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>付费模式CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BEGIN_RENT_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>起租时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRODUCT_PASSWORD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品密码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REGION_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>归属区域</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AREA_CODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>区号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACC_NBR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="COMMENTS" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>备注</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ADDRESS_DETAIL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>地址详情</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_REL" type="PROD_INST_REL_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ATTR" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例属性</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="PROD_INST_ATTR_TYPE"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PROD_INST_ACCT" type="PROD_INST_ACCT_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>账务定制关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_STATE" type="PROD_INST_STATE_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_RES_INST_RELA" type="PROD_RES_INST_REL_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例营销资源关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TMP_OFFER_INFO" type="TMP_OFFER_INFO_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>账务定制关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MODIFY_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>最近物理修改时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ACTION_TYPE" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>操作类型</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="FUNC_PROD_INST_TYPE">
+		<xs:annotation>
+			<xs:documentation>功能类产品实例类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PROD_INST_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRODUCT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRODUCT_NAME" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRODUCT_CODE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品集团统一编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BEGIN_RENT_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>起租时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ATTR" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例属性</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="PROD_INST_ATTR_TYPE"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PROD_INST_REL" type="PROD_INST_REL_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MODIFY_DATE" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>最近物理修改时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ACTION_TYPE" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>操作类型</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="TMP_OFFER_INFO_TYPE">
+		<xs:annotation>
+			<xs:documentation>产品套餐订购信息</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!--
+                                       主键
+                                       -->
+			<xs:element name="OFFER_INST_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>套餐实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!--
+                                       记录帐户标识
+                                       -->
+			<!--
+                                       记录付款方式，包括现金方式、银行转账方式、信用卡方式等。
+                                       -->
+			<xs:element name="OFFER_CODE" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>套餐ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OFFER_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>套餐名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!--
+                                       该支付方案的帐户提供标识，当为现金时不填，为托收时，填对应的银行标识，为信用卡时，填对应的卡银行标识，等等
+                                       -->
+			<!--
+                                       该支付方式下对应的帐号，现金方式不用填写，托收方式填写银行帐号，信用卡方式填写信用卡号
+                                       -->
+			<!--
+                                       当支付方式为银行转账方式和信用卡方式的时候，记录银行帐户名称。
+                                       -->
+			<!--
+                                       当前帐户所定制的各付款方式的优先级
+                                       -->
+			<!--
+                                       记录帐户状态。
+                                       -->
+			<xs:element name="COMMENTS" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>备注信息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXP_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFF_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>帐户状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!--
+                                       记录状态时间。
+                                       -->
+			<xs:element name="STATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!--
+                                       主键
+                                       -->
+			<!--
+                                       记录帐户标识
+                                       -->
+			<!--
+                                       记录付款方式，包括现金方式、银行转账方式、信用卡方式等。
+                                       -->
+			<!--
+                                       该支付方案的帐户提供标识，当为现金时不填，为托收时，填对应的银行标识，为信用卡时，填对应的卡银行标识，等等
+                                       -->
+			<!--
+                                       该支付方式下对应的帐号，现金方式不用填写，托收方式填写银行帐号，信用卡方式填写信用卡号
+                                       -->
+			<!--
+                                       当支付方式为银行转账方式和信用卡方式的时候，记录银行帐户名称。
+                                       -->
+			<!--
+                                       当前帐户所定制的各付款方式的优先级
+                                       -->
+			<!--
+                                       记录帐户状态。
+                                       -->
+			<!--
+                                       记录状态时间。
+                                       -->
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MODIFY_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>最近物理修改时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ACTION_TYPE">
+			<xs:annotation>
+				<xs:documentation>A:新增 M：修改 D：删除 R：重置 Q：查询</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

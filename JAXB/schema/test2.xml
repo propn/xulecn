@@ -1,0 +1,96 @@
+﻿<ContractRoot xmlns="http://www.chinatelecom.com/crm/comm/" encoding="UTF-8">
+	<TcpCont>
+		<ActionCode>0</ActionCode>
+		<TransactionID>20101213121212123456790</TransactionID>
+		<ServiceLevel>1</ServiceLevel>
+		<BusCode>BUS12001</BusCode>
+		<ServiceCode>SVC30001</ServiceCode>
+		<ServiceContractVer>SVC0000120080808</ServiceContractVer>
+		<SrcOrgID>100000</SrcOrgID>
+		<SrcSysID>1000000001</SrcSysID>
+		<SrcSysSign>1000000002</SrcSysSign>
+		<DstOrgID>600305</DstOrgID>
+		<DstSysID>6003050001</DstSysID>
+		<ReqTime>20101213121212</ReqTime>
+	</TcpCont>
+	<SvcCont>
+		<!-- 增加客户 -->
+		<SOO type="ADD_CUST_REQ_TYPE">
+			<ADDCUSTREQTYPE>
+				<PUB_REQ>
+					<SOO_ID>8803</SOO_ID>
+				</PUB_REQ>
+				<CUST>
+					<CUST_ID>$2001$</CUST_ID>
+					<GROUP_CUST_SEQ>9907122500000031031</GROUP_CUST_SEQ>
+					<CUST_NAME>中国通用汽车公司</CUST_NAME>
+					<CUST_ADDRESS>北京市海淀区上地九街</CUST_ADDRESS>
+					<CUST_TYPE>10</CUST_TYPE>
+					<CUST_SUB_TYPE>1302001</CUST_SUB_TYPE>
+					<AREA_NBR>010</AREA_NBR>
+					<CUST_AREA_GRADE>10</CUST_AREA_GRADE>
+					<CUST_PWD>123456</CUST_PWD>
+				</CUST>
+			</ADDCUSTREQTYPE>
+		</SOO>
+		
+		<!-- 保存客户证件信息 -->
+		<SOO type="SAVE_CUST_CERT_REQ_TYPE">
+			<SAVECUSTCERTREQTYPE>
+				<PUB_REQ>
+					<SOO_ID>8804</SOO_ID>
+				</PUB_REQ>
+				<CUST_CENT>
+					<CUST_ID>$2001$</CUST_ID>
+					<CERT_TYPE>6</CERT_TYPE>
+					<CERT_NUMBER>320103XXXX</CERT_NUMBER>
+					<CERT_ADDRESS>北京市海淀区工商局</CERT_ADDRESS>
+					<CREATE_DATE>20101231235959</CREATE_DATE>
+				</CUST_CENT>
+			</SAVECUSTCERTREQTYPE>
+		</SOO>
+		
+		<!-- 保存客户联系信息 -->
+		<SOO type="SAVE_CUST_CONTACT_INFO_REQ_TYPE">
+			<SAVECUSTCONTACTINFOREQTYPE>
+				<PUB_REQ>
+					<SOO_ID>8805</SOO_ID>
+				</PUB_REQ>
+				<CUST_CONTACT_INFO>
+					<CUST_ID>$2001$</CUST_ID>
+					<HEAD_FLAG>T</HEAD_FLAG>
+					<CONTACT_TYPE>1</CONTACT_TYPE>
+					<CONTACT_NAME>张三</CONTACT_NAME>
+				</CUST_CONTACT_INFO>
+			</SAVECUSTCONTACTINFOREQTYPE>
+		</SOO>
+		<!-- 保存客户扩展信息 -->
+		<SOO type="SAVE_CUST_ATTR_REQ_TYPE">
+			<SAVECUSTATTRREQTYPE>
+				<PUB_REQ>
+					<SOO_ID>8806</SOO_ID>
+				</PUB_REQ>
+				<CUST_ATTR>
+					<CUST_ID>$2001$</CUST_ID>
+					<ATTR_CD>0001</ATTR_CD>
+					<ATTR_VALUE>0</ATTR_VALUE>
+				</CUST_ATTR>
+			</SAVECUSTATTRREQTYPE>
+		</SOO>
+		<!-- 增加客户关系 -->
+		<SOO type="ADD_CUST_REL_REQ_TYPE">
+			<ADDCUSTRELREQTYPE>
+				<PUB_REQ>
+					<SOO_ID>8807</SOO_ID>
+				</PUB_REQ>
+				<CUST_REL>
+					<RELATION_TYPE>13</RELATION_TYPE>
+					<CUST_ID_A>$2001$</CUST_ID_A>
+					<CUST_ID_B>3001</CUST_ID_B>
+					<RELATIVE_DIRECTION>13</RELATIVE_DIRECTION>
+				</CUST_REL>
+			</ADDCUSTRELREQTYPE>
+		</SOO>
+		
+	</SvcCont>
+</ContractRoot>

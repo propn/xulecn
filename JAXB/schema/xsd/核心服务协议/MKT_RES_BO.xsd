@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.chinatelecom.com/crm/mkt_res_bo/" targetNamespace="http://www.chinatelecom.com/crm/mkt_res_bo/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="MKT_RES_INST_TYPE">
+		<xs:annotation>
+			<xs:documentation>营销资源实例类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MKT_RES_INST_ID">
+				<xs:annotation>
+					<xs:documentation>营销资源实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_STORE_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源仓库ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_INST_CODE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源实例编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QUANTITY" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>数量</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UNIT" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>单位</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALES_PRICE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售价格</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MKT_RES_INST_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>营销资源实例属性类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MKT_RES_INST_ATTR_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源实例属性ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_INST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MKT_RES_ORDER_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>营销资源单属性类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MKT_RES_ORDER_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源单ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MKT_RES_ORDER_TYPE">
+		<xs:annotation>
+			<xs:documentation>营销资源单类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MKT_RES_ORDER_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源单ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_INST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_OEDER_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>资源单类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UP_ORDER_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>上级订单类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>上级订单ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MKT_RES_SERVICE_TYPE">
+		<xs:annotation>
+			<xs:documentation>营销资源服务类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MKT_RES_SERVICE_ID">
+				<xs:annotation>
+					<xs:documentation>营销资源服务ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_SERVICE_TYPE_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源服务类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_SERVICE_CLASS" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源服务类别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AREA_NBR" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>区号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_INST_NBR" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源实例编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SOURCE_SYSTEM" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>来源系统</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SOURCE_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>来源标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RES_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源规格CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MKT_RES_SERVICE_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>营销资源服务属性类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MKT_RES_SERVICE_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源服务ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MKT_RES_SERVICE_DETAIL_TYPE">
+		<xs:annotation>
+			<xs:documentation>营销资源服务明细类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MKT_RES_SERVICE_ID">
+				<xs:annotation>
+					<xs:documentation>营销资源服务ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SUB_MKT_RES_SERVICE_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>明细营销资源服务ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MKT_TERMINAL_REPAIR_STATION_TYPE">
+		<xs:annotation>
+			<xs:documentation>终端维修站点类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MKT_TERMINAL_REPAIR_STATION_ID">
+				<xs:annotation>
+					<xs:documentation>终端维修站点ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NAME" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>维修点名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ADDRESS" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>维修点地理位置</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LINK_NUM" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系电话</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LINK_MAN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>联系人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATION_DESC" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>维修点备注</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

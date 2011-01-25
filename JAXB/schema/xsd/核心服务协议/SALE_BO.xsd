@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by songfq (shenzhen) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.chinatelecom.com/crm/sale_bo/" targetNamespace="http://www.chinatelecom.com/crm/sale_bo/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="SALE_OPP_TYPE">
+		<xs:annotation>
+			<xs:documentation>商机</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SALE_OPP_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>商机标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OPP_SOURCE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>来源类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OPP_SOURCE_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>来源标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_OPP_ID_LAST" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>上级商机标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_OPP_DESC" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>商机描述</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_OBJ_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售对象标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SUPPLIER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>提供人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IMPORTANT_LEVEL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>商机重要等级</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRIORITY" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>优先级</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_STAFF_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_OPP_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>商机编号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_OPP_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>商机名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OPP_PHASE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>商机所处阶段</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SALE_PROJ_TYPE">
+		<xs:annotation>
+			<xs:documentation>销售项目</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SALE_PROJ_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>销售项目标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_OPP_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>商机标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_PROJ_SEQ_NO" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>项目编号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_PROJECT_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售项目名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_PROJECT_DESC" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售项目描述</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SALE_OPP_OBJ_TYPE">
+		<xs:annotation>
+			<xs:documentation>商机销售对象</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SALE_OPP_OBJ_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>商机销售对象ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_OPP_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>商机标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_OBJ_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售对象类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_OBJ_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售对象ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SALE_OBJ_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>销售对象名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATE_TIME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by et8 (et8) -->
+<ContractRoot>
+	<TcpCont>
+		<TransactionID>20101213121212123456790</TransactionID>
+		<ActionCode>0</ActionCode>		
+		<BusCode>BUS14001</BusCode>
+		<ServiceCode>SVC11001</ServiceCode>		
+		<ServiceContractVer>SVC0000120080808</ServiceContractVer>
+		<ServiceLevel>09</ServiceLevel>		
+		<SrcOrgID>100000</SrcOrgID>
+		<SrcSysID>1000000001</SrcSysID>		
+		<SrcSysSign>1000000002</SrcSysSign>
+		<DstOrgID>600305</DstOrgID>
+		<DstSysID>6003050001</DstSysID>
+		<ReqTime>20101213121212</ReqTime>
+	</TcpCont>
+	<SvcCont>
+
+		<!-- 客户订单 -->
+		<SOO type="ADD_CUSTOMER_ORDER_REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>8801</SOO_ID>
+			</PUB_REQ>
+			<CUSTOMER_ORDER>			
+				<ACCOUNT_ID>$-3001$</ACCOUNT_ID>
+				<CUST_ID>$-2001$</CUST_ID>				
+				<AREA_NBR>0951</AREA_NBR>
+				<ACCOUNT_NAME>宁夏国芳百盛贸易有限公司</ACCOUNT_NAME>	
+				<ACCOUNT_AREA_GRADE>10</ACCOUNT_AREA_GRADE>	
+				<CONTACT_PHONE>095184855419</CONTACT_PHONE>
+				<MOBILE_PHONE>13384855419</MOBILE_PHONE>		
+				<LAN_ID>6401</LAN_ID>		
+			</CUSTOMER_ORDER>
+		</SOO>
+		
+		<SOO type="ADD_ORDER_ITEM_GROUP_REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>8802</SOO_ID>
+			</PUB_REQ>
+			<ORDER_ITEM_GROUP>
+				<ORDER_ITEM_GROUP_ID>901</ORDER_ITEM_GROUP_ID>						
+				<CUST_ORDER_ID>$1001$</CUST_ORDER_ID>		
+				<SERVICE_OFFER_ID>108</SERVICE_OFFER_ID>				
+				<SERVICE_OFFER_NAME>成员出群</SERVICE_OFFER_NAME>							
+			</ORDER_ITEM_GROUP>
+		</SOO>
+		
+		
+		<SOO type="DEL_PROD_INST_REL_REQ_TYPE">
+			<PUB_REQ>
+				<SOO_ID>8803</SOO_ID>
+			</PUB_REQ>
+			<ORDER_REQ>
+				<ORDER_ITEM_GROUP_ID>901</ORDER_ITEM_GROUP_ID>
+			</ORDER_REQ>
+			<PROD_INST_REL_ID>:getProdInstIdByAccNbr(020,18960672048)</PROD_INST_REL_ID>
+		</SOO>
+	</SvcCont>	
+</ContractRoot>

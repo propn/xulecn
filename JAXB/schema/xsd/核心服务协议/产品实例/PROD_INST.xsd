@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by et8 (et8) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:comm="http://www.chinatelecom.com/crm/comm/" xmlns:prod_inst_bo="http://www.chinatelecom.com/crm/prod_inst_bo/" xmlns="http://www.chinatelecom.com/crm/prod_inst/" targetNamespace="http://www.chinatelecom.com/crm/prod_inst/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.chinatelecom.com/crm/prod_inst_bo/" schemaLocation="..\PROD_INST_BO.xsd"/>
+	<xs:import namespace="http://www.chinatelecom.com/crm/comm/" schemaLocation="..\COMM.xsd"/>
+	<xs:complexType name="ADD_PROD_INST_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加产品实例输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST" type="prod_inst_bo:PROD_INST_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MOD_PROD_INST_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>修改产品实例输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST" type="prod_inst_bo:PROD_INST_TYPE">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DEL_PROD_INST_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>删除产品实例输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST" type="prod_inst_bo:PROD_INST_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_OWE_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例欠费输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_OWE_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例欠费输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IS_OWE" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>是否欠费</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_PROD_INST_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存产品实例属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ATTR" type="prod_inst_bo:PROD_INST_ATTR_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>产品实例属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_ATTR_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例属性输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ATTR" type="prod_inst_bo:PROD_INST_ATTR_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_PROD_INST_REL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加产品实例关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_REL" type="prod_inst_bo:PROD_INST_REL_TYPE">
+				<xs:annotation>
+					<xs:documentation>产品实例关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DEL_PROD_INST_REL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>删除产品实例关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_RELA_ID" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>产品实例关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_REL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_REL_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例关系输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_REL" type="prod_inst_bo:PROD_INST_REL_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAVE_PROD_INST_REL_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>保存产品实例关系属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_REL_ATTR" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>产品实例关系属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_REL_ATTR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例关系属性输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_REL_ATTR_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例关系属性输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_REL_ATTR" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例关系属性</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_PROD_INST_ACC_NBR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加产品号码输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="prod_inst_bo:PROD_INST_ACC_NBR_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DEL_PROD_INST_ACC_NBR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>删除产品号码输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ACC_NBR_ID" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>产品实例接入号码ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_ACC_NBR_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品号码输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_ACC_NBR_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品号码输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ACC_NBR" type="prod_inst_bo:PROD_INST_ACC_NBR_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_PROD_INST_ACCT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加产品帐务定制关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ACCT" type="prod_inst_bo:PROD_INST_ACCT_TYPE">
+				<xs:annotation>
+					<xs:documentation>产品帐务定制关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DEL_PROD_INST_ACCT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>删除产品帐务定制关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ACCT_ID">
+				<xs:annotation>
+					<xs:documentation>账务定制关系标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_ACCT_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品帐务定制关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_ACCT_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品帐务定制关系输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ACCT" type="prod_inst_bo:PROD_INST_ACCT_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品帐务定制关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_PROD_RES_INST_REL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加产品实例营销类资源实例关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_RES_INST_REL" type="prod_inst_bo:PROD_RES_INST_REL_TYPE" maxOccurs="50">
+				<xs:annotation>
+					<xs:documentation>产品实例营销类资源实例关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DEL_PROD_RES_INST_REL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>删除产品实例营销类资源实例关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_RES_INST_REL_ID" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>产品营销资源实例关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_RES_INST_REL_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例营销类资源实例关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_ID" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_RES_INST_REL_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例营销类资源实例关系输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_RES_INST_REL" type="prod_inst_bo:PROD_RES_INST_REL_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例营销类资源实例关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ADD_PROD_INST_PARTY_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>增加产品实例与参与人关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_PARTY" type="prod_inst_bo:PROD_INST_PARTY_TYPE">
+				<xs:annotation>
+					<xs:documentation>产品实例参与人关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DEL_PROD_INST_PARTY_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>删除产品实例与参与人关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_REQ" type="comm:ORDER_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>订单通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_PARTY_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>产品实例参与人关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_PARTY_REQ_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例与参与人关系输入</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_REQ" type="comm:PUB_REQ_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_REQ" type="comm:QRY_REQ_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_PARTY_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>产品实例参与人关系ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QRY_PROD_INST_PARTY_RES_TYPE">
+		<xs:annotation>
+			<xs:documentation>查询产品实例与参与人关系输出</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PUB_RES" type="comm:PUB_RES_TYPE">
+				<xs:annotation>
+					<xs:documentation>通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_RES" type="comm:QRY_RES_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>查询通用输出</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROD_INST_PARTY" type="prod_inst_bo:PROD_INST_PARTY_TYPE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>产品实例参与人关系</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

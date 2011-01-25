@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by et8 (et8) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.chinatelecom.com/crm/channel_bo/" targetNamespace="http://www.chinatelecom.com/crm/channel_bo/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="CHANNEL_ORDER_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道业务订单</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHANNEL_ORDER_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>业务订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>业务订单类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BUS_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>业务标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PARENT_ORDER_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>上级单类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PARENT_ORDER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>上级单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHANNEL_ORDER_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道业务订单属性</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHANNEL_ORDER_ATTR_ID">
+				<xs:annotation>
+					<xs:documentation>业务订单扩展属性ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ORDER_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>业务订单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性规格名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHANNEL_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHANNEL_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_LEVEL_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道级别CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_SUBTYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道子类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PARENT_CHN_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>上级渠道ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SHOPCARD_NUM" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营业执照编号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FAX_NO" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>税务登记号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="THIRD_PARTY_CHN_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>社会渠道类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="THIRD_PARTY_CHN_LEVEL_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>社会渠道等级CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OWNERSHIP_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>所有制类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CORPORATION_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>法人姓名</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CORPORATION_ID_NO" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>法人证件号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REGISTERED_CAPITAL_AMOUNT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>注册资金</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EMPLOYEE_AMOUNT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>雇员数目</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FINAL_AMOUNT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>终端数目</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHANNEL_ATTRIBUTE_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道属性</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHANNEL_TYPE_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>渠道属性标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道属性标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHN_ACC_AMT_ORDER_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道帐户费用单</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHN_ACC_AMT_ORDER_ID">
+				<xs:annotation>
+					<xs:documentation>渠道帐户费用单ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHN_ACC_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ORDER_TYPE_CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>费用单类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MONEY_AMOUNT" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAY_MODE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>支付方式CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RESON" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>原因</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REMARK" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>备注</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHN_ACC_AMT_ORDER_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道帐户费用单属性</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHN_ACC_AMT_ORDER_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道帐户费用单ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATT_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHANNEL_AUTHORIZATION_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道授权</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AUTHORIZATION_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>渠道授权标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AUTHORIZATION_OBJECT_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道授权对象标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AUTHORIZATION_CONTENT" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>授权名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AUTH_OBJ_TYPE_CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>授权类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GUVNOR" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>授权人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AUTHORIZATION_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>授权日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFFECT_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXPIRE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHANNEL_CONTRACT_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道合同</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHANNEL_AGREEMENT_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>渠道合同标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_APPLICATION_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道申请资料标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TEMPLET_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>协议模板标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DOCUMENT_NO" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>合同文档编号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AGREE_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>合同名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DESCRIPTION" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>合同描述</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFFECT_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXPIRE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTACH_URL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>附件URL</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHANNEL_RESOURCE_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道资源</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RESOURCE_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>资源标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RESOURCE_SERIAL_NO" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>资源编号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RESOURCE_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>资源名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RESOURCE_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>资源类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RESOURCE_QUANTITY" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>资源数量</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHN_EVAL_REC_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道评价记录</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHN_EVAL_REC_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道评价记录标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHN_ASSESS_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道考核记录标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EVAL_OLD_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>评价旧值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EVAL_NEW_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>评价新值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EVAL_TYPE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>评价类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EVAL_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>评价日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_RESULT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批结果说明</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_RESULT_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批结果CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_BY" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHN_ABNL_INFO_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道违规信息</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHN_ABN_INFO_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>渠道违规信息标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VIOLATION_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>违规时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VIOLATION_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>违规类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VIOLATION_DEGREE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>违规程度CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VIOLATION_REASON" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>违规原因</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AMERCEMENT_AMOUNT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>罚金数额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PUNITIVE_ACTION" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>惩罚措施</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VIOLATION_DESC" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>违规描述</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VIOLATION_HANDLE_REUSLT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>违规处理情况</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_RESULT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批结果说明</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_RESULT_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批结果CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_BY" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHANNEL_ACCOUNT_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道账户</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHN_ACC_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>社会渠道帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCT_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>社会渠道账户名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCT_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>社会渠道账户类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CURRENT_MONEY_AMOUNT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>当前金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BANK_ACCOUNT_NUMBER" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>银行账户号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BANK_ACCOUNT_NAME" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>银行账户名</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT_BANK_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>开户银行CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ADDRESS_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>邮寄地址</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHN_ASSESS_REC_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道考核记录</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHN_ASSESS_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>渠道考核记录标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="INDICATOR_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>指标标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHN_ORG_UNIT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道职能单元标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="INDICATOR_VALUE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>指标评估值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXPIRATION_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>到期日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ASSESSED_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>评估日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_RESULT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批结果说明</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_RESULT_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批结果CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_BY" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CHN_ACC_AMT_CHG_INFO_TYPE">
+		<xs:annotation>
+			<xs:documentation>渠道帐户费用变动</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHN_ACC_AMT_CHG_INFO_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>渠道费用变动标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHN_ACC_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>社会渠道帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPLY_REASON" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>变更原因</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPLY_MONEY_AMOUNT" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>变动金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPLY_TYPE_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>变动类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAY_MODE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>支付方式CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MANUAL_ADJUSTMENT_MARK" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>手工调整标志</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BILL_ATTACH_URL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>附件URL</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REMARK" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>备注</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_BY" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_RESULT_CD" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批结果CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVED_RESULT">
+				<xs:annotation>
+					<xs:documentation>审批结果说明</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="INTERACTION_RECORD_TYPE">
+		<xs:annotation>
+			<xs:documentation>客户接触记录对象</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="INTERACTION_RECORD_ID">
+				<xs:annotation>
+					<xs:documentation>客户接触记录标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="INTERACTION_MODE_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>接触方式标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_TASK_LIST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道任务单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REQUEST_RESPONSE_FLAG" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>主被动标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CONTACT_DATE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>接触时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUSTOMER_EVALUATION" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户评价CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUSTOMER_FEEDBACK_OPINION" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户反馈意见</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="INTERACTION_TASK_LIST_TYPE">
+		<xs:annotation>
+			<xs:documentation>接触任务单对象</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CHANNEL_TASK_LIST_ID">
+				<xs:annotation>
+					<xs:documentation>渠道任务单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXECUTION_PRI" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>执行优先级CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_MEMBER" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道成员</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MODULATION_EMPLOYEE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>调度人员</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="INTERACTION_WORK_LIST_TYPE">
+		<xs:annotation>
+			<xs:documentation>接触任务单对象</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="INTERACTION_WORK_LIST_ID">
+				<xs:annotation>
+					<xs:documentation>接触工单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="INTERACTION_OBJECT_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>接触对象标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="INTERACTION_MODE_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>请求接触方式标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="INTERACTION_WORK_LIST_SCRIPT" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>工单接触脚本附件URL</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="INTERACTION_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>工单类型CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TIME_LIMIT" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>处理时限</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PERFORM_PRI" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>请求级别CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REQUEST_CHANNEL_MEMBER" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>请求渠道成员</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ASSOCIATE_BUSINESS_OBJECT_CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>关联业务对象CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHANNEL_TASK_LIST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>渠道任务单标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态CD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXECUTION_RESULT" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>执行结果</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

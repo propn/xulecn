@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContractRoot>
+	<TcpCont>
+		<BusCode>BUS22001</BusCode>
+		<ServiceCode>SVC22002</ServiceCode>
+		<ServiceContractVer>SVC2200220091103</ServiceContractVer>
+		<ActionCode>0</ActionCode>
+		<TransactionID>6099020001200911041000000002</TransactionID>
+		<ServiceLevel>1</ServiceLevel>
+		<SrcOrgID>609902</SrcOrgID>
+		<SrcSysID>6099020001</SrcSysID>
+		<SrcSysSign>123</SrcSysSign>
+		<DstOrgID>100000</DstOrgID>
+		<DstSysID>1000000022</DstSysID>
+		<ReqTime>20091021131416</ReqTime>
+	</TcpCont>
+	<SvcCont>
+		<NPObjectEvent>
+			<MessageID>0000221000000041</MessageID>
+			<NPObjectSet>
+				<CommandCode>ACT_NOTIFY</CommandCode>
+				<ServiceType>MOBILE</ServiceType>
+				<NpCode>15122242222</NpCode>
+				<FlowID>0221091022000002</FlowID>
+				<Signalled>
+					<SignalledCode>200</SignalledCode>
+					<SignalledMessage>生效结果告知成功</SignalledMessage>
+				</Signalled>
+				<SuperSet>
+					<PropertyInfo>
+						<ItemID/>
+						<ItemName/>
+						<ItemValue/>
+						<ItemValueName/>
+					</PropertyInfo>
+				</SuperSet>
+				<PortTag/>
+			</NPObjectSet>
+			<Remark>remark</Remark>
+		</NPObjectEvent>
+	</SvcCont>
+</ContractRoot>

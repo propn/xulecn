@@ -1,0 +1,11 @@
+<ContractRoot>
+	<TcpCont>
+		<TransactionID>20101213121212123456790</TransactionID>
+		<ActionCode>1</ActionCode>
+		<RspTime>20101213200202</RspTime>
+		<Response>
+			<RspType>0</RspType>
+			<RspCode>0000</ RspCode>
+		</Response>
+	</TcpCont>
+</ContractRoot>

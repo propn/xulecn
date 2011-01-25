@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.chinatelecom.com/crm/point_account_bo/" targetNamespace="http://www.chinatelecom.com/crm/point_account_bo/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="POINT_ACCOUNT_TYPE">
+		<xs:annotation>
+			<xs:documentation>积分帐户</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="POINT_ACCOUNT_ID">
+				<xs:annotation>
+					<xs:documentation>积分帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT_CLASS" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>账户类别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACCOUNT_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>帐户类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_NAME" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_POINT_AMOUNT" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户总积分</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_POINT_AVAILABLE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>可用积分</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_POINT_USED" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>已兑换积分</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_POINT_THISMONTH" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>当月积分</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AMOUNT" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分明细总数量</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="POINT_ACCT_BALA_TYPE">
+		<xs:annotation>
+			<xs:documentation>积分账本</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="POINT_ACCT_BALA_ID">
+				<xs:annotation>
+					<xs:documentation>积分账本标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EVALUATE_POINT_ACCT_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>评价积分帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PAY_POINT_ACCT_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>支付积分帐户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_OBJECT_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分对象类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_OBJECT" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分对象</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_VALUE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_BALANCE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分余额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRESENT_FLAG" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>转赠标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFFECT_DATE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>生效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXPIRE_DATE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>失效时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分账本状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREATE_DATE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="POINT_SERVICE_REC_TYPE">
+		<xs:annotation>
+			<xs:documentation>积分服务记录</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="POINT_SERVICE_REC_ID">
+				<xs:annotation>
+					<xs:documentation>积分服务记录标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RECORD_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>会员服务记录标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUSTOMER_INTERACTION_EVENT_ID" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>客户交互事件标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SERVICE_DATE" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>服务时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_SERVICE_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分服务事件类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVE_STATE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVE_DATE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPROVE_PERSON" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>审批人</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REASON" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>发生原因</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SERVICE_POINT" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>发生积分</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="POINT_SERVICE_REC_DETAIL_TYPE">
+		<xs:annotation>
+			<xs:documentation>积分服务明细</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="POINT_SERVICE_REC_DETAIL_ID">
+				<xs:annotation>
+					<xs:documentation>积分兑换明细标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_SERVICE_REC_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分服务记录标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="STATUS_DATE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>状态时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RESO_INST_NAME" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源实例名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MKT_RESO_INST_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>营销资源实例ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_VALUE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SPECIAL_POINT_CLASS" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>专用积分账户类别</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SPECIAL_POINT_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>专用积分类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SPECIAL_POINT_VALUE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>专用积分值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="POINT_SERVICE_REC_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>积分服务记录扩展属性</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="POINT_SERVICE_REC_ATTR_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分服务记录扩展属性标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_SERVICE_REC_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分服务记录标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="POINT_SERVICE_REC_DETAIL_ATTR_TYPE">
+		<xs:annotation>
+			<xs:documentation>积分服务明细扩展属性</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="POINT_SERVICE_REC_DETAIL_ATTR_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分兑换明细扩展属性标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POINT_SERVICE_DETAIL_ID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>积分兑换明细标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_VALUE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ATTR_NAME" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>属性名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
