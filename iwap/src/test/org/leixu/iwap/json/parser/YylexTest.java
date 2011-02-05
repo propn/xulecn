@@ -11,37 +11,37 @@ public class YylexTest extends TestCase {
 		String s="\"\\/\"";
 		System.out.println(s);
 		StringReader in = new StringReader(s);
-		Yylex lexer=new Yylex(in);
-		Yytoken token=lexer.yylex();
-		assertEquals(Yytoken.TYPE_VALUE,token.type);
+		Lexer lexer=new Lexer(in);
+		Token token=lexer.lex();
+		assertEquals(Token.TYPE_VALUE,token.type);
 		assertEquals("/",token.value);
 		
 		s="\"abc\\/\\r\\b\\n\\t\\f\\\\\"";
 		System.out.println(s);
 		in = new StringReader(s);
-		lexer=new Yylex(in);
-		token=lexer.yylex();
-		assertEquals(Yytoken.TYPE_VALUE,token.type);
+		lexer=new Lexer(in);
+		token=lexer.lex();
+		assertEquals(Token.TYPE_VALUE,token.type);
 		assertEquals("abc/\r\b\n\t\f\\",token.value);
 		
 		s="[\t \n\r\n{ \t \t\n\r}";
 		System.out.println(s);
 		in = new StringReader(s);
-		lexer=new Yylex(in);
-		token=lexer.yylex();
-		assertEquals(Yytoken.TYPE_LEFT_SQUARE,token.type);
-		token=lexer.yylex();
-		assertEquals(Yytoken.TYPE_LEFT_BRACE,token.type);
-		token=lexer.yylex();
-		assertEquals(Yytoken.TYPE_RIGHT_BRACE,token.type);
+		lexer=new Lexer(in);
+		token=lexer.lex();
+		assertEquals(Token.TYPE_LEFT_SQUARE,token.type);
+		token=lexer.lex();
+		assertEquals(Token.TYPE_LEFT_BRACE,token.type);
+		token=lexer.lex();
+		assertEquals(Token.TYPE_RIGHT_BRACE,token.type);
 		
 		s="\b\f{";
 		System.out.println(s);
 		in = new StringReader(s);
-		lexer=new Yylex(in);
+		lexer=new Lexer(in);
 		ParseException err=null;
 		try{
-			token=lexer.yylex();
+			token=lexer.lex();
 		}
 		catch(ParseException e){
 			err=e;
@@ -58,11 +58,11 @@ public class YylexTest extends TestCase {
 		s="{a : b}";
 		System.out.println(s);
 		in = new StringReader(s);
-		lexer=new Yylex(in);
+		lexer=new Lexer(in);
 		err=null;
 		try{
-			lexer.yylex();
-			token=lexer.yylex();
+			lexer.lex();
+			token=lexer.lex();
 		}
 		catch(ParseException e){
 			err=e;

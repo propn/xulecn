@@ -27,7 +27,7 @@ public class BeanFactory {
      */
     public void init(String xml) {
            try {
-                  //读取指定的配置文�?
+                  //读取指定的配置文�?
                   SAXReader reader = new SAXReader();
                   ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
                   //从class目录下获取指定的xml文件
@@ -45,26 +45,26 @@ public class BeanFactory {
                          Attribute id = element.attribute("id");   
                          Attribute cls = element.attribute("class");
                          
-                         //利用Java反射机制，�?过class的名称获取Class对象
+                         //利用Java反射机制，�?过class的名称获取Class对象
                          Class bean = Class.forName(cls.getText());
                          
-                         //获取对应class的信�?
+                         //获取对应class的信�?
                          java.beans.BeanInfo info = java.beans.Introspector.getBeanInfo(bean);
-                         //获取其属性描�?
+                         //获取其属性描�?
                          java.beans.PropertyDescriptor pd[] = info.getPropertyDescriptors();
                          //设置值的方法
                          Method mSet = null;
-                         //创建�?��对象
+                         //创建�?��对象
                          Object obj = bean.newInstance();
                          
-                         //遍历该bean的property属�?
+                         //遍历该bean的property属�?
                          for (Iterator ite = element.elementIterator("property"); ite.hasNext();) {   
                                 Element foo = (Element) ite.next();
-                                //获取该property的name属�?
+                                //获取该property的name属�?
                                 Attribute name = foo.attribute("name");
                                 String value = null;
                                  
-                                //获取该property的子元素value的�?
+                                //获取该property的子元素value的�?
                                 for(Iterator ite1 = foo.elementIterator("value"); ite1.hasNext();) {
                                        Element node = (Element) ite1.next();
                                        value = node.getText();
@@ -74,13 +74,13 @@ public class BeanFactory {
                                 for (int k = 0; k < pd.length; k++) {
                                        if (pd[k].getName().equalsIgnoreCase(name.getText())) {
                                               mSet = pd[k].getWriteMethod();
-                                              //利用Java的反射极致调用对象的某个set方法，并将�?设置进去
+                                              //利用Java的反射极致调用对象的某个set方法，并将�?设置进去
                                               mSet.invoke(obj, value);
                                        }
                                 }
                          }
                          
-                         //将对象放入beanMap中，其中key为id值，value为对�?
+                         //将对象放入beanMap中，其中key为id值，value为对�?
                          beanMap.put(id.getText(), obj);
                   }
            } catch (Exception e) {
@@ -89,7 +89,7 @@ public class BeanFactory {
     }
     
     /**
-     * 通过bean的id获取bean的对�?
+     * 通过bean的id获取bean的对�?
      * @param beanName bean的id
      * @return 返回对应对象
      */
