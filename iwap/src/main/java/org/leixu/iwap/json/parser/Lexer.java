@@ -336,7 +336,7 @@ class Lexer {
 	/**
 	 * Closes the input stream.
 	 */
-	public final void yyclose() throws java.io.IOException {
+	public final void close() throws java.io.IOException {
 		zzAtEOF = true; /* indicate end of file */
 		zzEndRead = zzStartRead; /* invalidate buffer */
 
@@ -355,7 +355,7 @@ class Lexer {
 	 * @param reader
 	 *            the new input stream
 	 */
-	public final void yyreset(java.io.Reader reader) {
+	public final void reset(java.io.Reader reader) {
 		zzReader = reader;
 		zzAtBOL = true;
 		zzAtEOF = false;
@@ -368,7 +368,7 @@ class Lexer {
 	/**
 	 * Returns the current lexical state.
 	 */
-	public final int yystate() {
+	public final int state() {
 		return zzLexicalState;
 	}
 
@@ -378,14 +378,14 @@ class Lexer {
 	 * @param newState
 	 *            the new lexical state
 	 */
-	public final void yybegin(int newState) {
+	public final void begin(int newState) {
 		zzLexicalState = newState;
 	}
 
 	/**
 	 * Returns the text matched by the current regular expression.
 	 */
-	public final String yytext() {
+	public final String text() {
 		return new String(zzBuffer, zzStartRead, zzMarkedPos - zzStartRead);
 	}
 
@@ -400,14 +400,14 @@ class Lexer {
 	 * 
 	 * @return the character at position pos
 	 */
-	public final char yycharat(int pos) {
+	public final char charat(int pos) {
 		return zzBuffer[zzStartRead + pos];
 	}
 
 	/**
 	 * Returns the length of the matched text region.
 	 */
-	public final int yylength() {
+	public final int length() {
 		return zzMarkedPos - zzStartRead;
 	}
 
@@ -425,7 +425,7 @@ class Lexer {
 	 * @param errorCode
 	 *            the code of the errormessage to display
 	 */
-	private void zzScanError(int errorCode) {
+	private void scanError(int errorCode) {
 		String message;
 		try {
 			message = ZZ_ERROR_MSG[errorCode];
@@ -445,9 +445,9 @@ class Lexer {
 	 *            the number of characters to be read again. This number must
 	 *            not be greater than yylength()!
 	 */
-	public void yypushback(int number) {
-		if (number > yylength())
-			zzScanError(ZZ_PUSHBACK_2BIG);
+	public void pushback(int number) {
+		if (number > length())
+			scanError(ZZ_PUSHBACK_2BIG);
 
 		zzMarkedPos -= number;
 	}
@@ -460,7 +460,7 @@ class Lexer {
 	 * @exception java.io.IOException
 	 *                if any I/O-Error occurs
 	 */
-	public Token yylex() throws java.io.IOException, ParseException {
+	public Token lex() throws java.io.IOException, ParseException {
 		int zzInput;
 		int zzAction;
 
@@ -532,13 +532,13 @@ class Lexer {
 
 			switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
 			case 11: {
-				sb.append(yytext());
+				sb.append(text());
 			}
 			case 25:
 				break;
 			case 4: {
 				sb.delete(0, sb.length());
-				yybegin(STRING_BEGIN);
+				begin(STRING_BEGIN);
 			}
 			case 26:
 				break;
@@ -553,7 +553,7 @@ class Lexer {
 			case 28:
 				break;
 			case 23: {
-				Boolean val = Boolean.valueOf(yytext());
+				Boolean val = Boolean.valueOf(text());
 				return new Token(Token.TYPE_VALUE, val);
 			}
 			case 29:
@@ -564,7 +564,7 @@ class Lexer {
 			case 30:
 				break;
 			case 13: {
-				yybegin(YYINITIAL);
+				begin(YYINITIAL);
 				return new Token(Token.TYPE_VALUE, sb.toString());
 			}
 			case 31:
@@ -575,7 +575,7 @@ class Lexer {
 			case 32:
 				break;
 			case 21: {
-				Double val = Double.valueOf(yytext());
+				Double val = Double.valueOf(text());
 				return new Token(Token.TYPE_VALUE, val);
 			}
 			case 33:
@@ -583,7 +583,7 @@ class Lexer {
 			case 1: {
 				throw new ParseException(yychar,
 						ParseException.ERROR_UNEXPECTED_CHAR, new Character(
-								yycharat(0)));
+								charat(0)));
 			}
 			case 34:
 				break;
@@ -624,7 +624,7 @@ class Lexer {
 				break;
 			case 24: {
 				try {
-					int ch = Integer.parseInt(yytext().substring(2), 16);
+					int ch = Integer.parseInt(text().substring(2), 16);
 					sb.append((char) ch);
 				} catch (Exception e) {
 					throw new ParseException(yychar,
@@ -644,7 +644,7 @@ class Lexer {
 			case 44:
 				break;
 			case 2: {
-				Long val = Long.valueOf(yytext());
+				Long val = Long.valueOf(text());
 				return new Token(Token.TYPE_VALUE, val);
 			}
 			case 45:
@@ -668,7 +668,7 @@ class Lexer {
 					zzAtEOF = true;
 					return null;
 				} else {
-					zzScanError(ZZ_NO_MATCH);
+					scanError(ZZ_NO_MATCH);
 				}
 			}
 		}

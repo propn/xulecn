@@ -61,7 +61,7 @@ public class JSONParser {
 	 * @throws ParseException
 	 */
 	public void reset(Reader in) {
-		lexer.yyreset(in);
+		lexer.reset(in);
 		reset();
 	}
 
@@ -269,7 +269,7 @@ public class JSONParser {
 	}
 
 	private void nextToken() throws ParseException, IOException {
-		token = lexer.yylex();
+		token = lexer.lex();
 		if (token == null)
 			token = new Token(Token.TYPE_EOF, null);
 	}
