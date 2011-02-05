@@ -14,7 +14,6 @@ import java.util.Map;
 import org.leixu.iwap.json.JSONArray;
 import org.leixu.iwap.json.JSONObject;
 
-
 /**
  * Parser for JSON text. Please note that JSONParser is NOT thread-safe.
  * 
