@@ -89,7 +89,7 @@ public class BeanFactory {
     }
     
     /**
-     * 通过bean的id获取bean的对�?
+     * 通过bean的id获取bean的对?
      * @param beanName bean的id
      * @return 返回对应对象
      */
