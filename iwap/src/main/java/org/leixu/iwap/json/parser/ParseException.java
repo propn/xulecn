@@ -54,7 +54,7 @@ public class ParseException extends Exception {
 	}
 
 	/**
-	 * @see org.json.simple.parser.Yytoken
+	 * @see org.json.simple.Token.Yytoken
 	 * 
 	 * @return One of the following base on the value of errorType:
 	 *         ERROR_UNEXPECTED_CHAR java.lang.Character ERROR_UNEXPECTED_TOKEN
