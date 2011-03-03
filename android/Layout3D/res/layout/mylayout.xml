@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent"
+	android:id="@+id/layout2" android:layout_height="fill_parent"
+	android:background="@drawable/white" xmlns:android="http://schemas.android.com/apk/res/android">
+	<Button android:id="@+id/button2" android:layout_width="118px"
+		android:layout_height="wrap_content" android:text="Go to Layout1">
+	</Button>
+	<TextView android:id="@+id/text2" android:textSize="24sp"
+		android:layout_width="186px" android:layout_height="29px"
+		android:textColor="@drawable/black" android:text="@string/layout2"
+		android:layout_below="@+id/button2">
+	</TextView>
+</RelativeLayout>

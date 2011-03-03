@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent"
+	android:id="@+id/layout1" android:layout_height="fill_parent"
+	android:background="@drawable/black" xmlns:android="http://schemas.android.com/apk/res/android">
+	<Button android:id="@+id/button1" android:layout_width="118px"
+		android:layout_height="wrap_content" android:text="Go to Layout2">
+	</Button>
+	<TextView android:id="@+id/text1" android:textSize="24sp"
+		android:layout_width="186px" android:layout_height="29px"
+		android:text="@string/layout1" android:layout_below="@+id/button1"></TextView>
+</RelativeLayout>
