@@ -1,0 +1,11 @@
+mvn package -Dmaven.test.skip=true -o -e           -- 直接构建不测试
+mvn test -Dmaven.test.failure.ignore=true -o -e   -- 构建但忽略错误
+
+mvn jetty:run
+
+
+mvn eclipse:eclipse 
+
+
+6 右键 MAVEN Enable Dependency Management 
+然后在POM.XML里添加的JAR包会自动放入CLASSPATH中去 

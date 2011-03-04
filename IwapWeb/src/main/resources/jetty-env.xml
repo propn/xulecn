@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+<Configure class="org.mortbay.jetty.webapp.WebAppContext">
+	<!-- oracle DataSource -->
+	<New id="DataSource" class="org.mortbay.jetty.plus.naming.Resource">
+		<Arg>jdbc/h2</Arg>
+		<Arg>
+			<New class="com.jolbox.bonecp.BoneCPDataSource">
+				<Set name="driverClass">org.h2.Driver</Set>
+				<Set name="jdbcUrl">jdbc:h2:./db/db</Set>
+				<Set name="user">sa</Set>
+				<Set name="password">sa</Set>
+			</New>
+		</Arg>
+	</New>
+</Configure>
