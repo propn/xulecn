@@ -1,0 +1,13 @@
+<component>
+
+<attach event="oncontentready" onevent="contentready()" />
+
+<script>
+ 
+  function contentready(){    
+     Control.initElements(element);
+  }
+
+</script>
+
+</component>

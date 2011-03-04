@@ -1,0 +1,14 @@
+<component tagname="dataset">
+
+<attach event="oncontentready" onevent="contentready()" />
+
+<script>
+    
+	function contentready(){
+		makeDataset(element);	    
+	}
+	
+
+</script>
+
+</component>	

@@ -1,0 +1,256 @@
+<!--************************************************************
+	版权说明: Copyright by BSN Dept. of ZTEsoft
+	File Name:PageInfo.htc
+	Create Date:2005-02-18
+	Author:zhang.jing
+	Email:zhang.jing6@zte.com.cn
+	Create Version:01.00.001
+	Create Version Date:
+	Modify Version:
+	Modify Version Date:2005-02-18
+	desc: 分页信息控件。将分页信息进行封装，便于显示及修改！
+	property：
+		pageSize--每页显示的数据
+		recCount--总记录数
+		pageCount--总页数
+		queryFunName--查询触发的函数名
+		prePageNo--前一页的页号
+		curPageNo--当前页号
+		nextPageNo--后一页页号
+		webroot--
+		weblanguage--后一页页号
+	method:
+		loadInfoData--初始化分页信息
+**************************************************************-->
+
+ <public:component tagName="PageInfo">
+	<public:defaults viewLinkContent/>	
+	
+	<public:property name="pageSize" get="getPageSize" put="setPageSize" />
+	<public:property name="recCount" get="getRecCount" put="setRecCount" />
+	<public:property name="pageCount" get="getPageCount" put="setPageCount" />	
+	<public:property name="queryFunName" get="getQueryFunName" put="setQueryFunName" />	
+	<public:property name="prePageNo" get="getPrePageNo" put="setPrePageNo" />
+	<public:property name="curPageNo" get="getCurPageNo" put="setCurPageNo" />	
+	<public:property name="nextPageNo" get="getNextPageNo" put="setNextPageNo" />	
+	<public:property name="webroot" put="setWebRoot" />
+	<public:property name="weblanguage" put="setWebLanguage" />
+	
+	<public:method name="loadInfoData" />
+ </public:component>
+<head> 
+<style type="text/css">
+body,td {font-family : Tahoma,Verdana,sans-serif,"宋体";font-size:11px; margin: 0px 0px 0px 0px;}
+A:link {COLOR: #003399; TEXT-DECORATION: none}
+A:visited {COLOR: #003399}
+a:active {color: #003399; text-decoration: none}
+A:hover {COLOR: #000000; TEXT-DECORATION: none}
+
+</style> 
+</head>
+
+<link id="linkcss"  rel="stylesheet" type="text/css">
+
+<table height="16" border="0" cellPadding="0" cellSpacing="0" ID="pageInfoTable" width="99%">
+	<tr >
+	<!--
+		<td nowrap align=right valign="center" width="70%">共<B><span id="recCountInfo" style="color:#FF6600">0</span></B>条   <B><span id="pageSizeInfor">0</span></B>/页  页次：<B><span id="curPageNoInfo" style="color:#FF6600">0</span></B>/<B><span id="pageCountInfo">0</span></B>页
+		<span id="page"><span style="color:#666666">首页</span> <span style="color:#666666">上页</span> <span style="color:#666666">下页</span> <span style="color:#666666">尾页</span> 
+		&nbsp;&nbsp;转到<input type="text"  id="inputNum" size="4" height="22" maxlength="5" disabled>页<img style="cursor:hand" border="0" src="images/icon.gif" >	
+		</td>
+	-->
+		<td nowrap align=right valign="center" width="70%">
+		<span id="page"></span>
+		</td>
+	
+	</tr>
+</table>
+<script language=javascript>
+var g_pageSize = 0;
+var g_recCount = 0;
+var g_queryFunName = "";
+var g_pageCount = 0;
+var g_prePageNo = 0;
+var g_curPageNo = 0;
+var g_nextPageNo = 0;
+var g_webroot = "";
+
+var curPath='';
+
+
+function getPageSize()
+{
+	return 	g_pageSize;
+}
+function setPageSize(iValue)
+{
+		g_pageSize = iValue;
+		//pageSizeInfor.innerHTML = g_pageSize;
+}
+
+function getRecCount()
+{
+	return 	g_recCount;
+}
+function setRecCount(iValue)
+{
+		g_recCount = iValue;
+		//recCountInfo.innerHTML = g_recCount;
+}
+
+function getQueryFunName()
+{
+	return 	g_queryFunName;
+}
+function setQueryFunName(iValue)
+{
+		g_queryFunName = iValue;
+}
+
+function getPageCount()
+{
+	return 	g_pageCount;
+}
+function setPageCount(iValue)
+{
+		g_pageCount = iValue;
+		//pageCountInfo.innerHTML = g_pageCount;
+}
+
+function getPrePageNo()
+{
+	return 	g_prePageNo;
+}
+function setPrePageNo(iValue)
+{
+		g_prePageNo = iValue;
+}
+
+function getCurPageNo()
+{
+	return 	g_curPageNo;
+}
+function setCurPageNo(iValue)
+{ 
+		g_curPageNo = iValue;
+		if (iValue - 1 >0)
+			setPrePageNo(iValue - 1);
+		else
+			setPrePageNo(iValue);
+			
+		if (iValue + 1 < g_pageCount)
+			setNextPageNo(iValue + 1);
+		else
+			setNextPageNo(g_pageCount);
+			
+	if(iValue>1)
+	{
+		var str='<a id="firstPageNo" href="javascript:{}" onclick="goPage(1)">首页</a> <a id="prePageNo" href="javascript:{}" onclick="goPage('+g_prePageNo+')">上页</a>';
+	}
+	else
+	{
+		var str='<span style="color:#666666">首页</span> <span style="color:#666666">上页</span>';
+	}	
+	if(iValue<pageCount)
+	{
+		str+=' <a id="nextPageNo" href="javascript:{}" onclick="goPage('+g_nextPageNo+')">下页</a> <a id="lastPageNo" href="javascript:{}" onclick="goPage('+pageCount+')">尾页</a>';
+	}
+	else
+	{
+		str+=' <span style="color:#666666">下页</span> <span style="color:#666666">尾页</span>';
+	}
+	str+=' 转到<input type="text"  id="inputNum" size="4" height="22" maxlength="5" value="'+g_curPageNo+'" onkeypress="onKeypressForInteger()">页'+	
+	'<img style="cursor:hand"  border="0" src="'+g_webroot+'public/htc/pageInfo/go.gif'+'" align="absmiddle" onclick="goCurrentPage()">';
+
+	//curPageNoInfo.innerHTML = g_curPageNo;
+	page.innerHTML=str;
+}
+
+function goCurrentPage()
+{
+	var pageCurrent=document.all.inputNum.value;
+	
+	goPage(pageCurrent);
+}
+
+function onKeypressForInteger()
+{
+	var eKeyCode = window.event.keyCode;
+	if ((eKeyCode >= 48 && eKeyCode <= 57) || eKeyCode == 13)
+	{
+		window.event.keyCode = eKeyCode;
+	}
+	else
+	{
+		window.event.keyCode = 0 ;
+	}
+}
+
+function getNextPageNo()
+{
+	return 	g_nextPageNo;
+}
+function setNextPageNo(iValue)
+{
+		g_nextPageNo = iValue;
+}
+
+
+
+
+function setWebroot(iValue)
+{	
+		g_webroot = iValue;
+		setCurPageNo(1);
+}
+
+function setWeblanguage(iValue)
+{
+		g_weblanguage = iValue;
+}
+
+function goPage(pageNo)
+{
+	var tmpValue=parseInt(pageNo,10);
+	if(tmpValue<1)
+	   tmpValue=1;
+	if(tmpValue>pageCount)
+	   tmpValue=pageCount;	
+	setCurPageNo(tmpValue);
+	eval(g_queryFunName)(tmpValue);	
+}
+
+function loadInfoData(objPageInfo)
+{
+	setPageSize(objPageInfo.pageSize);
+	setRecCount(objPageInfo.recCount);
+	setQueryFunName(objPageInfo.queryFunName);
+	
+	var modPageCount = g_recCount % g_pageSize;
+	var pgCount = 0;
+	if (modPageCount > 0)
+			pgCount = (g_recCount-modPageCount) / g_pageSize +1;
+	else
+			pgCount = g_recCount / g_pageSize;
+	if (pgCount == 0)
+		pgCount = 0;
+	setPageCount(pgCount);
+	
+	
+	setCurPageNo(1);
+	
+//	firstPageNo.onclick=function(){
+//													goPage(1);
+//											};
+//	prePageNo.onclick=function(){
+//													goPage(g_prePageNo);
+//										};
+//	nextPageNo.onclick=function(){
+//													goPage(g_nextPageNo);
+//										};
+//	lastPageNo.onclick=function(){
+//													goPage(pageCount);
+//										};
+}
+</script>
+

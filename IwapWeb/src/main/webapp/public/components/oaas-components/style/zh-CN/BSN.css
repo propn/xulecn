@@ -1,0 +1,225 @@
+/* 页面基本信息的定义 */
+body {font-family:"宋体";font-size:12px; margin: 0px 0px 0px 0px;
+scrollbar-face-color: #D0E4FA;
+scrollbar-highlight-color: #FFFFFF;
+scrollbar-shadow-color: #D0E4FA;
+scrollbar-3dlight-color: #86A8EE;
+scrollbar-arrow-color:  #667EAB;
+scrollbar-track-color: #CEE0F2;
+scrollbar-darkshadow-color: #86A8EE;
+}
+td {font-size:12px;color: #000000}
+textarea {font-size:12px; background-color: #FFFFFF; color:#000000;  border:1 solid #888888;}
+select {font-size:12px;background-color: #FFFFFF;color:#000000;}
+input{font-size:12px;color:#000000; background-color: #FFFFFF; border:1 solid #888888;padding-top: 2px;padding-left: 3px;height: 19px;}
+
+.body_pop {margin: 5px 5px 5px 5px;}
+.body_main {margin: 0px 0px 0px 0px; background-color: #FAFAFA;background-image:  url(../../images/main_bg.gif); background-repeat: no-repeat; background-position:right bottom; background-attachment: fixed}
+.body_aboutus {margin: 26px 10px 0px 10px; background-color: #58A0DD;background-image:  url(../../images/about_bg.gif); background-repeat: no-repeat; background-position:left top; background-attachment: fixed}
+.body_iframe {margin: 0px 0px 0px 0px; background-color:transparent;}
+
+/* 表单中select和checkbox特殊效果的定义 */
+.checkbox { background-color: transparent; border:0 ;}
+.select{position:relative;width:130px;left:-2px;top:-2px;font-size:12px;line-height:15px;border:0px;color:#000000;}
+.select_box1{border:1px solid #888888;width:130px;height:19px;clip:rect(0px,129px,18px,0px);overflow:hidden;}
+.select_box2{border:1px solid #F4F4F4;width:128px;height:17px;clip:rect(0px,127px,16px,0px);overflow:hidden;}
+
+.select_50{position:relative;width:50px;left:-2px;top:-2px;font-size:12px;line-height:15px;border:0px;color:#000000;}
+.select_box1_50{border:1px solid #888888;width:50px;height:19px;clip:rect(0px,49px,18px,0px);overflow:hidden;}
+.select_box2_50{border:1px solid #F4F4F4;width:48px;height:17px;clip:rect(0px,47px,16px,0px);overflow:hidden;}
+
+.select_box_1 {border:1px solid #888888;height:19px;clip:rect(0px,auto,18px,0px);overflow:hidden;}
+.select_box_2{border:1px solid #F4F4F4;height:17px;clip:rect(0px,auto,16px,0px);overflow:hidden;}
+.select_nohtc{position:relative;left:-2px;top:-2px;font-size:12px;line-height:15px;border:0px;color:#000000;}
+.select_htc  {position:relative;width:130px;left:-2px;top:-2px;font-size:12px;line-height:15px;border:0px;color:#000000;behavior:url(/BSNWeb/public/htc/selectstyle/SelectStyle.htc);}
+
+/* 页面不同文字大小的定义 */
+.font21{font-family:"宋体"; font-size: 21px;line-height: 140%}
+.font18{font-family:"宋体"; font-size: 18px;line-height: 140%}
+.font16{font-family:"宋体";font-size: 16px;line-height: 140%}
+.font14{font-family:"宋体";font-size: 14px; line-height: 140%}
+.font12{font-family:"宋体";font-size: 12px; line-height: 150%}
+
+/* 页面不同地方文字的定义 */
+.font_title {color:#486CC0;font-size:12px;font-weight: bold;FILTER: Dropshadow(color=#D6D6D6, Offx=1, OffY=1, Positive=1)}
+.font_note {color:#FF7800;font-size:14px;font-weight: bold;}
+.font_note_tex {color:#333333;font-size:12px;line-height:150%}
+.font_subtitle {color:#486CC0;font-size:12px;font-weight: bold;}
+.font_red {	color: #FF3300;}
+.font_grey { color: #666666;}
+.font_link {color:#3366CC;font-size:12px;font-weight: bold;cursor: hand;}
+.red_point {color:#FF3300;padding-left:3px;}
+.font_blue {color:#0033CC;}
+.font_blue_b {color:#0033CC;font-weight: bold;}
+.font_green {color:#336600;}
+.font_num_blue {color:#0033CC;font-weight: bold;}
+.font_role_out {color:#FFF;font-size:18px;font-family:"黑体";padding-bottom:15px;cursor: hand;padding-left:10px;}
+.font_role_over {color:#FFCC00;font-size:18px;font-family:"黑体";padding-bottom:15px;cursor: hand;padding-left:10px;}
+.font_welcome_bar {color:#FFFFFF;font-size:14px;FILTER: Dropshadow(color=#303030, Offx=1, OffY=1, Positive=1);padding-left: 6px;}
+.font_welcome_menu_b {color:#0066CC;font-size:12px;font-weight: bold;}
+.font_welcome_menu_o {color:#FF6C00;font-size:12px;font-weight: bold;}
+.font_welcome_menu_g {color:#5BA900;font-size:12px;font-weight: bold;}
+.font_welcome_intro {color:#808080;font-size:12px;line-height: 140%;}
+.font_welcome_intro_bg {background-color : #F0F7FF;}
+.font_pop_error {color:#FFFFFF;font-size:14px;}
+.font_bold {font-weight: bold;}
+
+.tab_bar  {font-weight: bold; padding-left: 2px; color: #333333;}
+.subtab_bar {color:#1851D6;font-size:12px;padding-left: 6px;;padding-right: 6px;filter:progid:DXImageTransform.Microsoft.Glow(color=#FFFFFF,Strength=1);}
+
+.opacity {FILTER: alpha(opacity=100)}
+.hand {	cursor: hand;}
+
+/* table里文字的定义 */
+.td_txt{color: #000000;padding-left: 6px;}
+.td_txt_blue{color: #0033CC;padding-left: 6px;}
+
+.td_blue  {background-color: #E3EDFF;}
+.td_blue_txt{color: #000000;background-color: #E3EDFF;padding-left: 6px;}
+
+/* 页面布局辅助样式定义 */
+.tab_margin  {margin-top:6px;}
+
+/* 页面不同表格相应title和color的定义 */
+.tab_blue_color{background-color: #D7ECFF;}
+.subtab_blue_color{background-color: #FAFCFF;}
+
+/* 功能菜单左边缩进的定义 */
+.menu_padding {padding-left: 33px;cursor: hand;color:#FFFFFF;font-size: 14px;}
+.submenu_padding {padding-left: 46px;cursor: hand;color:#FFFFFF;font-size: 12px;}
+
+/* 页面标题栏内文字效果的定义 */
+.bar1 { FILTER: Dropshadow(color=#FFFFFF, Offx=1, OffY=1, Positive=1)}
+.bar2 { FILTER: Dropshadow(color=#666666, Offx=1, OffY=1, Positive=1)}
+
+/* onMouseOver/onMouseOut效果定义 */
+.mouseOver{myOver:expression(onmouseover=function(){bgColor="#FBFFEC"},onmouseout=function(){bgColor="#E6EFFF"})}
+
+/* 页面中不同 td边框的定义 */
+.border_tree1 { border:1px solid #A9BDE9;background-color : #ECF6FF;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;word-break:break-all;}
+.border_tree2 { border:0px solid #FAFCFF;background-color : #ECF6FF;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;word-break:break-all;}
+.border_gray { BORDER:1px solid #999999;}
+.border_gray1 { BORDER:1px solid #666666;}
+.border_01 { border:1px solid #A9BDE9;background-color : #FAFCFF;}
+
+.border1 { BORDER:#FFFFFF 15px solid;background-color : #FFFFFF;}
+.border2 { BORDER:1px solid #808080;background-color : #FFFFFF;}
+
+/* 页面不同输入框的定义 */
+.input_readonly{font-size:12px;color:#000000; background-color: #EEEEEE; border:1 solid #888888;padding-top:2px;padding-left: 3px;height: 19px;}
+.input_blue{font-size:12px;color:#000000; background-color: #FFFFFF; border:1 solid #5076C6;padding-top:2px; padding-left:3px;height: 19px;}
+.input_gray{font-size:12px; border-right:1px solid #888888;	border-top:1px solid #888888;	border-left:1px solid #888888;	border-bottom:1px solid #888888;color: #000000; background: #FFFFFF;padding-top: 2px;padding-left: 3px;height: 19px;}
+.input_black{font-size:12px;color:#000000; background-color: #EBF7FF; border:1 solid #000000;padding-top: 2px;padding-left: 3px;height: 19px;}
+.input_underline {font-size:12px;border-right:1px solid #FFFFFF; border-top:1px solid #FFFFFF; border-left:1px solid #FFFFFF; border-bottom:1px solid #000000;color: #000000; background: #FFFFFF;padding-top: 2px;padding-left: 3px;height: 19px;}
+.input_14font{font-size:14px;color:#000000; background-color: #FFFFFF; border:1 solid #888888;padding-top: 2px;padding-left: 3px;height: 19px;}
+.input_16font{font-size:16px;color:#000000; background-color: #FFFFFF; border:1 solid #888888;padding-top: 2px;padding-left: 3px;height: 19px;}
+
+/* 页面不同表单相应按钮的定义 */
+.button {margin: 1px 2px 1px 2px; border-right: 1px solid #888888;	border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000;padding-top: 2px;background: #E7F3FC;cursor: hand;background-image:url(../../../images/button/button_bg.gif);}
+.button_blue {margin: 1px 2px 1px 2px; border-right: 1px solid #888888;	border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #FFF5EC; cursor: hand;background-image:url(../../../images/button/button_bg.gif);}
+.button_green {margin: 1px 2px 1px 2px; border-right: 1px solid #888888;	border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #FFF5EC; cursor: hand;background-image:url(../../../images/button/button_green_bg.gif);}
+.button_org {margin: 1px 2px 1px 2px; border-right: 1px solid #888888;	border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #FFF5EC; cursor: hand;background-image:url(../../../images/button/button_org_bg.gif);}
+.button_grey {margin: 1px 2px 1px 2px; border-right: 1px solid #888888;	border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #EEEEEE; cursor: hand;background-image:url(../../../images/button/button_grey_bg.gif);}
+.button_pop {margin: 1px 2px 1px 2px; border-right: 1px solid #888888;	border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;width:60px;height:20px;font-size:12px;color: #000; padding-top: 2px;background: #EBEBEB;cursor: hand;background-image:url(../../../images/button/button_grey_bg.gif);}
+.button_add {margin: 1px 2px 1px 2px; padding-left:13px; border-right:1px solid #888888; border-top:1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #FFF5EC; cursor: hand;background-image:url(../../../images/button/button_add_bg.gif);}
+.button_add_blue {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_add_blue_bg.gif);}
+.button_search {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_search_bg.gif);}
+.button_print {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_print_bg.gif);}
+.button_doc {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_doc_bg.gif);}
+.button_save {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_save_bg.gif);}
+.button_top {margin: 1px 2px 1px 2px;width:22px;padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_top_bg.gif);}
+.button_top_disable {margin: 1px 2px 1px 2px;width:22px;padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_top_disable_bg.gif);}
+.button_up {margin: 1px 2px 1px 2px;width:22px;padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_up_bg.gif);}
+.button_up_disable {margin: 1px 2px 1px 2px;width:22px;padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_up_disable_bg.gif);}
+.button_down {margin: 1px 2px 1px 2px;width:22px;padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_down_bg.gif);}
+.button_down_disable {margin: 1px 2px 1px 2px;width:22px;padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_down_disable_bg.gif);}
+.button_bottom {margin: 1px 2px 1px 2px;width:22px;padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_bottom_bg.gif);}
+.button_bottom_disable {margin: 1px 2px 1px 2px;width:22px;padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_bottom_disable_bg.gif);}
+.button_app {margin: 1px 2px 1px 2px; padding-left: 15px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_app_bg.gif);}
+.button_left {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_left_bg.gif);}
+.button_left_disable {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_left_disable_bg.gif);}
+.button_left_all {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_left_all_bg.gif);}
+.button_right {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_right_bg.gif);}
+.button_right_disable {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_right_disable_bg.gif);}
+.button_right_all {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_right_all_bg.gif);}
+.button_set {margin: 1px 2px 1px 2px; padding-left: 6px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_defaultset_bg.gif);}
+.button_del {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_del_bg.gif);}
+.button_edit {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_edit_bg.gif);}
+.button_undo {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_undo_bg.gif);}
+.button_test {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_test_bg.gif);}
+.button_detail {margin: 1px 2px 1px 2px; padding-left: 13px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_detail_bg.gif);}
+.button_back {margin: 1px 2px 1px 2px; padding-left: 15px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_back_bg.gif);}
+.button_select {margin: 1px 2px 1px 2px; padding-left: 15px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_select_bg.gif);}
+.button_select_all {margin: 1px 2px 1px 2px; padding-left: 15px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_select_all_bg.gif);}
+.button_select_noall {margin: 1px 2px 1px 2px; padding-left: 15px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_select_noall_bg.gif);}
+.button_close {margin: 1px 2px 1px 2px; padding-left: 15px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_close_bg.gif);}
+.button_run {margin: 1px 2px 1px 2px; padding-left: 15px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_run_bg.gif);}
+.button_lock {margin: 1px 2px 1px 2px; padding-left: 15px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_lock_bg.gif);}
+.button_unlock {margin: 1px 2px 1px 2px; padding-left: 15px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_unlock_bg.gif);}
+.button_key {margin: 1px 2px 1px 2px; padding-left: 15px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_key_bg.gif);}
+.button_link {margin: 1px 2px 1px 2px; padding-left: 15px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_link_bg.gif);}
+.button_ic {margin: 1px 2px 1px 2px; padding-left: 15px;border-right: 1px solid #888888; border-top: 1px solid #FFFFFF;	border-left: 1px solid #FFFFFF;	border-bottom: 1px solid #888888;height:20px;font-size:12px;color: #000000; padding-top: 2px;background: #E7F3FC; cursor: hand;background-image:url(../../../images/button/button_ic_bg.gif);}
+
+.button_img {background-color: transparent; border:0 solid #6CB2FF;height: auto;cursor: hand;}
+
+/* table列表的定义 */
+.list_td_bar{background-image:url(../../htc/treelistview/images/treelist_button_bg.gif);color: #3366CC;}
+.list_td1{background-color: #E8F4FF;}
+.list_td2{background-color: #F1F8FF;}
+
+/* 页面各种背景的定义 */
+.bg_pop{background-image:  url(../../images/pop_bg.gif); background-repeat: no-repeat; background-position:left top; background-attachment: fixed}
+.bg_role_left{background-image:  url(../../../images/rolelist_left.gif); background-repeat: no-repeat; background-position:left; background-attachment: fixed}
+.bg_role_right{background-image:  url(../../../images/rolelist_right.gif); background-repeat: no-repeat; background-position:right bottom; background-attachment: fixed}
+.bg_blue_tab{background-image:  url(../../../images/table/tab_blue_bg.gif); background-repeat: no-repeat; background-position:right bottom; background-attachment: fixed}
+.bg_left_menu{background-image:  url(../../../images/box/frame_menu_tu.jpg); background-repeat: no-repeat; background-position:left bottom; background-attachment: fixed}
+
+/* 控件样式定义 
+behaviorPath:/CrmWeb/public/components/oaas-components/htc/treelist/
+*/
+.treelist{selectedBgColor:#BDDCFF;behaviorPath:url(../../htc/treelist/);imagesPath:url(../../images/images_tl/)}
+
+/* tabstrip标签空间的样式定义 */
+.tab_bsn{behavior:url("/BSNWeb/public/htc/tabstrip/Tabstrip.htc");skinPath:/BSNWeb/public/htc/tabstrip/images/org/;
+ maxtabHeight:22; mintabHeight:19; fontColor:#000000; fontColorOver:#000000; fontColorSelect:#000000;
+ lightShadow:#FCFCFC; midShadow:#D3D3D3; pageBorder:#80A8F7; lightColor:#F5F8FE; darkColor:#F5F8FE;
+}
+
+/* 页面中基本链接样式的定义 */
+A:link {COLOR: #0033CC; TEXT-DECORATION: none}
+A:visited {COLOR: #0033CC; TEXT-DECORATION: none}
+a:active {COLOR: #0033CC; text-decoration: none}
+A:hover {COLOR: #000000; TEXT-DECORATION: none}
+
+
+/* ----------以下都是页面链接样式的定义----------*/
+A.underline:link {COLOR: #0033CC; TEXT-DECORATION: underline}
+A.underline:visited {COLOR: #0033CC; TEXT-DECORATION: underline}
+A.underline:active {COLOR: #0033CC; text-decoration: underline}
+A.underline:hover {COLOR: #000000; TEXT-DECORATION: underline}
+
+A.link_role:link{text-decoration: none;color:#FFF;font-size:18px;font-family:"黑体";}
+A.link_role:visited  {text-decoration: none;color:#FFF;font-size:18px;font-family:"黑体";}
+A.link_role:active {text-decoration: none;color:#FFF;font-size:18px;font-family:"黑体";}
+A.link_role:hover {text-decoration: none;color:#FFCC00;font-size:18px;font-family:"黑体";}
+
+A.link_white:link{text-decoration: none; color: #FFFFFF}
+A.link_white:visited  {text-decoration: none; color: #FFFFFF}
+A.link_white:active {text-decoration: none; color: #FFFFFF}
+A.link_white:hover {text-decoration: underline; color: #FFFFFF}
+
+A.ModBoard:link {COLOR: #0066CC; TEXT-DECORATION: none;}
+A.ModBoard:visited {COLOR: #0066CC; TEXT-DECORATION: none;}
+A.ModBoard:active {COLOR: #0066CC; text-decoration: none;}
+A.ModBoard:hover {COLOR: #FFFFFF; TEXT-DECORATION: none;background: #3399FF;padding: 2px 2px 0px 2px;}
+
+A.link_black:link{text-decoration: underline; color: #000000;}
+A.link_black:visited  {text-decoration: underline; color: #000000}
+A.link_black:active {text-decoration: underline; color: #000000}
+A.link_black:hover {text-decoration: underline; color: #3366CC}
+
+A.link_gray:link{text-decoration: none; color: #666666;}
+A.link_gray:visited  {text-decoration: none; color: #666666}
+A.link_gray:active {text-decoration: none; color: #666666}
+A.link_gray:hover {text-decoration: underline; color: #666666}
+

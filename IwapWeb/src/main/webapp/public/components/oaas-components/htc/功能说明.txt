@@ -1,0 +1,12 @@
+1.TreeListView.htc功能更新
+  对控件的样式做了美化；可以设置控件背景颜色；可以设置控件每个节点前的图片；可以在批量导入时指定每个节点前的图片
+2.TreeListView1.htc对上面的控件做了简化，去掉了树上的图片
+3.TreeListView2.htc对上面的控件做了简化，去掉了树上的图片和Checkbox选择框
+4.DateTimePicker.htc控件，对其中的DateTimePicker.aspx文件做了国际化，具体使用的时候需要根据实际做修改;该控件需要绑定Canlendar.htc控件
+5.PopEdit.htc控件是一个通用的弹出框控件，功能不变。
+6.AdvCombobox.htc控件是一个下拉框控件，支持多项选择。该控件尚有少量bug
+7.PropertyList.htc控件是一个动态属性展示的控件。该控件不能独立使用，需要绑定TextBox.htc,dateTimePicker.htc,AdvCombobox.htc控件使用，其输入数据需要遵循XML规范格式。
+8.winhtc控件是Microsoft提供的标准控件。具体使用可以参看MSDN说明
+
+
+11月10日

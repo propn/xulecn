@@ -1,0 +1,12 @@
+<component>
+
+<attach event="oncontentready" onevent="contentready()" />
+
+<script>
+	function contentready(){
+      initButton(element);
+      element.window = window;
+	}
+</script>
+
+</component>	

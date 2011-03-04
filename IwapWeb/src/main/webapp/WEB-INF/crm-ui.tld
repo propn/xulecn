@@ -115,7 +115,9 @@
 		</attribute>
 		<attribute>
 			<name>dynaControlId</name>
-		</attribute>		
+		</attribute>
+		
+		 		
 	</tag>	
 	<tag>
 		<name>content</name>
@@ -175,7 +177,13 @@
 		</attribute>		
 		<attribute>
 			<name>folded</name>
-		</attribute>													
+		</attribute>
+		<attribute>
+			<name>paneDivId</name>
+		</attribute>	
+		<attribute>
+			<name>paneId</name>
+		</attribute>												
 	</tag>	
 	<tag>
 		<name>tabpane</name>
@@ -407,6 +415,94 @@
 		</attribute>
 		<attribute>
 			<name>excel</name>
+		</attribute>
+		<attribute>
+			<name>excelName</name>
+		</attribute>				
+		<attribute>
+			<name>maskControl</name>
+		</attribute>
+		<attribute>
+			<name>dynaControlId</name>
+		</attribute>
+		
+		<attribute>
+			<name>scope</name>
+		</attribute>													
+	</tag>	
+		<tag>
+		<name>dynamicDataSet</name>
+		<tagclass>com.ztesoft.component.ui.taglib.DynamicDataSetTag</tagclass>
+		<attribute>
+			<name>datasetId</name>
+		</attribute>
+		<attribute>
+			<name>type</name>
+		</attribute>	
+		<attribute>
+			<name>readOnly</name>
+		</attribute>
+		<attribute>
+			<name>editable</name>
+		</attribute>
+		<attribute>
+			<name>autoLoadPage</name>
+		</attribute>
+		<attribute>
+			<name>pageSize</name>
+		</attribute>	
+		<attribute>
+			<name>pageIndex</name>
+		</attribute>	
+		<attribute>
+			<name>pageCount</name>
+		</attribute>
+		<attribute>
+			<name>recordCount</name>
+		</attribute>
+		<attribute>
+			<name>async</name>
+		</attribute>
+		<attribute>
+			<name>loadDataAction</name>
+		</attribute>	
+
+		<attribute>
+			<name>loadDataActionMethod</name>
+		</attribute>	
+		<attribute>
+			<name>_queryType</name>
+		</attribute>
+		<attribute>
+			<name>paginate</name>
+		</attribute>
+		<attribute>
+			<name>staticDataSource</name>
+		</attribute>
+		<attribute>
+			<name>xmlFormat</name>
+		</attribute>	
+		
+		<attribute>
+			<name>loadAsNeeded</name>
+		</attribute>
+		<attribute>
+			<name>masterDataset</name>
+		</attribute>
+		<attribute>
+			<name>masterKeyFields</name>
+		</attribute>
+		<attribute>
+			<name>detailKeyFields</name>
+		</attribute>			
+		<attribute>
+			<name>needFetchDBField</name>
+		</attribute>	
+		<attribute>
+			<name>dbObject</name>
+		</attribute>
+		<attribute>
+			<name>excel</name>
 		</attribute>				
 		<attribute>
 			<name>maskControl</name>
@@ -420,9 +516,8 @@
 		
 		<attribute>
 			<name>scope</name>
-		</attribute>													
-	</tag>	
-	
+		</attribute>												
+	</tag>
 	<tag>
 		<name>field</name>
 		<tagclass>com.ztesoft.component.ui.taglib.FieldTag</tagclass>
@@ -563,8 +658,153 @@
 		</attribute>
 		<attribute>
 			<name>radioboxAttrCode</name>
-		</attribute>				
+		</attribute>	
+					
 	</tag>		
+	<tag>
+		<name>dynamicField</name>
+		<tagclass>com.ztesoft.component.ui.taglib.DynamicFieldTag</tagclass>
+		<attribute>
+			<name>field</name>
+		</attribute>	
+		<attribute>
+			<name>label</name>
+		</attribute>	
+		<attribute>
+			<name>type</name>
+		</attribute>	
+		<attribute>
+			<name>defaultValue</name>
+		</attribute>
+		<attribute>
+			<name>format</name>
+		</attribute>
+		<attribute>
+			<name>visible</name>
+		</attribute>
+		<attribute>
+			<name>sortable</name>
+		</attribute>	
+		
+		<attribute>
+			<name>readOnly</name>
+		</attribute>	
+		<attribute>
+			<name>editable</name>
+		</attribute>
+		<attribute>
+			<name>required</name>
+		</attribute>
+		<attribute>
+			<name>dropDown</name>
+		</attribute>
+		<attribute>
+			<name>attrCode</name>
+		</attribute>		
+		<attribute>
+			<name>editorType</name>	
+		</attribute>									
+		<attribute>
+			<name>toolTip</name>
+		</attribute>	
+		<attribute>
+			<name>tag</name>
+		</attribute>
+		<attribute>
+			<name>popup</name>
+		</attribute>
+		<attribute>
+			<name>labelLayout</name>
+		</attribute>
+		<attribute>
+			<name>labelCheckbox</name>
+		</attribute>		
+		<attribute>
+			<name>inputLayout</name>	
+		</attribute>	
+		
+		<attribute>
+			<name>textareaLayout</name>
+		</attribute>	
+		<attribute>
+			<name>textarea</name>
+		</attribute>
+		<attribute>
+			<name>textareaHeight</name>
+		</attribute>
+		<attribute>
+			<name>validType</name>
+		</attribute>
+		<attribute>
+			<name>validMsg</name>	
+		</attribute>
+		<attribute>
+			<name>minLen</name>
+		</attribute>
+		<attribute>
+			<name>maxLen</name>	
+		</attribute>
+		<attribute>
+			<name>password</name>
+		</attribute>	
+		<attribute>
+			<name>keyField</name>
+		</attribute>	
+		<attribute>
+			<name>subList</name>
+		</attribute>
+		<attribute>
+			<name>subListDataset</name>
+		</attribute>		
+		<attribute>
+			<name>blankValue</name>
+		</attribute>
+		<attribute>
+			<name>blankId</name>
+		</attribute>
+		<attribute>
+			<name>maxHeight</name>
+		</attribute>
+		<attribute>
+			<name>configParams</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>dbField</name>
+		</attribute>				
+		<attribute>
+			<name>dbFieldControl</name>
+		</attribute>
+		
+		<attribute>
+			<name>size</name>
+		</attribute>
+		<attribute>
+			<name>permissionControl</name>
+		</attribute>
+		<attribute>
+			<name>dynaControlId</name>
+		</attribute>
+		<attribute>
+			<name>parameter</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>checkbox</name>
+		</attribute>
+		<attribute>
+			<name>radiobox</name>
+		</attribute>
+		<attribute>
+			<name>checkboxAttrCode</name>
+		</attribute>
+		<attribute>
+			<name>radioboxAttrCode</name>
+		</attribute>	
+					
+	</tag>	
+	
 	<tag>
 		<name>parameter</name>
 		<tagclass>com.ztesoft.component.ui.taglib.ParameterTag</tagclass>
@@ -645,6 +885,32 @@
 		<tagclass>com.ztesoft.component.ui.taglib.ImportTag</tagclass>
 		<attribute>
 			<name>library</name>
+		</attribute>
+		<attribute>
+			<name>css</name>
+		</attribute>			
+	</tag>	
+	<tag>
+		<name>zx</name>
+		<tagclass>com.ztesoft.component.ui.taglib.ZXTag</tagclass>
+		<attribute>
+			<name>library</name>
+		</attribute>
+		<attribute>
+			<name>css</name>
+		</attribute>
+		<attribute>
+			<name>tree</name>
+		</attribute>
+		
+		<attribute>
+			<name>window</name>
+		</attribute>
+		<attribute>
+			<name>core</name>
+		</attribute>		
+		<attribute>
+			<name>contextmenu</name>
 		</attribute>			
 	</tag>	
 	<tag>

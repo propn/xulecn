@@ -1,0 +1,15 @@
+/* µÇÂ½½çÃæ */
+
+body#userLogin{background:url() repeat top left;filter:;}
+#userLogin #container{margin-left:auto;margin-right:auto;background:url() no-repeat top left;position:relative;width:100%;height:100%;}
+#userLogin .logo{background:url() no-repeat top left;position:relative;top:10px;left:10px;height:49px;width:131px;}
+#userLogin .systemName{background:url() no-repeat top left;position:relative;top:10px;left:240px;height:66px;width:424px;}
+#userLogin .loginForm{position:relative;top:70px;left:20px;height:80px;width:207px;}
+#userLogin .loginFormButton{text-align:right;width:200px;}
+#userLogin .copyright{position:relative;top:120px;left:430px;color:white;}
+.infobox { float:right; width:325px; padding:0px 0 0 5px; overflow:hidden;list-style-type:none;}
+.infobox h1 { height:30px; width:370px;overflow:hidden; text-indent:-999em;list-style-type:none;}
+.infobox h1 strong { font-weight:bold;font-size:12px;list-style-type:none;}
+.infobox ul { padding:20px 0 10px 40px; background:url(images/script.png) no-repeat -520px 25px;list-style-type:none;}
+.infobox ul li { display:block; height:52px; color:#2E7AB2;font-size:12px;list-style-type:none;}
+.infobox .mores { text-align:right; padding:2px 20px 2px 0; list-style-type:none;}
