@@ -14,13 +14,13 @@ public class AOPTest {
 		JDKProxyFactory factory = new JDKProxyFactory();
 		PersonService service = (PersonService) factory.createProxyIntance(new PersonServiceBean("xxx"));
 		//PersonService service2 = (PersonService) factory.createProxyIntance(new PersonServiceBean(null));
-		/*×¢Òâ£ºÕâ¸ö´úÀí¶ÔÏó£¬ÎÒÃÇÓ¦¸Ã²ÉÓÃ½Ó¿ÚÀ´ÒıÓÃËü,²ÉÓÃreturn Proxy.newProxyInstance(this.targetObject
+		/*æ³¨æ„ï¼šè¿™ä¸ªä»£ç†å¯¹è±¡ï¼Œæˆ‘ä»¬åº”è¯¥é‡‡ç”¨æ¥å£æ¥å¼•ç”¨å®ƒ,é‡‡ç”¨return Proxy.newProxyInstance(this.targetObject
 		 .getClass().getClassLoader(),this.targetObject.getClass().getInterfaces(), this);
-		 ÕâÀïÃæ³öÏÖµÄ½Ó¿ÚÒıÓÃÕâ¸ö´úÀí¶ÔÏó£¬ÒòÎª´úÀí¶ÔÏóÊÇÊµÏÖÁËÕâ¸ö½Ó¿ÚµÄ
+		 è¿™é‡Œé¢å‡ºç°çš„æ¥å£å¼•ç”¨è¿™ä¸ªä»£ç†å¯¹è±¡ï¼Œå› ä¸ºä»£ç†å¯¹è±¡æ˜¯å®ç°äº†è¿™ä¸ªæ¥å£çš„
 		*/
 		service.save("888");
 		//service2.save("888");
-		//µ÷ÓÃÕâ¸ö·½·¨£¬invoke¾Í»á±»µ÷ÓÃ
+		//è°ƒç”¨è¿™ä¸ªæ–¹æ³•ï¼Œinvokeå°±ä¼šè¢«è°ƒç”¨
 	}
 
 }
