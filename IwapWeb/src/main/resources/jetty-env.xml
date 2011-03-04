@@ -8,8 +8,16 @@
 			<New class="com.jolbox.bonecp.BoneCPDataSource">
 				<Set name="driverClass">org.h2.Driver</Set>
 				<Set name="jdbcUrl">jdbc:h2:./db/db</Set>
-				<Set name="user">sa</Set>
+				<Set name="username">sa</Set>
 				<Set name="password">sa</Set>
+				<Set name="idleConnectionTestPeriod">60</Set>
+				<Set name="idleMaxAge">240</Set>
+				<Set name="maxConnectionsPerPartition">30</Set>
+				<Set name="minConnectionsPerPartition">10</Set>
+				<Set name="partitionCount">3</Set>
+				<Set name="acquireIncrement">5</Set>
+				<Set name="statementsCacheSize">100</Set>
+				<Set name="releaseHelperThreads">3</Set>
 			</New>
 		</Arg>
 	</New>
