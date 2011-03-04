@@ -1,0 +1,146 @@
+﻿<html>
+<head>
+	<script src="../../"></script>
+	<script src="ZX.js"></script>
+	<script src="Array.js"></script>
+	<script src="Event.js"></script>
+	<script src="Basis.js"></script>
+	<script src="Element.js"></script>
+	<script src="Bean.js"></script>
+	<script src="Field.js"></script>
+	<script src="Action.js"></script>
+	<script src="VTypes.js"></script>
+</head>
+
+<body>
+	
+	<form id='myform'>
+			<input type='text' size='10' id='name' />
+			<input type='text' size='10' id='sex' />
+			<input type='text' size='10' id='old' />
+			<select id='pro'>
+				<option value='1'>1</option>
+				<option value='2'>2</option>
+				<option value='3'>3</option>			
+			</select>
+			<button id='mybtn' onclick='test1();'>testuuu</button>
+	</form>
+	
+ <dl id='myform1' name='myform1'>
+		<dt id='name' name='name1' bind='true'  text='姓名'>
+			 	<bdo cvalue='my' event='changevalue' name='sex1' action='visible'></bdo>
+			 	<bdo cvalue='my' event='changevalue' name='sex1' action='link' value='3333'></bdo>
+			 	<bdo cvalue='my' event='changevalue' name='old' action='disable'></bdo>
+			 	
+			 	<bdo cvalue='my' event='changevalue' name='pro' action='link' value='2'></bdo>
+		</dt>
+		<dt id='sex'  name='sex1'  bind='true'  text='性别'>
+				<bdo cvalue='3333' event='changevalue' name='old' action='link' value='333366666'></bdo>
+		</dt>
+		<dt id='old'  name='old'  text='您' bind='true'>
+		</dt>
+		<dt id='pro'  name='pro'  text='您' bind='true'>
+		</dt>
+ </dl>
+</body>
+
+
+<script>
+/*
+function gen() {
+  		var beans = document.getElementsByTagName('dl');
+  			 
+  			 var   script   =document.createElement( "script"); 
+  			 script.id='myscript';
+	  		 for(var i=0;i<beans.length;i++){
+			  		var bean=new ZX.Bean(beans[i]);
+		    				script.text   ='var '+beans[i].id+' ;'; 
+			   }
+	    	 document.getElementsByTagName("head")[0].appendChild(script); 
+
+  		
+			  for(var i=0;i<beans.length;i++){
+			  		window[beans[i].id]=new ZX.Bean(beans[i]);
+	
+						var bean=window[beans[i].id];
+	
+			  		var childNodes=beans[i].childNodes;
+	
+			  		for(var j=0;j<childNodes.length;j++){
+			  				var field=new ZX.Bean.Field(childNodes[j]);
+			  				bean.add(field);
+			  		}
+	
+			  		bean.setValue('name','yyyyyyyyyyyyyyyyyy');
+			  		bean.setValue('sex','nnn');
+			  		//if(bean.id=='myform1')
+			  				//myform1=bean;	
+			  }
+}
+ready();*/
+
+ZX.genByHtml();
+
+myform1.setValue('name','zzzzzzz');
+myform1.setValue('name','my');
+myform1.setValue('name','myy');
+myform1.on('blur',function(){
+	
+});
+/*
+myform1.getField('name1').on('blur',function(){
+		alert('hello');	
+});
+
+//myform1.setValue('name','yyyyyyyyyyyyyyyyyy');
+alert(myform1.getValue('name1'));*/
+	
+		/*
+		var cust=new ZX.Bean({id:'myform1',name:'myform1'});
+		
+		var nameField=new ZX.Bean.Field({id:'name',name:'name',bind:true});
+		
+		var sexField=new ZX.Bean.Field({id:'sex',name:'sex',bind:true});
+		
+		var oldField=new ZX.Bean.Field({id:'old',name:'old'});
+		
+		cust.add(nameField);
+		cust.add(sexField);
+		cust.add(oldField);
+		
+		oldField.setValue(18);
+		alert(cust.getValue('old'));
+		nameField.setValue('88888uuuu');
+		sexField.setValue('99999');
+
+		nameField.on('blur',function(){
+				sexField.setValue(nameField.getValue());
+				//sexField.setDisabled(true);
+				sexField.setVisible(false);
+				sexField.setVisible(true);
+		},nameField);
+		
+		//cust.setReadonly(true);
+		//cust.setDisabled(true);
+		
+		//alert(cust.getValue('sex'));
+		//alert(cust.getValues().sex);
+		
+		//alert(cust.setValue('sex','iiiiiiiiii'));
+		
+		//cust.setValues({sex:'iiiioooo'});
+		//alert(cust.getValue('sex'));
+		//function test1(){
+				//alert(nameField.getValue());
+		//}
+	
+		*/
+		
+		
+		
+</script>
+
+
+
+
+</html>
