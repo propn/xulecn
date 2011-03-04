@@ -1,7 +1,7 @@
 package org.leixu.iwap.aop.jdk;
 
 public class PersonServiceBean implements PersonService {
-	private String user = null;//提供一个用户，用String类型代表
+	private String user = null;//鎻愪緵涓�涓敤鎴凤紝鐢⊿tring绫诲瀷浠ｈ〃
 
 	public String getUser() {
 		return user;
@@ -15,16 +15,16 @@ public class PersonServiceBean implements PersonService {
 	}
 
 	public String getPersonName(Integer personid) {
-		System.out.println("我是getPersonName()方法");
+		System.out.println("鎴戞槸getPersonName()鏂规硶");
 		return "xxx";
 	}
 
 	public void save(String name) {
-		System.out.println("我是save()方法");
+		System.out.println("鎴戞槸save()鏂规硶");
 	}
 
 	public void update(String name, Integer personid) {
-		System.out.println("我是update()方法");
+		System.out.println("鎴戞槸update()鏂规硶");
 	}
 
 }
