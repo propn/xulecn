@@ -1,0 +1,412 @@
+﻿<!--************************************************************
+	版权说明: 
+	文件名: AdvComboBox.htc
+	文件创建日期: 2004-05-11
+	作者: lin.zhaohua
+	功能描述: 类似下拉框的控件，支持单选和多选
+			  由一个TextBox和一个按钮组成，点击按钮，显示ComboBox数据			  
+	帮助文档：PropertyList控件使用说明.doc
+	************************************************************
+	[属性]:
+	multipleChoice: 是否多选，true/false
+	items: 导入选择数据，对象数组
+	defaultValue: 默认值，字符串
+	nullable: 是否可空,true/false
+	editable: 是否可用,true/false
+	value: 控件的值,对象/对象数组
+	userData: 用户的选择数据，数组
+	************************************************************	
+	[方法]：
+	loadArrayDesc：导入数组描述信息	
+	loadXmlDesc：导入XML描述信息	
+	loadXmlItems：装入XML选择数据	
+	************************************************************
+	[事件]：
+	onchanged：数据发生变化后，对外响应的事件		 
+	************************************************************
+	[变更记录]
+	1)
+	修改人： Congling
+	修改日期： 2004/6/4
+	修改记录列表：
+	2)
+	修改人： wenwen
+	修改日期： 2004/7/23
+	修改记录：链接样式表
+	          添加表格"border8"、checkbox样式"checkbox"
+	          tbl_onmouseover的颜色为#AFDAFF
+	          有了按钮图片，btn.style.color的颜色定义是否多余？
+	3)
+	修改人：yang.xueshu
+	日期：2004/8/3
+	修改记录：添加width属性，定义绝对宽度；增加oncontentready用来处理，自动装载XML数据。
+	************************************************************  -->
+<!--
+	扩展属性
+		g_selectedItems对应optionItem
+		cell._value对应cell的值
+-->
+
+<public:component tagName="AdvComboBox">
+	<public:defaults viewLinkContent/>
+	<PUBLIC:ATTACH event="oncontentready" onevent="initLoad()" />
+	
+	<public:property name="controlType" get="getControlType"/>
+	<public:property name="multipleChoice" get="getMultipleChoice" put="setMultipleChoice" />
+	<public:property name="width" get="getWidth" put="setWidth" />
+	<public:property name="items" get="getItems" put="setItems" />
+	<public:property name="defaultValue" put="setDefaultValue" />
+	<public:property name="nullable" get="getNullable" put="setNullable" />		
+	<public:property name="editable" get="getEditable" put="setEditable" />
+	<public:property name="value" get="getValue" put="setValues" />
+	<public:property name="userData" get="getUserData" put="setUserData" />		
+	<public:property name="htmlDir"  put="setHtmlDir" />
+	<public:property name="showTxt"  get="getTxt" put="setTxt" />
+	<public:property name="webroot" put="setWebRoot" />
+	<public:property name="weblanguage" put="setWebLanguage" />
+	
+	<public:method name="loadArrayDesc" />
+	<public:method name="loadXmlDesc" />
+	<public:method name="loadXmlItems" />
+	<public:method name="onEventChange" />
+	<public:method name="setValue" />
+	<public:event name="onchanged" id="_evtonchanged" />
+	<public:event name="onLoadItems" id="_onLoadItems" />
+	<public:event name="onInit" id="_onInit" />
+</public:component>
+
+<link id="linkcss"  rel="stylesheet" type="text/css">
+<body>
+<table border="0" cellpadding=1 cellspacing=0 width="100%" ID="Table1" class="border1"> 
+	<tr>
+		<td width="100%" valign="bottom" nowrap><div id="txt" onclick="btn_click();"></div></td>
+		<td align="center"><span id=btn onclick="btn_click();" onmouseover="this.style.cursor='hand';"><img id="imgId" width="15" height="15"></span></td>
+	</tr>
+</table>
+</body>
+<script language=javascript>
+var g_bNullable = true;
+var g_bMultipleChoice = false;
+var g_bEditable = true;
+var g_defaultValue="";
+
+var g_selectedItems = null;
+var _xmlDoc=null;
+var g_userData = new Array();
+var _dir="ltr";//记录控件的方向
+var _arrItems=null;//用来保存生成的数据
+var _arrValues//选中的数据
+
+var g_webroot="";
+var g_language="zh-CN";
+
+//设置宽度
+function setWidth(value)
+{
+	if (value!=null&&value!="")
+		Table1.width=value;
+}
+
+function getWidth()
+{
+	return Table1.width;
+}
+//装载XML数据
+function initLoad()
+{	
+	
+	linkcss.href=g_webroot+"Public/style/"+g_language+"/ccbs.css";
+	imgId.src=g_webroot+"Public/htc/AdvComboBox/images/select_down.gif";
+	
+	document.dir=_dir;
+	_xmlDoc=new ActiveXObject("msxml2.Domdocument");
+	var s=element.innerHTML;
+	s =s.replace("<?XML:NAMESPACE PREFIX = AdvComboBox />","").replace(/AdvComboBox:/g,"");
+	if (s.length<1) return;
+	_xmlDoc.loadXML(s);	
+	loadXmlDesc(_xmlDoc.documentElement);
+}
+
+function getControlType()
+{
+	return "ComboBox";
+}
+
+function getUserData()
+{
+	return g_userData;
+}
+
+function setUserData(data)
+{
+	g_userData = data;
+}
+
+function getMultipleChoice()
+{
+	return g_bMultipleChoice;
+}
+
+function setMultipleChoice(val)
+{
+	if (val==null)
+	{
+		return null;
+	}
+	
+	if (val==true || val=="true")
+	{
+		g_bMultipleChoice=true;
+	}
+	else
+	{
+		g_bMultipleChoice=false;
+	}
+}
+
+function getItems()
+{
+	return _arrItems;
+}
+
+function setItems(items)
+{
+	_arrItems=null;
+	_arrItems=items;
+}
+
+function getNullable()
+{
+	return g_bNullable;
+}
+
+function setNullable(inValue)
+{
+	if (inValue == null)
+	{
+		return;
+	}	
+	if (inValue.toString() == "true")	
+	{
+		g_bNullable = true;
+	}
+	if (inValue.toString() == "false") 
+	{
+		g_bNullable = false;
+	}
+}
+function getEditable()
+{
+	return g_bEditable;
+}
+
+function setEditable(bEditable)
+{
+	var vEditable = "";
+	if (bEditable == null)
+	{
+		return;
+	}	
+	if (bEditable.toString() == "true")
+	{
+		vEditable = true;
+	}
+	if (bEditable.toString() == "false")
+	{
+		vEditable = false;
+	}		
+	//alert("vEditable="+vEditable);	
+	if ((bEditable.toString() == "true")||(bEditable.toString() == "false") )
+	{
+		if (g_bEditable != vEditable)
+		{	
+			g_bEditable = vEditable;
+			if(g_bEditable)
+			{
+				btn.disabled=false;
+			}
+			else
+			{
+				btn.disabled=true;
+			}
+		}		
+	}	
+}
+
+function setDefaultValue(defaultVal)
+{	
+	g_defaultValue=defaultVal;
+}
+
+function getValue()
+{
+	return g_selectedItems;
+}
+
+function setValues(value)
+{
+	g_selectedItems=value;
+}
+
+function setValue(val)
+{
+	if (g_bMultipleChoice)
+	{
+		g_selectedItems=new Array();
+		for(var i=0;i<_arrItems.length;i++)
+		{
+			for(var j=0;j<val.length;j++)
+			{
+				if (val[j]==_arrItems[i].value)
+				{
+					g_selectedItems[g_selectedItems.length]=new Object();
+					g_selectedItems[g_selectedItems.length-1].value=_arrItems[i].value;
+					g_selectedItems[g_selectedItems.length-1].text=_arrItems[i].text;
+					break;
+				}
+			}
+		}
+	}
+	else
+	{
+		for(var i=0;i<_arrItems.length;i++)
+		{
+			if (val==_arrItems[i].value)
+			{
+				g_selectedItems=_arrItems[i].text;
+				break;
+			}
+		}
+	}
+}
+
+function loadXmlItems(xmlNode)
+{	
+	var children = xmlNode.selectNodes("Item");
+	_arrItems = new Array();
+	_arrValues = new Array();
+	for(var i=0;i<children.length;i++)
+	{
+		var obj = new Object();
+		obj.text = children[i].getAttribute("text");
+		obj.value = children[i].getAttribute("value");
+		if(children[i].getAttribute("checked") == "true")
+			_arrValues[arrValues.length] = obj.value;
+		_arrItems[_arrItems.length]= obj;
+	}
+	
+	//添加默认选中记录
+	if (g_defaultValue!=null)
+	{
+		var arr = g_defaultValue.split(',');
+		setValue(arr);
+	}
+	
+	//触发初始化完成事件
+	var evt = document.createEventObject();
+	_onInit.fire(evt);
+}
+
+
+function loadArrayDesc(arrProperty)
+{	
+	//设置属性
+	if ( arrProperty.hasOwnProperty ("multipleChoice") == true )
+	{		
+		setMultipleChoice(arrProperty.multipleChoice);		
+	}		
+	if ( arrProperty.hasOwnProperty ("nullable") == true )
+	{		
+		setNullable(arrProperty.nullable);		
+	}		
+	if ( arrProperty.hasOwnProperty ("editable") == true )
+	{	
+		//alert("arrProperty.editable="+arrProperty.editable);
+		var bEnable = arrProperty.editable;	
+		setEditable(bEnable);
+	}
+	//通过数组，导入可选数据
+	if ( arrProperty.hasOwnProperty ("items")== true )
+	{		
+		setItems(arrProperty.items);
+	}
+	
+	//数据生成后，设置默认值
+	if ( arrProperty.hasOwnProperty ("defaultValue")== true )
+	{
+		if (g_bMultipleChoice == true)
+		{		
+			var arr = (arrProperty.defaultValue!=null?arrProperty.defaultValue.split(','):null);
+			setValue(arr);	
+		}
+		else
+		{			
+			setValue(arrProperty.defaultValue);
+		}		
+	}
+	
+	//触发初始化完成事件
+	var evt = document.createEventObject();
+	_onInit.fire(evt);
+}
+
+function loadXmlDesc(xmlNode)
+{	
+	//设置属性	
+	setMultipleChoice(xmlNode.getAttribute("multipleChoice"));
+	
+	setNullable(xmlNode.getAttribute("nullable"));		
+	//alert("loadXmlDesc");
+	setEditable(xmlNode.getAttribute("editable"));
+	
+	
+	//设置完属性，再导入[可选择的数据]
+	loadXmlItems(xmlNode);
+}
+
+function setHtmlDir(value)
+{
+	_dir=value;
+}
+
+function getTxt()
+{
+	return txt.innerText;
+}
+
+function setTxt(value)
+{
+	txt.innerText = value;
+}
+
+function btn_click()
+{
+	if (!btn.disabled)
+	{
+		var evt = document.createEventObject();
+		evt.setAttribute("items",_arrItems);
+		_onLoadItems.fire(evt);
+	}
+}
+
+function onEventChange(oldArr,newArr)
+{
+	var evt = document.createEventObject();
+	evt.orgValue = oldArr;
+	evt.curValue = newArr;
+	_evtonchanged.fire(evt);
+}
+
+/***设置语言**/
+function setWebLanguage(value)
+{
+	//alert(value);
+	g_language=value;		
+}
+
+/****设置路径**************/
+function setWebRoot(root)
+{
+	g_webroot=root;
+}
+</script>
