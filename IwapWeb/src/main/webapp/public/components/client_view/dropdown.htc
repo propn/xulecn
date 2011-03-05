@@ -1,0 +1,23 @@
+<component tagname="dropdown">
+
+<attach event="oncontentready" onevent="contentready()" />
+
+<property name="showColumnHeader" value="false" />
+
+<property name="extra" value="dropdown" />
+<property name="type" value="list" />
+<property name="mapValue" value="true" />
+<property name="staticDataSource" value="true" />
+<property name="fixed" value="true"/>
+<property name="maxHeight" value="220" />
+
+<property name="cachable" value="true"/>
+
+<script>
+	function contentready(){	
+		makeDropDown(element);
+	}
+
+</script>
+
+</component>	
