@@ -1,0 +1,26 @@
+﻿<html>
+<head>
+<title></title>
+<LINK href="ccbs.css" type="text/css" rel="stylesheet">
+<?XML:NAMESPACE PREFIX=DateTimePicker />
+<?IMPORT NAMESPACE="DateTimePicker" IMPLEMENTATION="../../datetimepicker/zh-CN/DateTimePicker.htc">
+</head>
+<body>
+<table>
+	<tr>	
+		<td width="160px">
+			<DateTimePicker:DateTimePicker id=dp1 onchanged="dp1_onchanged();" usedate="true" usetime="false" ></DateTimePicker:DateTimePicker>
+		</td>
+	</tr>
+</table>
+
+
+<script language=javascript>
+function dp1_onchanged()
+{
+	alert(dp1.value);
+}
+</script>
+
+</body>
+</html>
