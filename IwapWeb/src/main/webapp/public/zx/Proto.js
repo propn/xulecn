@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Prototype JavaScript framework, version 1.5.0_rc1 (c) 2005 Sam Stephenson
  * <sam@conio.net>
  * 
@@ -337,7 +337,7 @@ var __XL = [500, 600];
 var __XXL = [600, 700];
 
 
-// ´°¿Úµ¯³ö´°¿Ú
+// çª—å£å¼¹å‡ºçª—å£
 function openDialog(url, arg, sizeConfig, dialogWidth, dialogHeight) {
 	var sizeConfigResult = "";
 	if (!sizeConfig || sizeConfig == "") {
@@ -351,7 +351,7 @@ function openDialog(url, arg, sizeConfig, dialogWidth, dialogHeight) {
 	return window.showModalDialog(url, arg, "status:no;help:no;scroll:no;"
 					+ sizeConfigResult);
 }
-// ÏÔÊ¾Ğü¸¡µ¯³ö´°¿Ú
+// æ˜¾ç¤ºæ‚¬æµ®å¼¹å‡ºçª—å£
 function openModelessDialog(url, arg, sizeConfig, dialogWidth, dialogHeight) {
 	var sizeConfigResult = "";
 	if (!sizeConfig || sizeConfig == "") {

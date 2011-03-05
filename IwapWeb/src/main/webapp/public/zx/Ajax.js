@@ -1,4 +1,4 @@
-function LocalAction(){};
+ï»¿function LocalAction(){};
 
 LocalAction.getLocalPathPrefix = function(){
 	var href = location.href;
@@ -143,7 +143,7 @@ Buffalo.prototype = {
         if (this.transport.responseText && this.transport.status == '200') {
             var data = this.transport.responseText;
             var reply = new Buffalo.Reply(this.transport);
-            // extend Ã»ÓĞ³ö´í£¬²¢ÇÒ²»Å×Òì³£µÄÇé¿öÏÂ£¬²ÅÖ´ĞĞCallback¡£
+            // extend æ²¡æœ‰å‡ºé”™ï¼Œå¹¶ä¸”ä¸æŠ›å¼‚å¸¸çš„æƒ…å†µä¸‹ï¼Œæ‰æ‰§è¡ŒCallbackã€‚
            if (reply.isFault()) {
                 this.currentCallback = null;
                  this.events["onException"](reply.getResult());
@@ -216,7 +216,7 @@ Buffalo.Default = {
        			}
        			topTemp = Number(topTemp,10);
        			
-       			 if(topTemp<0){ //topTemp<0 ÖØĞÂ¶¨Î»top left 
+       			 if(topTemp<0){ //topTemp<0 é‡æ–°å®šä½top left 
 		            	var imgWidth = 240;
 			            var imgHeith = 100;
 						var leftPosition = (document.body.clientWidth - imgWidth) / 2;
@@ -235,7 +235,7 @@ Buffalo.Default = {
     },
     showError: function(transport) {
     
-    	MessageBox.Show(null, "´íÎó´úÂë: "+transport.status+"<br>´íÎóĞÅÏ¢: "
+    	MessageBox.Show(null, "é”™è¯¯ä»£ç : "+transport.status+"<br>é”™è¯¯ä¿¡æ¯: "
         +transport.statusText, null, 'LogOK', "Error", 1, null, transport.responseText.stripTags());
         this.errorPane = $("buffalo_error");
         /*if (this.errorPane == null) {
@@ -256,7 +256,7 @@ Buffalo.Default = {
     },
 
     showException: function(faultObj) {
-        MessageBox.Show(null, "´íÎó´úÂë: "+faultObj.code+"<br>´íÎóĞÅÏ¢: "
+        MessageBox.Show(null, "é”™è¯¯ä»£ç : "+faultObj.code+"<br>é”™è¯¯ä¿¡æ¯: "
         +faultObj.message, null, 'LogOK', "Error", 1, null, faultObj.detail);
         						
         /*this.exceptionPane = $("buffalo_exception");
@@ -627,17 +627,17 @@ Buffalo.Reply.prototype = {
                     if (jspTaglibErrors)
                         jspTaglibErrors[jspTaglibErrors.length] = new JspTaglibError(errVO.errorCode, errVO.errorMessage, errVO.errorResolve, errVO.level, errVO.stackInfo);
                 } else {
-                    //´íÎóĞÅÏ¢ÌáÊ¾
+                    //é”™è¯¯ä¿¡æ¯æç¤º
                     var level = errVO.level;
                     if (level < 3) {
-                        MessageBox.Show(null, "ÌáÊ¾ĞÅÏ¢: " + errVO.errorMessage, null, 'OK', "Warning", 0, null, errVO.stackInfo);
+                        MessageBox.Show(null, "æç¤ºä¿¡æ¯: " + errVO.errorMessage, null, 'OK', "Warning", 0, null, errVO.stackInfo);
                     } else if (level < 4) {
-                        MessageBox.Show(null, "´íÎó´úÂë: " + errVO.errorCode + "<br>´íÎóĞÅÏ¢: " + errVO.errorMessage, null, 'LogOK', "Error", 1, null, errVO.stackInfo);
+                        MessageBox.Show(null, "é”™è¯¯ä»£ç : " + errVO.errorCode + "<br>é”™è¯¯ä¿¡æ¯: " + errVO.errorMessage, null, 'LogOK', "Error", 1, null, errVO.stackInfo);
                     } else if (level = 5) {
-                        MessageBox.Show(null, "´íÎó´úÂë: " + errVO.errorCode + "<br>´íÎóĞÅÏ¢: " + errVO.errorMessage, null, 'YesNo', "Confirm", 1, null, errVO.stackInfo);
+                        MessageBox.Show(null, "é”™è¯¯ä»£ç : " + errVO.errorCode + "<br>é”™è¯¯ä¿¡æ¯: " + errVO.errorMessage, null, 'YesNo', "Confirm", 1, null, errVO.stackInfo);
                     } else {
-                        MessageBox.Show(null, "´íÎó´úÂë: " + errVO.errorCode + "<br>´íÎóĞÅÏ¢: " + errVO.errorMessage, null, 'LogOK', "Error", 1, null, errVO.stackInfo);
-                        //MessageBox.Show(null, "ÇëÖØĞÂµÇÂ½: "+errVO.errorMessage, null, 'LogReIn', "Error", 1, null, errVO.stackInfo);
+                        MessageBox.Show(null, "é”™è¯¯ä»£ç : " + errVO.errorCode + "<br>é”™è¯¯ä¿¡æ¯: " + errVO.errorMessage, null, 'LogOK', "Error", 1, null, errVO.stackInfo);
+                        //MessageBox.Show(null, "è¯·é‡æ–°ç™»é™†: "+errVO.errorMessage, null, 'LogReIn', "Error", 1, null, errVO.stackInfo);
                     }
 
                 }
@@ -782,7 +782,7 @@ Buffalo.Reply.prototype = {
     doXML : function (dataNode) {
         var value = this.getNodeText(dataNode);
         value = unescape(value);
-        //Õë¶ÔdatasetÀàĞÍ£¬·µ»ØxmlÕû¸örecords½Úµã¡£
+        //é’ˆå¯¹datasetç±»å‹ï¼Œè¿”å›xmlæ•´ä¸ªrecordsèŠ‚ç‚¹ã€‚
         if (value == null || value == "null") {
 
             if (dataNode.firstChild && dataNode.firstChild.tagName == "records")
@@ -1316,7 +1316,7 @@ Buffalo.Form = {
 
 
 /*
-CRM UI ¿ò¼Ü½Ó¿Ú
+CRM UI æ¡†æ¶æ¥å£
 */
 
 var Ajax = Class.create();
@@ -1336,11 +1336,11 @@ Ajax.prototype = {
     },
 
     _remoteCall : function (serviceName, methodName, params, callBack, replyType, fields) {
-        //¹¹ÔìreplyType²ÎÊı£¬ÓĞÁ½¸öÀàĞÍ £¨vo »òÕß dataset £© Èç¹ûreplyTypeÃ»ÓĞÉèÖÃ£¬Ä¬ÈÏ³É
+        //æ„é€ replyTypeå‚æ•°ï¼Œæœ‰ä¸¤ä¸ªç±»å‹ ï¼ˆvo æˆ–è€… dataset ï¼‰ å¦‚æœreplyTypeæ²¡æœ‰è®¾ç½®ï¼Œé»˜è®¤æˆ
         if (replyType == undefined || replyType == null || replyType == "")
             replyType = "vo";
 
-        //¹¹Ôìfields²ÎÊı	·Ö¸ô·û ,
+        //æ„é€ fieldså‚æ•°	åˆ†éš”ç¬¦ ,
         var fieldsStr = "";
 
         if (fields == undefined) {

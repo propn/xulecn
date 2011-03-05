@@ -1,4 +1,4 @@
-ZX.Basis = function() {
+ï»¿ZX.Basis = function() {
 	this.events = new ZX.Array();
 }
 ZX.Basis.prototype = {
@@ -25,7 +25,7 @@ ZX.Basis.prototype = {
 						e = new ZX.Event(eventName);
 						me.events.add(e);
 						var fn = me[eventName];
-						if (fn) { //°ó¶¨Ä¬ÈÏº¯Êý
+						if (fn) { //ç»‘å®šé»˜è®¤å‡½æ•°
 							
 							me.on(eventName, fn);
 						}

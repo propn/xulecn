@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * bean set
  */
 ZX.Tree = function(config) {
@@ -17,13 +17,13 @@ ZX.extend(ZX.Tree, ZX.Basis, {
 	enableCheckBoxes:false,
 	skin:'dhx_skyblue',
 	imagePath:SystemContext.appContextPath+'/public/widgets/tree/codebase/imgs/csh_dhx_skyblue/',
-	im0:'folderClosed.gif',//Ã»ÓĞ×Ó½ÚµãµÄÊ±ºò£¬Í¼Æ¬ÑùÊ½
-	im1:'folderOpen.gif',//°üº¬×Ó½Úµã£¬Õ¹¿ªµÄÊ±ºòÍ¼Æ¬ÑùÊ½
-	im2:'folderClosed.gif',//°üº¬×Ó½Úµã£¬´ò¿ªµÄÊ±ºòÍ¼Æ¬public/widgets/tree/codebase/dhtmlxtree.js
+	im0:'folderClosed.gif',//æ²¡æœ‰å­èŠ‚ç‚¹çš„æ—¶å€™ï¼Œå›¾ç‰‡æ ·å¼
+	im1:'folderOpen.gif',//åŒ…å«å­èŠ‚ç‚¹ï¼Œå±•å¼€çš„æ—¶å€™å›¾ç‰‡æ ·å¼
+	im2:'folderClosed.gif',//åŒ…å«å­èŠ‚ç‚¹ï¼Œæ‰“å¼€çš„æ—¶å€™å›¾ç‰‡public/widgets/tree/codebase/dhtmlxtree.js
 	leafImg:"leaf.gif",
-	aCo1:'',// - Ã»ÓĞÑ¡ÖĞµÄ½áµãµÄÑÕÉ«
-	sCol:'',//- Ñ¡ÖĞµÄ½áµãµÄÑÕÉ«
-	style:'',//½ÚµãÎÄ±¾ÑùÊ½
+	aCo1:'',// - æ²¡æœ‰é€‰ä¸­çš„ç»“ç‚¹çš„é¢œè‰²
+	sCol:'',//- é€‰ä¸­çš„ç»“ç‚¹çš„é¢œè‰²
+	style:'',//èŠ‚ç‚¹æ–‡æœ¬æ ·å¼
 
 	service:'',//buffalo service
 
@@ -63,11 +63,11 @@ ZX.extend(ZX.Tree, ZX.Basis, {
 
 	},
 
-	//ÉèÖÃbuffalo Ô¶³ÌÇëÇó·şÎñ
+	//è®¾ç½®buffalo è¿œç¨‹è¯·æ±‚æœåŠ¡
 	setService:function(service){
 		this.service=service;
 	},
-	//ÉèÖÃbuffalo Ô¶³ÌÇëÇó·½·¨
+	//è®¾ç½®buffalo è¿œç¨‹è¯·æ±‚æ–¹æ³•
 	setMethod:function(method){
 		this.method=method;
 	},
@@ -82,30 +82,30 @@ ZX.extend(ZX.Tree, ZX.Basis, {
 
 		this.dhtmlTree.setSkin(skin);
 	},
-	//ÉèÖÃÍ¼Æ¬Â·¾¶
+	//è®¾ç½®å›¾ç‰‡è·¯å¾„
 	setImagePath:function(imagePath){
 	 	this.dhtmlTree.setImagePath(imagePath);
 	},
-	//ÊÇ·ñÏÔÊ¾checkbox¹¦ÄÜ
+	//æ˜¯å¦æ˜¾ç¤ºcheckboxåŠŸèƒ½
 	enableCheckBoxes:function(enable){
 		this.dhtmlTree.enableCheckBoxes(enable);
 	},
-	//¶ÔÄ³Ğ©ÌØ¶¨µÄ½áµãÊ¹ÓÃµ¥Ñ¡°´Å¥(´úÌæ¶àÑ¡¿ò)
+	//å¯¹æŸäº›ç‰¹å®šçš„ç»“ç‚¹ä½¿ç”¨å•é€‰æŒ‰é’®(ä»£æ›¿å¤šé€‰æ¡†)
 	enableRadiobuttons:function(nodeId,enable){
 		this.dhtmlTree.enableRadiobuttons(nodeId,enable);
 	},
 	/*
-	@parentNodeId ¸¸½ÚµãID
-	@nodeId ½ÚµãID
-	@nodeText ½ÚµãÃû³Æ
-	/*optionStrÖµÀàËÆSELECT,CALL,TOP,CHILD,CHECKED*/
+	@parentNodeId çˆ¶èŠ‚ç‚¹ID
+	@nodeId èŠ‚ç‚¹ID
+	@nodeText èŠ‚ç‚¹åç§°
+	/*optionStrå€¼ç±»ä¼¼SELECT,CALL,TOP,CHILD,CHECKED*/
 		/**
-		×îºóÒ»¸öÊ¹ÓÃ¶ººÅ·Ö¸ôµÄ²ÎÊı¿ÉÒÔÊÇÒÔÏÂÖµ(Ö»ÄÜÊÇ´óĞ´):
-		SELECT - ²åÈëºóÑ¡Ôñ´Ë½áµã
-		CALL - ÔÚÑ¡ÔñÊ±µ÷ÓÃ·½·¨
-		TOP - ÔÚ×îÉÏ·½²åÈë´Ë½áµã
-		CHILD - ´Ë½áµãÓĞ×Ó½áµã
-		CHECKED - ´Ë½áµãµÄ¶àÑ¡¿ò±»Ñ¡ÖĞ(Èç¹ûÓĞµÄ»°)
+		æœ€åä¸€ä¸ªä½¿ç”¨é€—å·åˆ†éš”çš„å‚æ•°å¯ä»¥æ˜¯ä»¥ä¸‹å€¼(åªèƒ½æ˜¯å¤§å†™):
+		SELECT - æ’å…¥åé€‰æ‹©æ­¤ç»“ç‚¹
+		CALL - åœ¨é€‰æ‹©æ—¶è°ƒç”¨æ–¹æ³•
+		TOP - åœ¨æœ€ä¸Šæ–¹æ’å…¥æ­¤ç»“ç‚¹
+		CHILD - æ­¤ç»“ç‚¹æœ‰å­ç»“ç‚¹
+		CHECKED - æ­¤ç»“ç‚¹çš„å¤šé€‰æ¡†è¢«é€‰ä¸­(å¦‚æœæœ‰çš„è¯)
 	*/
 	append:function(parentNodeId,nodeId,nodeText,data){
 		
@@ -122,17 +122,17 @@ ZX.extend(ZX.Tree, ZX.Basis, {
 			this.dhtmlTree.insertNewChild(parentNodeId,nodeId,nodeText,0,this.im0,this.im1,this.im2,null);
 		}
 		
-		//this.dhtmlTree.closeAllItems(parentNodeId); //ËùÓĞ½Úµã²»Õ¹Ê¾
+		//this.dhtmlTree.closeAllItems(parentNodeId); //æ‰€æœ‰èŠ‚ç‚¹ä¸å±•ç¤º
 	},
-	//ÉèÖÃÊó±êµã»÷ÊÂ¼ş
+	//è®¾ç½®é¼ æ ‡ç‚¹å‡»äº‹ä»¶
 	click:function(fn){
 		this.dhtmlTree.setOnClickHandler(fn);
 	},
-	//ÉèÖÃ½ÚµãË«»÷ÊÂ¼ş
+	//è®¾ç½®èŠ‚ç‚¹åŒå‡»äº‹ä»¶
 	dbclick:function(fn){
 		this.dhtmlTree.setOnDblClickHandler(fn);
 	},
-	//ÉèÖÃÊó±êÓÒ¼üµã»÷ÊÂ¼ş
+	//è®¾ç½®é¼ æ ‡å³é”®ç‚¹å‡»äº‹ä»¶
 	rightclick:function(fn){
 		this.dhtmlTree.setOnRightClickHandler(fn)
 	},
@@ -140,12 +140,12 @@ ZX.extend(ZX.Tree, ZX.Basis, {
 		this.dhtmlTree.attachEvent("onBeforeCheck", fn);
 		//return false;
 	},
-	//checkboxÑ¡ÖĞµÄÊÂ¼ş´¥·¢º¯Êı
-	check:function(fn){//checkboxµã»÷ÊÂ¼ş
+	//checkboxé€‰ä¸­çš„äº‹ä»¶è§¦å‘å‡½æ•°
+	check:function(fn){//checkboxç‚¹å‡»äº‹ä»¶
 
 		this.dhtmlTree.setOnCheckHandler(fn);
 	},
-	//ÉèÖÃÓÃ»§×Ô¶¨ÒåÊı¾İ
+	//è®¾ç½®ç”¨æˆ·è‡ªå®šä¹‰æ•°æ®
 	setUserData:function(itemId,name,value){
 		if(name && name!="_BUFFALO_OBJECT_CLASS_" && typeof(value) == "object"){
 			name = value.name;
@@ -153,113 +153,113 @@ ZX.extend(ZX.Tree, ZX.Basis, {
 		}
 		this.dhtmlTree.setUserData(itemId,name,value);
 	},
-	//»ñÈ¡ÓÃ»§×Ô¶¨ÒåÊı¾İ
+	//è·å–ç”¨æˆ·è‡ªå®šä¹‰æ•°æ®
 	getUserData:function(itemId,name){
 		return this.dhtmlTree.getUserData(itemId,name);
 	},
-	//»ñÈ¡ÓÃ»§×Ô¶¨ÒåÊı¾İ(È«¼¯ºÏ)
+	//è·å–ç”¨æˆ·è‡ªå®šä¹‰æ•°æ®(å…¨é›†åˆ)
 	getAllUserData:function(itemId){
 		return this.dhtmlTree.getAllUserData(itemId);
 	},
-	//»ñÈ¡¸¸½Úµãid
+	//è·å–çˆ¶èŠ‚ç‚¹id
 	getParentId:function(itemId){
 		return this.dhtmlTree.getParentId(itemId);
 	},
-	//ÅĞ¶ÏÊÇ·ñÓĞÏÂ¼¶½Úµã
+	//åˆ¤æ–­æ˜¯å¦æœ‰ä¸‹çº§èŠ‚ç‚¹
 	hasChildren:function(itemId){
 		return this.dhtmlTree.hasChildren(itemId);
 	},
-	//ÉèÖÃ½ÚµãÑ¡ÖĞ
+	//è®¾ç½®èŠ‚ç‚¹é€‰ä¸­
 	setItemSelected:function(fn){
 		this.dhtmlTree.setItemSelected(fn)
 	},
-	//¸ü¸Ä½Úµãid
+	//æ›´æ”¹èŠ‚ç‚¹id
 	changeItemId:function(itemId,newItemId) {
 		this.dhtmlTree.changeItemId(itemId,newItemId);
 	},
-	//»ñÈ¡½ÚµãÏÂËùÓĞ×Ó½ÚµãidÒÔ¶ººÅ·Ö¸î
+	//è·å–èŠ‚ç‚¹ä¸‹æ‰€æœ‰å­èŠ‚ç‚¹idä»¥é€—å·åˆ†å‰²
 	getSubItems:function(itemId){
 		return this.dhtmlTree.getSubItems(itemId);
 	},
 	getAllSubItems:function(itemId){
 		return this.dhtmlTree.getAllSubItems(itemId);
 	},
-	//»ñÈ¡µ±Ç°±»Ñ¡ÖĞµÄ½Úµãid
+	//è·å–å½“å‰è¢«é€‰ä¸­çš„èŠ‚ç‚¹id
 	getSelectedItemId:function(){
 		return this.dhtmlTree.getSelectedItemId();
 	},
-	//»ñÈ¡µ±Ç°±»Ñ¡ÖĞµÄ½Úµãtext
+	//è·å–å½“å‰è¢«é€‰ä¸­çš„èŠ‚ç‚¹text
 	getSelectedItemText:function(){
 		return this.dhtmlTree.getSelectedItemText();
 	},
-	//ÉèÖÃÄ³¸ö½ÚµãÎªÑ¡ÖĞ×´Ì¬
+	//è®¾ç½®æŸä¸ªèŠ‚ç‚¹ä¸ºé€‰ä¸­çŠ¶æ€
 	setCheck:function(itemId,checked){//state - checkbox state (0/1/unsure)
 		 var state=checked?1:0;
 		 this.dhtmlTree.setCheck(itemId,state);
 	},
-	//ÉèÖÃÏÂ¼¶½ÚµãÎªÑ¡ÖĞ×´Ì¬
+	//è®¾ç½®ä¸‹çº§èŠ‚ç‚¹ä¸ºé€‰ä¸­çŠ¶æ€
 	setSubChecked:function(itemId,checked){//state - checkbox state (0/1/unsure)
 		 var state=checked?1:0;
 		 this.dhtmlTree.setSubChecked(itemId,state);
 	},
-	//ÅĞ¶Ï½ÚµãÊÇ·ñÎªÑ¡ÖĞ×´Ì¬
+	//åˆ¤æ–­èŠ‚ç‚¹æ˜¯å¦ä¸ºé€‰ä¸­çŠ¶æ€
 	isItemChecked:function(itemId){//(0 - unchecked,1 - checked, 2 - third state)
 		var state=this.dhtmlTree.isItemChecked(itemId);
 		return (state==1)
 	},
-	//»ñÈ¡½Úµã×´Ì¬£º0 - Ã»ÓĞ×Ó½Úµã, -1 - ½ÚµãºÏÂ£, 1 - ½ÚµãÕ¹¿ª
+	//è·å–èŠ‚ç‚¹çŠ¶æ€ï¼š0 - æ²¡æœ‰å­èŠ‚ç‚¹, -1 - èŠ‚ç‚¹åˆæ‹¢, 1 - èŠ‚ç‚¹å±•å¼€
 	getOpenState:function(itemId){
 		var state=this.dhtmlTree.getOpenState(itemId);
 		return  state;
 	},
-	//ºÏÂ£µ±Ç°½Úµã£¨Ò»½Ú£©
+	//åˆæ‹¢å½“å‰èŠ‚ç‚¹ï¼ˆä¸€èŠ‚ï¼‰
 	closeItem:function(itemId){
 		 this.dhtmlTree.closeItem(itemId);
 	},
-	//´ò¿ªµ±Ç°½Úµã£¨Ò»½Ú£©
+	//æ‰“å¼€å½“å‰èŠ‚ç‚¹ï¼ˆä¸€èŠ‚ï¼‰
 	openItem:function(itemId){
 		 this.dhtmlTree.openItem(itemId);
 	},
-	//É¾³ıËùÓĞµÄ×Ó½Úµã
+	//åˆ é™¤æ‰€æœ‰çš„å­èŠ‚ç‚¹
 	deleteChildItems:function(itemId){
 		this.dhtmlTree.deleteChildItems(itemId);
 	},
-	//É¾³ıÄ³¸ö½Úµã£¬Í¬Ê±Ñ¡ÖĞÉÏ¼¶½Úµã
+	//åˆ é™¤æŸä¸ªèŠ‚ç‚¹ï¼ŒåŒæ—¶é€‰ä¸­ä¸Šçº§èŠ‚ç‚¹
 	deleteItem:function(itemId,selectParent){
 		this.dhtmlTree.deleteItem(itemId,selectParent);
 	},
-	//»ñÈ¡ËùÓĞÎŞ×Ó½ÚµãµÄ½Úµãid
+	//è·å–æ‰€æœ‰æ— å­èŠ‚ç‚¹çš„èŠ‚ç‚¹id
 	getAllChildless:function(){
 		return this.dhtmlTree.getAllChildless();
 	},
-	//»ñÈ¡ËùÓĞÎŞ×Ó½ÚµãµÄ½Úµãid
+	//è·å–æ‰€æœ‰æ— å­èŠ‚ç‚¹çš„èŠ‚ç‚¹id
 	getAllLeafs:function(){
 		return this.dhtmlTree.getAllLeafs();
 	},
-	//»ñÈ¡ËùÓĞÓĞ×Ó½ÚµãµÄ½Úµãid
+	//è·å–æ‰€æœ‰æœ‰å­èŠ‚ç‚¹çš„èŠ‚ç‚¹id
 	getAllItemsWithKids:function(){
 		return this.dhtmlTree.getAllItemsWithKids();
 	},
 
-	//»ñÈ¡ËùÓĞ±»Ñ¡ÖĞ½Úµãid£¬²»°üÀ¨µÚÈıÖĞ×´Ì¬µÄ½Úµã£¨²¿·ÖÑ¡ÖĞµÄ½Úµã£©
+	//è·å–æ‰€æœ‰è¢«é€‰ä¸­èŠ‚ç‚¹idï¼Œä¸åŒ…æ‹¬ç¬¬ä¸‰ä¸­çŠ¶æ€çš„èŠ‚ç‚¹ï¼ˆéƒ¨åˆ†é€‰ä¸­çš„èŠ‚ç‚¹ï¼‰
 	getAllChecked:function(){
 		return this.dhtmlTree.getAllChecked();
 	},
 
-	//»ñÈ¡ËùÓĞ±»Ñ¡ÖĞ½Úµãid£¬°üÀ¨µÚÈıÖĞ×´Ì¬µÄ½Úµã£¨²¿·ÖÑ¡ÖĞµÄ½Úµã£©£©
+	//è·å–æ‰€æœ‰è¢«é€‰ä¸­èŠ‚ç‚¹idï¼ŒåŒ…æ‹¬ç¬¬ä¸‰ä¸­çŠ¶æ€çš„èŠ‚ç‚¹ï¼ˆéƒ¨åˆ†é€‰ä¸­çš„èŠ‚ç‚¹ï¼‰ï¼‰
 	getAllCheckedBranches:function(){
 		return this.dhtmlTree.getAllCheckedBranches();
 	},
 
-	//»ñÈ¡½ÚµãÏÂËùÓĞÎ´Ñ¡ÖĞµÄ½Úµãid£¬²»´«µİitemId±íÊ¾´Ó¸ù½Úµã¿ªÊ¼²éÕÒ
+	//è·å–èŠ‚ç‚¹ä¸‹æ‰€æœ‰æœªé€‰ä¸­çš„èŠ‚ç‚¹idï¼Œä¸ä¼ é€’itemIdè¡¨ç¤ºä»æ ¹èŠ‚ç‚¹å¼€å§‹æŸ¥æ‰¾
 	getAllUnchecked:function(itemId){
 		return this.dhtmlTree.getAllUnchecked(itemId);
 	},
-	//Ô¶³Ì¼ÓÔØÊı¾İ
+	//è¿œç¨‹åŠ è½½æ•°æ®
 	load:function(parentId,parameter,afterCall){
 		//var parameters=[];
 		if(ZX.isEmpty(this.service)||ZX.isEmpty(this.method)){
-			alert('²éÑ¯Ê÷¼ÓÔØ²ÎÊıÎŞĞ§!');
+			alert('æŸ¥è¯¢æ ‘åŠ è½½å‚æ•°æ— æ•ˆ!');
 			return;
 		}
 
@@ -281,7 +281,7 @@ ZX.extend(ZX.Tree, ZX.Basis, {
 			}
 		});
 	},
-	//Í¨¹ıÊı×é½øĞĞ¼ÓÔØÊı¾İ
+	//é€šè¿‡æ•°ç»„è¿›è¡ŒåŠ è½½æ•°æ®
 	loadByArray : function(parentId,datas,afterCall){
 			
 		for(var i=0;i<datas.length;i++){
@@ -303,7 +303,7 @@ ZX.extend(ZX.Tree, ZX.Basis, {
 			this.loadByArray(parentId,[data],afterCall);
 	},
 	loadByXMLString:function(xmlString,afterCall){
-			//Í¨¹ı½á¹ûÊı¾İ
+			//é€šè¿‡ç»“æœæ•°æ®
 			afterCall();
 	}
 });

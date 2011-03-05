@@ -1,18 +1,18 @@
-	//ÊÂ¼ş¶ÔÏó
+ï»¿	//äº‹ä»¶å¯¹è±¡
 ZX.Event=function(name){
 		this.name=name;
 		this.eventfns=new Array();	
 }
-	//Ôö¼ÓÊÂ¼şµÄ¼àÌıÖ´ĞĞº¯Êı
+	//å¢åŠ äº‹ä»¶çš„ç›‘å¬æ‰§è¡Œå‡½æ•°
 ZX.Event.prototype.addEventFn=function(fn){
 		this.eventfns.push(fn);
 }
-//»ñÈ¡ÊÂ¼şµÄÃû³Æ
+//è·å–äº‹ä»¶çš„åç§°
 ZX.Event.prototype.getEventName=function(){
 	return this.name;
 }
-	//´¥·¢ÊÂ¼ş
-	//{data}´¥·¢ÊÂ¼şÊ±Ëù¸½´øµÄÊı¾İ
+	//è§¦å‘äº‹ä»¶
+	//{data}è§¦å‘äº‹ä»¶æ—¶æ‰€é™„å¸¦çš„æ•°æ®
 ZX.Event.prototype.fireEvent=function(data){
 		for(var key in this.eventfns){
 				this.eventfns[key](data);			

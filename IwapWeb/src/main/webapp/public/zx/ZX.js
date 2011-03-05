@@ -1,20 +1,20 @@
-window.undefined = window.undefined;
+ï»¿window.undefined = window.undefined;
 SystemContext = {
 	appName :  'CrmWeb' ,
 	appContextPath : '/CrmWeb' ,
 	appWebRoot :  'CrmWeb\\CrmWeb\\' ,
 	appBuffaloServlet : '/CrmWeb/nfapp' 
 }
-ZX = { //ZXÊÇÒ»¸öjson¶ÔÏó
+ZX = { //ZXæ˜¯ä¸€ä¸ªjsonå¯¹è±¡
 	version : '2.0'
 };
-ZX.apply = function(o, c, defaults) { // ¾²Ì¬µÄ¼Ì³Ğ,²»ÊÇÊµÀıµÄ¼Ì³Ğ
+ZX.apply = function(o, c, defaults) { // é™æ€çš„ç»§æ‰¿,ä¸æ˜¯å®ä¾‹çš„ç»§æ‰¿
 	// no "this" reference for friendly out of scope calls
 	if (defaults) {
 		ZX.apply(o, defaults);
 	}
 	if (o && c && typeof c == 'object') {
-		for (var p in c) { // ×Ö·û´®µÄfalse×ª»»Îªboolean
+		for (var p in c) { // å­—ç¬¦ä¸²çš„falseè½¬æ¢ä¸ºboolean
 			if (c[p] == "false") {
 				c[p] = false;
 			}
@@ -44,7 +44,7 @@ ZX.apply = function(o, c, defaults) { // ¾²Ì¬µÄ¼Ì³Ğ,²»ÊÇÊµÀıµÄ¼Ì³Ğ
 					return (el = ZX.getDom(el) || {}).id = el.id
 							|| (prefix || "ZX-gen") + (++idSeed);
 				},
-				extend : function() { // ¶ÔÏóµÄ¼Ì³Ğ
+				extend : function() { // å¯¹è±¡çš„ç»§æ‰¿
 					var io = function(o) {
 						for (var m in o) {
 							this[m] = o[m];
@@ -52,7 +52,7 @@ ZX.apply = function(o, c, defaults) { // ¾²Ì¬µÄ¼Ì³Ğ,²»ÊÇÊµÀıµÄ¼Ì³Ğ
 					};
 					var oc = Object.prototype.constructor;
 					return function(sb, sp, overrides) {
-						if (ZX.isObject(sp)) { // ÅĞ¶ÏspÊÇ·ñÎªjson¶ÔÏó,´Ë´¦Îªfunction
+						if (ZX.isObject(sp)) { // åˆ¤æ–­spæ˜¯å¦ä¸ºjsonå¯¹è±¡,æ­¤å¤„ä¸ºfunction
 							overrides = sp;
 							sp = sb;
 							sb = overrides.constructor != oc
@@ -62,24 +62,24 @@ ZX.apply = function(o, c, defaults) { // ¾²Ì¬µÄ¼Ì³Ğ,²»ÊÇÊµÀıµÄ¼Ì³Ğ
 									};
 						}
 						var F = function() {
-						}, sbp, spp = sp.prototype; // spÔ­ĞÍ¶ÔÏó
+						}, sbp, spp = sp.prototype; // spåŸå‹å¯¹è±¡
 
-						F.prototype = spp;// F µÄÔ­ĞÍÖ¸Ïòspp, ¼ÌĞøsppµÄËùÓĞµÄº¯Êı
-						sbp = sb.prototype = new F();// sbµÄÔ­ĞÍÖ¸Ïò fµÄÊµÀı
+						F.prototype = spp;// F çš„åŸå‹æŒ‡å‘spp, ç»§ç»­sppçš„æ‰€æœ‰çš„å‡½æ•°
+						sbp = sb.prototype = new F();// sbçš„åŸå‹æŒ‡å‘ fçš„å®ä¾‹
 						sbp.constructor = sb;
-						sb.superclass = spp; // ¸¸ÀàÎªsp
+						sb.superclass = spp; // çˆ¶ç±»ä¸ºsp
 						if (spp.constructor == oc) {
-							spp.constructor = sp; // ¸¸ÀàµÄ¹¹Ôìº¯ÊıÎªsp sb×ÓÀàÖ¸Ïò¸¸Àà
+							spp.constructor = sp; // çˆ¶ç±»çš„æ„é€ å‡½æ•°ä¸ºsp sbå­ç±»æŒ‡å‘çˆ¶ç±»
 						}
 						sb.override = function(o) {
 							ZX.override(sb, o);
 						};
-						sbp.superclass = sbp.supr = (function() {// sbpµÄ¸¸ÀàÎªsp
+						sbp.superclass = sbp.supr = (function() {// sbpçš„çˆ¶ç±»ä¸ºsp
 							return spp;
 						});
-						sbp.override = io; // ÊµÏÖoverride·½·¨
-						ZX.override(sb, overrides); // °ÑoverridesÖĞµÄÊôĞÔ¿½±´µ½Ä¿±êsbÖĞ
-						sb.extend = function(o) {// sbÊµÏÖextend·½·¨
+						sbp.override = io; // å®ç°overrideæ–¹æ³•
+						ZX.override(sb, overrides); // æŠŠoverridesä¸­çš„å±æ€§æ‹·è´åˆ°ç›®æ ‡sbä¸­
+						sb.extend = function(o) {// sbå®ç°extendæ–¹æ³•
 							ZX.extend(sb, o);
 						};
 						return sb;
@@ -219,18 +219,18 @@ ZX.apply(Function.prototype, {
 				return 0;
 			}
 		});
-		//½«format×÷ÎªString¶ÔÏóµÄ¾²Ì¬·½·¨
-ZX.applyIf(String, { //ÓÃ·¨ :alert(String.format("name is {0} and age is {1}", "John", 12));
+		//å°†formatä½œä¸ºStringå¯¹è±¡çš„é™æ€æ–¹æ³•
+ZX.applyIf(String, { //ç”¨æ³• :alert(String.format("name is {0} and age is {1}", "John", 12));
 			format : function(format) {
-			var args = Array.prototype.slice.call(arguments, 1); //argsÎª³ıÈ¥µÚÒ»¸ö²ÎÊıµÄĞÂµÄÊı×é 
-				return format.replace(/\{(\d+)\}/g, function(m, i) {  // format("name is {0} and age is {1}", "John", 12); format =µÚÒ»¶ş²ÎÊı
+			var args = Array.prototype.slice.call(arguments, 1); //argsä¸ºé™¤å»ç¬¬ä¸€ä¸ªå‚æ•°çš„æ–°çš„æ•°ç»„ 
+				return format.replace(/\{(\d+)\}/g, function(m, i) {  // format("name is {0} and age is {1}", "John", 12); format =ç¬¬ä¸€äºŒå‚æ•°
 							return args[i];
 						});
 			}
 		});
-		//½«indexOf ×÷Îªnew Array()¶ÔÏóµÄÊµÀı·½·¨
+		//å°†indexOf ä½œä¸ºnew Array()å¯¹è±¡çš„å®ä¾‹æ–¹æ³•
 ZX.applyIf(Array.prototype, {
-			indexOf : function(o) { //Êı×é¶ÔÏóÖĞÊÇ·ñ´æÔÚÁíÍâÒ»¸ö¶ÔÏó ÓëString.indexOf²»Í¬
+			indexOf : function(o) { //æ•°ç»„å¯¹è±¡ä¸­æ˜¯å¦å­˜åœ¨å¦å¤–ä¸€ä¸ªå¯¹è±¡ ä¸String.indexOfä¸åŒ
 				for (var i = 0, len = this.length; i < len; i++) {
 					if (this[i] == o) {
 						return i;
@@ -241,7 +241,7 @@ ZX.applyIf(Array.prototype, {
 			remove : function(o) {
 				var index = this.indexOf(o);
 				if (index != -1) {
-					this.splice(index, 1); // É¾³ıÄ³Ò»¸öÔªËØ
+					this.splice(index, 1); // åˆ é™¤æŸä¸€ä¸ªå…ƒç´ 
 				}
 				return this;
 			}
@@ -286,7 +286,7 @@ ZX.genByHtml = function() {
 };
 
 ZX.attachSpecEvent=function(oPane){
-	//°ó¶¨ÌØÊâÊÂ¼ş
+	//ç»‘å®šç‰¹æ®Šäº‹ä»¶
 	oPane = oPane || document;
 	var inputs = oPane.all.tags('input');
 	//var inputs = document.getElementsByTagName("input");
@@ -433,7 +433,7 @@ ZX.importLib = function(lib) {
 		}
 	}
 
-	// ÏµÍ³¹¦ÄÜ²Ëµ¥µÄÌØÊâ´¦Àí
+	// ç³»ç»ŸåŠŸèƒ½èœå•çš„ç‰¹æ®Šå¤„ç†
 	document.attachEvent("onclick", function() {
 				
 				if(!event.srcElement)

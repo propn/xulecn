@@ -1,4 +1,4 @@
-ZX.Element = function(element){
+锘縕X.Element = function(element){
     var dom = typeof element == "string" ?
               document.getElementById(element) : element;
     var id;
@@ -50,7 +50,7 @@ ZX.Element.prototype = {
         this.dom.value=val;
         
         if(val==''){
-        	//对下拉框进行特殊处理,选中'--请选择--'
+        	//瀵逛笅鎷夋杩涜鐗规畩澶勭悊,閫変腑'--璇烽�夋嫨--'
         	if(this.dom.type=='select-one'&&this.dom.options.length>0){
 	        		var item = this.dom.options[0]; 
 	        		item.selected=true;   

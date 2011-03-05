@@ -1,5 +1,5 @@
-/**
- * JS Baen ¹¹¼ş¶¯Ì¬µÄ¶ÔÏó Í¬Ê±ÓëHTML¿Ø¼ş½øĞĞ°ó¶¨
+ï»¿/**
+ * JS Baen æ„ä»¶åŠ¨æ€çš„å¯¹è±¡ åŒæ—¶ä¸HTMLæ§ä»¶è¿›è¡Œç»‘å®š
  */
 ZX.Bean = function(config) {
 	this.items = new ZX.Array();
@@ -67,10 +67,10 @@ ZX.extend(ZX.Bean, ZX.Basis, {
 	getValues : function() {
 		var o = {};
 		var mess = "";
-		this.items.each(function(f) { // name»ñÈ¡²»µ½Öµ£¬¸ù¾İname »ñÈ¡Öµ
+		this.items.each(function(f) { // nameè·å–ä¸åˆ°å€¼ï¼Œæ ¹æ®name è·å–å€¼
 					if (f.getName()) {
 						o[f.getName()] = f.getValue();
-					} else { // ¸ù¾İidÉèÖÃ
+					} else { // æ ¹æ®idè®¾ç½®
 						o[f.getId()] = f.getValue();
 					}
 
@@ -84,7 +84,7 @@ ZX.extend(ZX.Bean, ZX.Basis, {
 		
 		this.items.each(function(f) {
 					
-					var oldBlurValidate  = f.blurValidate; //±£´æ¾ÉÖµ
+					var oldBlurValidate  = f.blurValidate; //ä¿å­˜æ—§å€¼
 					if (!f.validate()) {
 						f.blurValidate = oldBlurValidate;
 						result = false;
@@ -96,11 +96,11 @@ ZX.extend(ZX.Bean, ZX.Basis, {
 		return result;
 
 	},
-	validateAll : function() { // ËùÓĞµÄÑéÖ¤£¬Ò»´ÎÈ«²¿ÑéÖ¤
+	validateAll : function() { // æ‰€æœ‰çš„éªŒè¯ï¼Œä¸€æ¬¡å…¨éƒ¨éªŒè¯
 		this.errMessageArr = [];
 		var beanObj = this;
 		this.items.each(function(f) {
-			f.blurValidate = true; // µã»÷±£´æ°´Å¥Ê±ĞèÒªÑéÖ¤
+			f.blurValidate = true; // ç‚¹å‡»ä¿å­˜æŒ‰é’®æ—¶éœ€è¦éªŒè¯
 			f.viewWithAlert = true;
 			if (!f.validate()) {
 				f.blurValidate = true;
@@ -122,7 +122,7 @@ ZX.extend(ZX.Bean, ZX.Basis, {
 		}
 
 	},
-	add : function() { // Ìí¼Ófield¶ÔÏó,fieldÄ¬ÈÏÊôĞÔ¶ÔÏóÓëhtml±êÇ©±£³ÖÒ»ÖÂ
+	add : function() { // æ·»åŠ fieldå¯¹è±¡,fieldé»˜è®¤å±æ€§å¯¹è±¡ä¸htmlæ ‡ç­¾ä¿æŒä¸€è‡´
 		var fields = Array.prototype.slice.call(arguments, 0);
 		for (var i = 0; i < fields.length; i++) {
 			fields[i].setBean(this);

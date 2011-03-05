@@ -1,11 +1,11 @@
-ZX.Array=function(){
+ï»¿ZX.Array=function(){
 	this.items = [];
     this.map = {};
     this.keys = [];
     this.length = 0;
 }
 ZX.Array.prototype = {
-     add: function(key, o){//³¤¶ÈÎª1Ê±,±íÊ¾Ìí¼ÓÊı×é¶ÔÏó addµÄ¶¯×÷¿ÉÄÜÊÇadd Ò²¿ÉÄÜÊÇupdate
+     add: function(key, o){//é•¿åº¦ä¸º1æ—¶,è¡¨ç¤ºæ·»åŠ æ•°ç»„å¯¹è±¡ addçš„åŠ¨ä½œå¯èƒ½æ˜¯add ä¹Ÿå¯èƒ½æ˜¯update
         if(arguments.length == 1){
             o = arguments[0];
             key = this.getKey(o);
@@ -13,7 +13,7 @@ ZX.Array.prototype = {
         if(typeof key != 'undefined' && key !== null){
             var old = this.map[key];
             if(typeof old != 'undefined'){
-                return this.replace(key, o); //Ö±½Ó·µ»Ø
+                return this.replace(key, o); //ç›´æ¥è¿”å›
             }
             this.map[key] = o;
         }
@@ -82,11 +82,11 @@ ZX.Array.prototype = {
         if(this.containsKey(key)){
             this.removeKey(key);
         }
-        if(index >= this.length){ //´óÓÚÖ¸¶¨µÄ³¤¶È£¬Ö±½Ó²åÈë·µ»Ø
+        if(index >= this.length){ //å¤§äºæŒ‡å®šçš„é•¿åº¦ï¼Œç›´æ¥æ’å…¥è¿”å›
             return this.add(key, o);
         }
         this.length++;
-        this.items.splice(index, 0, o); //²åÈëÔªËØ
+        this.items.splice(index, 0, o); //æ’å…¥å…ƒç´ 
         if(typeof key != "undefined" && key !== null){
             this.map[key] = o;
         }
@@ -100,10 +100,10 @@ ZX.Array.prototype = {
         if(index < this.length && index >= 0){
             this.length--;
             var o = this.items[index];
-            this.items.splice(index, 1); //ÒÆ³öÒ»¸öÌØ¶¨µÄÔªËØ
+            this.items.splice(index, 1); //ç§»å‡ºä¸€ä¸ªç‰¹å®šçš„å…ƒç´ 
             var key = this.keys[index];
             if(typeof key != "undefined"){
-                delete this.map[key]; //É¾³ıjson¶ÔÏóÖĞµÄÄ³Ò»¸öÔªËØ
+                delete this.map[key]; //åˆ é™¤jsonå¯¹è±¡ä¸­çš„æŸä¸€ä¸ªå…ƒç´ 
             }
             this.keys.splice(index, 1);
             return o;
@@ -117,10 +117,10 @@ ZX.Array.prototype = {
         return this.length;
     },
     indexOf : function(o){
-        return this.items.indexOf(o); //ZX.indexOf±£³ÖÒ»ÖÂ
+        return this.items.indexOf(o); //ZX.indexOfä¿æŒä¸€è‡´
     },
     indexOfKey : function(key){ 
-        return this.keys.indexOf(key); //·µ»Øint i
+        return this.keys.indexOf(key); //è¿”å›int i
     },
     get : function(index){
         return this.items[index];

@@ -1,4 +1,4 @@
-ZX.Bean.Field = function(config) {
+ï»¿ZX.Bean.Field = function(config) {
 	this.id = '';
 	this.name = '';
 	this.text = '';
@@ -11,20 +11,20 @@ ZX.Bean.Field = function(config) {
 	ZX.apply(this, config);
 	this.init();
 }
-ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfield¼Ì³Ğzx.basisËùÓĞµÄ·½·¨,ÇÒsuperClassÖ¸Ïòbasic
-	bind : false,// ´ËÊôĞÔÊÇ·ñ°ó¶¨µ½½çÃæ¿Ø¼ş£¬Ä¬ÈÏÇé¿öÊÇ²»°ó¶¨µÄ
-	minLength : 0,// ×îĞ¡³¤¶È
-	maxLength : Number.MAX_VALUE,// ×î´ó³¤¶È
-	minLengthText : '×îĞ¡³¤¶È²»ÄÜĞ¡ÓÚ {0} ¸ö×Ö·û!',
-	maxLengthText : '×î´ó³¤¶È²»ÄÜ³¬¹ı {0} ¸ö×Ö·û!',
+ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.fieldç»§ç»­defalutæ‰€æœ‰çš„æ–¹æ³•,ä¸”fieldç»§æ‰¿zx.basisæ‰€æœ‰çš„æ–¹æ³•,ä¸”superClassæŒ‡å‘basic
+	bind : false,// æ­¤å±æ€§æ˜¯å¦ç»‘å®šåˆ°ç•Œé¢æ§ä»¶ï¼Œé»˜è®¤æƒ…å†µæ˜¯ä¸ç»‘å®šçš„
+	minLength : 0,// æœ€å°é•¿åº¦
+	maxLength : Number.MAX_VALUE,// æœ€å¤§é•¿åº¦
+	minLengthText : 'æœ€å°é•¿åº¦ä¸èƒ½å°äº {0} ä¸ªå­—ç¬¦!',
+	maxLengthText : 'æœ€å¤§é•¿åº¦ä¸èƒ½è¶…è¿‡ {0} ä¸ªå­—ç¬¦!',
 	selectOnFocus : false,
-	moreNullId : null, // ¶à¸ö×Ö¶Î²»ÄÜÍ¬Ê±Îª¿ÕµÄÑéÖ¤,element idÓÃ¶ººÅ·Ö¸ô
-	showPosition : "right", // ÉèÖÃÌáÊ¾ĞÅÏ¢ÏÔÊ¾µÄÎ»ÖÃ Ä¿Ç°Ö»ÓĞright down,up
-	moreNullText : "", // ÌáÊ¾¿ÕĞÅÏ¢
+	moreNullId : null, // å¤šä¸ªå­—æ®µä¸èƒ½åŒæ—¶ä¸ºç©ºçš„éªŒè¯,element idç”¨é€—å·åˆ†éš”
+	showPosition : "right", // è®¾ç½®æç¤ºä¿¡æ¯æ˜¾ç¤ºçš„ä½ç½® ç›®å‰åªæœ‰right down,up
+	moreNullText : "", // æç¤ºç©ºä¿¡æ¯
 	allowEmpty : true,
-	emptyText : 'Öµ²»ÔÊĞíÎª¿Õ',
+	emptyText : 'å€¼ä¸å…è®¸ä¸ºç©º',
 	tipText : '',
-	needFoucs : true, // µ¯³öÌáÊ¾ĞÅÏ¢Ê±,ÎÄ±¾¿òÊÇ·ñĞèÒª½¹µã¼¯ÖĞ
+	needFoucs : true, // å¼¹å‡ºæç¤ºä¿¡æ¯æ—¶,æ–‡æœ¬æ¡†æ˜¯å¦éœ€è¦ç„¦ç‚¹é›†ä¸­
 	validator : null,
 	vtype : null,
 	vtypeText : null,
@@ -39,16 +39,16 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 	hasFocus : false,
 	viewWithAlert : false,
 	lastHideError : false,
-	blurValidate : true, // ¹â±êÀë¿ªÊ±£¬ÅĞ¶ÏÊÇ·ñĞèÒªÑéÖ¤
+	blurValidate : true, // å…‰æ ‡ç¦»å¼€æ—¶ï¼Œåˆ¤æ–­æ˜¯å¦éœ€è¦éªŒè¯
 	fieldErrorMessArr : [],
-	init : function() { // ³õÊ¼»¯Ê±ÉèÖÃtipTextÖµ,µ«ÊÇ²»ĞèÒªÑéÖ¤Öµ
-		ZX.Bean.Field.superclass.constructor.call(this); // µ÷ÓÃ¸¸ÀàµÄ¹¹Ôìº¯Êı
+	init : function() { // åˆå§‹åŒ–æ—¶è®¾ç½®tipTextå€¼,ä½†æ˜¯ä¸éœ€è¦éªŒè¯å€¼
+		ZX.Bean.Field.superclass.constructor.call(this); // è°ƒç”¨çˆ¶ç±»çš„æ„é€ å‡½æ•°
 		if (this.getId() == null || this.getId() == "") {
 			this.id = this.getName();
 		}
 		this.render();
 
-		this.addEvents('focus', 'blur', 'change', 'changevalue', 'focustext'); // °ó¶¨Ä¬ÈÏÊÂ¼ş
+		this.addEvents('focus', 'blur', 'change', 'changevalue', 'focustext'); // ç»‘å®šé»˜è®¤äº‹ä»¶
 
 		this.initValue();
 
@@ -59,7 +59,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 
 		// this.registerEvents();
 	},
-	registerEvents : function() { // ÉèÖÃÊÂ¼şµÄ¹ØÁª¶¯×÷
+	registerEvents : function() { // è®¾ç½®äº‹ä»¶çš„å…³è”åŠ¨ä½œ
 		var tmpArray = new ZX.Array();
 		var me = this;
 		this.actions.each(function(act) {
@@ -75,7 +75,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 					}
 				});
 	},
-	getActions : function(event) { // »ñÈ¡¹ØÁªµÄ¶¯×÷
+	getActions : function(event) { // è·å–å…³è”çš„åŠ¨ä½œ
 		var acts = [];
 		this.actions.each(function(act) {
 					if (act.event == event) {
@@ -130,7 +130,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 	},
 	reset : function() {
 		if (this.rendered) {
-			var firstValue = this.element.getFirstValue(); // »ñÈ¡Ä¬ÈÏÖµ,²¢ÉèÖÃÄ¬ÈÏÖµ
+			var firstValue = this.element.getFirstValue(); // è·å–é»˜è®¤å€¼,å¹¶è®¾ç½®é»˜è®¤å€¼
 			if (firstValue) {
 				this.setValue(firstValue);
 				return;
@@ -138,14 +138,14 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 		}
 		this.setValue(this.tipText);
 	},
-	focus : function() { // ½¹µã¼¯ÖĞÊ±£¬ÉèÖÃ¿ªÊ¼Öµ
+	focus : function() { // ç„¦ç‚¹é›†ä¸­æ—¶ï¼Œè®¾ç½®å¼€å§‹å€¼
 
-		this.hideErrorInfo(); // Òş²Ø´íÎóÌáÊ¾ĞÅÏ¢
+		this.hideErrorInfo(); // éšè—é”™è¯¯æç¤ºä¿¡æ¯
 
-		// ½¹µã¼¯ÖĞÓĞÌáĞÑĞÅÏ¢µÄÊ±ºòÇå¿ÕÌáĞÑĞÅÏ¢
+		// ç„¦ç‚¹é›†ä¸­æœ‰æé†’ä¿¡æ¯çš„æ—¶å€™æ¸…ç©ºæé†’ä¿¡æ¯
 		if (this.element.dom.value && this.element.dom.value == this.tipText) {
 			this.element.dom.style.color = "#154273"; // 154273
-			this.setValue("", "focusElement"); // ½¹µã¼¯ÖĞÊ±Çå¿ÕtipTextÖµ
+			this.setValue("", "focusElement"); // ç„¦ç‚¹é›†ä¸­æ—¶æ¸…ç©ºtipTextå€¼
 		}
 		if (!this.hasFocus) {
 			this.hasFocus = true;
@@ -154,11 +154,11 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 			this.fireEvent("focustext", this);
 		}
 
-		// ÉèÖÃ½¹µãÀë¿ªÎÄ±¾¿òµÄ±³¾°É«
+		// è®¾ç½®ç„¦ç‚¹ç¦»å¼€æ–‡æœ¬æ¡†çš„èƒŒæ™¯è‰²
 
 		if (this.element.dom) {
 
-			jQ(this.element.dom).select(); // ÉèÖÃÎÄ±¾¿ò½¹µã¼¯ÖĞ
+			jQ(this.element.dom).select(); // è®¾ç½®æ–‡æœ¬æ¡†ç„¦ç‚¹é›†ä¸­
 
 			if (this.type != "select") {
 				jQ(this.element.dom).css("background-color", "#FFF");
@@ -174,7 +174,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 			}
 			var oldWidth = jQ(this.element.dom).css("width");
 			jQ(this.element.dom).css("width", oldWidth);
-			// ÉèÖÃ½¹µã¼¯ÖĞ,ÒõÓ°Ğ§¹û
+			// è®¾ç½®ç„¦ç‚¹é›†ä¸­,é˜´å½±æ•ˆæœ
 			if (jQ(this.element.dom)) {
 				if (this.type != "select") {
 					jQ(this.element.dom).parent("td").css({
@@ -189,7 +189,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 	},
 	blur : function() {
 
-		// ½¹µãÀë¿ªÊ±,ÅĞ¶ÏÉèÖÃµÄÖµÊÇ·ñÎª¿Õ,Îª¿Õ¾Í¸³ÌáÊ¾Öµ
+		// ç„¦ç‚¹ç¦»å¼€æ—¶,åˆ¤æ–­è®¾ç½®çš„å€¼æ˜¯å¦ä¸ºç©º,ä¸ºç©ºå°±èµ‹æç¤ºå€¼
 		if (this.element
 				&& (this.element.dom.value == "" || this.element.dom.value == null)
 				|| (this.element.dom.value
@@ -202,7 +202,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 		}
 
 		this.hasFocus = false;
-		if (this.blurValidate) { // ÅĞ¶Ï¹â±êÀë¿ªÊ±ÊÇ·ñĞèÒªÑéÖ¤
+		if (this.blurValidate) { // åˆ¤æ–­å…‰æ ‡ç¦»å¼€æ—¶æ˜¯å¦éœ€è¦éªŒè¯
 
 			this.validate();
 		}
@@ -211,9 +211,9 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 
 		if (String(v) !== String(this.startValue)) {
 
-			this.fireEvent('changevalue', this); // ¸ÃµØ·½´æÔÚÒ»¸öbug onblurµÄÊ±ºòÖ´ĞĞÁ½´Î
+			this.fireEvent('changevalue', this); // è¯¥åœ°æ–¹å­˜åœ¨ä¸€ä¸ªbug onblurçš„æ—¶å€™æ‰§è¡Œä¸¤æ¬¡
 		}
-		// ÉèÖÃ½¹µãÀë¿ªÎÄ±¾¿òµÄ±³¾°É«
+		// è®¾ç½®ç„¦ç‚¹ç¦»å¼€æ–‡æœ¬æ¡†çš„èƒŒæ™¯è‰²
 
 		if (this.type != "select") {
 			jQ(this.element.dom).css("background-color", "#FFFFFF");
@@ -240,14 +240,14 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 		}
 
 	},
-	change : function() { // ´¥·¢ÊÂ¼ş£¬ÊÂ¼şÕæÕıµÄº¯ÊıÊÇchangevalue ×¢²áµÄÊÂ¼ş¶ÔÏó
+	change : function() { // è§¦å‘äº‹ä»¶ï¼Œäº‹ä»¶çœŸæ­£çš„å‡½æ•°æ˜¯changevalue æ³¨å†Œçš„äº‹ä»¶å¯¹è±¡
 		this.hasFocus = false;
 		if (this.validationEvent !== false && this.validateOnBlur
 				&& this.validationEvent != "blur") {
 			this.validate();
 		}
 		var v = this.getValue();
-		if (!!this.startValue) { // add by wui ÓĞÖµ²Å×öÖµ¸Ä±äÊÂ¼ş
+		if (!!this.startValue) { // add by wui æœ‰å€¼æ‰åšå€¼æ”¹å˜äº‹ä»¶
 			if (String(v) !== String(this.startValue)) {
 				// this.fireEvent('changevalue', this);
 			}
@@ -259,7 +259,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 	focustext : function() {
 
 	},
-	// ´æÔÚ´íÎóĞÅÏ¢µÄÊ±ºòÏÔÊ¾ÌáÊ¾Ãæ°å
+	// å­˜åœ¨é”™è¯¯ä¿¡æ¯çš„æ—¶å€™æ˜¾ç¤ºæç¤ºé¢æ¿
 	markInvalid : function(msg) {
 
 		if (!this.rendered) {
@@ -277,7 +277,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 		}
 
 	},
-	showErrorInfo : function(msg) { // ÏÔÊ¾´íÎóĞÅÏ¢,´«µİ´íÎóĞÅÏ¢µ¯³ö´íÎóĞÅÏ¢ÌáÊ¾¿ò
+	showErrorInfo : function(msg) { // æ˜¾ç¤ºé”™è¯¯ä¿¡æ¯,ä¼ é€’é”™è¯¯ä¿¡æ¯å¼¹å‡ºé”™è¯¯ä¿¡æ¯æç¤ºæ¡†
 
 		if (!!msg && !!this.element.dom) {
 
@@ -290,16 +290,16 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 			var inputWidth = inputObj.outerWidth(true);
 			var inputHeight = inputObj.outerHeight(true);
 
-			// Èç¹ûÊÇ³¤¶ÈÎª0,ÔòÉèÖÃ¸öÄ¬ÈÏÖµ
+			// å¦‚æœæ˜¯é•¿åº¦ä¸º0,åˆ™è®¾ç½®ä¸ªé»˜è®¤å€¼
 			if (inputWidth == 0)
 				inputWidth = 100;
 
 			var divClass = "hint";
 			var divPointerClass = "hint-pointer";
-			// ´´½¨ÏÔÊ¾Ãæ°å
+			// åˆ›å»ºæ˜¾ç¤ºé¢æ¿
 			var divContent = null;
 
-			if (this.showPosition == "right") { // Ä¬ÈÏÊÇÓÒ±ßÏÔÊ¾
+			if (this.showPosition == "right") { // é»˜è®¤æ˜¯å³è¾¹æ˜¾ç¤º
 
 			} else if (this.showPosition == "down") {
 
@@ -315,11 +315,11 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 			var parentDiv = false;
 			if (!divContent.html()) {
 				divContent = jQ("." + divClass, window.parent.document.body);
-				parentDiv = true; // ¸¸Ãæ°å´æÔÚÊ±
+				parentDiv = true; // çˆ¶é¢æ¿å­˜åœ¨æ—¶
 			}
 
 			divContent = divContent.parent();
-			if (this.showPosition == "right") { // Ä¬ÈÏÊÇÓÒ±ßÏÔÊ¾
+			if (this.showPosition == "right") { // é»˜è®¤æ˜¯å³è¾¹æ˜¾ç¤º
 				divContent.css({
 							top : parentDiv
 									? inputTop + inputHeight + 5
@@ -386,7 +386,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 		}
 
 	},
-	clearInvalid : function() { // Çå³ı´íÎóĞÅÏ¢
+	clearInvalid : function() { // æ¸…é™¤é”™è¯¯ä¿¡æ¯
 		if (!this.rendered) {
 			return;
 		}
@@ -398,7 +398,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 	},
 	validateValue : function(value) {
 	
-		if (this.element) { // ¶ÔÓÚÒş²ØµÄÎÄ±¾¿ò²»ĞèÒªÑéÖ¤
+		if (this.element) { // å¯¹äºéšè—çš„æ–‡æœ¬æ¡†ä¸éœ€è¦éªŒè¯
 			var ff = this.element.dom;
 			while(ff){
 				if(ff.style.display=="none"){
@@ -415,7 +415,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 		
 		if (value != undefined) {
 
-			// ×Ô¶¨Òåº¯ÊıµÄÑéÖ¤
+			// è‡ªå®šä¹‰å‡½æ•°çš„éªŒè¯
 			if (ZX.isFunction(this.validator)) {
 				var msg = this.validator(value);
 				if (msg !== true) {
@@ -430,20 +430,20 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 			        return string.replace(/(^\s*)|(\s*$)/g, "");
 			    }
     
-			// ÕıÔò±í´ïÊ½ÑéÖ¤			
+			// æ­£åˆ™è¡¨è¾¾å¼éªŒè¯			
 			if (this.regex && this.regexText && value) {
 				
-				try{//ÏÈ°´ÀàĞÍ¼ì²é
+				try{//å…ˆæŒ‰ç±»å‹æ£€æŸ¥
 					var vt = ZX.VTypes;
 					var func = eval("vt."+this.regex);
 					if(typeof(func)=="function"){
 						var checkBack = func(value, this);
-						if(this.regex=="idCard"){//Éí·İÖ¤ÌØÊâ´¦Àí
-							if(checkBack && (checkBack.indexOf("ÑéÖ¤Í¨¹ı")==-1)){
+						if(this.regex=="idCard"){//èº«ä»½è¯ç‰¹æ®Šå¤„ç†
+							if(checkBack && (checkBack.indexOf("éªŒè¯é€šè¿‡")==-1)){
 								this.markInvalid(checkBack);
 								return false;
 							}
-						}else{//ÆäËûÀàĞÍ
+						}else{//å…¶ä»–ç±»å‹
 							if (!checkBack) {
 								this.markInvalid(vt[this.regex + 'Text']);
 								return false;
@@ -462,12 +462,12 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 						return false;
 					}
 				}catch(e){
-						return true; //ÑéÖ¤±¨´í·µ»ØÕæ£¬¿ÉÒÔ×ßÏÂÈ¥
+						return true; //éªŒè¯æŠ¥é”™è¿”å›çœŸï¼Œå¯ä»¥èµ°ä¸‹å»
 				}
 				
 			}
 
-			// ¶à¸ö×Ö¶Î¶¼²»Îª¿ÕÑéÖ¤
+			// å¤šä¸ªå­—æ®µéƒ½ä¸ä¸ºç©ºéªŒè¯
 			if (!!this.moreNullId) {
 				var idArr = this.moreNullId.split(",");
 
@@ -479,12 +479,12 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 				}
 
 				this.needFoucs = true;
-				!result && this.markInvalid(this.moreNullText || "×Ö¶Î²»ÄÜÍ¬Ê±Îª¿Õ!");
+				!result && this.markInvalid(this.moreNullText || "å­—æ®µä¸èƒ½åŒæ—¶ä¸ºç©º!");
 				return result;
 
 			}
 
-			// ¿Õ×Ö¶ÎµÄÑéÖ¤
+			// ç©ºå­—æ®µçš„éªŒè¯
 			if (value.length < 1 || value == this.emptyText || value == "null") { // if it's blank
 
 				if (this.allowEmpty == true || this.allowEmpty == "true") {
@@ -498,16 +498,16 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 				}
 			}
 
-			// ×îĞ¡³¤¶ÈµÄÑéÖ¤
+			// æœ€å°é•¿åº¦çš„éªŒè¯
 			if (value.length < this.minLength) {
 
-				this.markInvalid(String.format(this.minLengthText, // format(×îĞ¡³¤¶ÈÎª{6}Î»,20)
-						// ¸ñÊ½ºóÎª:×îĞ¡³¤¶ÈÎª20Î»
+				this.markInvalid(String.format(this.minLengthText, // format(æœ€å°é•¿åº¦ä¸º{6}ä½,20)
+						// æ ¼å¼åä¸º:æœ€å°é•¿åº¦ä¸º20ä½
 						this.minLength));
 				return false;
 			}
 
-			// ×î´ó³¤¶ÈµÄÑéÖ¤
+			// æœ€å¤§é•¿åº¦çš„éªŒè¯
 			if (value.length > this.maxLength) {
 
 				this.markInvalid(String.format(this.maxLengthText,
@@ -515,7 +515,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 				return false;
 			}
 
-			// ÕıÔò±í´ïÊ½µÄÑéÖ¤
+			// æ­£åˆ™è¡¨è¾¾å¼çš„éªŒè¯
 			if (this.vtype) {
 
 				var vt = ZX.VTypes;
@@ -529,7 +529,7 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 
 		return true;
 	},
-	getRawValue : function() { // »ñÈ¡ĞèÒªÑéÖ¤µÄÖµ
+	getRawValue : function() { // è·å–éœ€è¦éªŒè¯çš„å€¼
 
 		var v = this.rendered ? this.element.getValue() : this.value;
 
@@ -543,12 +543,12 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 		return v;
 	},
 	validate : function() {
-		// ¶à¸ö×Ö¶Î¶¼²»Îª¿ÕÑéÖ¤	
+		// å¤šä¸ªå­—æ®µéƒ½ä¸ä¸ºç©ºéªŒè¯	
 		this.fieldErrorMessArr = [];
 
 		var validateResult = this.validateValue(this.getRawValue());
 
-		if (validateResult) { // this.disabled || ¶ÔÓÚdisabledµÄÒ²ĞèÒªÑéÖ¤
+		if (validateResult) { // this.disabled || å¯¹äºdisabledçš„ä¹Ÿéœ€è¦éªŒè¯
 			this.clearInvalid();
 			return true;
 		}
@@ -566,16 +566,16 @@ ZX.extend(ZX.Bean.Field, ZX.Basis, { // zx.bean.field¼ÌĞødefalutËùÓĞµÄ·½·¨,ÇÒfie
 		}
 		return v;
 	},
-	setValue : function(v) { // ¸øelement¸³Öµ,¸øfield¸³Öµ
-		this.value = v; // ¶ÔÏó¸³Öµ
+	setValue : function(v) { // ç»™elementèµ‹å€¼,ç»™fieldèµ‹å€¼
+		this.value = v; // å¯¹è±¡èµ‹å€¼
 
-		if (this.tipText && v == this.tipText && this.element) { // ÉèÖÃÌáĞÑÎÄ±¾µÄ×ÖÌåÑÕÉ«
+		if (this.tipText && v == this.tipText && this.element) { // è®¾ç½®æé†’æ–‡æœ¬çš„å­—ä½“é¢œè‰²
 			this.element.dom.style.color = "#C0C0C0";
 		}
 
 		if (this.rendered) {
 
-			this.element.setValue((ZX.isEmpty(v) ? '' : v)); // element¸³Öµ
+			this.element.setValue((ZX.isEmpty(v) ? '' : v)); // elementèµ‹å€¼
 
 			if (!!arguments[1]
 					&& !(arguments[1] == "initElement" || arguments[1] == "focusElement")) {

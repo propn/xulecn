@@ -1,4 +1,4 @@
-ZX.Action =function(config){
+﻿ZX.Action =function(config){
 	this.id='';
 	this.event = '';
 	this.name='';
