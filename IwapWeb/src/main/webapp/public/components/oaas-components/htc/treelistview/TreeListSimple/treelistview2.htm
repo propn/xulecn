@@ -1,0 +1,341 @@
+<html>
+<head>
+	<title>htc测试</title>
+	<?XML:NAMESPACE PREFIX=ADVTREE />
+	<?IMPORT NAMESPACE=ADVTREE IMPLEMENTATION="TreeListView2.htc" /> 
+	<script language="javascript">
+		function init()
+		{
+			var colm=new Array();
+			var Ndata=new Array();
+			var Ndata2=new Array();
+			
+			//开始设置coloums
+			colm[colm.length]=new Array();
+			colm[colm.length-1].width="50%";
+			colm[colm.length-1].display=true;//用来设置时候需要显示该列
+			colm[colm.length-1].displayText="TEXT";
+			colm[colm.length-1].propertyName="text";
+				
+			colm[colm.length]=new Array();
+			colm[colm.length-1].width="17%";
+			colm[colm.length-1].display=false;
+			colm[colm.length-1].displayText="Data1";
+			colm[colm.length-1].propertyName="Data1";
+			
+			colm[colm.length]=new Array();
+			colm[colm.length-1].width="33%";
+			colm[colm.length-1].display=true;
+			colm[colm.length-1].displayText="ID";
+			colm[colm.length-1].propertyName="id";
+			
+			Ndata[Ndata.length]=new Object();
+			Ndata[Ndata.length-1].text="中心";
+			Ndata[Ndata.length-1].index="0";
+			Ndata[Ndata.length-1].id="01";
+			Ndata[Ndata.length-1].Data1="dddd";
+			Ndata[Ndata.length-1].children=new Array();
+			
+			var obj=new Object();
+			obj.text="中软";
+			obj.index="01";
+			obj.id="0101";
+			obj.Data1="dssdfds";
+			obj.FONT_COLOR="green";
+			Ndata[Ndata.length-1].children[Ndata[Ndata.length-1].children.length]=obj;
+			
+			var obj=new Object();
+			obj.text="南京研究中心";
+			obj.index="02";
+			obj.id="0102";
+			obj.Data1="dssdfds";
+			
+			var obj2=new Object();
+			obj2.text="CDMA事业部";
+			obj2.index="021";
+			obj2.id="010201";
+			obj2.Data1="梵蒂冈大";
+			obj.children= new Array();
+			obj.children[obj.children.length]=obj2;
+			
+			Ndata[Ndata.length-1].children[Ndata[Ndata.length-1].children.length]=obj;
+			
+			var obj=new Object();
+			obj.text="上海研究中心";
+			obj.index="03";
+			obj.id="0103";
+			obj.Data1="dssdfds";
+			Ndata[Ndata.length-1].children[Ndata[Ndata.length-1].children.length]=obj;
+			
+			Ndata[Ndata.length]=new Object();
+			Ndata[Ndata.length-1].text="通信";
+			Ndata[Ndata.length-1].index="1";
+			Ndata[Ndata.length-1].id="10";
+			Ndata[Ndata.length-1].Data1="sdfsfsd";
+			Ndata[Ndata.length-1].children=new Array();
+			
+			var obj=new Object();
+			obj.text="手机事业部";
+			obj.index="11";
+			obj.id="1001";
+			obj.Data1="22111111111";
+			Ndata[Ndata.length-1].children[Ndata[Ndata.length-1].children.length]=obj;
+			
+			document.all.adv.check=false;
+			document.all.adv.loadByData(Ndata);
+			
+			
+		}
+		function getChildrenCount()
+		{
+			var node=document.all.adv.selectedItem.getChildren();
+			alert(node.length);
+		}
+		
+		function addOnTree()
+		{
+			var node=document.all.adv.createTreeNode();
+			node.setAttribute("text","ddddd");
+			node.setAttribute("index","000222003");
+			node.setAttribute("Data1","22334455");
+			node.setAttribute("id","ddsw332342423");
+			node.setAttribute("FONT_COLOR","green");
+			node.setAttribute("IdClickName","fne()");
+			document.all.adv.add(node);
+			document.all.adv.refresh();
+			node.setSelected();
+		}
+		
+		function addOnNode()
+		{
+			var node2=document.all.adv.selectedItem;
+			var node=node2.createTreeNode();
+			node.setAttribute("text","ddddd");
+			node.setAttribute("Data1","22334455");
+			node.setAttribute("id","111222333");
+			node.setAttribute("IdClickName","fnd()");
+			node.setAttribute("DataClickName","fnc('aaaaaaaaaaaaaaaaaa')");
+			node2.add(node);
+			node.refresh();
+			node.setSelected();
+			node2.setBgColor("red");
+		}
+		function deleteNode()
+		{
+			var node2=document.all.adv.selectedItem;
+			node2.remove();
+		}
+		function clearss()
+		{
+			document.all.adv.clear();
+		}
+		function getAllLength()
+		{
+			alert(document.all.adv.allItemsLength);
+		}
+		function loadByXML()
+		{
+			var xml="";
+			xml+="<property><columns>";
+			xml+="<column width='150' display='true' displayText='TEXT' propertyName='text'></column>";
+			xml+="<column width='150' display='true' displayText='ID' propertyName='id'></column>";
+			xml+="</columns><items>";
+			for (var i=0;i<10;i++)
+			{
+				xml+="<item text='中心软创1' id='001'></item>";
+				xml+="<item text='中心软创2' id='001'></item>";
+				xml+="<item text='中心软创3' id='001'></item>";
+				xml+="<item text='中心软创4' id='001'></item>";
+				xml+="<item text='中心软创5' id='001'></item>";
+				xml+="<item text='中心软创6' id='001'></item>";
+				xml+="<item text='中心软创7' id='001'></item>";
+				xml+="<item text='中心软创8' id='001'></item>";
+				xml+="<item text='中心软创9' id='001'></item>";
+				xml+="<item text='中心软创a' id='001'></item>";
+				xml+="<item text='中心软创b' id='001'></item>";
+				xml+="<item text='中心软创c' id='001'></item>";
+				xml+="<item text='中心软创d' id='001'></item>";
+				xml+="<item text='中心软创e' id='001'></item>";
+				xml+="<item text='中心软创f' id='001'></item>";
+				xml+="<item text='中心软创g' id='001'></item>";
+				xml+="<item text='中心软创h' id='001'></item>";
+				xml+="<item text='中心软创i' id='001'></item>";
+				xml+="<item text='中心软创j' id='001'></item>";
+				xml+="<item text='中心软创k' id='001'></item>";
+				xml+="<item text='中心软创l' id='001'></item>";
+				xml+="<item text='中心软创m' id='001'></item>";
+				xml+="<item text='中心软创n' id='001'></item>";
+				xml+="<item text='中心软创o' id='001'></item>";
+				xml+="<item text='中心软创p' id='001'></item>";
+				xml+="<item text='中心软创q' id='001'></item>";
+				xml+="<item text='中心软创r' id='001'></item>";
+				xml+="<item text='中心软创s' id='001'></item>";
+				xml+="<item text='中心软创t' id='001'></item>";
+				xml+="<item text='中心软创u' id='001'></item>";
+				xml+="<item text='中心软创v' id='001'></item>";		
+				xml+="<item text='中心软创w' id='001'></item>";
+				xml+="<item text='中心软创x' id='001'></item>";
+				xml+="<item text='中心软创y' id='001'></item>";
+				xml+="<item text='中心软创z' id='001'></item>";
+				xml+="<item text='中心软创37' id='001'></item>";
+				xml+="<item text='中心软创38' id='001'></item>";
+				xml+="<item text='中心软创39' id='001'></item>";
+				xml+="<item text='中心软创40' id='001'></item>";
+				xml+="<item text='中心软创41' id='001'></item>";
+				xml+="<item text='中心软创42' id='001'></item>";
+				xml+="<item text='中心软创43' id='001'></item>";
+				xml+="<item text='中心软创44' id='001'></item>";
+				xml+="<item text='中心软创45' id='001'></item>";
+				xml+="<item text='中心软创46' id='001'></item>";
+				xml+="<item text='中心软创47' id='001'></item>";
+				xml+="<item text='中心软创48' id='001'></item>";
+				xml+="<item text='中心软2创49' id='002'></item>";
+				xml+="<item text='中心软创50' id='001'></item>";
+			}
+			xml+="</items></property>";
+			document.all.adv.loadByXML(xml);
+		}
+		function getCheckedItems()
+		{
+			var checkItem=document.all.adv.checkedItems;
+			alert(checkItem.length);
+		}
+		function getSelectedId()
+		{
+			var selectedItem=document.all.adv.selectedItem;
+			if(selectedItem==null)
+			{
+				return;
+			}
+			if (selectedItem.checked())
+			{
+				alert(selectedItem.getAttribute("id"));
+			}
+		}
+		
+		function getSelectedEnabled()
+		{
+			var selectedItem=document.all.adv.selectedItem;
+			alert(selectedItem.checked());
+			selectedItem.setEnabled(true);//设置无效
+			selectedItem.setChecked(true);//设置被选中
+			alert(selectedItem.checked());
+		}
+		
+		function fncCheckItem()
+		{
+			var item=document.all.adv.selectedItem;
+			var chkBool=item.checked();
+			checkChildren(item,chkBool);
+		}
+		
+		function checkChildren(item,bool)
+		{
+			for(var i=0;i<item.items.length;i++)
+			{
+				item.items[i].setChecked(bool);
+				if (item.items[i].items.length>0)
+				{
+					checkChildren(item.items[i],bool);
+				}
+			}
+		}
+		function delCheckedItems()
+		{
+			var items=adv.checkedItems;
+			for(var i=0;i<items.length;i++)
+			{
+				items[i].remove();
+			}
+		}
+		
+		function setScrollBotom()
+		{
+			adv.setScrollToLine(10);
+		}
+		
+		function setRowBgColor()
+		{
+			for (var i=0;i<adv.items.length;i++)
+			{
+				adv.items[i].setBgColor("lightgrey");
+			}
+			//adv.refresh();
+		}
+		
+		function setRowFontColor()
+		{
+			for (var i=0;i<adv.items.length;i++)
+			{
+				adv.items[i].setFontColor("green");
+			}
+		}
+		function fnc(str)
+		{
+			var item=adv.selectedItem;
+			alert("the text="+item.text+"the str ="+str);
+		}
+		
+		function fnd()
+		{
+			var item=adv.selectedItem;
+			alert("the date1="+item.Data1);
+		}
+		
+		function fne()
+		{
+			var item=adv.selectedItem;
+			alert("the id="+item.id);
+		}
+	</script>
+</head>
+	
+<body>
+<table border="1" width="20" height="300">
+<tr>
+<td width="100%" height="100%" valign="top">
+	<ADVTREE:treelistview id="adv" imagesurl="../images" showImage=false setChecked=true check=true  width="320"  onItemChecked="fncCheckItem();" height="200" onItemContextMenu="alert('表格右键响应');"
+	onDivContextMenu="alert('Div右键响应，但是不触发表格右键响应事件');" onItemClick="//alert('onItemClick')" showHead=true ondblclick="alert('ondblclick');">
+		<ADVTREE:property>
+		<ADVTREE:columns>
+			<ADVTREE:column width="100" display="true" displayText="德国队" propertyName="text"></ADVTREE:column>
+			<ADVTREE:column width="100" display="true" displayText="ID" propertyName="id" displayType="link" displayTypeName="IdClickName"></ADVTREE:column>
+			<ADVTREE:column width="100" display="true" displayText="Data1" propertyName="Data1" displayType="link" displayTypeName="DataClickName"></ADVTREE:column>
+		</ADVTREE:columns>
+		<ADVTREE:items>
+			<ADVTREE:item text="111" id="001" Data1="ZTEsoft" FONT_COLOR="red" BG_COLOR="blue">
+				<ADVTREE:item text="222" id="002" Data1="ZTEsoftDep" FONT_COLOR="red">
+					<ADVTREE:item text="CRM333" id="link" Data1="ZTEsoftTesCRM" FONT_COLOR="red"  BG_COLOR="green"  DataClickName="fnd()"></ADVTREE:item>
+					<ADVTREE:item text="CCM444" id="004" Data1="ZTEsoftTesCCMCnCmmc" IdClickName="fnd()"  BG_COLOR="green"></ADVTREE:item>
+				</ADVTREE:item>
+				<ADVTREE:item text="555" id="005" Data1="ZTEsoftTes" IdClickName="fnc('bbb')" DataClickName="fnd()"></ADVTREE:item>
+				<ADVTREE:item text="ggg" id="006" Data1="ZTEsoftMar"></ADVTREE:item>
+			</ADVTREE:item>
+			<ADVTREE:item text="CDMA777" id="zte01" Data1="ZTECdma" IdClickName="fnc('aaa')" DataClickName="fnd()" BG_COLOR="green"></ADVTREE:item>
+		</ADVTREE:items>
+		</ADVTREE:property>
+	</ADVTREE:treelistview>
+</td>
+</tr>
+<tr >
+	<td><input type="button"  value="得到选中行的子节点个数" onclick="getChildrenCount()"></td>
+	</tr><tr><td><input type="button" value="根节点增加子节点" onclick="addOnTree();"><input type=button value="设置第二行背景色" onclick="setRowBgColor();"></td>
+	</tr><tr><td><input type="button" value="选中行添加子节点" onclick="addOnNode();"><input type=button value="设置第二行字体色" onclick="setRowFontColor();" ID="Button2" NAME="Button2"></td>
+</tr>
+<tr>
+	<td><input type="button" value="总节点数" onclick="getAllLength();"></td>
+	</tr><tr><td><input type="button" value="删除指定节点" onclick="deleteNode();"></td>
+	</tr><tr><td><input type="button" value="清空记录" onclick="clearss();"></td>
+</tr>
+<tr>
+	<td><input type="button" value="数组导入" onclick="init();"><input type="button" value="XML导入" onclick="loadByXML();"><input type="checkbox" ></td>
+</tr>
+<tr>
+	<td><input type="button" value="得到可选框选中记录" onclick="getCheckedItems();"><br><input type="button" value="得到选中ID" onclick="getSelectedId();"><input type="button" value="设置选中行无效" onclick="getSelectedEnabled();" ID="Button1" NAME="Button1"></td>
+</tr>
+<tr>
+	<td><input type="button" onclick="delCheckedItems();" value="删除可选筐选中记录"><input type="button" onclick="setScrollBotom();" value="滚动条滚到第10条"></td>	
+</tr>
+</table>
+</body>
+</html>
