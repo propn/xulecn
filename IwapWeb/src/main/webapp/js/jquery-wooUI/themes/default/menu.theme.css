@@ -19,8 +19,7 @@
 .ui-widget-content {
 	border: 1px solid #aaaaaa;
 	background: #f0efea
-		url(images/ui-bg_highlight-soft_100_f0efea_1x100.png) 50% top repeat-x
-		;
+		url(images/ui-bg_highlight-soft_100_f0efea_1x100.png) 50% top repeat-x;
 	color: #222222;
 }
 
@@ -118,7 +117,7 @@
 
 .ui-state-disabled,.ui-widget-content .ui-state-disabled {
 	opacity: .35;
-	filter: Alpha(Opacity = 35);
+	filter: Alpha(Opacity =   35);
 	background-image: none;
 }
 
@@ -128,7 +127,7 @@
 
 .ui-priority-secondary,.ui-widget-content .ui-priority-secondary {
 	opacity: .7;
-	filter: Alpha(Opacity = 70);
+	filter: Alpha(Opacity =   70);
 	font-weight: normal;
 }
 
@@ -921,7 +920,7 @@
 	background: #2e2e28 url(images/ui-bg_glow-ball_25_2e2e28_600x600.png)
 		50% 35% repeat-x;
 	opacity: .65;
-	filter: Alpha(Opacity = 65);
+	filter: Alpha(Opacity =   65);
 }
 
 .ui-widget-shadow {
@@ -930,7 +929,7 @@
 	background: #f0f0f0 url(images/ui-bg_flat_35_f0f0f0_40x100.png) 50% 50%
 		repeat-x;
 	opacity: .30;
-	filter: Alpha(Opacity = 30);
+	filter: Alpha(Opacity =   30);
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 }
@@ -946,5 +945,3 @@
 	color: #ffffff;
 	outline: none;
 }
-
-

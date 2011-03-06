@@ -9,8 +9,7 @@
  * 
  * 
  * 
- * 所有模块都是基于其中的component方法进行扩展，使用统一的命名规范和编码风格。
- * 先来说一下原理：
+ * 所有模块都是基于其中的component方法进行扩展，使用统一的命名规范和编码风格。 先来说一下原理：
  * $.component此函数完成了对jQuery本身的扩展，根据第一个参数来确定模块的命名空间和函数名；第二个参数确定模块的基类（默认是$.Component）；第三个参数实现模块本身的方法。比如标签切换插件tabs.js中开始：
  * $.component(“woo.tabs”, {…});//这里只有两个参数，那么基类就默认是$.Component
  * 第一个参数：”woo.tabs”用来表示在jQuery上选择（或增加）一个命名空间，即如果jQuery.woo不存在，则定义jQuery.woo =
@@ -20,14 +19,14 @@
  * 
  * jquery
  * ui的大部分控件是基于$.Component基类实现的。所以一般我们做控件是都要重写$.Component类中的一些方法。一般来说，一个ui控件需要实现下列的方法或属性：
- * 属性： 
+ * 属性：
  * @1.options 用来缓存控件各项参数 私有方法，使用“$(xx).tabs(私有方法)”这种方式来调用私有方法时会立刻返回，调用不能成功：
  * @2._create 控件初始化调用,多次调用$(xx).tabs()这样不带参数的方法只会执行一次
- * @3._init 一般不用实现，默认为空函数，每次“$(xx).tabs()”这样调用时会调用此方法 
- * @4._setOption “$(xx).tabs(‘option’,xxx)”这种调用方式会调用此方法 公开方法： 
- * @5.destroy 销毁模块 
+ * @3._init 一般不用实现，默认为空函数，每次“$(xx).tabs()”这样调用时会调用此方法
+ * @4._setOption “$(xx).tabs(‘option’,xxx)”这种调用方式会调用此方法 公开方法：
+ * @5.destroy 销毁模块
  * @6.option 设置或获取参数
- * @7.enable 启用模块功能 
+ * @7.enable 启用模块功能
  * @8.disable 禁用功能
  * 
  * 几乎所有的jquery ui控件都会重写这些接口，同时增加控件相关的私有或公有方法。
@@ -91,11 +90,11 @@
 		 * 2.定义$['woo']['mycomponent']原型，把子类原型指向合并后的父类对象，这样通过子类对象也可以直接调用基类prototype的方法
 		 */
 		$[ns][name].prototype = $.extend(true, basePrototype, {
-					ns : ns,
-					cmpName : name,
-					eventProfix : $[ns][name].prototype.eventProfix || name,
-					widgetBaseClass : fullName
-				}, prototype);
+			ns : ns,
+			cmpName : name,
+			eventProfix : $[ns][name].prototype.eventProfix || name,
+			widgetBaseClass : fullName
+		}, prototype);
 
 		$.component.bridge(name, $[ns][name]);
 	};
@@ -111,7 +110,7 @@
 			// allow multiple hashes to be passed on init
 			// 可以简单认为是$.extend(true,options,args[0],...),args可以是一个参数或是数组
 			options = !isMethodCall && args.length ? $.extend.apply(null, [
-							true, options].concat(args)) : options;
+					true, options ].concat(args)) : options;
 			// prevent calls to internal methods
 			// 开头带下划线的方法都是私有方法，不让调用
 			if (isMethodCall && options.substring(0, 1) === "_") {
@@ -119,11 +118,12 @@
 			}
 
 			if (isMethodCall) {// 如果是调用函数
-				this.each(function() {
+				this
+						.each(function() {
 							var instance = $.data(this, name), // 得到实例，实例作为一个数据和元素关联上
 							methodValue = instance
-									&& $.isFunction(instance[options])
-									? instance[options].apply(instance, args)
+									&& $.isFunction(instance[options]) ? instance[options]
+									.apply(instance, args)
 									: instance;// 如果实例和方法均存在，调用方法，把args作为参数传进去
 							// 如果methodValue不是jquery对象也不是undefined
 							if (methodValue !== instance
@@ -134,17 +134,17 @@
 						});
 			} else {// 不是函数调用的话
 				this.each(function() {
-							var instance = $.data(this, name);
-							if (instance) {// 实例存在
-								if (options) {// 有参数
-									instance.option(options);// 调用option函数，一般是设置状态之类的操作
-								}
-								instance._init();// 再次调用此函数，根据options调整
-							} else {
-								// 没有实例的话，给元素绑定一个实例。注意这里的this是dom，object是模块类
-								$.data(this, name, new object(options, this));
-							}
-						});
+					var instance = $.data(this, name);
+					if (instance) {// 实例存在
+						if (options) {// 有参数
+							instance.option(options);// 调用option函数，一般是设置状态之类的操作
+						}
+						instance._init();// 再次调用此函数，根据options调整
+					} else {
+						// 没有实例的话，给元素绑定一个实例。注意这里的this是dom，object是模块类
+						$.data(this, name, new object(options, this));
+					}
+				});
 			}
 
 			return returnValue;// 返回，有可能是jquery对象，有可能是其他值
@@ -173,12 +173,12 @@
 			// 将组件实例存储到了$.data中，供$.component.bridge使用
 			this.element = this.el = $(element).data(this.cmpName, this);
 			this.options = $.extend(true, {}, this.options, $.metadata
-							&& $.metadata.get(element)[this.cmpName], options);
+					&& $.metadata.get(element)[this.cmpName], options);
 
 			var self = this;
 			this.el.bind("remove." + this.cmpName, function() {
-						self.destroy();
-					});
+				self.destroy();
+			});
 
 			this._create();// 创建
 			this._init();// 初始化
@@ -189,8 +189,9 @@
 		destroy : function() {// 销毁模块：去除绑定事件、去除数据、去除样式、属性
 			this.el.unbind("." + this.cmpName).removeData(this.cmpName);
 			this.comp().unbind("." + this.cmpName).removeAttr("aria-disabled")
-					.removeClass(this.widgetBaseClass + "-disabled "
-							+ this.namespace + "-state-disabled");
+					.removeClass(
+							this.widgetBaseClass + "-disabled "
+									+ this.namespace + "-state-disabled");
 		},
 
 		comp : function() {
@@ -214,8 +215,8 @@
 			}
 
 			$.each(options, function(key, value) {
-						self._setOption(key, value);
-					});
+				self._setOption(key, value);
+			});
 
 			return self;
 		},
@@ -223,11 +224,10 @@
 			this.options[key] = value;
 
 			if (key === "disabled") {
-				this.comp()[value ? "addClass" : "removeClass"](this.widgetBaseClass
-						+ "-disabled"
-						+ " "
-						+ this.namespace
-						+ "-state-disabled").attr("aria-disabled", value);
+				this.comp()[value ? "addClass" : "removeClass"](
+						this.widgetBaseClass + "-disabled" + " "
+								+ this.namespace + "-state-disabled").attr(
+						"aria-disabled", value);
 			}
 
 			return this;
@@ -244,8 +244,7 @@
 			var callback = this.options[type];
 
 			event = $.Event(event);
-			event.type = (type === this.widgetEventPrefix
-					? type
+			event.type = (type === this.widgetEventPrefix ? type
 					: this.widgetEventPrefix + type).toLowerCase();
 			data = data || {};
 
@@ -254,7 +253,7 @@
 			// but we don't have a way to force an event to be fixed multiple
 			// times
 			if (event.originalEvent) {
-				for (var i = $.event.props.length, prop; i;) {
+				for ( var i = $.event.props.length, prop; i;) {
 					prop = $.event.props[--i];
 					event[prop] = event.originalEvent[prop];
 				}
@@ -300,15 +299,15 @@
 			var self = this;
 
 			this.el.bind('mousedown.' + this.cmpName, function(event) {
-						return self._mouseDown(event);
-					}).bind('click.' + this.cmpName, function(event) {
-						if (self._preventClickEvent) {
-							// 阻止鼠标事件冒泡
-							self._preventClickEvent = false;
-							event.stopImmediatePropagation();
-							return false;
-						}
-					});
+				return self._mouseDown(event);
+			}).bind('click.' + this.cmpName, function(event) {
+				if (self._preventClickEvent) {
+					// 阻止鼠标事件冒泡
+					self._preventClickEvent = false;
+					event.stopImmediatePropagation();
+					return false;
+				}
+			});
 
 			this.started = false;
 		},
@@ -332,9 +331,9 @@
 
 			this._mouseDownEvent = event;
 
-			var self = this, btnIsLeft = (event.which == 1), elIsCancel = (typeof this.options.cancel == "string"
-					? $(event.target).parents().add(event.target)
-							.filter(this.options.cancel).length
+			var self = this, btnIsLeft = (event.which == 1), elIsCancel = (typeof this.options.cancel == "string" ? $(
+					event.target).parents().add(event.target).filter(
+					this.options.cancel).length
 					: false);
 			// 如果点击的是左键，执行_mouseCapture 返回为false,则函数返回
 			if (!btnIsLeft || elIsCancel || !this._mouseCapture(event)) {
@@ -344,8 +343,8 @@
 			this.mouseDelayMet = !this.options.delay;
 			if (!this.mouseDelayMet) {
 				this._mouseDelayTimer = setTimeout(function() {
-							self.mouseDelayMet = true;
-						}, this.options.delay);
+					self.mouseDelayMet = true;
+				}, this.options.delay);
 			}
 
 			if (this._mouseDistanceMet(event) && this._mouseDelayMet(event)) {
@@ -442,12 +441,12 @@
 			return new F();
 		});
 	})(function() {
-			});
+	});
 
 	// 创建一个组件的子类
 	var OVERRIDE = /xyz/.test(function() {
-				xyz;
-			}) ? /\b_super\b/ : /.*/;
+		xyz;
+	}) ? /\b_super\b/ : /.*/;
 
 	// 添加一个方法
 	$.woo.component.subclass = function subclass(name) {
@@ -476,50 +475,49 @@
 			if (proto.hasOwnProperty(key))
 				switch (key) {
 
-					case '_create' :
-						var create = proto._create;
-						proto._create = function() {
-							superproto._create.apply(this);
-							create.apply(this);
-						};
-						break;
-					case '_init' :
-						var init = proto._init;
-						proto._init = function() {
-							superproto._init.apply(this);
-							init.apply(this);
-						};
-						break;
-					case 'destroy' :
-						var destroy = proto.destroy;
-						proto.destroy = function() {
-							destroy.apply(this);
-							superproto.destroy.apply(this);
-						};
-						break;
-					case 'options' :
-						var options = proto.options;
-						proto.options = $.extend({}, superproto.options,
-								options);
-						break;
-					default :
-						if ($.isFunction(proto[key])
-								&& $.isFunction(superproto[key])
-								&& OVERRIDE.test(proto[key])) {
-							proto[key] = (function(name, fn) {
-								return function() {
-									var tmp = this._super;
-									this._super = superproto[name];
-									try {
-										var ret = fn.apply(this, arguments);
-									} finally {
-										this._super = tmp;
-									}
-									return ret;
-								};
-							})(key, proto[key]);
-						}
-						break;
+				case '_create':
+					var create = proto._create;
+					proto._create = function() {
+						superproto._create.apply(this);
+						create.apply(this);
+					};
+					break;
+				case '_init':
+					var init = proto._init;
+					proto._init = function() {
+						superproto._init.apply(this);
+						init.apply(this);
+					};
+					break;
+				case 'destroy':
+					var destroy = proto.destroy;
+					proto.destroy = function() {
+						destroy.apply(this);
+						superproto.destroy.apply(this);
+					};
+					break;
+				case 'options':
+					var options = proto.options;
+					proto.options = $.extend({}, superproto.options, options);
+					break;
+				default:
+					if ($.isFunction(proto[key])
+							&& $.isFunction(superproto[key])
+							&& OVERRIDE.test(proto[key])) {
+						proto[key] = (function(name, fn) {
+							return function() {
+								var tmp = this._super;
+								this._super = superproto[name];
+								try {
+									var ret = fn.apply(this, arguments);
+								} finally {
+									this._super = tmp;
+								}
+								return ret;
+							};
+						})(key, proto[key]);
+					}
+					break;
 				}
 		}
 	};

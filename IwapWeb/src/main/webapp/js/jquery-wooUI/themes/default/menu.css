@@ -53,6 +53,7 @@ body {
 	overflow: scroll;
 	overflow-x: hidden;
 }
+
 .fg-menu li {
 	clear: both;
 	float: left;
@@ -225,18 +226,18 @@ body {
 	font-size: 0px;
 	margin: 0 2px;
 }
+
 /**菜单图标统一样式**/
-.item-icon{
-	height:16px;
-	width:16px;
+.item-icon {
+	height: 16px;
+	width: 16px;
 }
 
 /**菜单项disabled样式**/
-.item-disabled{
+.item-disabled {
 	color: #999999;
 }
 
 .user {
 	background-image: url(images/user.gif) !important;
 }
-
