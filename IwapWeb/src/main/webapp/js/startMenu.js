@@ -9,13 +9,13 @@
 		动作（action）包括：show、hide、lock、unlock、toright、toleft、close
 		lock状态下，show、hide两种action无效
 		close动作将会清除lock状态，show、hide两种action有效
-	
+	*/
 	var defaults = {
 		display:false,
 		lock:false,
 		position:'LEFT'	//LEFT or RIGHT
 	}
-	*/
+	
 
 	function init(menuBtn){
 		setSize();
