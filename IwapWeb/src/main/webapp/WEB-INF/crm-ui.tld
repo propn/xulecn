@@ -3,16 +3,15 @@
 <!DOCTYPE taglib
         PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
        "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
-<!-- a tab library descriptor -->
 <taglib>
-  <tlibversion>1.0</tlibversion>
-  <jspversion>1.1</jspversion>
-  <shortname>ztesoft</shortname>
-  <info>
-       ztesoft manager
-  </info> 
-  	
-  	 <tag>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>ztesoft</shortname>
+	<info>
+		ztesoft manager
+  </info>
+
+	<tag>
 		<name>loadData </name>
 		<tagclass>com.ztesoft.component.ui.taglib.DataLoader</tagclass>
 		<attribute>
@@ -23,7 +22,7 @@
 		</attribute>
 		<attribute>
 			<name>parameters</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>datasetId</name>
 		</attribute>
@@ -66,7 +65,7 @@
 		</attribute>
 
 	</tag>
-  	<tag>
+	<tag>
 		<name>bar</name>
 		<tagclass>com.ztesoft.component.ui.taglib.BarTag</tagclass>
 		<attribute>
@@ -81,14 +80,14 @@
 		<attribute>
 			<name>style</name>
 			<rtexprvalue>true</rtexprvalue>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>title</name>
 		</attribute>
 		<attribute>
 			<name>content</name>
-		</attribute>			
-	</tag>	
+		</attribute>
+	</tag>
 	<tag>
 		<name>panel</name>
 		<tagclass>com.ztesoft.component.ui.taglib.PanelTag</tagclass>
@@ -103,116 +102,108 @@
 		</attribute>
 		<attribute>
 			<name>style</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>title</name>
 		</attribute>
 		<attribute>
 			<name>content</name>
-		</attribute>	
+		</attribute>
 		<attribute>
-		    <name>autoScroll</name>
+			<name>autoScroll</name>
 		</attribute>
 		<attribute>
 			<name>dynaControlId</name>
 		</attribute>
-		
-		 		
-	</tag>	
+	</tag>
 	<tag>
 		<name>content</name>
-		<tagclass>com.ztesoft.component.ui.taglib.ContentTag</tagclass>	
+		<tagclass>com.ztesoft.component.ui.taglib.ContentTag</tagclass>
 		<attribute>
 			<name>id</name>
 		</attribute>
 		<attribute>
 			<name>use</name>
-		</attribute>			
-	</tag>		
+		</attribute>
+	</tag>
 	<tag>
 		<name>title</name>
-		<tagclass>com.ztesoft.component.ui.taglib.TitleTag</tagclass>			
+		<tagclass>com.ztesoft.component.ui.taglib.TitleTag</tagclass>
 		<attribute>
 			<name>id</name>
 		</attribute>
-	</tag>	
+	</tag>
 	<tag>
 		<name>fragment</name>
 		<tagclass>com.ztesoft.component.ui.taglib.FragmentTag</tagclass>
 		<attribute>
 			<name>id</name>
-		</attribute>				
-	</tag>	
+		</attribute>
+	</tag>
 	<tag>
 		<name>layout</name>
 		<tagclass>com.ztesoft.component.ui.taglib.LayoutTag</tagclass>
 		<attribute>
 			<name>type</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>style</name>
 			<rtexprvalue>true</rtexprvalue>
-		</attribute>					
-	</tag>	
+		</attribute>
+	</tag>
 	<tag>
 		<name>pane</name>
 		<tagclass>com.ztesoft.component.ui.taglib.PaneTag</tagclass>
 		<attribute>
 			<name>position</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>style</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>use</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>autoScroll</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>withSpliter</name>
 		</attribute>
 		<attribute>
 			<name>withSlider</name>
-		</attribute>		
+		</attribute>
 		<attribute>
 			<name>folded</name>
 		</attribute>
-		<attribute>
-			<name>paneDivId</name>
-		</attribute>	
-		<attribute>
-			<name>paneId</name>
-		</attribute>												
-	</tag>	
+	</tag>
 	<tag>
 		<name>tabpane</name>
 		<tagclass>com.ztesoft.component.ui.taglib.TabpaneTag</tagclass>
 		<attribute>
 			<name>id</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>direction</name>
-		</attribute>			
+		</attribute>
 		<attribute>
 			<name>style</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>type</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>scroll</name>
-		</attribute>		
+		</attribute>
 		<attribute>
 			<name>minimizable</name>
-		</attribute>		
+		</attribute>
 		<attribute>
 			<name>maximizable</name>
 		</attribute>
 		<attribute>
 			<name>windowable</name>
-		</attribute>				
-	</tag>		
+		</attribute>
+	</tag>
 	<tag>
 		<name>tabpage</name>
 		<tagclass>com.ztesoft.component.ui.taglib.TabpageTag</tagclass>
@@ -221,10 +212,10 @@
 		</attribute>
 		<attribute>
 			<name>desc</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>use</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>target</name>
 		</attribute>
@@ -236,7 +227,7 @@
 		</attribute>
 		<attribute>
 			<name>autoLoad</name>
-		</attribute>			
+		</attribute>
 		<attribute>
 			<name>autoScroll</name>
 		</attribute>
@@ -245,20 +236,20 @@
 		</attribute>
 		<attribute>
 			<name>dynaControlId</name>
-		</attribute>														
+		</attribute>
 	</tag>
 	<tag>
 		<name>table</name>
 		<tagclass>com.ztesoft.component.ui.taglib.TableTag</tagclass>
 		<attribute>
 			<name>id</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>dataset</name>
 		</attribute>
 		<attribute>
 			<name>fields</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>readOnly</name>
 		</attribute>
@@ -273,33 +264,33 @@
 		</attribute>
 		<attribute>
 			<name>showIndicator</name>
-		</attribute>		
+		</attribute>
 		<attribute>
 			<name>highlightSelection</name>
-		</attribute>		
+		</attribute>
 		<attribute>
 			<name>maxRow</name>
-		</attribute>				
+		</attribute>
 		<attribute>
 			<name>skipRebuild</name>
-		</attribute>				
-			
+		</attribute>
+
 		<attribute>
 			<name>scope</name>
-		</attribute>	
-	</tag>			
+		</attribute>
+	</tag>
 	<tag>
 		<name>form</name>
 		<tagclass>com.ztesoft.component.ui.taglib.FormTag</tagclass>
 		<attribute>
 			<name>id</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>type</name>
 		</attribute>
 		<attribute>
 			<name>dataset</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>labelLayout</name>
 		</attribute>
@@ -314,42 +305,42 @@
 		</attribute>
 		<attribute>
 			<name>labelPadding</name>
-		</attribute>		
+		</attribute>
 		<attribute>
 			<name>fields</name>
-		</attribute>		
+		</attribute>
 		<attribute>
 			<name>labelIndicator</name>
-		</attribute>				
+		</attribute>
 		<attribute>
 			<name>submit</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>scope</name>
-		</attribute>							
-	</tag>		
+		</attribute>
+	</tag>
 	<tag>
 		<name>property</name>
 		<tagclass>com.ztesoft.component.ui.taglib.PropertyTag</tagclass>
 		<attribute>
 			<name>id</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>dataset</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>fields</name>
-		</attribute>															
-	</tag>		
+		</attribute>
+	</tag>
 	<tag>
 		<name>dataset</name>
 		<tagclass>com.ztesoft.component.ui.taglib.DatasetTag</tagclass>
 		<attribute>
 			<name>datasetId</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>type</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>readOnly</name>
 		</attribute>
@@ -361,11 +352,11 @@
 		</attribute>
 		<attribute>
 			<name>pageSize</name>
-		</attribute>	
-		
+		</attribute>
+
 		<attribute>
 			<name>pageIndex</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>pageCount</name>
 		</attribute>
@@ -377,11 +368,11 @@
 		</attribute>
 		<attribute>
 			<name>loadDataAction</name>
-		</attribute>	
+		</attribute>
 
 		<attribute>
 			<name>loadDataActionMethod</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>_queryType</name>
 		</attribute>
@@ -393,97 +384,9 @@
 		</attribute>
 		<attribute>
 			<name>xmlFormat</name>
-		</attribute>	
-		
-		<attribute>
-			<name>loadAsNeeded</name>
 		</attribute>
-		<attribute>
-			<name>masterDataset</name>
-		</attribute>
-		<attribute>
-			<name>masterKeyFields</name>
-		</attribute>
-		<attribute>
-			<name>detailKeyFields</name>
-		</attribute>			
-		<attribute>
-			<name>needFetchDBField</name>
-		</attribute>	
-		<attribute>
-			<name>dbObject</name>
-		</attribute>
-		<attribute>
-			<name>excel</name>
-		</attribute>
-		<attribute>
-			<name>excelName</name>
-		</attribute>				
-		<attribute>
-			<name>maskControl</name>
-		</attribute>
-		<attribute>
-			<name>dynaControlId</name>
-		</attribute>
-		
-		<attribute>
-			<name>scope</name>
-		</attribute>													
-	</tag>	
-		<tag>
-		<name>dynamicDataSet</name>
-		<tagclass>com.ztesoft.component.ui.taglib.DynamicDataSetTag</tagclass>
-		<attribute>
-			<name>datasetId</name>
-		</attribute>
-		<attribute>
-			<name>type</name>
-		</attribute>	
-		<attribute>
-			<name>readOnly</name>
-		</attribute>
-		<attribute>
-			<name>editable</name>
-		</attribute>
-		<attribute>
-			<name>autoLoadPage</name>
-		</attribute>
-		<attribute>
-			<name>pageSize</name>
-		</attribute>	
-		<attribute>
-			<name>pageIndex</name>
-		</attribute>	
-		<attribute>
-			<name>pageCount</name>
-		</attribute>
-		<attribute>
-			<name>recordCount</name>
-		</attribute>
-		<attribute>
-			<name>async</name>
-		</attribute>
-		<attribute>
-			<name>loadDataAction</name>
-		</attribute>	
 
 		<attribute>
-			<name>loadDataActionMethod</name>
-		</attribute>	
-		<attribute>
-			<name>_queryType</name>
-		</attribute>
-		<attribute>
-			<name>paginate</name>
-		</attribute>
-		<attribute>
-			<name>staticDataSource</name>
-		</attribute>
-		<attribute>
-			<name>xmlFormat</name>
-		</attribute>	
-		
-		<attribute>
 			<name>loadAsNeeded</name>
 		</attribute>
 		<attribute>
@@ -494,42 +397,40 @@
 		</attribute>
 		<attribute>
 			<name>detailKeyFields</name>
-		</attribute>			
+		</attribute>
 		<attribute>
 			<name>needFetchDBField</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>dbObject</name>
 		</attribute>
 		<attribute>
 			<name>excel</name>
-		</attribute>				
+		</attribute>
 		<attribute>
 			<name>maskControl</name>
 		</attribute>
 		<attribute>
-			<name>intercept</name>
-		</attribute>
-		<attribute>
 			<name>dynaControlId</name>
 		</attribute>
-		
+
 		<attribute>
 			<name>scope</name>
-		</attribute>												
+		</attribute>
 	</tag>
+
 	<tag>
 		<name>field</name>
 		<tagclass>com.ztesoft.component.ui.taglib.FieldTag</tagclass>
 		<attribute>
 			<name>field</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>label</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>type</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>defaultValue</name>
 		</attribute>
@@ -541,11 +442,11 @@
 		</attribute>
 		<attribute>
 			<name>sortable</name>
-		</attribute>	
-		
+		</attribute>
+
 		<attribute>
 			<name>readOnly</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>editable</name>
 		</attribute>
@@ -557,13 +458,13 @@
 		</attribute>
 		<attribute>
 			<name>attrCode</name>
-		</attribute>		
+		</attribute>
 		<attribute>
-			<name>editorType</name>	
-		</attribute>									
+			<name>editorType</name>
+		</attribute>
 		<attribute>
 			<name>toolTip</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>tag</name>
 		</attribute>
@@ -575,14 +476,14 @@
 		</attribute>
 		<attribute>
 			<name>labelCheckbox</name>
-		</attribute>		
+		</attribute>
 		<attribute>
-			<name>inputLayout</name>	
-		</attribute>	
-		
+			<name>inputLayout</name>
+		</attribute>
+
 		<attribute>
 			<name>textareaLayout</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>textarea</name>
 		</attribute>
@@ -593,26 +494,26 @@
 			<name>validType</name>
 		</attribute>
 		<attribute>
-			<name>validMsg</name>	
+			<name>validMsg</name>
 		</attribute>
 		<attribute>
 			<name>minLen</name>
 		</attribute>
 		<attribute>
-			<name>maxLen</name>	
+			<name>maxLen</name>
 		</attribute>
 		<attribute>
 			<name>password</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>keyField</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>subList</name>
 		</attribute>
 		<attribute>
 			<name>subListDataset</name>
-		</attribute>		
+		</attribute>
 		<attribute>
 			<name>blankValue</name>
 		</attribute>
@@ -626,14 +527,14 @@
 			<name>configParams</name>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
-		
+
 		<attribute>
 			<name>dbField</name>
-		</attribute>				
+		</attribute>
 		<attribute>
 			<name>dbFieldControl</name>
 		</attribute>
-		
+
 		<attribute>
 			<name>size</name>
 		</attribute>
@@ -658,168 +559,23 @@
 		</attribute>
 		<attribute>
 			<name>radioboxAttrCode</name>
-		</attribute>	
-					
-	</tag>		
-	<tag>
-		<name>dynamicField</name>
-		<tagclass>com.ztesoft.component.ui.taglib.DynamicFieldTag</tagclass>
-		<attribute>
-			<name>field</name>
-		</attribute>	
-		<attribute>
-			<name>label</name>
-		</attribute>	
-		<attribute>
-			<name>type</name>
-		</attribute>	
-		<attribute>
-			<name>defaultValue</name>
 		</attribute>
-		<attribute>
-			<name>format</name>
-		</attribute>
-		<attribute>
-			<name>visible</name>
-		</attribute>
-		<attribute>
-			<name>sortable</name>
-		</attribute>	
-		
-		<attribute>
-			<name>readOnly</name>
-		</attribute>	
-		<attribute>
-			<name>editable</name>
-		</attribute>
-		<attribute>
-			<name>required</name>
-		</attribute>
-		<attribute>
-			<name>dropDown</name>
-		</attribute>
-		<attribute>
-			<name>attrCode</name>
-		</attribute>		
-		<attribute>
-			<name>editorType</name>	
-		</attribute>									
-		<attribute>
-			<name>toolTip</name>
-		</attribute>	
-		<attribute>
-			<name>tag</name>
-		</attribute>
-		<attribute>
-			<name>popup</name>
-		</attribute>
-		<attribute>
-			<name>labelLayout</name>
-		</attribute>
-		<attribute>
-			<name>labelCheckbox</name>
-		</attribute>		
-		<attribute>
-			<name>inputLayout</name>	
-		</attribute>	
-		
-		<attribute>
-			<name>textareaLayout</name>
-		</attribute>	
-		<attribute>
-			<name>textarea</name>
-		</attribute>
-		<attribute>
-			<name>textareaHeight</name>
-		</attribute>
-		<attribute>
-			<name>validType</name>
-		</attribute>
-		<attribute>
-			<name>validMsg</name>	
-		</attribute>
-		<attribute>
-			<name>minLen</name>
-		</attribute>
-		<attribute>
-			<name>maxLen</name>	
-		</attribute>
-		<attribute>
-			<name>password</name>
-		</attribute>	
-		<attribute>
-			<name>keyField</name>
-		</attribute>	
-		<attribute>
-			<name>subList</name>
-		</attribute>
-		<attribute>
-			<name>subListDataset</name>
-		</attribute>		
-		<attribute>
-			<name>blankValue</name>
-		</attribute>
-		<attribute>
-			<name>blankId</name>
-		</attribute>
-		<attribute>
-			<name>maxHeight</name>
-		</attribute>
-		<attribute>
-			<name>configParams</name>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-		
-		<attribute>
-			<name>dbField</name>
-		</attribute>				
-		<attribute>
-			<name>dbFieldControl</name>
-		</attribute>
-		
-		<attribute>
-			<name>size</name>
-		</attribute>
-		<attribute>
-			<name>permissionControl</name>
-		</attribute>
-		<attribute>
-			<name>dynaControlId</name>
-		</attribute>
-		<attribute>
-			<name>parameter</name>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-		<attribute>
-			<name>checkbox</name>
-		</attribute>
-		<attribute>
-			<name>radiobox</name>
-		</attribute>
-		<attribute>
-			<name>checkboxAttrCode</name>
-		</attribute>
-		<attribute>
-			<name>radioboxAttrCode</name>
-		</attribute>	
-					
-	</tag>	
-	
+	</tag>
 	<tag>
 		<name>parameter</name>
 		<tagclass>com.ztesoft.component.ui.taglib.ParameterTag</tagclass>
 		<attribute>
 			<name>parameterId</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>type</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>value</name>
 			<rtexprvalue>true</rtexprvalue>
-		</attribute>	
-	</tag>	
-  	<tag>
+		</attribute>
+	</tag>
+	<tag>
 		<name>dropdown</name>
 		<tagclass>com.ztesoft.component.ui.taglib.DropdownTag</tagclass>
 		<attribute>
@@ -830,45 +586,45 @@
 		</attribute>
 		<attribute>
 			<name>mapValue</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>staticDataSource</name>
 		</attribute>
 		<attribute>
 			<name>fixed</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>maxHeight</name>
 		</attribute>
 		<attribute>
 			<name>cachable</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>showColumnHeader</name>
 		</attribute>
 		<attribute>
 			<name>attrCode</name>
-		</attribute>		
+		</attribute>
 		<attribute>
 			<name>subList</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>blankValue</name>
 		</attribute>
 		<attribute>
 			<name>blankId</name>
 		</attribute>
-						
-	</tag>	
+
+	</tag>
 	<tag>
 		<name>button</name>
 		<tagclass>com.ztesoft.component.ui.taglib.ButtonTag</tagclass>
 		<attribute>
 			<name>id</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>accessKey</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>style</name>
 			<rtexprvalue>true</rtexprvalue>
@@ -878,128 +634,46 @@
 		</attribute>
 		<attribute>
 			<name>dynaControlId</name>
-		</attribute>									
-	</tag>	
+		</attribute>
+	</tag>
 	<tag>
 		<name>import</name>
 		<tagclass>com.ztesoft.component.ui.taglib.ImportTag</tagclass>
 		<attribute>
 			<name>library</name>
 		</attribute>
-		<attribute>
-			<name>css</name>
-		</attribute>			
-	</tag>	
-	<tag>
-		<name>zx</name>
-		<tagclass>com.ztesoft.component.ui.taglib.ZXTag</tagclass>
-		<attribute>
-			<name>library</name>
-		</attribute>
-		<attribute>
-			<name>css</name>
-		</attribute>
-		<attribute>
-			<name>tree</name>
-		</attribute>
-		
-		<attribute>
-			<name>window</name>
-		</attribute>
-		<attribute>
-			<name>core</name>
-		</attribute>		
-		<attribute>
-			<name>contextmenu</name>
-		</attribute>			
-	</tag>	
+	</tag>
 	<tag>
 		<name>permission</name>
 		<tagclass>com.ztesoft.component.ui.taglib.PermissionTag</tagclass>
 		<attribute>
 			<name>id</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>disabled</name>
-		</attribute>				
-	</tag>	
+		</attribute>
+	</tag>
 	<tag>
 		<name>security</name>
 		<tagclass>com.ztesoft.component.ui.taglib.SecurityTag</tagclass>
 		<attribute>
 			<name>privilegeCode</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>controlId</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>controlType</name>
-		</attribute>	
+		</attribute>
 		<attribute>
 			<name>desc</name>
-		</attribute>					
+		</attribute>
 	</tag>
 	<tag>
 		<name>meg</name>
 		<tagclass>com.ztesoft.component.ui.taglib.MessageTag</tagclass>
 		<attribute>
 			<name>id</name>
-		</attribute>			
+		</attribute>
 	</tag>
-	
-	<!-- Ext UI -->
-<tag>
-    <name>MZTree</name>
-    <tagclass>com.ztesoft.uiext.mztree.MZTreeTag</tagclass>
-    <attribute>
-        <name>id</name>
-        <rtexprvalue>true</rtexprvalue>
-    </attribute>
-    <attribute>
-        <name>loadDataMethod</name>
-        <rtexprvalue>true</rtexprvalue>
-    </attribute>
-    
-    <attribute>
-        <name>onappendnode</name>
-    </attribute>
-    <attribute>
-        <name>onexpand</name>
-    </attribute>
-    <attribute>
-        <name>oncollapse</name>
-    </attribute>
-    <attribute>
-        <name>onfocus</name>
-    </attribute>
-    <attribute>
-        <name>onremovenode</name>
-    </attribute>
-
-    <attribute>
-        <name>useContextMenu</name>
-    </attribute>
-    <attribute>
-        <name>onrender</name>
-    </attribute>
-    <attribute>
-        <name>onclick</name>
-    </attribute>
-    <attribute>
-        <name>ondblclick</name>
-    </attribute>
-
-    <attribute>
-        <name>useCheckbox</name>
-    </attribute>
-    <attribute>
-        <name>autoFocused</name>
-    </attribute>
-    <attribute>
-        <name>canOperate</name>
-    </attribute>
-    <attribute>
-        <name>autoSort</name>
-    </attribute>
-</tag>
 </taglib>
