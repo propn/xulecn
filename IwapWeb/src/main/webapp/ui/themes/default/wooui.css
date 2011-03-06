@@ -330,7 +330,7 @@
 }
 
 .scrollable-panel {
-	/* ��������������� */
+	/* 下面四项必须设置 */
 	position:relative;
 	width:437px;
 	height:76px;
@@ -338,11 +338,11 @@
 }
 .scrollable-panel div {
 	position:absolute;
-	width:2010em; /* �����㹻�Ŀ��� */
+	width:2010em; /* 设置足够的宽度 */
 }
 .scrollable-panel img {
 	float:left;
-	display:inline; /* �޸�IE6˫�߾�BUG */
+	display:inline; /* 修复IE6双边距BUG */
 	margin:10px 0 0 15px;
 	padding:2px;
 	border:1px solid #ccc;
@@ -1363,20 +1363,20 @@ body {
 	padding-left: .2em;
 }
 
-/**分割�?*/
+/**鍒嗗壊绾?*/
 .ui-line {
 	height: 2px;
 	background: url(images/m_splitLine.gif) center repeat-x;
 	font-size: 0px;
 	margin: 0 2px;
 }
-/**菜单图标统一样式**/
+/**鑿滃崟鍥炬爣缁熶竴鏍峰紡**/
 .item-icon{
 	height:16px;
 	width:16px;
 }
 
-/**菜单项disabled样式**/
+/**鑿滃崟椤筪isabled鏍峰紡**/
 .item-disabled{
 	color: #999999;
 }
