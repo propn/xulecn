@@ -4,22 +4,26 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="IWAP-WEB" />
 <title>IWAP-WEB</title>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
 <link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/reset.css" />
 <link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/tabs.css" />
 <link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/menu.css" />
 <link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/menu.theme.css" />
 <link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/portal.css" />
 <link rel="stylesheet" type="text/css" href="css/layout.css" />
+
+
 <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
 <script type="text/javascript" src="js/jquery.plugins.js"></script>
-<script type="text/javascript" src="js/sys.js"></script>
+
+
 <script type="text/javascript" src="js/jquery-wooUI/src/woo.js"></script>
 <script type="text/javascript" src="js/jquery-wooUI/src/component.js"></script>
 <script type="text/javascript" src="js/jquery-wooUI/src/menu.js"></script>
 <script type="text/javascript" src="js/jquery-wooUI/src/tabs.js"></script>
 <script type="text/javascript" src="js/jquery-wooUI/src/portal.js"></script>
+
+<script type="text/javascript" src="js/sys.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/portal-inettuts.js"></script>
 
@@ -41,33 +45,26 @@
         function getLockJson(){
             var Arr = [{
                 id: "t002",
-                name: "阿斯顿发生的",
+                name: "Google",
                 url: "http://www.google.com.hk"
             }, {
                 id: "t003",
-                name: "方士",
-                url: "http://www.toone.com/"
+                name: "Baidu",
+                url: "http://www.baidu.com/"
             }, {
                 id: "t004",
-                name: "更好的风光好",
-                url: "http://www.google.com.hk"
-            }, {
-                id: "t005",
-                name: "考虑规划局",
-                url: "http://www.toone.com/"
-            }, {
-                id: "t006",
-                name: "更好的风光好大哥",
-                url: "http://www.google.com.hk"
+                name: "JavaEye",
+                url: "http://www.javaeye.com"
             }];
             return Arr;
         }
         
         $(function(){
+        	
             moveOffset = parseInt($("#scroll ul li:first").css("margin-left")) + parseInt($("#scroll ul li:first").css("margin-right"));
-            
-            //为“我的桌面”绑定url数据，并装载设定的初始页面
 
+           // alert(moveOffset); 0
+            
             //初始化标签栏内容
             (function(){
                 //获取任务栏标签的json
@@ -237,24 +234,23 @@
                     }
                 }, 300);
             });
+            
+            
             $("#scroll ul li").live("dblclick", function(e){
                 //关闭标签
                 clearTimeout(timer);
                 if (event.detail == 2) {
                     return false;
                 }
-                
                 closeTab($(this));
             }).live("contextmenu", function(e){
-                //“我的桌面“的鼠标右键是绑定该功能
+                	//"我的桌面"的鼠标右键是绑定该功能
                     //若隐藏按钮的弹出菜单为隐藏，则直接移除该菜单
                     $("div#hideMenu").remove();
-                    
                     var index = $("#scroll ul li").index($(this));
                     if (index == 0) {
                         return false;
                     }
-                    
                     //若为首次加载右键菜单，则执行该添加操作，否则，直接对菜单进行重新定位
                     if ($("div#conMenu").length <= 0) {
                         var conHtml = [];
@@ -270,12 +266,9 @@
                         //在重新激活右键菜单之前，隐藏当前已显示的右键菜单
                         $("#conMenu").css("display", "none");
                     }
-                    
                     //将当前激活右键菜单的tab标签索引传递给全局变量conMenuIndex
                     conMenuIndex = index;
-                    
-                    
-                    //若当前标签被锁定，则仅显示“解锁”按钮，反之显示“锁定”按钮
+                    //若当前标签被锁定，则仅显示"解锁"按钮，反之显示"锁定"按钮
                     if (!lockArr[index]) {
                         $("#conMenu ul li:eq(0)").css("display", "block");
                         $("#conMenu ul li:eq(1)").css("display", "none");
@@ -284,32 +277,29 @@
                         $("#conMenu ul li:eq(0)").css("display", "none");
                         $("#conMenu ul li:eq(1)").css("display", "block");
                     }
-                    
                     //右键菜单的定位和显示
                     $("#conMenu").css("left", e.clientX + 5).css("top", e.clientY + 5).slideDown("fast", function(){
                         menuHide($("#conMenu"), false);
                     }).focus();
-                    
                     return false;
             });
+            
+            
             /***************************************
              * 		自定义菜单的隐藏
              *
              ***************************************/
             function menuHide($labObj, isRemove){
-            
                 if ($labObj) {
                     //当其他功能触发的时候，自动隐藏当前的右键菜单
                     $("window,*").click(function(e){
                         if ($labObj[0] != e.target) {
-                        
                             if (isRemove) {
                                 $labObj.remove();
                             }
                             else {
                                 $labObj.css("display", "none");
                             }
-                            
                         }
                     });
                     $("#main > div iframe").focus(function(){
@@ -322,22 +312,17 @@
                     });
                 }
             }
-            
-            
             /***************************************
              * 		"关闭按钮"的点击事件
              ***************************************/
             $("#scroll ul li span.tabClose").live("click", function(){
                 closeTab($(this))
             });
-            
-            //关闭任务栏标签的方法，标签的“x”按钮与双击操作均执行该方法
+            //关闭任务栏标签的方法，标签的"x"按钮与双击操作均执行该方法
             function closeTab(obj){
-            
                 if (obj[0].tagName == "SPAN") {
                     obj = obj.parent();
                 }
-                
                 var $lis = $("#scroll ul li");
                 var i = $lis.index(obj);
                 if (obj.hasClass("on")) {
@@ -347,19 +332,15 @@
                 obj.remove();
                 $("#main > div").eq(i).remove();
             }
-            
-            
             /***************************************
              * "属性设置"的按钮点击事件
              ***************************************/
             $("#tabAttr").click(function(){
                 windowPosition();
-                
                 $("#bg").show();
                 $("#setting").fadeIn("fast");
                 $("#shadow").show();
             });
-            
             /***************************************
              * 窗体缩放
              ***************************************/
@@ -398,6 +379,8 @@
                 $("#bg").hide();
             });
         });
+        
+        
         
 		/***************************************
              * desc:		添加标签
@@ -468,14 +451,14 @@
                     //绑定页面URL数据到指定tab对象中（jquery对象）
                     $("#" + id).data("pageUrl", url);
                 }
-                //alert($("#" + id).data("pageUrl"));
+               // alert($("#" + id).data("pageUrl"));
             }
 		
         /*
-         * 重要说明：			关于存储锁定标签索引的数组的描述
-         * 							存入数组的为当前标签所在的索引，为了方便对该数组的读写操作，存入数组的标签索引的同时，也将该索引设为该数组的索引
-         * 示例：				标签索引：		tabIndex = 3;		或tabIndex = 7；
-         * 							存入数组：		lockArr[3] = 3;			lockArr[7] = 7;
+         * 重要说明：	关于存储锁定标签索引的数组的描述
+         * 				存入数组的为当前标签所在的索引，为了方便对该数组的读写操作，存入数组的标签索引的同时，也将该索引设为该数组的索引
+         * 示例：		标签索引：		tabIndex = 3;		或tabIndex = 7；
+         * 				存入数组：		lockArr[3] = 3;		lockArr[7] = 7;
          */
         /***************************************
          * desc:				锁定到任务栏
@@ -511,7 +494,7 @@
          ***************************************/
         function closeOther(){
             index = conMenuIndex;
-            //移除“我的桌面”与保留tab之外的所有标签及其内容
+            //移除"我的桌面"与保留tab之外的所有标签及其内容
             var conDiv = $("#main > div");
             $("#scroll ul li").each(function(i){
                 //"我的桌面"，当前标签，锁定标签不能删除
@@ -785,16 +768,14 @@
 
 <div id="center">
 	<div id="leftmenu" style="display: none;"></div>
-	<div id="main">
-		<div id="columns"></div>
-	</div>
+	<div id="main"><div id="columns"></div></div>
 	<div id="rightmenu" style="display: none;"></div>
 </div>
 
 <div id="footer"></div>
 
 <!-- 菜单内容 -->
-<div id="startmenupanel" style="display: none;">
+<div id="startmenupanel" style="display: '';">
 	
 	<div id="menu-title">
 		<div id="menu-tabs">
