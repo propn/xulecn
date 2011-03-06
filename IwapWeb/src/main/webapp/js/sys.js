@@ -1,5 +1,5 @@
 /**
- * 此文件必须在sys.js、index.js 加载之前加载 此文件中脚本说明： 文件中所有数据均来源于后台，与后台结合时由后台生成
+ * 此文件必须在index.js 加载之前加载 此文件中脚本说明： 文件中所有数据均来源于后台，与后台结合时由后台生成
  * 
  */
 // 定义外观和个性化相关的参数
@@ -130,7 +130,6 @@ var sysMenu = [ {
 	url : 'xxx'
 } ];
 
-
 // 开始菜单项
 var func_array = [];
 // 以关联数组的方式定义一、二、三级菜单，以m开头为一级，f开头为二三级，某些情况下二级菜单就是末级菜单
@@ -140,18 +139,24 @@ func_array["m01"] = [ "信息交流", "message" ];// 说明：‘m01’为id，�
 func_array["f1"] = [ "信息交流", "@message_exchange", "@message_exchange" ];// 说明：‘f1’为id，‘信息交流’为二级菜单显示的名称，第一个‘@message_exchange’为二级菜单编码，
 
 // 三级
-func_array["f11"] = [ "留言板", "message/message_exchange/leave_message", "message" ];// 说明：‘f11’为id，‘留言板’为三级菜单显示的名称，‘message/message_exchange/leave_message’为三级菜单路径，
+func_array["f11"] = [ "留言板", "message/message_exchange/leave_message",
+		"message" ];// 说明：‘f11’为id，‘留言板’为三级菜单显示的名称，‘message/message_exchange/leave_message’为三级菜单路径，
 func_array["f12"] = [ "网上调查", "message/message_exchange/check", "message" ];
-func_array["f13"] = [ "通讯录", "message/message_exchange/communication","message" ];
+func_array["f13"] = [ "通讯录", "message/message_exchange/communication",
+		"message" ];
 func_array["f14"] = [ "电子论坛", "message/message_exchange/forum", "message" ];
 func_array["f15"] = [ "常用链接", "message/message_exchange/link", "message" ];
-func_array["f16"] = [ "短信中心", "message/message_exchange/message_center",	"message" ];
+func_array["f16"] = [ "短信中心", "message/message_exchange/message_center",
+		"message" ];
 func_array["f17"] = [ "新闻中心", "message/message_exchange/news_center", "message" ];
-func_array["f18"] = [ "公告中心", "message/message_exchange/announcement","message" ];
+func_array["f18"] = [ "公告中心", "message/message_exchange/announcement",
+		"message" ];
 func_array["f3"] = [ "信息管理", "@message_manage", "@message_manage" ];
-func_array["f31"] = [ "留言板", "message/message_manage/leave_message_t","message" ];
+func_array["f31"] = [ "留言板", "message/message_manage/leave_message_t",
+		"message" ];
 func_array["f32"] = [ "网上调查", "message/message_manage/check_t", "message" ];
-func_array["f33"] = [ "通讯录", "message/message_manage/communication_t","message" ];
+func_array["f33"] = [ "通讯录", "message/message_manage/communication_t",
+		"message" ];
 func_array["f34"] = [ "电子论坛", "message/message_manage/forum_t", "message" ];
 func_array["f35"] = [ "常用链接", "message/message_manage/link_t", "message" ];
 
@@ -159,12 +164,14 @@ func_array["m10"] = [ "个人事务", "personal" ];
 func_array["f130"] = [ "个人事务", "@personal_work", "@personal_work" ];
 func_array["f141"] = [ "待办事宜", "personal/personal_work/stay", "personal" ];
 func_array["f132"] = [ "已办事宜", "personal/personal_work/then", "personal" ];
-func_array["f133"] = [ "个人日程", "personal/personal_work/personal_schedule","personal" ];
+func_array["f133"] = [ "个人日程", "personal/personal_work/personal_schedule",
+		"personal" ];
 func_array["f5"] = [ "个人设置", "@personal_site", "@personal_site" ];
 func_array["f51"] = [ "帐号维护", "personal/personal_site/account", "personal" ];
 func_array["f52"] = [ "快捷方式", "personal/personal_site/quick", "personal" ];
 func_array["f53"] = [ "用户组", "personal/personal_site/users", "personal" ];
-func_array["f54"] = [ "默认身份", "personal/personal_site/default_status","personal" ];
+func_array["f54"] = [ "默认身份", "personal/personal_site/default_status",
+		"personal" ];
 func_array["f131"] = [ "个人资料", "@personal_data", "@personal_data" ];
 func_array["f142"] = [ "个人文件夹", "personal/personal_data/files", "personal" ];
 func_array["f143"] = [ "个人名片夹", "personal/personal_data/card", "personal" ];
@@ -222,14 +229,20 @@ func_array["f173"] = [ "待办公文", "document/document_handle/stay_doc", "doc
 func_array["f174"] = [ "新增公文", "document/document_handle/new_doc", "document" ];
 func_array["f175"] = [ "已办公文", "document/document_handle/then_doc", "document" ];
 func_array["f176"] = [ "经办公文", "document/document_handle/handling", "document" ];
-func_array["f177"] = [ "归资料库", "document/document_handle/database",	"ddocumentoc" ];
-func_array["f178"] = [ "分发任务", "document/document_handle/distribution_task",	"document" ];
-func_array["f179"] = [ "传阅任务", "document/document_handle/circulation_doc", "document" ];
+func_array["f177"] = [ "归资料库", "document/document_handle/database",
+		"ddocumentoc" ];
+func_array["f178"] = [ "分发任务", "document/document_handle/distribution_task",
+		"document" ];
+func_array["f179"] = [ "传阅任务", "document/document_handle/circulation_doc",
+		"document" ];
 func_array["f163"] = [ "统计查询", "@statistical_inquire", "@statistical_inquire" ];
-func_array["f184"] = [ "公文查询", "document/statistical_inquire/doc_search", "document" ];
-func_array["f185"] = [ "公文台帐", "document/statistical_inquire/doc_accounting", "document" ];
+func_array["f184"] = [ "公文查询", "document/statistical_inquire/doc_search",
+		"document" ];
+func_array["f185"] = [ "公文台帐", "document/statistical_inquire/doc_accounting",
+		"document" ];
 func_array["f164"] = [ "公文管理", "@document_manage", "@document_manage" ];
-func_array["f195"] = [ "流程监控", "document/document_manage/flow_monitor",	"document" ];
+func_array["f195"] = [ "流程监控", "document/document_manage/flow_monitor",
+		"document" ];
 func_array["f165"] = [ "基础设置", "@base_site", "@base_site" ];
 func_array["f210"] = [ "常用词", "document/base_site/commonly", "document" ];
 func_array["f211"] = [ "流程设置", "document/base_site/flow_set", "document" ];
@@ -274,9 +287,11 @@ third_array["f5"] = [ "51", "52", "53", "54" ];
 third_array["f131"] = [ "142", "143", "134" ];
 third_array["f44"] = [ "45", "46", "47", "48" ];
 third_array["f64"] = [ "75", "76", "67", "68", "69" ];
-third_array["f65"] = [ "651", "652", "653", "654", "655", "656", "657", "658","659", "660" ];
+third_array["f65"] = [ "651", "652", "653", "654", "655", "656", "657", "658",
+		"659", "660" ];
 third_array["f66"] = [ "661", "662", "663" ];
-third_array["f70"] = [ "701", "702", "703", "704", "705", "706", "707", "708","709", "710", "711", "712", "713" ];
+third_array["f70"] = [ "701", "702", "703", "704", "705", "706", "707", "708",
+		"709", "710", "711", "712", "713" ];
 third_array["f24"] = [ "241" ];
 third_array["f162"] = [ "173", "174", "175", "176", "177", "178", "179" ];
 third_array["f163"] = [ "184", "185" ];
@@ -284,4 +299,3 @@ third_array["f164"] = [ "195" ];
 third_array["f165"] = [ "210", "211", "212", "213", "214", "215" ];
 third_array["f166"] = [ "167", "168", "169" ];
 third_array["f200"] = [ "201" ];
-
