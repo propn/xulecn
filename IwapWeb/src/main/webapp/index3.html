@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="description" content="广东同望科技股份有限公司iTOP平台"/>
+<title> iTOP首页平台</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="js/sys.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/woo.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/component.js"></script>
+
+<script type="text/javascript" src="js/jquery-wooUI/src/resizable.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/panel.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/layout.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/tabs.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/menu.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/tab.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/portal.js"></script>
+<script type="text/javascript" src="js/usericons-menu.js"></script>
+<script type="text/javascript" src="js/startMenu.js"></script>
+
+<script type="text/javascript" src="js/portal-inettuts.js"></script>
+<link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/reset.css" />
+<link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/panel.css" />
+<link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/layout.css" />
+<link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/tabs.css" />
+<link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/menu.css" />
+<link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/menu.theme.css" />
+<link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/portal.css" />
+<link rel="stylesheet" type="text/css" href="css/home.css" />
+<script type="text/javascript">
+$(function(){
+	function getNorthHeight(ctrl){
+		return ctrl?$("#navbar").height() + $("#banner").height() : $("#navbar").height();
+	}
+	
+	if(!sys_status['showBanner']){
+		$("#banner").hide();
+	}
+	$("#north").height(getNorthHeight(sys_status['showBanner']));
+
+	$('body').layout({border:false});
+
+	$('body').layout('hide','west');
+	$('body').layout('hide','east');
+	
+	//$('body').layout('show','east');
+
+	$('#startmenu').startMenu();
+
+
+	//控制banner条隐藏/显示
+	$("#sysbar .sys-hide").bind("click",function(){
+
+		$("#banner").toggle(sys_status['animate'] ? sys_status['animateTime'] : 0);//由于动画延时，导致高宽计算置前，不等于实际高宽
+		
+		var panels = $.data($('body')[0], 'layout').panels;
+		//panels.north.panel('resize',{height:getNorthHeight(!sys_status['showBanner'])});
+		panels.north.height(getNorthHeight(!sys_status['showBanner']));
+		$('body').layout('resize');
+		//$('body').layout('hide','west');
+		//$('body').layout('hide','east');
+		$('#startmenu').startMenu('resize').startMenu('repositoin');
+		sys_status['showBanner'] = sys_status['showBanner']?false:true;
+		
+	});
+
+
+	/*$('#navbar-center').tabs({
+		border : false,
+		bodyContainer : '#page-center',
+		items:[
+			{
+				title:'我的桌面',
+				content:'desktop.html',
+				closable:false
+			},
+			{
+				title:'同望',
+				content:'http://www.toone.com.cn',
+				closable:true
+			}
+		]
+	});*/
+	
+	
+	
+});
+</script>
+<style type="text/css">
+
+
+</style>
+</head>
+<body>
+<!-- 头部区域 -->
+
+	<div id='north' region="north" border="false">
+		<div id="banner">
+			<div id="banner-left">
+				logo
+			</div>
+			<div id="banner-right"></div>
+		</div>
+
+		<div id="navbar">
+			<div id="navbar-left">
+
+				<!--<a title="开始菜单" href="javascript:;" hideFocus="hidefocus"  id="startmenu" class="start-menu-normal"></a>-->
+				<a title="开始菜单" href="javascript:;" hideFocus="hidefocus"  id="startmenu"><span><img src="images2/start.png" alt="开始菜单" width="31" height="31" /></span></a>
+			</div>
+			<div id="navbar-center">
+				<!--<div title="我的桌面"></div>-->
+				<!--<div title="任务1"></div>-->
+				<ul>
+					<li><a href="javascript:;" title="我的桌面" class="act"><span>我的桌面</span></a></li>
+
+					<li><a href="javascript:;" title="业务设置"><span>业务设置</span></a></li>
+					<li><a href="javascript:;" title="合同管理"><span>合同管理</span></a></li>
+					<li><a href="javascript:;" title="变更管理"><span>变更管理</span></a></li>
+					<li><a href="javascript:;" title="计量支付"><span>计量支付</span></a></li>
+					<li><a href="javascript:;" title="质量管理"><span>质量管理</span></a></li>
+					<li><a href="javascript:;" title="物资管理"><span>物资管理</span></a></li>
+
+				</ul>
+			</div>
+			<div id="navbar-center-setup">
+				<a title="开始菜单" href="javascript:;" hideFocus="hidefocus"  id="startmenu"><span><img src="images2/bullet_wrench.png" alt="开始菜单" width="16" height="16" /></span></a><span>|</span>
+				<a title="开始菜单" href="javascript:;" hideFocus="hidefocus"  id="startmenu"><span><img src="images2/arrow_turn_left.png" alt="开始菜单" width="16" height="16" /></span></a>
+				<a title="开始菜单" href="javascript:;" hideFocus="hidefocus"  id="startmenu"><span><img src="images2/arrow_turn_right.png" alt="开始菜单" width="16" height="16" /></span></a>
+				<a title="开始菜单" href="javascript:;" hideFocus="hidefocus"  id="startmenu"><span><img src="images2/arrow_down.png" alt="开始菜单" width="16" height="16" /></span></a>
+			</div>
+
+			<div id="navbar-right">
+				<div id="sysbar">
+					<!--<a title="门户切换" href="javascript:;" hideFocus="hidefocus" class="sys-portal">门户</a>
+					<a title="系统功能设置" href="javascript:;" hideFocus="hidefocus" class="sys-setting">设置</a>
+					<a title="系统帮助" href="javascript:;" hideFocus="hidefocus" class="sys-help">帮助</a>
+					<a title="用户切换" href="javascript:;" hideFocus="hidefocus" class="sys-logout">注销</a>
+					<a title="退出系统" href="javascript:;" hideFocus="hidefocus" class="sys-exit">退出</a>-->
+					<div id="sysbar-useicos">
+						<a title="设置" href="javascript:;" hideFocus="hidefocus"   class="sysbar-useicos-setup"><span><img id="settingLink"  src="images2/left-submenu-icon_09.gif" alt="设置" width="16" height="16" /></span></a>
+						<a title="门户切换" href="javascript:;" hideFocus="hidefocus"   class="sysbar-useicos-cutover"><span><img id="portalLink" src="images2/left-submenu-icon_06.gif" alt="门户切换" width="16" height="16" /></span></a>
+						<a title="帮助" href="javascript:;" hideFocus="hidefocus"   class="sysbar-useicos-help"><span><img id="helpLink" src="images2/help.gif" alt="帮助" width="16" height="16" /></span></a>
+						<a title="退出" href="javascript:;" hideFocus="hidefocus"   class="sysbar-useicos-out"><span><img id="sysLink" src="images2/door_in.gif" alt="退出" width="16" height="16" /></span></a>
+					</div>
+
+					<!--<span>|</span>-->
+					<a title="隐藏/显示顶部" href="javascript:;" hideFocus="hidefocus" class="sys-hide"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- 左侧菜单 -->
+	<div region="west" id="west" split="true" style="width:350px;">
+		左侧菜单
+	</div>
+
+<!-- 桌面显示区 -->
+	<div region="center">
+		<!-- <iframe src="desktop.html" style="width:100%;height:100%;" marginwidth="0" marginheight="0" frameborder="0"></iframe> -->
+	<div id="columns">
+
+
+		</div>
+	
+	</div>
+
+<!-- 右侧菜单 -->
+	<div region="east" id="east" split="true" style="width:350px;">
+
+		右侧菜单
+	</div>
+
+<!-- 消息通知区 -->
+	<div region="south" border="false" class="footer">
+		消息通知区
+	</div>
+
+<!-- 菜单内容 -->
+	<div id="startmenupanel">
+		<div id="menu-title">
+			<div id="menu-tabs">
+
+				<!--<div title="Home"></div>-->
+				<ul>
+					<li><a href="javascript:;"><span>我的标签</span></a></li>
+					<li><a href="javascript:;"><span>标签栏</span></a></li>
+					<li><a href="javascript:;"><span>标签栏</span></a></li>
+				</ul>
+			</div>
+
+			<div id="menu-tabs-addbtn">
+				<a title="增加标签" href="javascript:;" hideFocus="hidefocus" class="menu-tabs-addbtn">+</a>
+			</div>
+			<div id="menu-btns">
+				<a title="左边/右边停靠菜单" href="javascript:;" hideFocus="hidefocus" class="menu-switch"></a>
+				<a title="悬浮/停靠菜单" href="javascript:;" hideFocus="hidefocus" class="menu-lock"></a>
+				<a title="隐藏菜单" href="javascript:;" hideFocus="hidefocus" class="menu-close"></a>
+			</div>
+
+		</div>
+
+		<div id="menu-control">
+			<div id="menu-control-search">
+				<input name="searchfield" type="text" value="快速搜索菜单" />
+			</div>
+			<div id="menu-control-openup">
+				<a href="#" title="收缩菜单"><span><img src="images2/application_side_list.png" alt="帮助" align="absmiddle" />收缩菜单</span></a>
+				<a href="#" title="展开菜单"><span><img src="images2/application_side_list.png" alt="帮助" align="absmiddle" />展开菜单</span></a>
+
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+	<div id="startmenupanel_overlay"></div>
+
+</body>
+</html>

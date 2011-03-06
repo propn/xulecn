@@ -1,0 +1,266 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 布局 */
+*+html { overflow:hidden; } /*针对IE7的hack*/
+body { background:#fcfcfc; height:100%; overflow:hidden; }
+#banner { background:url('../images/banner_bg.png') repeat-x; display:block; height:50px; overflow:hidden; }
+#taskbar { background:url('../images/menu_bg.png') repeat-x; height:31px; line-height:31px; overflow:hidden; position:relative; }
+#center { width:100%; position:relative; overflow:hidden; }
+#leftmenu { background-color:#E8F5FE; border:1px solid #A9C9E2; height:100%; width:300px; position:absolute; top:0px; left:0px; }
+#rightmenu { background-color:#FFE7F4; border:1px solid #F9B3D5; height:100%; width:300px; position:absolute; top:0px; right:0px; }
+#main { height:100%; }
+#footer { bottom:0; background:url('../images/foot_bg.png') repeat-x; clear:both; height:25px; width:100%; left:0; line-height:30px; position:absolute; overflow:hidden; }
+/* 开始菜单部分 */
+#taskbar .startmenu { background:url('../images/start.png') no-repeat; border:none; display:inline-block; _display:inline-block; height:31px; width:31px; cursor:pointer; }
+#taskbar .startmenu_disable { background:url('../images/start_disable.png') no-repeat !important; }
+#menu-title { height:32px; position:relative; }
+#menu-control { background:url('../images/menu_control_bg.gif') repeat-x; border-top:1px solid #96AEDE; border-bottom:1px solid #96AEDE; height:25px; }
+#startmenupanel { display:none; z-index:10000; background-color:#CFDFF0; width:300px; height:400px; min-height:200px; border:1px solid #999; }
+#startmenupanel_overlay { display:none; position:absolute; top:0px; left:0px; z-index:9999; width:100%; height:100%; filter:alpha(apacity=1); opacity:0.01; -moz-opacity:0.01; }
+/** 开始菜单tab标签页 **/
+#menu-tabs { float:left; height:32px; }
+#menu-tabs ul { padding:0; list-style:none; margin-top:5px; }
+#menu-tabs li { display:inline; }
+#menu-tabs a { float:left; text-decoration:none; margin:0 2px 0 0; padding:0 0 0 2px; cursor:hand; background:#f2f2f2; border-left:1px solid #96AEDE; border-top:1px solid #96AEDE; border-right:1px solid #96AEDE; }
+#menu-tabs a span { float:left; display:block; padding:4px 2px 3px; color:#24618E; }
+#menu-tabs-addbtn { float:left; display:inline-block; height:32px; width:32px; }
+#menu-tabs-addbtn a.menu-tabs-addbtn { background:url('../images/menu.png') 0 -40px; display:block; height:20px; width:20px; vertical-align:middle; margin:6px 0 0 5px; ; }
+#menu-tabs a.menuTabActive { float:left; text-decoration:none; margin:0 2px 0 0; padding:0 0 0 2px; cursor:hand; background:url('../images/menu_active_bg.gif') repeat-x; }
+#menu-tabs a.menuTabActive span { float:left; display:block; padding:4px 2px; color:#333; }
+/** 开始菜单控制区 **/
+#menu-btns { float:right; text-align:right; }
+#menu-btns a { margin:6px 1px; width:16px; height:16px; display:inline-block; }
+#menu-btns a.menu-switch { background:url('../images/toright.png') no-repeat; }
+#menu-btns a.menu_switch { background:url('../images/toleft.png') no-repeat !important; }
+#menu-btns a.menu_unlock { background:url('../images/unlock.png') no-repeat; }
+#menu-btns a.menu_lock { background:url('../images/lock.png') no-repeat !important; }
+#menu-btns a.menu-close { background:url('../images/close.png') no-repeat; }
+/** 开始菜单搜索区 **/
+#menu-control #menu-control-search { float:left; height:25px; }
+#menu-control #menu-control-search { display:inline-block; margin:0px 5px; }
+#menu-control #form_search { margin:3px 0 2px; padding:0; background:#fff; }
+.sw_b3 { width:130px; line-height:16px; }
+.sw_b1 { text-align:right; border:1px solid #b0b8be; }
+#menuSearch { border:0; color:#666; line-height:16px; width:100px; height:16px; padding-left:5px; float:left; margin-top:2px; }
+#search_ico { margin:1px; vertical-align:middle; }
+/** 开始菜单收缩展开 **/
+#menu-control #menu-control-openup { float:right; height:25px; display:inline-block; }
+#menu-control #menu-control-openup #application_shrink { display:inline-block; height:16px; width:16px; background:url('../images/application_side_list.png') no-repeat; margin:5px 3px 0; }
+#menu-control #menu-control-openup #application_unfold { display:inline-block; height:16px; width:16px; background:url('../images/application_side_list.png') no-repeat; margin:5px 3px 0; }
+*+html #menu-control #menu-control-openup span { display:inline-block; margin-top:5px; }
+#menu-control #menu-control-openup span { color:#fff; font-weight:bold; cursor:pointer; display:inline-block; vertical-align:middle; margin-bottom:8px; }
+/** 开始菜单内容区 **/
+#startmenupanel .panel-menu { }
+/*** 一级菜单 ***/
+#startmenupanel .panel-menu #first_panel { padding:0 0 5px 0; width:150px; background:#CFDFF0; float:left; display:inline-block; }
+#startmenupanel .panel-menu #first_panel .scroll-up, #startmenupanel .panel-menu #first_panel .scroll-down { height:10px; overflow:hidden; cursor:pointer; background:url('images/scroll_arrow.png') center 0px no-repeat; }
+#startmenupanel .panel-menu #first_panel .scroll-up { background-position:center 0px; }
+#startmenupanel .panel-menu #first_panel .scroll-down { background-position:center -10px; }
+#startmenupanel .panel-menu #first_panel .scroll-up-hover { background-position:center -20px; }
+#startmenupanel .panel-menu #first_panel .scroll-down-hover { background-position:center -30px; }
+#startmenupanel .panel-menu #first_panel ul { list-style-type:none; height:360px; overflow:hidden; position:relative; left:0px; top:0px; z-index:93000; }
+#startmenupanel .panel-menu #first_panel ul li { margin:0 0 10px 0; }
+#startmenupanel .panel-menu #first_panel ul li a { padding-left:30px; padding-top:5px !important; height:25px !important; padding-top:5px; height:30px; line-height:20px; display:block; overflow:hidden; text-decoration:none; font-size:12px; color:#333; background:url('../images/firstmenu_bg.gif') repeat-x; border:1px solid #B9CDF1; margin:0 5px; }
+#startmenupanel .panel-menu #first_panel ul li a:hover { color:#f60; }
+#startmenupanel .panel-menu #first_panel ul li a.active { margin:0 0 0 5px; border:0; border-left:1px solid #B9CDF1; border-top:1px solid #B9CDF1; border-bottom:1px solid #B9CDF1; color:#333; background:#fff; }
+#startmenupanel .panel-menu #first_panel ul li a img { border:0px; width:16px; height:16px; }
+#startmenupanel_overlay { display:none; z-index:9000; width:100%; height:100%; background:#fff; filter:alpha(opacity=1); -moz-opacity:0.01; opacity:0.01; position:absolute; top:0px; left:0px; }
+/*** 二级菜单 ***/
+#startmenupanel .panel-menu #second_panel { border-top:1px solid #B9CDF1; background:#FFFFFF; width:150px; float:right; display:inline-block; z-index:92000; }
+#startmenupanel .panel-menu #second_panel .second-panel-head { height:5px; background:url('images/second_panel_bg.jpg') 0px 0px no-repeat; overflow:hidden; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu { width:100%; background:url('images/second_panel_bg.jpg') -200px 0px repeat-y; }
+#startmenupanel .panel-menu #second_panel .second-panel-foot { height:5px; background:url('images/second_panel_bg.jpg') -400px 0px no-repeat; overflow:hidden; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul { list-style-type:none; overflow:hidden; position:relative; left:0px; top:0px; z-index:94000; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li { margin:10px; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li a { display:block; overflow:hidden; text-decoration:none; font-size:12px; color:#000; background:#D9E6ED; border:1px solid #9AB2DF; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li a span { height:25px; line-height:25px; display:block; overflow:hidden; cursor:pointer; background:url('../images/secondmenu_hover_bg.gif') repeat-x; text-align:center; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li a:hover { color:#000; background:url('images/menu_bg.png') left -90px no-repeat; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li a:hover span { background:url('images/menu_span_bg.png') 0px -30px no-repeat; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li a.expand { margin-right:0px; background:url('../images/secondmenu_bg.gif') repeat-x; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li a.expand:hover, #startmenupanel .panel-menu #second_panel .second-panel-menu ul li a.active { color:#000; background-position:right -90px; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li a.expand:hover span, #startmenupanel .panel-menu #second_panel .second-panel-menu ul li a.active span { background:url('../images/secondmenu_bg.gif') repeat-x; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li ul { display:none; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li ul li { }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li ul li a { overflow:hidden; background:none; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li ul li a span { background:url('../images/secondmenu_bg.gif') repeat-x; cursor:pointer; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li ul li a:hover { color:#2771d0; background:url('../images/secondmenu_bg.gif') repeat-x; }
+#startmenupanel .panel-menu #second_panel .second-panel-menu ul li ul li a:hover span { background:url('images/menu_span_bg.png') 0px -90px no-repeat; }
+/*** 二级菜单滚动条 ***/
+.jscroll-h { width:15px; }
+.jscroll-h .jscroll-hu { width:15px; height:15px; background:url('../images/scrollbar_bg.png') repeat-y; overflow:hidden; }
+.jscroll-h .jscroll-hc { width:15px; background:url('../images/scrollbar_bg.png') repeat-y; }
+.jscroll-h .jscroll-hd { width:15px; height:15px; background:url('../images/scrollbar_bg.png') repeat-y; overflow:hidden; }
+.jscroll-e { width:15px; background:url('../images/scrollbar_bg.png') right 0px repeat-y; }
+.jscroll-u, .jscroll-d { background:url('../images/scrollbar_bg.png') no-repeat; }
+.jscroll-u-out { background-position:0px 0px; }
+.jscroll-h .jscroll-hu-out { background-position:-45px 0px; }
+.jscroll-h .jscroll-hc-out { background-position:-90px center; }
+.jscroll-h .jscroll-hd-out { background-position:-45px -15px; }
+.jscroll-d-out { background-position:0px -15px; }
+.jscroll-u-hover { background-position:-15px 0px; }
+.jscroll-h .jscroll-hu-hover { background-position:-60px 0px; }
+.jscroll-h .jscroll-hc-hover { background-position:-105px center; }
+.jscroll-h .jscroll-hd-hover { background-position:-60px -15px; }
+.jscroll-d-hover { background-position:-15px -15px; }
+.jscroll-u-focus { background-position:-30px 0px; }
+.jscroll-h .jscroll-hu-focus { background-position:-75px 0px; }
+.jscroll-h .jscroll-hc-focus { background-position:-120px center; }
+.jscroll-h .jscroll-hd-focus { background-position:-75px -15px; }
+.jscroll-d-focus { background-position:-30px -15px; }
+/* 任务栏tab标签页 	author:wangkun*/
+#tasktabs { display:inline-block; height:31px; line-height:31px; position:absolute; top:0px; left:32px; }
+#taskPanel { margin-right:90px; width:auto; overflow:hidden; height:31px; }
+#scroll{height:31px; width:10000px; position:relative;}
+#scroll ul{position:absolute; top:0; left:0; right:0; height:30px;}
+#scroll ul li {
+	color: #387BB0;
+	font-family: "Arial Rounded MT Bold";
+	width: auto;
+	float: left;
+	border-right:1px solid #6695BB;
+	text-align:center;
+	padding-left:15px;
+	height:30px;
+	line-height:30px;
+}
+
+#scroll ul li.on {
+	color:#909295;
+	font-weight:bolder;
+}
+
+#scroll ul li.firstTab{
+	padding-right:10px;
+}
+
+#scroll ul li:hover {
+	background-color:#fff;
+	cursor: pointer;
+}
+
+#scroll ul li  a span{
+	color:#1A3F94;
+}
+
+#scroll ul li  a{ 
+	display:block;
+	float:left;
+	width:auto;
+	height:30px;
+	margin-right:3px;
+}
+#scroll ul li  span.tabClose{
+	width:9px;
+	height:10px;
+	display:block;
+	float:right;
+	margin-top:3px;
+	margin-right:3px;
+	background:url(../images/tabOpera.png) no-repeat -47px -27px;
+}
+
+
+#taskOpare{
+	z-index:10; 
+	position:absolute; 
+	top:0; 
+	right:10px; 
+	height:30px; 
+	width:auto; 
+	line-height:28px;
+	padding:4px 5px;
+}
+#taskOpare span {
+	display: block;
+	float: left;
+	width:13px;
+	height:17px;
+}
+#taskOpare span#tabAttr{
+	width:18px;
+	background:url(../images/tabAttr.png) no-repeat 0 2px;
+}
+#taskOpare span#tabAttr:hover{
+	width:18px;
+	background:url(../images/tabAttr.png) no-repeat 0 0;
+}
+#taskOpare span#tabPrev{
+	margin-left:2px;
+	background:url(../images/tabOpera.png) no-repeat 2px -24px;
+}
+#taskOpare span#tabNext{
+	margin-left:2px;
+	background:url(../images/tabOpera.png) no-repeat -9px -24px;
+}
+#taskOpare span#tabList{
+	margin-left:2px;
+	background:url(../images/tabOpera.png) no-repeat -24px -24px;
+}
+#taskOpare span:hover {
+	cursor: pointer;
+}
+
+/**************      右键菜单样式        author:wangkun       **************/
+#conMenu, #hideMenu{
+	display:none;
+	position:absolute;
+	border:1px solid #999;
+	background-color:#F0EFEA;
+	z-index:50;
+	padding:5px;
+	color:#000;
+	width:162px;
+}
+#conMenu ul li, #hideMenu ul li{
+	height:100%;
+	padding:5px 0;
+}
+#conMenu ul li a:hover, #hideMenu ul li a:hover{
+	font-weight:bolder;
+	color:#fff;
+	background-color:#60A022;
+}
+#conMenu ul li a, #hideMenu ul li a{
+	text-align:left;
+	width:140px;
+	display:block;
+	padding:6px 8px 6px 15px;
+	color:#000
+}
+
+/** 任务栏设置弹出层 	author:wangkun**/
+a:hover {text-decoration: none;}
+#bg{display:none; filter:alpha(opacity=50);opacity:0.5; z-index:50; position:absolute; top:0; left:0; right:0; bottom:0; background-color:#666;}
+#shadow{display:none; filter:alpha(opacity=70);opacity:0.7;position:absolute; width:400px; height:300px; z-index:52; background-color:#000; }
+#setting{border:1px solid #333; display:none; position:absolute; width:400px; height:300px; z-index:52; background-color:white;}
+#setTile{font-weight: bolder;padding:0 10px; background-color:#ccc; line-height:30px; border-bottom:1px solid #000;display:block; height:30px;}
+#setting div{display:block; width:100%; height:223px;}
+#setting p a {
+	display: block;
+	padding: 0 10px;
+	float: right;
+	font-weight: normal;
+}
+#shfoot{padding:0 10px; line-height:45px; border-top:1px solid #ccc; display:block; height:45px;}
+/* 功能菜单 */
+*+html #taskbar .banner_hide { /*针对IE7的hack*/ background:url('../images/menu_bg_right.png') no-repeat; display:inline-block; height:30px; position:absolute; right:2px; width:40px; cursor:pointer; }
+#taskbar .banner_hide { background:url('../images/menu_bg_right.png') no-repeat; display:inline-block; _display:inline-block; height:30px; float:right; width:40px; cursor:pointer; }
+#taskbar #control-panel { display:inline-block; height:23px; line-height:23px; position:absolute; top:3px; right:40px; width:205px; }
+#taskbar .banner_hide_wrap { display:inline-block; position:absolute; top:0px; right:0px; }
+*+html #taskbar #control-panel .control_ico_wrap { margin:0 7px 0 0; height:23px; display:inline; }
+#taskbar #control-panel .control_ico_wrap { margin:0 3px 0 0; height:23px; display:inline-block; }
+/* 针对IE7的hack */
+*+html #taskbar #control-panel .corner { background:url('../images/menu.png') 7px 79px; display:inline-block; height:8px; width:8px; margin:7px 5px 7px 0; }
+*+html #taskbar #control-panel .sys_ico { background:url('../images/cog.png') no-repeat; display:inline-block; height:16px; width:16px; margin:4px 8px 3px 7px; }
+*+html #taskbar #control-panel .knocker_ico { background:url('../images/door.png') no-repeat; display:inline-block; height:16px; width:16px; margin:4px 8px 3px 7px; }
+*+html #taskbar #control-panel .help_ico { background:url('../images/help.png') no-repeat; display:inline-block; height:16px; width:16px; margin:4px 8px 3px 7px; }
+*+html #taskbar #control-panel .quit_ico { background:url('../images/door_in.png') no-repeat; display:inline-block; height:16px; width:16px; margin:4px 8px 3px 7px; }
+#taskbar #control-panel .corner { background:url('../images/menu.png') 7px 79px; display:inline-block; height:8px; width:8px; margin:7px 5px 7px 0; }
+#taskbar #control-panel .sys_ico { background:url('../images/cog.png') no-repeat; display:inline-block; height:16px; width:16px; margin:4px 5px 3px 7px; }
+#taskbar #control-panel .knocker_ico { background:url('../images/door.png') no-repeat; display:inline-block; height:16px; width:16px; margin:4px 5px 3px 7px; }
+#taskbar #control-panel .help_ico { background:url('../images/help.png') no-repeat; display:inline-block; height:16px; width:16px; margin:4px 5px 3px 7px; }
+#taskbar #control-panel .quit_ico { background:url('../images/door_in.png') no-repeat; display:inline-block; height:16px; width:16px; margin:4px 5px 3px 7px; }
+.control_ico_wrap_hover { background:url('../images/knocker_ico_hover.png') no-repeat; }
+.control_ico_wrap_left { background:url('../images/knocker_ico_left.png') no-repeat; }
+.control_ico_wrap_right { background:url('../images/knocker_ico_right.png') no-repeat; }

@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* layout */
+#south { }
+#banner { height: 50px; overflow: hidden; background:url(../images2/banner_bg.png) repeat-x;}
+#navbar { height:31px;  overflow:hidden; line-height:normal; position:relative; background:url(../images2/menu_bg.png) repeat-x;}
+#navbar #navbar-left { float:left; width:80px; }
+/*#startmenu { margin:6px 4px; width:80px; height:32px; display:inline-block; background:url(../images/menu.png) no-repeat; }
+.start-menu-disable { background:url(../images2/start_disable.png) no-repeat !important; }*/
+#navbar-left a{cursor:hand;}
+#navbar-center { float:left; }
+#navbar-right { float:right; width:230px; }
+#center { overflow: hidden; }
+#message { height:30px; background-color:#ccc; }
+#menu-left { display:none; float:left; width:350px; }
+#page-center { float:left; }
+#menu-right { display:none; float:right; width:350px; }
+#sysbar { float:left; }
+#sysbar #sysbar-useicos{float:left;width:147px;height:21px; background:url(../images2/sys_setup_bg.png) no-repeat;margin:5px 0 0 20px;padding:3px 0;}
+#sysbar #sysbar-useicos .sysbar-useicos-setup{margin:0 10px;}
+#sysbar #sysbar-useicos .sysbar-useicos-cutover{margin:0 15px 0 3px;}
+#sysbar #sysbar-useicos .sysbar-useicos-help{margin:0 15px 0 3px;}
+#sysbar #sysbar-useicos .sysbar-useicos-out{margin:0 0 15px 0;}
+#sysbar a { width:20px; height:20px; margin:8px 4px; vertical-align:middle;}
+#sysbar a.sys-hide { width:40px; height:30px; margin:0; display:inline-block; background:url(../images2/menu_bg_right.png) no-repeat; }
+.banner-dwon { background:url(../images/down.png) no-repeat !important; }
+#startmenupanel { display:none; z-index:10000; background-color:#f2f2f2; width:350px; height:400px; min-height:200px; border:1px solid #999;}
+#startmenupanel_overlay { display:none; position:absolute; top:0px; left:0px; z-index:9999; width:100%; height:100%; filter:alpha(apacity=1); opacity:0.01; -moz-opacity:0.01; }
+.footer{height:25px; overflow:hidden; background:url(../images2/foot_bg.png) repeat-x;}
+.clear {clear:both; height:1px; font-size:1px; overflow:hidden; visibility:hidden;}
+
+/* startmenu */
+#menu-title { height:32px; position:relative; }
+#menu-tabs { float:left; width:200px; height:32px; }
+#menu-tabs ul{padding:0; list-style:none;}
+#menu-tabs li{display:inline;}
+#menu-tabs a{float:left; text-decoration:none; margin:0 1px;padding:0 0 0 3px;cursor:hand;}
+#menu-tabs a span{float:left; display:block; padding:7px 10px; color:#24618E;}
+#menu-tabs-addbtn{position:absolute;width:16px;height:16px; top:6px;}
+#menu-tabs-addbtn a.menu-tabs-addbtn{background:url(../images2/add.png) no-repeat;}
+#menu-btns { float:right; text-align:right; }
+#menu-btns a { margin:6px 4px; width:16px; height:16px; display:inline-block; }
+#menu-btns a.menu-switch { background:url(../images/toright.png) no-repeat; }
+#menu-btns a.menu-switch-right { background:url(../images/toleft.png) no-repeat !important; }
+#menu-btns a.menu-lock { background:url(../images/unlock.png) no-repeat; }
+#menu-btns a.menu-unlock { background:url(../images/lock.png) no-repeat !important; }
+#menu-btns a.menu-close { background:url(../images/close.png) no-repeat; }
+#menu-control{height:25px;background:#ffffcc;}
+#menu-control #menu-control-search{float:left;width:200px;height:25px;padding:4px 2px 0;}
+#menu-control #menu-control-search input{border:1px solid #B5B8C8;height:18px;background:url(../images2/text-bg.gif) repeat-x fixed #FFFFFF;}
+#menu-control #menu-control-openup{height:25px; padding:4px 0 0;}
+#menu-control #menu-control-openup a{margin:0 10px;}
+
+/* navbar-center */
+#navbar-center{height:27px; overflow:hidden; font-size:95%; line-height:normal; position:relative;}
+#navbar-center ul{ padding:0; list-style:none;}
+#navbar-center li{display:inline; background:url(../images2/grid-blue-split.gif) no-repeat left top;}
+#navbar-center a{float:left;margin:0 1px;padding:0 0 0 3px; text-decoration:none;}
+#navbar-center a span{float:left; display:block; padding:8px 10px 6px 10px; color:#24618E;}
+#navbar-center a span{float:none;}
+#navbar-center a:hover span{color:#000;}
+#navbar-center-setup{position:absolute;width:150px; height:27px;line-height:normal;padding:7px 5px;}

@@ -1,0 +1,827 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="IWAP-WEB" />
+<title>IWAP-WEB</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/reset.css" />
+<link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/tabs.css" />
+<link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/menu.css" />
+<link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/menu.theme.css" />
+<link rel="stylesheet" type="text/css" href="js/jquery-wooUI/themes/default/portal.css" />
+<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="js/jquery.plugins.js"></script>
+<script type="text/javascript" src="js/sys.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/woo.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/component.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/menu.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/tabs.js"></script>
+<script type="text/javascript" src="js/jquery-wooUI/src/portal.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/portal-inettuts.js"></script>
+
+<script type="text/javascript">
+        
+        var clickNum = 0, //左右移动按钮点击的次数
+         moveOffset = 0, //tab移动的偏移量
+         conMenuIndex = 0, //当前显示右键菜单的标签索引
+         lockArr = [], //保存锁定标签索引的数组
+         isClick = true; //点击事件的保护参数，防止用户无限点击
+         
+		
+		//字符串去前后空白
+		String.prototype.Trim=function(){
+			return this.replace(/(^\s*)|(\s*$)/g, "");
+		}
+		 
+        //从后台得到锁定状态的标签json
+        function getLockJson(){
+            var Arr = [{
+                id: "t002",
+                name: "阿斯顿发生的",
+                url: "http://www.google.com.hk"
+            }, {
+                id: "t003",
+                name: "方士",
+                url: "http://www.toone.com/"
+            }, {
+                id: "t004",
+                name: "更好的风光好",
+                url: "http://www.google.com.hk"
+            }, {
+                id: "t005",
+                name: "考虑规划局",
+                url: "http://www.toone.com/"
+            }, {
+                id: "t006",
+                name: "更好的风光好大哥",
+                url: "http://www.google.com.hk"
+            }];
+            return Arr;
+        }
+        
+        $(function(){
+            moveOffset = parseInt($("#scroll ul li:first").css("margin-left")) + parseInt($("#scroll ul li:first").css("margin-right"));
+            
+            //为“我的桌面”绑定url数据，并装载设定的初始页面
+            //                $("#scroll ul li:first").data("tabUrl", "http://www.google.com.hk");
+            //                pageLoad($("#scroll ul li:first").data("tabUrl"));
+            
+            //初始化标签栏内容
+            (function(){
+                //获取任务栏标签的json
+                var lockcookie = $.cookie("lockTab");
+                //					if($.trim(lockcookie) != ""){
+                //						tabJson = tabJson;
+                //					}else{
+                tabJson = getLockJson();
+                //					}
+                
+                var cookieStr = [];
+                
+                if (tabJson.length > 0) {
+                    for (var i = 0, len = tabJson.length; i < len; i++) {
+                        //任务栏标签的初始化
+                        addTab(tabJson[i].id, tabJson[i].name, tabJson[i].url, false);
+                        //将锁定状态的标签栏记录到数组中
+                        //todo:测试功能过程中，去掉此处功能
+                        //lockArr[i + 1] = i + 1;
+                        
+                        //拼接需要存入cookie中的信息
+                        cookieStr.push("id=");
+                        cookieStr.push(tabJson[i].id);
+                        cookieStr.push(",name=");
+                        cookieStr.push(tabJson[i].name);
+                        cookieStr.push(",url=");
+                        cookieStr.push(tabJson[i].url);
+                        if (len - i > 1) {
+                            cookieStr.push("|");
+                        }
+                    }
+                    $.cookie("lockTab", cookieStr.join(""), {
+                        path: '/',
+                        expires: 1
+                    });
+                    //初始化时，默认显示第一个标签与第一个内容页
+                    //$("#scroll ul li:first").addClass("on").siblings().removeClass("on");
+                    //$("#main div:first").css("display", "block").siblings().css("display", "none");
+                    getTabShowNum();
+                }
+            })();
+            
+            /***************************************
+             * 	desc:			标签栏的左右移动事件
+             ***************************************/
+            $("#tabPrev, #tabNext").click(function(){
+                if (isClick) {
+                    //进入方法体后，将状态参数置为false，防止用户的快速点击
+                    isClick = false;
+                    
+                    //获取当前的tab总数	
+                    var tabNum = $("#scroll ul li").length; //当前的标签总数
+                    if ($(this).attr("id") == "tabPrev") {
+                        //前滚
+                        if (clickNum >= (tabNum - 1)) {
+                            return false;
+                        }
+                        clickNum++;
+                    }
+                    else {
+                        //后滚
+                        if (clickNum < 1) {
+                            return false;
+                        }
+                        clickNum--;
+                    }
+                    //执行移动
+                    moveAnimate(clickNum);
+                }
+            });
+            
+            /***************************************
+             * 	desc:			隐藏标签的查看按钮
+             ***************************************/
+            $("#tabList").click(function(e){
+            
+                var menu = $("div#hideMenu");
+                if (menu.length >= 0) {
+                    menu.remove();
+                }
+                
+                //获取当前宽度下，首个没有完整显示的标签索引
+                var index = isTabCover().hideIndex;
+                
+                var hideMenu = [];
+                hideMenu.push("<div id='hideMenu'><ul>");
+                
+                $("#scroll ul li a span").each(function(i){
+                    //添加左侧隐藏的标签
+                    if (clickNum >= 0 && i < clickNum || (i > index && index > 0)) {
+                        hideMenu.push("<li><a href='javascript:;' onclick='hideTabClick(" + i + ")'>");
+                        hideMenu.push($(this).html());
+                        hideMenu.push("</a></li>");
+                        return true;
+                    }
+                });
+                
+                hideMenu.push("</ul></div>");
+                $("body").append(hideMenu.join(""));
+                
+                $("div#hideMenu").css("left", e.clientX + 5).css("top", e.clientY + 5).slideDown("fast", function(){
+                    menuHide($("#hideMenu"), true);
+                }).focus();
+            });
+           
+            /***************************************
+             *		单个tab的点击事件
+             *		为tab绑定鼠标右键菜单事件
+             ***************************************/
+            var timer = null;
+            $("#scroll ul li a").live("click", function(){
+                clearTimeout(timer);
+                var $lis = $("#scroll ul li");
+                var i = $lis.index($(this).parent());
+                
+                timer = setTimeout(function(){
+                
+                    $lis.removeClass("on");
+                    //var i = $("#scroll ul li a").index($(this));
+                    
+                    
+                    $lis.eq(i).addClass("on");
+                    
+                    //判断需要显示的标签是否激活，若未激活，则激活该页面
+                    var $div = $("#main > div").eq(i);
+                    var $iframe = $div.find("iframe");
+                    if ($iframe.attr("src").Trim() == "") {
+                        $iframe.attr("src", $lis.eq(i).data("pageUrl"));
+                        
+                        //							var ifr = document.getElementById("main").getElementsByTagName("iframe")[i];
+                        //							//主动刷新该页面
+                        //							ifr.contentWindow.location.reload();
+                        //alert($iframe.attr("src"));
+                    }
+                    
+                    //隐藏其他的内容页，显示选中的内容页
+                    $div.css("display", "block").siblings().css("display", "none");
+                    
+                    //获取第一个未能完整显示的tab标签索引
+                    var coverFirst = isTabCover().coverIndex;
+                    //若当前点击激活的标签未能完整显示，则将标签栏左移，保证当前标签的完整显示
+                    if (i == coverFirst) {
+                        //当前任务栏的可视宽度
+                        var sightWidth = $("#taskPanel").outerWidth();
+                        
+                        var tempWidth = 0, moveIndex = 0; //需要左移到第几个标签时才会完整显示最右边的标签
+                        var li_arr = document.getElementById("scroll").getElementsByTagName("li");
+                        
+                        //计算需要左移多少个标签才能保证隐藏标签完整显示
+                        (function(){
+                            for (var n = i, len = li_arr.length; n >= clickNum; n--) {
+                            
+                                tempWidth += $(li_arr[n]).outerWidth();
+                                if (tempWidth > sightWidth) {
+                                    moveIndex = n + 1;
+                                    break;
+                                }
+                            }
+                        })();
+                        if (isClick) {
+                            isClick = false;
+                            moveAnimate(moveIndex);
+                        }
+                        
+                        //移动之后，将移动的索引值记录到clickNum中
+                        clickNum = moveIndex;
+                    }
+                }, 300);
+            });
+            $("#scroll ul li").live("dblclick", function(e){
+                //关闭标签
+                clearTimeout(timer);
+                if (event.detail == 2) {
+                    return false;
+                }
+                
+                closeTab($(this));
+            }).live("contextmenu", function(e){
+                //“我的桌面“的鼠标右键是绑定该功能
+                    //若隐藏按钮的弹出菜单为隐藏，则直接移除该菜单
+                    $("div#hideMenu").remove();
+                    
+                    var index = $("#scroll ul li").index($(this));
+                    if (index == 0) {
+                        return false;
+                    }
+                    
+                    //若为首次加载右键菜单，则执行该添加操作，否则，直接对菜单进行重新定位
+                    if ($("div#conMenu").length <= 0) {
+                        var conHtml = [];
+                        conHtml.push("<div id='conMenu'><ul>");
+                        conHtml.push("<li><a id='lock' href='javascript:;' onclick='tabLock()'>锁定到任务栏</a></li>");
+                        conHtml.push("<li><a id='unlock' href='javascript:;' onclick='tabUnLock()'>从任务栏解锁</a></li>");
+                        conHtml.push("<li><a id='closeOther' href='javascript:;' onclick='closeOther()'>关闭其他</a></li>");
+                        conHtml.push("<li><a id='closeAll' href='javascript:;' onclick='closeAll()'>关闭所有</a></li>");
+                        conHtml.push("<li><a id='reload' href='javascript:;' onclick='reload()'>刷新</a></li>");
+                        $("body").append(conHtml.join(""));
+                    }
+                    else {
+                        //在重新激活右键菜单之前，隐藏当前已显示的右键菜单
+                        $("#conMenu").css("display", "none");
+                    }
+                    
+                    //将当前激活右键菜单的tab标签索引传递给全局变量conMenuIndex
+                    conMenuIndex = index;
+                    
+                    
+                    //若当前标签被锁定，则仅显示“解锁”按钮，反之显示“锁定”按钮
+                    if (!lockArr[index]) {
+                        $("#conMenu ul li:eq(0)").css("display", "block");
+                        $("#conMenu ul li:eq(1)").css("display", "none");
+                    }
+                    else {
+                        $("#conMenu ul li:eq(0)").css("display", "none");
+                        $("#conMenu ul li:eq(1)").css("display", "block");
+                    }
+                    
+                    //右键菜单的定位和显示
+                    $("#conMenu").css("left", e.clientX + 5).css("top", e.clientY + 5).slideDown("fast", function(){
+                        menuHide($("#conMenu"), false);
+                    }).focus();
+                    
+                    return false;
+            });
+            /***************************************
+             * 		自定义菜单的隐藏
+             *
+             ***************************************/
+            function menuHide($labObj, isRemove){
+            
+                if ($labObj) {
+                    //当其他功能触发的时候，自动隐藏当前的右键菜单
+                    $("window,*").click(function(e){
+                        if ($labObj[0] != e.target) {
+                        
+                            if (isRemove) {
+                                $labObj.remove();
+                            }
+                            else {
+                                $labObj.css("display", "none");
+                            }
+                            
+                        }
+                    });
+                    $("#main > div iframe").focus(function(){
+                        if (isRemove) {
+                            $labObj.remove();
+                        }
+                        else {
+                            $labObj.css("display", "none");
+                        }
+                    });
+                }
+            }
+            
+            
+            /***************************************
+             * 		"关闭按钮"的点击事件
+             ***************************************/
+            $("#scroll ul li span.tabClose").live("click", function(){
+                closeTab($(this))
+            });
+            
+            //关闭任务栏标签的方法，标签的“x”按钮与双击操作均执行该方法
+            function closeTab(obj){
+            
+                if (obj[0].tagName == "SPAN") {
+                    obj = obj.parent();
+                }
+                
+                var $lis = $("#scroll ul li");
+                var i = $lis.index(obj);
+                if (obj.hasClass("on")) {
+					$("#scroll ul li a").eq(i - 1).trigger("click");
+                }
+                //移除相应的tab与内容
+                obj.remove();
+                $("#main > div").eq(i).remove();
+            }
+            
+            
+            /***************************************
+             * "属性设置"的按钮点击事件
+             ***************************************/
+            $("#tabAttr").click(function(){
+                windowPosition();
+                
+                $("#bg").show();
+                $("#setting").fadeIn("fast");
+                $("#shadow").show();
+            });
+            
+            /***************************************
+             * 窗体缩放
+             ***************************************/
+            $(window).resize(function(){
+                if ($("#bg").css("display") != "none") {
+                    windowPosition();
+                }
+                getTabShowNum();
+            });
+            /***************************************
+             * 调整弹出层的位置
+             ***************************************/
+            function windowPosition(){
+                //获取当前浏览器的可视范围
+                //并设定最小范围（宽度为500px，高度为400px）
+                var sightX = Math.max(document.body.offsetWidth, 500);
+                var sightY = Math.max(document.body.offsetHeight, 400);
+                
+                var $setObj = $("#setting");
+                
+                //设置框相对浏览器的左边距与上边距
+                var setX = Math.round((sightX - $setObj.outerWidth()) / 2);
+                var setY = Math.round((sightY - $setObj.outerHeight()) / 2);
+                
+                $setObj.css("left", setX + "px").css("top", setY + "px");
+                setX += 10;
+                setY += 10;
+                $("#shadow").css("left", setX + "px").css("top", setY + "px");
+            }
+            /***************************************
+             * 关闭弹出层
+             ***************************************/
+            $("#closeSet, #closebtn").click(function(){
+                $("#setting").fadeOut("fast");
+                $("#shadow").hide();
+                $("#bg").hide();
+            });
+        });
+        
+		/***************************************
+             * desc:		添加标签
+             * param:		id			标签ID
+             * 				name		标签名称
+             * 				url			标签对应的页面路径
+             * 				isActive	是否在加载之后立刻激活
+             ***************************************/
+            function addTab(id, name, url, isActive){
+				id = id.toLocaleString();
+				name = name.toLocaleString();
+                //若参数无效，则直接返回
+                if (id.Trim() == "" || name.Trim() == "") {
+                    return false;
+                }
+                //追加tab标签
+                var li_html = [];
+                li_html.push("<li id='" + id + "'");
+                //若需要激活，则添加激活后的样式
+                if (isActive) {
+                    li_html.push("class='on'");
+                }
+                li_html.push("><a href='javascript:;'><span>");
+                li_html.push(name);
+                li_html.push("</span></a>");
+                li_html.push("<span class='tabClose'></span></li>");
+                
+                var index = 0, $lis = $("#scroll ul li"), $divs = $("#main > div");
+                
+                //取消其他标签的激活状态
+                $lis.each(function(i){
+                    if ($(this).hasClass("on")) {
+                        index = i;
+                    }
+                });
+                if (isActive) {
+                    //取消所有标签的激活状态
+                    $lis.removeClass("on");
+                    
+                    //隐藏其他的内容页
+                    $divs.css("display", "none");
+                }
+                
+                //                    tabNew.data("tabUrl", url);
+                
+                //为新加入的tab标签添加内容页
+                var conHtml = [];
+                conHtml.push("<div");
+                if (!isActive) {
+                    conHtml.push(" style='display:none;' ");
+                }
+                conHtml.push("><iframe style='width:100%;height:100%;");
+                conHtml.push("' frameborder='0' src='");
+                //conHtml.push(url);
+                conHtml.push("'></iframe></div>");
+                
+				var addIndex = index;
+				if(!isActive){
+					addIndex = $lis.length - 1;
+				}
+				//在之前处于激活状态的标签之后插入添加的标签
+	            
+				$lis.eq(addIndex).after(li_html.join(""));
+	            //在对应的内容页后插入新的内容页面
+	           $divs.eq(addIndex).after(conHtml.join(""));
+                
+                if (!isActive) {
+                    //绑定页面URL数据到指定tab对象中（jquery对象）
+                    $("#" + id).data("pageUrl", url);
+                }
+                //alert($("#" + id).data("pageUrl"));
+            }
+		
+        /*
+         * 重要说明：			关于存储锁定标签索引的数组的描述
+         * 							存入数组的为当前标签所在的索引，为了方便对该数组的读写操作，存入数组的标签索引的同时，也将该索引设为该数组的索引
+         * 示例：				标签索引：		tabIndex = 3;		或tabIndex = 7；
+         * 							存入数组：		lockArr[3] = 3;			lockArr[7] = 7;
+         */
+        /***************************************
+         * desc:				锁定到任务栏
+         * 	param:			index			执行操作的tab索引
+         ***************************************/
+        function tabLock(){
+            index = conMenuIndex;
+            //判断该标签是否已锁定
+            //					if(!lockArr[index]){
+            //若未锁定，将需要锁定的tab索引压入存储数组中
+            lockArr[index] = index;
+            //					}		
+            $("#conMenu").css("display", "none");
+            
+        }
+        
+        /***************************************
+         * desc:				从任务栏解锁
+         * 	param:			index			执行操作的tab索引
+         ***************************************/
+        function tabUnLock(){
+            index = conMenuIndex;
+            //判断该标签是否已锁定
+            //					if(lockArr[index]){
+            lockArr[index] = undefined;
+            //					}
+            $("#conMenu").css("display", "none");
+        }
+        
+        /***************************************
+         * desc:				关闭其他tab
+         * 	param:			index			执行操作的tab索引
+         ***************************************/
+        function closeOther(){
+            index = conMenuIndex;
+            //移除“我的桌面”与保留tab之外的所有标签及其内容
+            var conDiv = $("#main > div");
+            $("#scroll ul li").each(function(i){
+                //"我的桌面"，当前标签，锁定标签不能删除
+                if (i == 0 || index == i || lockArr[i]) {
+                    return true;
+                }
+                $(this).remove(); //删除任务栏的标签
+                conDiv.eq(i).remove(); //删除对应的任务页
+            });
+            //关闭标签后，调整左右移动按钮的显示状态
+            getTabShowNum();
+        }
+        
+        /***************************************
+         * desc:				关闭全部标签
+         ***************************************/
+        function closeAll(){
+            var conDiv = $("#main > div");
+            $("#scroll ul li").each(function(i){
+                if (i == 0) {
+                    return true;
+                }
+                //判断该标签是否锁定
+                if (!lockArr[i]) {
+                    $(this).remove(); //删除任务栏的标签
+                    conDiv.eq(i).remove(); //删除对应的任务页
+                }
+            });
+            //关闭标签后，调整左右移动按钮的显示状态
+            getTabShowNum();
+        }
+        
+        /***************************************
+         * title:		隐藏菜单中，每个标签的点击事件
+         * desc:		点击固定标签，则移动任务栏的标签，将点中的标签移动到任务栏的可见区域
+         * para:		num		当前标签的索引值
+         ***************************************/
+        function hideTabClick(tabIndex){
+        
+            $li_arr = $("#scroll ul li");
+            
+            $li_arr.removeClass("on");
+            
+            $li_arr.eq(tabIndex).addClass("on");
+            
+            //隐藏其他的内容页，显示选中的内容页
+            $("#main > div").eq(tabIndex).css("display", "block").siblings().css("display", "none");
+            
+            //判断点选的标签为左侧隐藏部分，还是右侧隐藏部分。并分情况执行不同的操作
+            if (tabIndex >= clickNum) {
+                //若为右侧隐藏部分
+                var li_arr = document.getElementById("scroll").getElementsByTagName("li"), //当前任务栏的可视宽度
+         sightWidth = $("#taskPanel").outerWidth(), //保存计算中的宽度值
+         tempWidth = 0, //需要移动的tab次数
+         moveNum = 0;
+                
+                
+                for (var i = tabIndex, len = li_arr.length; i > clickNum; i--) {
+                    tempWidth += $(li_arr[i]).outerWidth();
+                    if (tempWidth > sightWidth) {
+                        moveNum = i;
+                        break;
+                    }
+                }
+                clickNum = moveNum;
+            }
+            else {
+                //若为左侧隐藏部分
+                clickNum = tabIndex;
+            }
+            //执行移动操作
+            moveAnimate(clickNum);
+            
+        }
+        
+        /***************************************
+         * desc:				主动刷新页面
+         ***************************************/
+        function reload(){
+            //当前点击的按钮的索引
+            index = conMenuIndex;
+            var path = $("#scroll ul li").eq(index).data("pageUrl");
+            
+            var iframe = $("#main > div:eq(" + index + ") > iframe")[0];
+            
+            //若该页面从未激活，则直接加载页面
+            //		否则，主动刷新页面
+            if (iframe.getAttribute("src").Trim() == "") {
+                iframe.setAttribute("src", path);
+                return false;
+            }
+            try {
+                iframe.contentWindow.location.replace(path);
+            } 
+            catch (e) {
+                iframe.setAttribute("src", path);
+            }
+        }
+        
+        /***************************************
+         * desc:		计算当前浏览器宽度与标签宽度，若标签过长，则隐藏
+         * param:		num	标签左右移动的次数
+         * return:		第一个未完全显示的标签索引
+         ***************************************/
+        function getTabShowNum(){
+            //主动隐藏任务栏标签的自定义菜单
+            $("#conMenu").css("display", "none");
+            $("#hideMenu").remove();
+            if (clickNum > 0) {
+                $("#tabPrev, #tabNext,#tabList").css("display", "block");
+                $("#taskPanel").css("margin-right", "85px");
+            }
+            else {
+                if (isTabCover().isCover) {
+                
+                    $("#tabPrev, #tabNext").css("display", "block");
+                    
+                    //计算当前没有完全显示的标签个数
+                    var coverNum = $("#scroll ul li").length - isTabCover().hideIndex;
+                    
+                    if (coverNum > 1) {
+                        $("#tabList").css("display", "block");
+                        $("#taskPanel").css("margin-right", "85px");
+                    }
+                    else {
+                        $("#tabList").css("display", "none");
+                        $("#taskPanel").css("margin-right", "75px");
+                    }
+                }
+                else {
+                    $("#tabPrev, #tabNext, #tabList").css("display", "none");
+                    $("#taskPanel").css("margin-right", "45px");
+                }
+            }
+            
+            
+        }
+        
+        /***************************************
+         * desc:		获取当前浏览器宽度下，可见的标签数量
+         * param:		num	标签左右移动的次数
+         * return:		第一个未完全显示的标签索引
+         ***************************************/
+        function isTabCover(){
+            var coverObj = {
+                isCover: false, //是否有标签被遮盖
+                coverIndex: 0, //首个被遮盖的tab标签的索引值
+                hideIndex: 0 //隐藏菜单中首个显示的标签索引（该属性仅供）
+            };
+            
+            //当前任务栏的可视宽度
+            var sightWidth = $("#taskPanel").outerWidth();
+            //当前可见的tab总长度
+            var tempWidth = 0;
+            var oneWidth = 0;
+            $("#scroll ul li").each(function(i){
+                if (i >= clickNum) {
+                    oneWidth = $(this).outerWidth() + moveOffset
+                    tempWidth += oneWidth;
+                    if ((tempWidth - moveOffset) >= sightWidth) {
+                        coverObj.isCover = true;
+                        //若未完整显示的标签，被隐藏的部分大于总长度3/4，则将该标签内容在隐藏菜单中显示出来(即隐藏索引为当前的索引减去1)
+                        if ((tempWidth - sightWidth) >= parseInt(oneWidth * 0.6)) {
+                            coverObj.hideIndex = i - 1
+                        }
+                        else {
+                            coverObj.hideIndex = i;
+                        }
+                        coverObj.coverIndex = i;
+                        return false;
+                    }
+                }
+            });
+            return coverObj;
+        }
+        
+        
+        /***************************************
+         * 	desc:	任务栏的移动方法
+         ***************************************/
+        function moveAnimate(num){
+            //当前移动的距离为可见的第一个tab便签宽度
+            var ex = 0;
+            $("#scroll ul li").each(function(i){
+                if (i >= num) {
+                    return false;
+                }
+                ex += $(this).outerWidth() + moveOffset;
+            });
+            
+            $("#scroll ul").stop(true, false).animate({
+                left: (0 - ex)
+            }, 'normal', function(){
+                //执行完移动函数后，将保护函数置为true，允许之行下一次点击
+                isClick = true;
+                getTabShowNum();
+            });
+        }
+</script>
+</head>
+
+<body>
+<!-- 弹出层开始start -->
+<!-- 背景层 -->
+<div id="bg"></div>
+<!-- 阴影层 -->
+<div id="shadow"></div>
+<!-- 内容层 -->
+<div id="setting">
+	<p id="setTile">任务区域设置<a id="closeSet" href="javascript:;">关闭</a></p>
+	<div>树形组件</div>
+	<p id="shfoot">
+		<a id="closebtn" href="javascript:;">确定</a> 
+		<a href="javascript:;">恢复</a> 
+		<a href="javascript:;">全部取消</a>
+	</p>
+</div>
+<!-- 弹出层开始end -->
+
+
+<div id="banner"></div>
+<div id="taskbar"><a href="javascript:;" hideFocus="hidefocus" id="startmenu" class="startmenu"></a>
+<div id="tasktabs">
+
+<!-- 标签栏start -->
+<div id="taskPanel">
+<!-- 标签层start -->
+<div id="scroll">
+<ul>
+	<li class="firstTab on" id="t001"><a href="javascript:;"><span>我的桌面</span></a></li>
+    <li id="t002"><a href="javascript:;"><span>萨1111</span></a><span class="tabClose">x</span></li>
+</ul>
+</div>
+</div>
+<!-- 标签层end -->
+
+
+
+<!-- 操作层start -->
+<div id="taskOpare"><span id="tabAttr"></span> <span id="tabPrev"></span> <span id="tabNext"></span> <span id="tabList"></span></div>
+<!-- 操作层end --><!-- 标签栏end --></div>
+<div id="control-panel">
+<div id="knocker_ico_wrap" class="control_ico_wrap"><a title="门户切换" href="javascript:;" hideFocus="hidefocus"
+	id="knocker_ico" class="knocker_ico"></a> <a title="" href="javascript:;" hideFocus="hidefocus" id="knocker_corner_ico"
+	class="corner"></a></div>
+<div id="sys_ico_wrap" class="control_ico_wrap"><a title="系统设置" href="javascript:;" hideFocus="hidefocus" id="sys_ico"
+	class="sys_ico"></a> <a title="" href="javascript:;" hideFocus="hidefocus" id="sys_corner_ico" class="corner"></a></div>
+<div id="help_ico_wrap" class="control_ico_wrap"><a title="系统帮助" href="javascript:;" hideFocus="hidefocus" id="help_ico"
+	class="help_ico"></a> <a title="" href="javascript:;" hideFocus="hidefocus" id="help_corner_ico" class="corner"></a></div>
+<div id="quit_ico_wrap" class="control_ico_wrap"><a title="退出" href="javascript:;" hideFocus="hidefocus" id="quit_ico"
+	class="quit_ico"></a> <a title="" href="javascript:;" hideFocus="hidefocus" id="quit_corner_ico" class="corner"></a></div>
+</div>
+<div class="banner_hide_wrap"><a title="隐藏/显示顶部" href="javascript:;" hideFocus="hidefocus" id="banner_hide" style=""
+	class="banner_hide"></a></div>
+</div>
+<div id="center">
+<div id="leftmenu" style="display: none;"></div>
+<div id="main">
+<div id="columns"></div>
+</div>
+<div id="rightmenu" style="display: none;"></div>
+</div>
+<div id="footer"></div>
+<!-- 菜单内容 -->
+<div id="startmenupanel" style="display: none;">
+<div id="menu-title">
+<div id="menu-tabs"><!--<div title="Home"></div>-->
+<ul>
+	<li><a href="javascript:;" class="menuTabActive"><span>开始菜单</span></a></li>
+</ul>
+</div>
+<div id="menu-tabs-addbtn"><a title="增加标签" href="javascript:;" hideFocus="hidefocus" class="menu-tabs-addbtn"></a></div>
+<div id="menu-btns"><a title="左边/右边停靠菜单" href="javascript:;" hideFocus="hidefocus" id="menu-switch" class="menu-switch"></a>
+<a title="悬浮/停靠菜单" href="javascript:;" hideFocus="hidefocus" id="menu_unlock" class="menu_unlock"></a> <a title="隐藏菜单"
+	href="javascript:;" hideFocus="hidefocus" id="menu-close" class="menu-close"></a></div>
+<div class="clear"></div>
+</div>
+<div id="menu-control">
+<div id="menu-control-search">
+<form id="form_search" method="post" name="form_search" action=''>
+<div class="sw_b3">
+<div class="sw_b2">
+<div class="sw_b1"><input id="menuSearch" type="text" name="menuSearch" value="快速搜索菜单" /><input id="search_ico"
+	type="image" src="images/search_icon.gif" /></div>
+</div>
+</div>
+</form>
+</div>
+<div id="menu-control-openup"><a href="#" title="收缩菜单" id="application_shrink"></a> <span>收缩菜单</span> <a href="#"
+	title="展开菜单" id="application_unfold"></a> <span>展开菜单</span></div>
+<div class="clear"></div>
+</div>
+<div class="panel-menu"><!-- 一级菜单 -->
+<div id="first_panel">
+<div class="scroll-up"></div>
+<ul id="first_menu">
+</ul>
+<div class="scroll-down"></div>
+</div>
+<!-- 二级级菜单 -->
+<div id="second_panel"><!--<div class="second-panel-head"></div>-->
+<div class="second-panel-menu">
+<ul id="second_menu">
+</ul>
+</div>
+<!--<div class="second-panel-foot"></div>--></div>
+</div>
+</div>
+<div id="startmenupanel_overlay"></div>
+</body>
+</html>
