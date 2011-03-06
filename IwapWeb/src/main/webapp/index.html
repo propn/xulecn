@@ -26,10 +26,10 @@
 <script type="text/javascript">
         
         var clickNum = 0, //左右移动按钮点击的次数
-         moveOffset = 0, //tab移动的偏移量
-         conMenuIndex = 0, //当前显示右键菜单的标签索引
-         lockArr = [], //保存锁定标签索引的数组
-         isClick = true; //点击事件的保护参数，防止用户无限点击
+        moveOffset = 0, //tab移动的偏移量
+        conMenuIndex = 0, //当前显示右键菜单的标签索引
+        lockArr = [], //保存锁定标签索引的数组
+        isClick = true; //点击事件的保护参数，防止用户无限点击
          
 		
 		//字符串去前后空白
@@ -67,9 +67,7 @@
             moveOffset = parseInt($("#scroll ul li:first").css("margin-left")) + parseInt($("#scroll ul li:first").css("margin-right"));
             
             //为“我的桌面”绑定url数据，并装载设定的初始页面
-            //                $("#scroll ul li:first").data("tabUrl", "http://www.google.com.hk");
-            //                pageLoad($("#scroll ul li:first").data("tabUrl"));
-            
+
             //初始化标签栏内容
             (function(){
                 //获取任务栏标签的json
@@ -731,97 +729,129 @@
 		<a href="javascript:;">全部取消</a>
 	</p>
 </div>
+
 <!-- 弹出层开始end -->
-
-
 <div id="banner"></div>
+
 <div id="taskbar"><a href="javascript:;" hideFocus="hidefocus" id="startmenu" class="startmenu"></a>
-<div id="tasktabs">
-
-<!-- 标签栏start -->
-<div id="taskPanel">
-<!-- 标签层start -->
-<div id="scroll">
-<ul>
-	<li class="firstTab on" id="t001"><a href="javascript:;"><span>我的桌面</span></a></li>
-    <li id="t002"><a href="javascript:;"><span>萨1111</span></a><span class="tabClose">x</span></li>
-</ul>
+	<div id="tasktabs">
+	
+	<!-- 标签栏start -->
+	<div id="taskPanel">
+	
+	<!-- 标签层start -->
+	<div id="scroll">
+	<ul>
+		<li class="firstTab on" id="t001"><a href="javascript:;"><span>我的桌面</span></a></li>
+	    <li id="t002"><a href="javascript:;"><span>萨1111</span></a><span class="tabClose">x</span></li>
+	</ul>
+	</div>
+	</div>
+	<!-- 标签层end -->
+	
+	<!-- 操作层start -->
+	<div id="taskOpare"><span id="tabAttr"></span> <span id="tabPrev"></span> <span id="tabNext"></span> <span id="tabList"></span></div>
+	<!-- 操作层end -->
+	
+	</div>
+	<!-- 标签栏end -->
+	
+	
+	
+	<div id="control-panel">
+		<div id="knocker_ico_wrap" class="control_ico_wrap">
+			<a title="门户切换" href="javascript:;" hideFocus="hidefocus" id="knocker_ico" class="knocker_ico"></a> 
+			<a title="" href="javascript:;" hideFocus="hidefocus" id="knocker_corner_ico" class="corner"></a>
+		</div>
+		<div id="sys_ico_wrap" class="control_ico_wrap">
+			<a title="系统设置" href="javascript:;" hideFocus="hidefocus" id="sys_ico" class="sys_ico"></a>
+			<a title="" href="javascript:;" hideFocus="hidefocus" id="sys_corner_ico" class="corner"></a>
+		</div>
+		<div id="help_ico_wrap" class="control_ico_wrap">
+			<a title="系统帮助" href="javascript:;" hideFocus="hidefocus" id="help_ico"	class="help_ico"></a> 
+			<a title="" href="javascript:;" hideFocus="hidefocus" id="help_corner_ico" class="corner"></a>
+		</div>
+		<div id="quit_ico_wrap" class="control_ico_wrap">
+			<a title="退出" href="javascript:;" hideFocus="hidefocus" id="quit_ico"	class="quit_ico"></a> 
+			<a title="" href="javascript:;" hideFocus="hidefocus" id="quit_corner_ico" class="corner"></a>
+		</div>
+	</div>
+	
+	<div class="banner_hide_wrap">
+		<a title="隐藏/显示顶部" href="javascript:;" hideFocus="hidefocus" id="banner_hide" style="" class="banner_hide"></a>
+	</div>
 </div>
-</div>
-<!-- 标签层end -->
 
 
-
-<!-- 操作层start -->
-<div id="taskOpare"><span id="tabAttr"></span> <span id="tabPrev"></span> <span id="tabNext"></span> <span id="tabList"></span></div>
-<!-- 操作层end --><!-- 标签栏end --></div>
-<div id="control-panel">
-<div id="knocker_ico_wrap" class="control_ico_wrap"><a title="门户切换" href="javascript:;" hideFocus="hidefocus"
-	id="knocker_ico" class="knocker_ico"></a> <a title="" href="javascript:;" hideFocus="hidefocus" id="knocker_corner_ico"
-	class="corner"></a></div>
-<div id="sys_ico_wrap" class="control_ico_wrap"><a title="系统设置" href="javascript:;" hideFocus="hidefocus" id="sys_ico"
-	class="sys_ico"></a> <a title="" href="javascript:;" hideFocus="hidefocus" id="sys_corner_ico" class="corner"></a></div>
-<div id="help_ico_wrap" class="control_ico_wrap"><a title="系统帮助" href="javascript:;" hideFocus="hidefocus" id="help_ico"
-	class="help_ico"></a> <a title="" href="javascript:;" hideFocus="hidefocus" id="help_corner_ico" class="corner"></a></div>
-<div id="quit_ico_wrap" class="control_ico_wrap"><a title="退出" href="javascript:;" hideFocus="hidefocus" id="quit_ico"
-	class="quit_ico"></a> <a title="" href="javascript:;" hideFocus="hidefocus" id="quit_corner_ico" class="corner"></a></div>
-</div>
-<div class="banner_hide_wrap"><a title="隐藏/显示顶部" href="javascript:;" hideFocus="hidefocus" id="banner_hide" style=""
-	class="banner_hide"></a></div>
-</div>
 <div id="center">
-<div id="leftmenu" style="display: none;"></div>
-<div id="main">
-<div id="columns"></div>
+	<div id="leftmenu" style="display: none;"></div>
+	<div id="main">
+		<div id="columns"></div>
+	</div>
+	<div id="rightmenu" style="display: none;"></div>
 </div>
-<div id="rightmenu" style="display: none;"></div>
-</div>
+
 <div id="footer"></div>
+
 <!-- 菜单内容 -->
 <div id="startmenupanel" style="display: none;">
-<div id="menu-title">
-<div id="menu-tabs"><!--<div title="Home"></div>-->
-<ul>
-	<li><a href="javascript:;" class="menuTabActive"><span>开始菜单</span></a></li>
-</ul>
+	
+	<div id="menu-title">
+		<div id="menu-tabs">
+			<ul>
+				<li><a href="javascript:;" class="menuTabActive"><span>开始菜单</span></a></li>
+			</ul>
+		</div>
+		
+		<div id="menu-tabs-addbtn"><a title="增加标签" href="javascript:;" hideFocus="hidefocus" class="menu-tabs-addbtn"></a></div>
+		
+		<div id="menu-btns"><a title="左边/右边停靠菜单" href="javascript:;" hideFocus="hidefocus" id="menu-switch" class="menu-switch"></a>
+			<a title="悬浮/停靠菜单" href="javascript:;" hideFocus="hidefocus" id="menu_unlock" class="menu_unlock"></a> 
+			<a title="隐藏菜单"	href="javascript:;" hideFocus="hidefocus" id="menu-close" class="menu-close"></a>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+	
+	<div id="menu-control">
+		<div id="menu-control-search">
+			<form id="form_search" method="post" name="form_search" action=''>
+				<div class="sw_b3">
+					<div class="sw_b2">
+						<div class="sw_b1">
+							<input id="menuSearch" type="text" name="menuSearch" value="快速搜索菜单" />
+							<input id="search_ico" type="image" src="images/search_icon.gif" />
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div id="menu-control-openup">
+			<a href="#" title="收缩菜单" id="application_shrink"></a> <span>收缩菜单</span> 
+			<a href="#"	title="展开菜单" id="application_unfold"></a> <span>展开菜单</span>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	
+	<div class="panel-menu">
+		<!-- 一级菜单 -->
+		<div id="first_panel">
+			<div class="scroll-up"></div>
+			<ul id="first_menu"></ul>
+			<div class="scroll-down"></div>
+		</div>
+		<!-- 二级级菜单 -->
+		<div id="second_panel">
+			<!--<div class="second-panel-head"></div>-->
+			<div class="second-panel-menu">
+				<ul id="second_menu"></ul>
+			</div>
+			<!--<div class="second-panel-foot"></div>-->
+		</div>
+	</div>
 </div>
-<div id="menu-tabs-addbtn"><a title="增加标签" href="javascript:;" hideFocus="hidefocus" class="menu-tabs-addbtn"></a></div>
-<div id="menu-btns"><a title="左边/右边停靠菜单" href="javascript:;" hideFocus="hidefocus" id="menu-switch" class="menu-switch"></a>
-<a title="悬浮/停靠菜单" href="javascript:;" hideFocus="hidefocus" id="menu_unlock" class="menu_unlock"></a> <a title="隐藏菜单"
-	href="javascript:;" hideFocus="hidefocus" id="menu-close" class="menu-close"></a></div>
-<div class="clear"></div>
-</div>
-<div id="menu-control">
-<div id="menu-control-search">
-<form id="form_search" method="post" name="form_search" action=''>
-<div class="sw_b3">
-<div class="sw_b2">
-<div class="sw_b1"><input id="menuSearch" type="text" name="menuSearch" value="快速搜索菜单" /><input id="search_ico"
-	type="image" src="images/search_icon.gif" /></div>
-</div>
-</div>
-</form>
-</div>
-<div id="menu-control-openup"><a href="#" title="收缩菜单" id="application_shrink"></a> <span>收缩菜单</span> <a href="#"
-	title="展开菜单" id="application_unfold"></a> <span>展开菜单</span></div>
-<div class="clear"></div>
-</div>
-<div class="panel-menu"><!-- 一级菜单 -->
-<div id="first_panel">
-<div class="scroll-up"></div>
-<ul id="first_menu">
-</ul>
-<div class="scroll-down"></div>
-</div>
-<!-- 二级级菜单 -->
-<div id="second_panel"><!--<div class="second-panel-head"></div>-->
-<div class="second-panel-menu">
-<ul id="second_menu">
-</ul>
-</div>
-<!--<div class="second-panel-foot"></div>--></div>
-</div>
-</div>
+
 <div id="startmenupanel_overlay"></div>
 </body>
 </html>
