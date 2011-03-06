@@ -4,13 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
-import org.apache.log4j.Logger;
 
 public class LayoutTag extends BodyTagSupport {
 	/**
 	 * Logger for this class
 	 */
-	private static final Logger logger = Logger.getLogger(LayoutTag.class);
   
 	private String type;
 	private String style;
@@ -267,7 +265,6 @@ public class LayoutTag extends BodyTagSupport {
 //					getBodyContent().getEnclosingWriter().println(result);
 //				}
 			}catch(Exception e){
-				logger.error("", e);			
 			}
 		}		
 		return super.doAfterBody();
