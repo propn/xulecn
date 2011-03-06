@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery wooUI 具有一定限制的拖动</title>
+	<link rel="stylesheet" type="text/css" href="../../../jquery-wooui/themes/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../../jquery-wooui/themes/default/wooui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../jquery-wooui/themes/default/dnd.css">
+	<link rel="stylesheet" type="text/css" href="../dnddemos.css">
+	<link rel="stylesheet" type="text/css" href="../../../jquery-wooui/themes/icon.css">
+	<script type="text/javascript" src="../../../jquery-wooui/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../../../jquery-wooui/wooui.min.js"></script>
+	<style type="text/css">
+		.draggable { width: 90px; height: 90px; padding: 0.5em; float: left; margin: 0 10px 10px 0; }
+		#draggable, #draggable2 { margin-bottom:20px; }
+		#draggable { cursor: n-resize; }
+		#draggable2 { cursor: e-resize; }
+		#containment-wrapper { width: 95%; height:150px; border:2px solid #ccc; padding: 10px;}
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			$("#draggable").draggable({ axis: 'y' });
+			$("#draggable2").draggable({ axis: 'x' });
+			$("#draggable3").draggable({ containment: '#containment-wrapper', scroll: false });
+			$("#draggable4").draggable({ containment: '#demo-frame' });
+			$("#draggable5").draggable({ containment: 'parent' });
+		});
+	</script>
+</head>
+<body style="margin:10px;">
+<h1 style="font-size:16px;">Draggable<em style="font-weight:normal;font-size:12px;">（可控制的拖动）</em></h1>
+<hr/>
+<div class="demo">
+	<h3 class="docs">下面的两个框体只能按照一定的轴线拖动：</h3>
+
+	<div id="draggable" class="draggable ui-widget-content">
+		<p>只能竖直拖动</p>
+	</div>
+
+	<div id="draggable2" class="draggable ui-widget-content">
+		<p>只可以水平拖动</p>
+	</div>
+	<br>
+	<h3 class="docs">以下的框体在 DOM元素中进行移动：</h3>
+	<div id="containment-wrapper">
+		<div id="draggable3" class="draggable ui-widget-content">
+			<p>只可以在框体内部拖动</p>
+		</div>
+
+		<div id="draggable4" class="draggable ui-widget-content">
+			<p>可以在框体的外部进行拖拉</p>
+		</div>
+
+		<div class="draggable ui-widget-content">
+			<p id="draggable5" class="ui-widget-header">只能被固定在小窗体中</p>
+		</div>
+	</div>
+</div><!-- End demo -->
+</body>
+</html>

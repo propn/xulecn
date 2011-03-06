@@ -1,0 +1,38 @@
+[{
+	"id":1,
+	"text":"计划进度基础设置",
+	"iconCls":"icon-ok",
+	"children":[{
+		"id":2,
+		"text":"计划分类",
+		"checked":true
+	},{
+		"id":3,
+		"text":"工程分类",
+		"state":"open",
+		"children":[{
+			"id":4,
+			"text":"专业分类",
+			"attributes":{
+				"p1":"value1",
+				"p2":"value2"
+			},
+			"checked":true,
+			"iconCls":"icon-reload"
+		},{
+			"id": 8,
+			"text":"进度问题分类",
+			"state":"closed"
+		}]
+	}]
+},{
+	"text":"工程建设单位",
+	"state":"closed",
+	"children":[{
+		"id":"j1",
+		"text":"技术服务单位"
+	},{
+		"id":"j2",
+		"text":"EPC项目"
+	}]
+}]

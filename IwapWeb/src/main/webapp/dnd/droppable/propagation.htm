@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery wooUI Drag</title>
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/default/wooui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/default/dnd.css">
+	<link rel="stylesheet" type="text/css" href="../dnddemos.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/icon.css">
+	<script type="text/javascript" src="../../jquery-wooui/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../../jquery-wooui/wooui.min.js"></script>
+	<style type="text/css">
+		#draggable { width: 100px; height: 40px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+		#droppable, #droppable2 { width: 230px; height: 120px; padding: 0.5em; float: left; margin: 10px; }
+		#droppable-inner, #droppable2-inner { width: 170px; height: 60px; padding: 0.5em; float: left; margin: 10px; }
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			$("#draggable").draggable();
+			$("#droppable, #droppable-inner").droppable({
+				activeClass: 'ui-state-hover',
+				hoverClass: 'ui-state-active',
+				drop: function(event, ui) {
+					$(this).addClass('ui-state-highlight').find('> p').html('放置成功！');
+					return false;
+				}
+			});
+			$("#droppable2, #droppable2-inner").droppable({
+				greedy: true,
+				activeClass: 'ui-state-hover',
+				hoverClass: 'ui-state-active',
+				drop: function(event, ui) {
+					$(this).addClass('ui-state-highlight').find('> p').html('放置成功！');
+				}
+			});
+		});
+	</script>
+</head>
+<body style="margin:10px;">
+	<h1 style="font-size:16px;">Droppable<em style="font-weight:normal;font-size:12px;">（嵌套类型的目标窗体）</em></h1>
+	<hr/>
+	<div class="demo">
+	
+		<div id="draggable" class="ui-widget-content">
+			<p>拖动此目标对象</p>
+		</div>
+
+		<div id="droppable" class="ui-widget-header">
+			<p>外部放置目标</p>
+			<div id="droppable-inner" class="ui-widget-header">
+				<p>内部放置目标(not greedy)</p>
+			</div>
+		</div>
+
+		<div id="droppable2" class="ui-widget-header">
+			<p>外部放置目标</p>
+			<div id="droppable2-inner" class="ui-widget-header">
+				<p>内部放置目标(greedy)</p>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery wooUI Combo</title>
+	<link rel="stylesheet" type="text/css" href="../../common/themes/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../common/themes/default/wooui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../common/themes/icon.css">
+	<script type="text/javascript" src="../../common/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../../common/wooui.min.js"></script>
+	<script>
+		$(function(){
+			$('#cc').combo();
+			$('#sp').appendTo($('#cc').combo('getPanel'));
+			$('#sp input').click(function(){
+				var v = $(this).val();
+				var s = $(this).next('span').text();
+				$('#cc').combo('setValue', v).combo('setText', s).combo('hidePanel');
+			});
+		});
+	</script>
+</head>
+<body style="margin:10px;">
+	<h1 style="font-size:16px;">Combo组件示例：<em style="font-weight:normal;font-size:12px;"></em></h1>
+	<hr/>
+	<span>请选择所属单位：</span>
+	<select id="cc"></select>
+	<div id="sp">
+		<div style="color:#99BBE8;background:#fafafa;padding:5px;">选择所属项目</div>
+		<input type="radio" name="lang" value="01"><span>工程建设单位</span><br/>
+		<input type="radio" name="lang" value="02"><span>研究院</span><br/>
+		<input type="radio" name="lang" value="03"><span>华油工建</span><br/>
+		<input type="radio" name="lang" value="04"><span>机械公司</span><br/>
+		<input type="radio" name="lang" value="04"><span>管道一公司</span><br/>
+		<input type="radio" name="lang" value="04"><span>管道二公司</span><br/>
+		<input type="radio" name="lang" value="04"><span>管道三公司</span><br/>
+		<input type="radio" name="lang" value="04"><span>海洋公司</span><br/>
+		<input type="radio" name="lang" value="04"><span>投产运行公司</span><br/>
+		<input type="radio" name="lang" value="05"><span>穿越公司</span>
+	</div>
+</body>
+</html>

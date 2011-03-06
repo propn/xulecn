@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jQuery WooUI Tree</title>
+	<link rel="stylesheet" type="text/css" href="../../common/themes/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../common/themes/default/wooui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../common/themes/icon.css">
+	<script type="text/javascript" src="../../common/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../../common/wooui.min.js"></script>
+	<script>
+	jQuery.fx.off=true;
+	$(function(){
+		$("body").layout();
+		$("center").layout();
+		});
+	</script>
+</head>
+<body>
+	<div region="north" border="false" style="height:60px; padding:2px;">
+            
+    </div>
+	<div region="west" title="WestPart" border="false" style="padding:10px;width:250px;">
+		<div id="wooui-tree"></div>
+	</div>
+	<div id="center" region="center" title="CenterPart" id='center'>
+		<div id="wooui-grid"></div>
+	</div>
+	
+</body>
+</html>

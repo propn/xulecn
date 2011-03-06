@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery wooUI Drag</title>
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/default/wooui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/default/dnd.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/icon.css">
+	<script type="text/javascript" src="../../jquery-wooui/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../../jquery-wooui/wooui.min.js"></script>
+	<style type="text/css">
+		#draggable, #draggable2 { width: 90px; height: 90px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+		#droppable, #droppable2 { width: 120px; height: 120px; padding: 0.5em; float: left; margin: 10px; }
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			$("#draggable").draggable();
+			$("#droppable").droppable({
+				hoverClass: 'ui-state-active',
+				drop: function(event, ui) {
+					$(this).addClass('ui-state-highlight').find('p').html('Dropped!');
+				}
+			});			
+			$("#draggable2").draggable();
+			$("#droppable2").droppable({
+				accept: "#draggable2",
+				activeClass: 'ui-state-hover',
+				drop: function(event, ui) {
+					$(this).addClass('ui-state-highlight').find('p').html('Dropped!');
+				}
+			});
+		});
+	</script>
+</head>
+<body style="margin:10px;">
+	<h1 style="font-size:16px;">Droppable<em style="font-weight:normal;font-size:12px;">（视觉反馈拖放）</em></h1>
+	<hr/>
+	<div class="demo">
+
+		<h3 class="docs">悬停反馈:</h3>
+			
+		<div id="draggable" class="ui-widget-content">
+			<p>拖动目标对象到放置对象</p>
+		</div>
+
+		<div id="droppable" class="ui-widget-header">
+			<p>放置到这里</p>
+		</div>
+
+		<h3 class="docs">拖动时激活反馈:</h3>
+
+		<div id="draggable2" class="ui-widget-content">
+			<p>拖动目标对象到放置对象</p>
+		</div>
+
+		<div id="droppable2" class="ui-widget-header">
+			<p>放置到这里</p>
+		</div>
+	</div>
+</body>
+</html>

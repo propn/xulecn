@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jQuery wooUI Grid</title>
+	<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/reset.css">
+	<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/default/wooui.min.css">
+	<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/icon.css">
+	<script type="text/javascript" src="../jquery-wooui/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../jquery-wooui/wooui.js"></script>
+	<script type="text/javascript">
+            $(function(){
+                $('#test').grid({
+                    title: 'My Title',
+                    iconCls: 'icon-save',
+                    width: 500,
+                    height: 300,
+                    nowrap: false,
+                    striped: true,
+                    collapsible: true,
+                    url: 'grid1.json',
+                    sortName: 'code',
+                    sortOrder: 'desc',
+                    remoteSort: false,
+                    idField: 'code',
+                    frozenColumns: [[{
+                        field: 'ck',
+                        checkbox: true
+                    }, //全选功能
+                    {
+                        title: 'code',
+                        field: 'code',
+                        width: 80,
+                        sortable: true
+                    }]],
+                    columns: [[{
+                        title: 'Base Information',
+                        colspan: 3
+                    }, {
+                        field: 'opt',
+                        title: 'Operation',
+                        width: 100,
+                        align: 'center',
+                        rowspan: 2,
+                        formatter: function(value, rec){
+                            return "<a href='javascript:;' style='margin-right:10px;'>Edit</a><a href='javascript:;'>Delete</a>";
+                        }
+                    }], [{
+                        field: 'name',
+                        title: 'Name',
+                        width: 120
+                    }, {
+                        field: 'addr',
+                        title: 'Address',
+                        width: 120,
+                        rowspan: 2,
+                        sortable: true,
+                        sorter: function(a, b){
+                            return (a > b ? 1 : -1);
+                        }
+                    }, {
+                        field: 'col4',
+                        title: 'Col41',
+                        width: 150,
+                        rowspan: 2
+                    }]],
+                    pagination: true,
+                    rownumbers: true,
+                    toolbar: [{
+                        id: 'btnadd',
+                        text: '添加',
+                        iconCls: 'icon-add',
+                        handler: function(){
+                            $('#btnsave').linkbutton('enable');
+                            alert('add')
+                        }
+                    }, {
+                        id: 'btncut',
+                        text: '删除',
+                        iconCls: 'icon-cut',
+                        handler: function(){
+                            $('#btnsave').linkbutton('enable');
+                            alert('cut')
+                        }
+                    }, '-', {
+                        id: 'btnsave',
+                        text: '保存',
+                        disabled: true,
+                        iconCls: 'icon-save',
+                        handler: function(){
+                            $('#btnsave').linkbutton('disable');
+                            alert('save')
+                        }
+                    }]
+                });
+                //			var p = $('#test').grid('getPager');
+                //			if (p){
+                //				$(p).pagination({
+                //					onBeforeRefresh:function(){
+                //						alert('before refresh');
+                //					}
+                //				});
+                //			}
+            });
+			/**
+			 * @desc:			调整列表宽高
+			 */
+            function resize(){
+                $('#test').grid('resize', {
+                    width: 700,
+                    height: 400
+                });
+            }
+            /**
+			 * @desc:			获取选中的单列信息
+			 */
+            function getSelected(){
+                var selected = $('#test').grid('getSelected')[0];
+                if (selected) {
+                    alert(selected.code + ":" + selected.name + ":" + selected.addr + ":" + selected.col4);
+                }
+            }
+            /**
+			 * @desc:			获取所有的选中行
+			 */
+            function getSelections(){
+                var ids = [];
+                var rows = $('#test').grid('getSelected');
+                for (var i = 0; i < rows.length; i++) {
+                    ids.push(rows[i].code);
+                }
+                alert(ids.join(':'));
+            }
+            /**
+			 * @desc:			取消所有的选中行
+			 */
+            function clearSelections(){
+                $('#test').grid('clearSelections');
+            }
+            /**
+			 * @desc:			选中指定行
+			 */
+            function selectRow(){
+                $('#test').grid('selectRow', 2);
+            }
+            /**
+			 * @desc:			选中指定记录
+			 */
+            function selectRecord(){
+                $('#test').grid('selectRecord', '002');
+            }
+            /**
+			 * @desc:			取消指定行的选中状态
+			 */
+            function unselectRow(){
+                $('#test').grid('unselectRow', 2);
+            }
+            /**
+             * @desc:		合并单元格
+             */
+            function mergeCells(){
+                $('#test').grid('mergeCells', {
+                    index: 2,
+                    field: 'addr',
+                    rowspan: 2,
+                    colspan: 2
+                });
+            }
+            /**
+             * @desc:		刷新
+             */
+            function reload(){
+                $("#test").grid("reload");
+            }
+            /**
+             * @desc:		添加记录
+             */
+            function addRow(){
+                $("#test").grid("addRow", [{
+                    "code": "011",
+                    "name": "Name 11",
+                    "addr": "Address 11",
+                    "col4": "col4 data"
+                }, {
+                    "code": "012",
+                    "name": "Name 12",
+                    "addr": "Address 12",
+                    "col4": "col4 data"
+                }], 2);
+            }
+            /**
+			 * @desc:			删除行
+			 */
+            function delRow(){
+                $("#test").grid("deleteRow");
+            }
+        </script>
+</head>
+<body>
+	<h1>Grid</h1>
+        <div style="margin-bottom:10px;">
+            <a href="#" onclick="resize()">重设大小</a>
+            <a href="#" onclick="getSelected()">获取选中行</a>
+            <a href="#" onclick="getSelections()">获取所有选中的行</a>
+            <a href="#" onclick="clearSelections()">清除选中的行</a>
+            <a href="#" onclick="selectRow()">选中行</a>
+            <a href="#" onclick="selectRecord()">选择一条记录</a>
+            <a href="#" onclick="unselectRow()">取消选择一条记录</a>
+            <a href="#" onclick="mergeCells()">合并单元格</a>
+            <a href="#" onclick="reload()">刷新</a>
+            <a href="javascript:;" onclick="addRow();">添加记录</a>
+            <a href="javascript:;" onclick="delRow();">删除记录</a>
+        </div>
+        <div id="test">
+        </div>
+	
+</body>
+</html>

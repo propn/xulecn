@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery wooUI Drag</title>
+	<link rel="stylesheet" type="text/css" href="../../../jquery-wooui/themes/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../../jquery-wooui/themes/default/wooui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../jquery-wooui/themes/default/dnd.css">
+	<link rel="stylesheet" type="text/css" href="../dnddemos.css">
+	<link rel="stylesheet" type="text/css" href="../../../jquery-wooui/themes/icon.css">
+	<script type="text/javascript" src="../../../jquery-wooui/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../../../jquery-wooui/wooui.min.js"></script>
+	<style type="text/css">
+		#draggable { width: 150px; height: 150px; padding: 0.5em; }
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			$("#draggable").draggable();
+		});
+	</script>
+</head>
+<body style="margin:10px;">
+<h1 style="font-size:16px;">Draggable<em style="font-weight:normal;font-size:12px;">（可以随意拖放的对象）</em></h1>
+<hr/>
+<div class="demo">
+	<div id="draggable" class="ui-widget-content">
+		<p>可以随意拖动</p>
+	</div>
+</div>
+</body>
+</html>

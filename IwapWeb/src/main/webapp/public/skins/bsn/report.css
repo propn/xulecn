@@ -1,5 +1,0 @@
-/* 数据表格支持表头固定 */
-table.datatable thead tr{z-index:15;position:relative;top:0;}
-table.datatable thead td{position:relative;}
-table.datatable thead td.indicate{z-index:20;position:relative;left:0;}
-table.datatable tbody td.indicate{z-index:10;position:relative;left:0;}

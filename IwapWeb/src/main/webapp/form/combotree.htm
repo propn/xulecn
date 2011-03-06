@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery wooUI Combotree</title>
+	<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/reset.css">
+	<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/default/wooui.min.css">
+	<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/icon.css">
+	<script type="text/javascript" src="../jquery-wooui/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../jquery-wooui/wooui.min.js"></script>
+	<script>
+		function reload(){
+			$('#cc').combotree('reload');
+		}
+		function setValue(){
+			$('#cc').combotree('setValue', 2);
+		}
+		function getValue(){
+			var val = $('#cc').combotree('getValue');
+			alert(val);
+		}
+		function disable(){
+			$('#cc').combotree('disable');
+		}
+		function enable(){
+			$('#cc').combotree('enable');
+		}
+		$(function(){
+			$('#cc').combotree({url:'tree_data.json',multiple:true,panelWidth:200});
+		});
+	</script>
+	<style type="text/css">
+		.operate a{text-decoration:underline;font-weight:bold;}
+	</style>
+</head>
+<body style="margin:10px;">
+	<h1 style="font-size:16px;">ComboTree组件示例：<em style="font-weight:normal;font-size:12px;">（从通过加载json数据生成）</em></h1>
+	<div class="operate">
+		<a href="#" onclick="reload()">reload重新加载数据</a>
+		<!--<a href="#" onclick="setValue()">setValue赋值</a>
+		<a href="#" onclick="getValue()">getValue取值</a>-->
+		<a href="#" onclick="disable()">disable不可编辑</a>
+		<a href="#" onclick="enable()">enable可编辑</a>
+	</div>
+	<hr/>
+	<span>请选择：</span>
+	<input id="cc" class="easyui-combotree" url="tree_data.json" value="2" required="true" style="width:200px;">
+	<!--<select class="easyui-combotree" name="language" url="tree_data.json" multiple="true" cascadeCheck="false" style="width:200px;"></select>-->
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>jQuery wooUI</title>
+		<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/reset.css">
+		<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/default/wooui.min.css">
+		<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/icon.css">
+		<script type="text/javascript" src="../jquery-wooui/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="../jquery-wooui/wooui.js"></script>
+		<style type="text/css">
+			#center a{width:70px; text-decoration:none; display:block; padding:5px 10px;}
+			#center a:hover{text-decoration:underline;}
+		</style>
+        <script>
+        	jQuery.fx.off=true;	
+            $(function(){
+                $("body").layout();
+            });
+            function showWest(){
+                $('body').layout('show', 'west');
+            }
+            
+            function showEast(){
+                $('body').layout('show', 'east');
+            }
+            
+            function hideWest(){
+                $('body').layout('hide', 'west');
+            }
+            
+            function hideEast(){
+                $('body').layout('hide', 'east');
+            }
+			function showNorth(){
+                $('body').layout('show', 'north');
+            }
+            
+            function showSouth(){
+                $('body').layout('show', 'south');
+            }
+            
+            function hideNorth(){
+                $('body').layout('hide', 'north');
+            }
+            
+            function hideSouth(){
+                $('body').layout('hide', 'south');
+            }
+			function showPanelWest(){
+                $('body').layout('showPanel', 'west');
+            }
+            
+            function showPanelEast(){
+                $('body').layout('showPanel', 'east');
+            }
+            
+            function hidePanelWest(){
+                $('body').layout('hidePanel', 'west');
+            }
+            
+            function hidePanelEast(){
+                $('body').layout('hidePanel', 'east');
+            }
+        </script>
+    </head>
+    <body>
+        <div region="north" border="true" style="height:60px; padding:10px;">
+            北部
+        </div>
+        <div region="west" title="WestPart" border="true" style="width:200px;">
+            <iframe border="0" width="100%" height="100%" src="http://www.toone.com"></iframe>
+        </div>
+        <div region="east" title="EastPart"  border="true"style="width:150px;">
+            东部
+        </div>
+        <div region="south" border="true" style="height:50px; padding:10px;">
+            南部
+        </div>
+        <div region="center" title="CenterPart" id='center'>
+			<a href="javascript:;" onclick='showPanelWest();'>展开west</a>
+            <a href="javascript:;" onclick='hidePanelWest();'>折叠west</a>
+            <a href="javascript:;" onclick='showPanelEast();'>展开east</a>
+            <a href="javascript:;" onclick='hidePanelEast();'>折叠east</a>
+			<a href="javascript:;" onclick='showWest();'>显示west</a>
+            <a href="javascript:;" onclick='hideWest();'>隐藏west</a>
+            <a href="javascript:;" onclick='showEast();'>显示east</a>
+            <a href="javascript:;" onclick='hideEast();'>隐藏east</a>
+			<a href="javascript:;" onclick='showNorth();'>显示north</a>
+            <a href="javascript:;" onclick='hideNorth();'>隐藏north</a>
+            <a href="javascript:;" onclick='showSouth();'>显示South</a>
+            <a href="javascript:;" onclick='hideSouth();'>隐藏South</a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery wooUI Drag</title>
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/default/wooui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/default/dnd.css">
+	<link rel="stylesheet" type="text/css" href="../dnddemos.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/icon.css">
+	<script type="text/javascript" src="../../jquery-wooui/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../../jquery-wooui/wooui.min.js"></script>
+	<style type="text/css">
+		#draggable, #draggable2, #draggable3 { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 0 10px 10px 0; }
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			$("#draggable").draggable({ scroll: true });
+			$("#draggable2").draggable({ scroll: true, scrollSensitivity: 100 });
+			$("#draggable3").draggable({ scroll: true, scrollSpeed: 100 });
+		});
+	</script>
+</head>
+<body style="margin:10px;">
+	<h1 style="font-size:16px;">Draggable<em style="font-weight:normal;font-size:12px;">（目标拖出页面外，从而形成滚动条）</em></h1>
+	<hr/>
+	<div class="demo">
+		
+		<div id="draggable" class="ui-widget-content">
+			<p>scroll配置为true，默认配置</p>
+		</div>
+
+		<div id="draggable2" class="ui-widget-content">
+			<p>scrollSensitivity设置为100</p>
+		</div>
+
+		<div id="draggable3" class="ui-widget-content">
+			<p>scrollSpeed设置为100</p>
+		</div>
+
+		<div style='height: 5000px; width: 1px;'></div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jQuery WooUI Tree</title>
+	<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/reset.css">
+	<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/default/wooui.min.css">
+	<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/icon.css">
+	<script type="text/javascript" src="../jquery-wooui/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../jquery-wooui/wooui.min.js"></script>
+	<script>
+	$(function(){
+			$('#tt2').tree({
+				checkbox : true,
+				url : 'tree_data.json'
+			});
+		});
+	</script>
+	<style type="text/css">
+		.operate a{text-decoration:underline;font-weight:bold;}
+	</style>
+</head>
+<body style="margin:10px;">
+	<h1 style="font-size:16px;">Tree<em style="font-weight:normal;font-size:12px;">（从通过加载json数据生成）</em></h1>
+	<div class="operate">
+		<a href="#" onclick="reload()">重新加载</a>
+		<a href="#" onclick="getChildren()">获取子节点</a>
+		<a href="#" onclick="getChecked()">获取checkbox选取的节点</a>
+		<a href="#" onclick="getSelected()">获取选中的节点</a>
+		<a href="#" onclick="collapse()">折叠</a>
+		<a href="#" onclick="expand()">展开</a>
+		<a href="#" onclick="collapseAll()">折叠所有</a>
+		<a href="#" onclick="expandAll()">展开所有</a>
+		<a href="#" onclick="append()">插入</a>
+		<a href="#" onclick="remove()">删除</a>
+		<a href="#" onclick="update('新值')">更新节点数据为'新值'</a>
+		<a href="#" onclick="isLeaf()">是否叶子节点</a>
+	</div>
+	<hr/>
+	<ul id="tt2"></ul>
+</body>
+</html>
+<script>
+function reload(){
+	$('#tt2').tree('reload');
+}
+function getChildren(){
+	var node = $('#tt2').tree('getSelected');
+	if (node){
+		var children = $('#tt2').tree('getChildren', node.target);
+	} else {
+		var children = $('#tt2').tree('getChildren');
+	}
+	var s = '';
+	for(var i=0; i<children.length; i++){
+		s += children[i].text + ',';
+	}
+	alert(s);
+}
+function getChecked(){
+	var nodes = $('#tt2').tree('getChecked');
+	var s = '';
+	for(var i=0; i<nodes.length; i++){
+		if (s != '') s += ',';
+		s += nodes[i].text;
+	}
+	alert(s);
+}
+function getSelected(){
+	var node = $('#tt2').tree('getSelected');
+	
+	alert(node.text);
+}
+function collapse(){
+	var node = $('#tt2').tree('getSelected');
+	$('#tt2').tree('collapse',node.target);
+}
+function expand(){
+	var node = $('#tt2').tree('getSelected');
+	$('#tt2').tree('expand',node.target);
+}
+function collapseAll(){
+	$('#tt2').tree('collapseAll');
+}
+function expandAll(){
+	$('#tt2').tree('expandAll');
+}
+function append(){
+	var node = $('#tt2').tree('getSelected');
+	$('#tt2').tree('appendNodes',{
+		parent: (node?node.target:null),
+		data:[{
+			text:'new1',
+			checked:true
+		},{
+			text:'new2',
+			state:'closed',
+			children:[{
+				text:'subnew1'
+			},{
+				text:'subnew2'
+			}]
+		}]
+	});
+}
+function remove(){
+	var node = $('#tt2').tree('getSelected');
+	$('#tt2').tree('remove', node.target);
+}
+function update(text){
+	var node = $('#tt2').tree('getSelected');
+	if (node){
+		node.text = '<span style="font-weight:bold">'+text+'</span>';
+		node.iconCls = 'icon-save';
+		$('#tt2').tree('update', node);
+	}
+}
+function isLeaf(){
+	var node = $('#tt2').tree('getSelected');
+	var b = $('#tt2').tree('isLeaf', node.target);
+	alert(b)
+}
+</script>

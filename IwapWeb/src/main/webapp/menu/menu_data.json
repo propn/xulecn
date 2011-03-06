@@ -1,0 +1,45 @@
+[{
+	"id":"1",
+	"text":"new",
+	"iconCls":"icon-new",
+	"url":"http://www.baidu.com"
+},{
+	"id":"2",
+	"text":"open",
+	"iconCls":"icon-open",
+	"children":[{
+		"id":"3",
+		"text":"word",
+		"iconCls":"icon-word"
+	},{
+		"id":4,
+		"text":"Excel",
+		"iconCls":"icon-excel"
+	},{
+		"id":5,
+		"text":"PowerPoint",
+		"iconCls":"icon-ppt",
+		"children":[{
+			"id":6,
+			"text":"sub1",
+			"iconCls":"icon-sub1"
+		},{
+			"id":7,
+			"text":"sub2",
+			"iconCls":"icon-sub2"
+		}]
+	}]
+},{
+	"id":8,
+	"text":"save",
+	"iconCls":"icon-save",
+		"action":function(item){
+						alert('save');
+					}
+},{
+	"test":"-"
+},{
+	"id":9,
+	"text":"Exit",
+	"iconCls":"icon-exit"
+}]

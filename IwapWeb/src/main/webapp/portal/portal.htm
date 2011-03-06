@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WooUI Portal</title>
+	<link rel="stylesheet" type="text/css" href="../ui/themes/gray/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../ui/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="portal.css">
+	<style type="text/css">
+		.title{
+			font-size:16px;
+			font-weight:bold;
+			padding:20px 10px;
+			background:#eee;
+			overflow:hidden;
+			border-bottom:1px solid #ccc;
+		}
+		.t-list{
+			padding:5px;
+		}
+	</style>
+	<script type="text/javascript" src="../ui/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../ui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="jquery.portal.js"></script>
+	<script type="text/javascript" src="raphael.js"></script>
+	<script type="text/javascript" src="g.raphael-min.js"></script>
+	<script type="text/javascript" src="g.pie-min.js"></script>
+	<script>
+		$(function(){
+			$('#pp').portal({
+				border:false,
+				fit:true
+			});
+			draw();
+
+			$("#add").bind("click",add);
+		});
+
+		function draw() {
+			var canvas = Raphael("holder",350,150);
+			var circle = canvas.circle(150, 80, 40);
+			var rect = canvas.rect(40, 40, 50, 50, 10);
+		};
+
+		function add(){
+			for(var i=0; i<3; i++){
+				var p = $('<div/>').appendTo('body');
+				p.panel({
+					title:'Title'+i,
+					content:'<div style="padding:5px;">Content'+(i+1)+'</div>',
+					height:100,
+					closable:true,
+					collapsible:true
+				});
+				$('#pp').portal('add', {
+					panel:p,
+					columnIndex:i
+				});
+			}
+			$('#pp').portal('resize');
+		}
+		function remove(){
+			$('#pp').portal('remove',$('#pgrid'));
+			$('#pp').portal('resize');
+		}
+	</script>
+</head>
+<body class="easyui-layout">
+	<div region="north" class="title" border="false" style="height:60px;">
+	<span>portal</span><span><button id="add">添加面板</button></span>
+	</div>
+	<div region="center" border="false">
+		<div id="pp" style="position:relative">
+			<div style="width:30%;">
+				<div title="测试面板">
+			    </div>
+			    <div title="测试面板" collapsible="true" closable="true" style="height:200px;padding:5px;">
+			    	
+			    </div>
+			</div>
+			<div style="width:40%;">
+				<div id="pgrid" title="列表" closable="true" style="height:200px;">
+					<table class="easyui-datagrid" style="width:650px;height:auto"
+							fit="true" border="false"
+							singleSelect="true"
+							idField="itemid" url="datagrid_data.json">
+						<thead>
+							<tr>
+								<th field="itemid" width="60">项目 ID</th>
+								<th field="productid" width="60">产品 ID</th>
+								<th field="listprice" width="80" align="right">价格列表</th>
+								<th field="unitcost" width="80" align="right">单价</th>
+								<th field="attr1" width="120">属性</th>
+								<th field="status" width="50" align="center">状态</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+			<div style="width:30%;">
+				<div title="搜索" iconCls="icon-search" closable="true" style="height:80px;padding:10px;">
+					<input>
+					<a href="#" class="easyui-linkbutton">Go</a>
+					<a href="#" class="easyui-linkbutton">搜索</a>
+				</div>
+				<div title="绘图" closable="true" style="height:200px;text-align:center;">
+					<div id="holder"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

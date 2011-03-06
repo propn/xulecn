@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery wooUI Drag</title>
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/default/wooui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/default/dnd.css">
+	<link rel="stylesheet" type="text/css" href="../dnddemos.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/icon.css">
+	<script type="text/javascript" src="../../jquery-wooui/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../../jquery-wooui/wooui.min.js"></script>
+	<style type="text/css">
+		.draggable { width: 90px; height: 80px; padding: 5px; float: left; margin: 0 10px 10px 0; font-size: .9em; }
+		.ui-widget-header p, .ui-widget-content p { margin: 0; }
+		#snaptarget { height: 140px; }
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			$("#draggable").draggable({ snap: true });
+			$("#draggable2").draggable({ snap: '.ui-widget-header' });
+			$("#draggable3").draggable({ snap: '.ui-widget-header', snapMode: 'outer' });
+			$("#draggable4").draggable({ grid: [20,20] });
+			$("#draggable5").draggable({ grid: [80, 80] });
+		});
+	</script>
+</head>
+<body style="margin:10px;">
+	<h1 style="font-size:16px;">Draggable<em style="font-weight:normal;font-size:12px;">（可以黏贴到边框的拖动）</em></h1>
+	<hr/>
+	<div class="demo">		
+		<div id="snaptarget" class="ui-widget-header">
+			<p>黏贴的目标</p>
+		</div>
+
+		<br clear="both" />
+
+		<div id="draggable" class="draggable ui-widget-content">
+			<p>默认情况 (snap: true),可以粘贴到其它的框架上</p>
+		</div>
+
+		<div id="draggable2" class="draggable ui-widget-content">
+			<p>只黏贴到大的框体</p>
+		</div>
+
+		<div id="draggable3" class="draggable ui-widget-content">
+			<p>黏贴到大的窗体的外部边框</p>
+		</div>
+
+		<div id="draggable4" class="draggable ui-widget-content">
+			<p>20px的移动大小间距</p>
+		</div>
+
+		<div id="draggable5" class="draggable ui-widget-content">
+			<p>移动间距为：80 x 80 grid</p>
+		</div>
+	</div>
+</body>
+</html>

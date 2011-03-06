@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html style="height:100%;width:100%;">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Wooui - Window</title>
+
+		<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/default/wooui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../jquery-wooui/themes/icon.css"/>
+		<style type="text/css">
+		#w ul{ margin-top:20px;}
+		#w ul li{ width:100%; text-align:center; padding:10px 0;}
+		#login{padding:2px 6px;}
+		div.msgDiv{ padding:10px 30px; width:240px;border:5px solid #ccc; margin-bottom:10px;}
+		div.msgDiv span{font-weight:bolder;}
+		</style>
+		<script type="text/javascript" src="../jquery-wooui/jquery-1.4.2.min.js"></script>
+		
+		<script type="text/javascript" src="../jquery-wooui/wooui.min.js"></script>
+		
+        <script type="text/javascript">
+            $(function(){
+                $('#w').window({
+                    title: '登录',
+                    width: 250,
+                    modal: true,
+                    shadow: false,
+                    closed: true,
+                    height: 200
+                });
+				$('#msg').window({
+                    title: '提示框',
+                    width: 300,
+                    modal: false,
+                    shadow: false,
+                    closed: true,
+                    height: 100
+                });
+				$("#gridw").window({
+                    title: '表格窗体',
+                    width: 600,
+                    modal: true,
+                    shadow: false,
+                    closed: true,
+                    height: 500
+                });
+				$('#test').grid({
+                    title: 'My Title',
+                    iconCls: 'icon-save',
+                    width: 500,
+                    height: 400,
+                    nowrap: false,
+                    striped: true,
+                    collapsible: true,
+                    url: 'grid1.json',
+                    sortName: 'code',
+                    sortOrder: 'desc',
+                    remoteSort: false,
+                    idField: 'code',
+                    frozenColumns: [[{
+                        field: 'ck',
+                        checkbox: true
+                    }, //全选功能
+                    {
+                        title: 'code',
+                        field: 'code',
+                        width: 80,
+                        sortable: true
+                    }]],
+                    columns: [[{title: 'Base Information', colspan: 3}, 
+					{field: 'opt',title: 'Operation', width: 100, align: 'center', rowspan: 2, formatter: function(value, rec){
+                            return "<a href='javascript:;' style='margin-right:10px;'>Edit</a><a href='javascript:;'>Delete</a>";
+                        }
+                    }], [{
+                        field: 'name',
+                        title: 'Name',
+                        width: 120
+                    }, {
+                        field: 'addr',
+                        title: 'Address',
+                        width: 120,
+                        rowspan: 2,
+                        sortable: true,
+                        sorter: function(a, b){
+                            return (a > b ? 1 : -1);
+                        }
+                    }, {
+                        field: 'col4',
+                        title: 'Col41',
+                        width: 150,
+                        rowspan: 2
+                    }]],
+                    pagination: true,
+                    rownumbers: true,
+                    toolbar: [{
+                        id: 'btnadd',
+                        text: 'Add',
+                        iconCls: 'icon-add',
+                        handler: function(){
+                            $('#btnsave').linkbutton('enable');
+                            alert('add')
+                        }
+                    }, {
+                        id: 'btncut',
+                        text: 'Cut',
+                        iconCls: 'icon-cut',
+                        handler: function(){
+                            $('#btnsave').linkbutton('enable');
+                            alert('cut')
+                        }
+                    }, '-', {
+                        id: 'btnsave',
+                        text: 'Save',
+                        disabled: true,
+                        iconCls: 'icon-save',
+                        handler: function(){
+                            $('#btnsave').linkbutton('disable');
+                            alert('save')
+                        }
+                    }]
+                });
+            });
+            function resize(){
+                $('#w').window('resize', {
+                    width: 600,
+                    height: 300
+                });
+            }
+            
+            function open1(){
+                $('#w').window('open');
+            }
+            
+            function close1(){
+                $('#w').window('close');
+            }
+			function open2(){
+                $('#msg').window('open');
+            }
+            
+            function close2(){
+                $('#msg').window('close');
+            }
+			function open3(){
+                $('#gridw').window('open');
+            }
+            
+            function close3(){
+                $('#gridw').window('close');
+            }
+        </script>
+    </head>
+    <body style="height:100%;width:100%;overflow:hidden;border:none;">
+        <div class="msgDiv">
+        	<span>登录窗体</span>
+            <a href="javascript:void(0)" onclick="open1()">显示窗体</a>
+            <a href="javascript:void(0)" onclick="resize()">改变窗体大小</a>
+            <a href="javascript:void(0)" onclick="close1()">关闭窗体</a>
+        </div>
+		<div class="msgDiv">
+        	<span>信息提示窗</span>
+            <a href="javascript:void(0)" onclick="open2()">显示窗体</a>
+            <a href="javascript:void(0)" onclick="close2()">关闭窗体</a>
+        </div>
+		<div class="msgDiv">
+        	<span>含表格的窗体</span>
+            <a href="javascript:void(0)" onclick="open3()">显示窗体</a>
+            <a href="javascript:void(0)" onclick="close3()">关闭窗体</a>
+        </div>
+        <div id="w" class="easyui-window" title="My Window" iconCls="icon-save">
+            <ul>
+				<li>
+					<span class="des">账&nbsp号:</span>
+					<input type="text"/>
+				</li>
+				<li>
+					<span class="des">密&nbsp码:</span>
+					<input type="password"/>
+				</li>
+				<li><input id="login" type="button" value="登录"/></li>
+			</ul>
+        </div>
+		<div id="msg" class="easyui-window" iconCls="icon-save">
+			<p style="width:80%; line-height:25px; margin:0 auto; text-align:center;display:block; margin-top:5px;">
+			感谢使用wooui，我们致力于为您营造一个简约而不简单的企业级前端应用环境！</p>
+		</div>
+		<div id="gridw" class="easyui-window" iconCls="icon-save">
+			<div id="test"></div>
+		</div>
+		<!--
+        <div id="test" class="easyui-window" closed="true" modal="true" title="Test Window" style="width:300px;height:100px;">
+		-->
+        </div>
+    </body>
+</html>

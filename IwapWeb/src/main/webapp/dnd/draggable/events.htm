@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery wooUI Drag</title>
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/default/wooui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/default/dnd.css">
+	<link rel="stylesheet" type="text/css" href="../dnddemos.css">
+	<link rel="stylesheet" type="text/css" href="../../jquery-wooui/themes/icon.css">
+	<script type="text/javascript" src="../../jquery-wooui/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../../jquery-wooui/wooui.min.js"></script>
+	<style type="text/css">
+		#draggable { width: 16em; padding: 0 1em; }
+		#draggable ul li { margin: 1em 0; padding: 0.5em 0; } * html #draggable ul li { height: 1%; }
+		#draggable ul li span.ui-icon { float: left; }
+		#draggable ul li span.count { font-weight: bold; }
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			var $start_counter = $('#event-start'), $drag_counter = $('#event-drag'), $stop_counter = $('#event-stop');
+			var counts = [0,0,0];
+
+			$("#draggable").draggable({
+				start: function() {
+					counts[0]++;
+					updateCounterStatus($start_counter,counts[0]);
+				},
+				drag: function() {
+					counts[1]++;
+					updateCounterStatus($drag_counter,counts[1]);
+				},
+				stop: function() {
+					counts[2]++;
+					updateCounterStatus($stop_counter,counts[2]);
+				}
+			});
+		});
+		function updateCounterStatus($event_counter,new_count) {
+			// first update the status visually...
+			if (!$event_counter.hasClass('ui-state-hover')) {
+				$event_counter.addClass('ui-state-hover')
+					.siblings().removeClass('ui-state-hover');
+			}
+			// ...then update the numbers
+			$('span.count',$event_counter).text(new_count);
+		}
+	</script>
+</head>
+<body style="margin:10px;">
+	<h1 style="font-size:16px;">Draggable<em style="font-weight:normal;font-size:12px;">（拖动的同时触发事件）</em></h1>
+	<hr/>
+	<div class="demo">
+
+		<div id="draggable" class="ui-widget ui-widget-content">
+
+			<p>拖动就会出发一些列的事件</p>
+
+			<ul class="ui-helper-reset">
+				<li id="event-start" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-play"></span>"start" invoked <span class="count">0</span>x</li>
+				<li id="event-drag" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-arrow-4"></span>"drag" invoked <span class="count">0</span>x</li>
+				<li id="event-stop" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-stop"></span>"stop" invoked <span class="count">0</span>x</li>
+			</ul>
+		</div>
+
+	</div>
+</body>
+</html>
