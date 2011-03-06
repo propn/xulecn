@@ -120,6 +120,85 @@
 					<outputEncoding>UTF-8</outputEncoding>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.7.1</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<!-- exclude those which shared lib 
+					<packagingExcludes>
+						WEB-INF/lib/nric-framework*.jar,
+						WEB-INF/lib/spring-core*.jar,
+						WEB-INF/lib/spring-asm*.jar,
+						WEB-INF/lib/commons-*.jar,
+						WEB-INF/lib/spring-aop*.jar,
+						WEB-INF/lib/aopalliance*.jar,
+						WEB-INF/lib/spring-beans*.jar,
+						WEB-INF/lib/spring-context*.jar,
+						WEB-INF/lib/spring-orm*.jar,
+						WEB-INF/lib/spring-tx*.jar,
+						WEB-INF/lib/ibatis*.jar,
+						WEB-INF/lib/oracle*.jar,
+						WEB-INF/lib/jcl-over-slf4j*.jar,
+						WEB-INF/lib/slf4j-*.jar,
+						WEB-INF/lib/javassist*.jar,
+						WEB-INF/lib/aspectjrt*.jar,
+						WEB-INF/lib/aspectjweaver*.jar,
+						WEB-INF/lib/spring-jdbc*.jar,
+						WEB-INF/lib/log4j*.jar,
+						WEB-INF/lib/quartz*.jar,
+						WEB-INF/lib/cglib*.jar,
+						WEB-INF/lib/asm-*.jar,
+						WEB-INF/lib/joda-time*.jar
+					</packagingExcludes>-->
+					<!-- Use this to include a selection of jars that will be included in the WAR -->
+					<!-- 
+					<packagingIncludes>
+						**/*.xml,**/*.properties,**/*.class,**/*.png,**/*.css,**/*.js,**/*.jsp,
+						WEB-INF/lib/spring-web*.jar
+					</packagingIncludes>
+					-->
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target name="copy-beans" description="--> copy necessary beans from application">
+								<echo message="copy beans from application artifact"/>
+								<copy todir="${beans.copy.to.dir}">
+									<fileset dir="${beans.copy.from.dir}">
+											<include name="**/Resource.java" />
+											<exclude name="**/*.xml" />
+									</fileset>
+								</copy>
+								
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 	<repositories>
