@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>输入框提示列表效果</title>
+<style type="text/css">
+<!--
+body {
+	background: #fff
+}
+
+.Menu {
+	position: relative;
+	width: 204px;
+	height: 127px;
+	z-index: 1;
+	background: #FFF;
+	border: 1px solid #000;
+	margin-top: -100px;
+	display: none;
+}
+
+.Menu2 {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.Menu2 ul {
+	margin: 0;
+	padding: 0
+}
+
+.Menu2 ul li {
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	text-indent: 15px;
+	border-bottom: 1px dashed #ccc;
+	color: #666;
+	cursor: pointer;
+	change: expression(this.onmouseover = function() { 
+     this.style.background = "#F2F5EF";
+}
+
+,
+this.onmouseout =function(){this .style.background="";
+	
+}
+
+)
+}
+input {
+	width: 200px
+}
+
+.form {
+	width: 200px;
+	height: auto;
+}
+
+.form div {
+	position: relative;
+	top: 0;
+	left: 0;
+	margin-bottom: 5px
+}
+
+#List1,#List2,#List3 {
+	left: 0px;
+	top: 93px;
+}
+-->
+</style>
+<script type="text/javascript">
+	function showAndHide(obj, types) {
+		var Layer = window.document.getElementById(obj);
+		switch (types) {
+		case "show":
+			Layer.style.display = "block";
+			break;
+		case "hide":
+			Layer.style.display = "none";
+			break;
+		}
+	}
+	function getValue(obj, str) {
+		var input = window.document.getElementById(obj);
+		input.value = str;
+	}
+</script>
+</head>
+<body>
+<div class="form">
+<div>Location：<input type="text" id="txt" name="txt"
+	onfocus="showAndHide('List1','show');"
+	onblur="showAndHide('List1','hide');"></div>
+<!--列表1-->
+<div class="Menu" id="List1">
+<div class="Menu2">
+<ul>
+	<li
+		onmousedown="getValue('txt','中国CHINA');showAndHide('List1','hide');">中国CHINA</li>
+	<li onmousedown="getValue('txt','美国USA');showAndHide('List1','hide');">美国USA</li>
+</ul>
+</div>
+</div>
+<div>：<input type="text" id="txt2" name="txt2"
+	onfocus="showAndHide('List2','show');"
+	onblur="showAndHide('List2','hide');"></div>
+<!--列表2-->
+<div class="Menu" id="List2">
+<div class="Menu2">
+<ul>
+	<li onmousedown="getValue('txt2','男Male');showAndHide('List2','hide');">男Male</li>
+	<li
+		onmousedown="getValue('txt2','女Female');showAndHide('List2','hide');">女Female</li>
+</ul>
+</div>
+</div>
+<div>education：<input type="text" id="txt3" name="txt3"
+	onfocus="showAndHide('List3','show');"
+	onblur="showAndHide('List3','hide');"></div>
+<!--列表3-->
+	<div class="Menu" id="List3">
+		<div class="Menu2">
+			<ul>
+				<li onmousedown="getValue('txt3',this.innerText);showAndHide('List3','hide');">大专</li>
+				<li onmousedown="getValue('txt3','本科');showAndHide('List3','hide');">本科</li>
+				<li onmousedown="getValue('txt3','硕士');showAndHide('List3','hide');">硕士</li>
+				<li onmousedown="getValue('txt3','本科');showAndHide('List3','hide');">本科</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<br />
+<br />
+更多代码请访问
+<a href="http://www.lanrentuku.com/" target="_blank">懒人图库</a>
+</body>
+</html>
