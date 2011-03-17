@@ -3,7 +3,6 @@
 
 <web-app>
 	<display-name>CrmWeb</display-name>
-	<!--
 	<filter>
 		<filter-name>SignOnFilter</filter-name>
 		<filter-class>com.ztesoft.component.common.signon.SignOnFilter</filter-class>
@@ -13,7 +12,6 @@
 		</init-param>
 	</filter>
 	
-	-->
 	
 	<!-- gzip -->
 	<filter>
@@ -41,14 +39,12 @@
 	</filter-mapping>
 	
 	
-	<!-- 
 	<servlet>
 		<servlet-name>CrmInitServlet</servlet-name>
 		<servlet-class>com.ztesoft.component.common.web.CrmInitServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
-	 -->
 	 
 	<servlet>
 		<servlet-name>nfapp</servlet-name>
