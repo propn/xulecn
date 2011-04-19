@@ -18,7 +18,7 @@ public class Contact {
 		this.name = name;
 		this.addresses = addresses;
 	}
-
+	@XmlElement(name="IDS")
 	public String getId() {
 		return id;
 	}
