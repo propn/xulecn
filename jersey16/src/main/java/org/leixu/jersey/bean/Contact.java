@@ -7,18 +7,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Contact {
+
 	private String id;
 	private String name;
 	private List<Address> addresses;
-	
-	public Contact() {}
-	
+
+	public Contact() {
+	}
+
 	public Contact(String id, String name, List<Address> addresses) {
 		this.id = id;
 		this.name = name;
 		this.addresses = addresses;
 	}
-	@XmlElement(name="IDS")
+
+	@XmlElement(name = "IDS")
 	public String getId() {
 		return id;
 	}
@@ -35,7 +38,7 @@ public class Contact {
 		this.name = name;
 	}
 
-	@XmlElement(name="address")
+	@XmlElement(name = "address")
 	public List<Address> getAddresses() {
 		return addresses;
 	}
@@ -43,5 +46,5 @@ public class Contact {
 	public void setAddresses(List<Address> addresses) {
 		this.addresses = addresses;
 	}
-	
+
 }

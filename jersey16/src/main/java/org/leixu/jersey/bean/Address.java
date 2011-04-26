@@ -4,11 +4,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Address {
+	
 	private String city;
 	private String street;
-	
-	public Address() {}
-	
+
+	public Address() {
+	}
+
 	public Address(String city, String street) {
 		this.city = city;
 		this.street = street;
@@ -29,5 +31,5 @@ public class Address {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-	
+
 }
