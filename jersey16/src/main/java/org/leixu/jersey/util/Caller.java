@@ -1,9 +1,7 @@
 package org.leixu.jersey.util;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -20,7 +18,8 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
-import org.json.JSONObject;
+
+import com.google.gson.reflect.TypeToken;
 
 public class Caller {
 
@@ -36,8 +35,8 @@ public class Caller {
 	 * @return
 	 */
 	private static DefaultHttpClient getHttpClient() {
-		if (null == httpclient) {
 
+		if (null == httpclient) {
 			int timeoutConnection = 50000;// millisecond
 			int timeoutSocket = 120000;
 
@@ -55,33 +54,25 @@ public class Caller {
 					"apache.http.client");
 
 			httpclient = new DefaultHttpClient(httpParameters);
-
-			// CookieStore cookieStore = httpclient.getCookieStore();
-
-			// HttpHost proxy = new HttpHost("someproxy", 8080);
-			// httpclient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY,
-			// proxy);
-
 		}
 		return httpclient;
 	}
 
 	/**
-	 * HttpGet JSON
 	 * 
+	 * @param <T>
 	 * @param url
+	 * @param clazz
 	 * @return
 	 * @throws Exception
 	 */
-	public static JSONObject getJson(String url) throws Exception {
-		url = serverUrl + url;
+	public static <T> T getJson(String url, Class<T> clazz) throws Exception {
 
+		url = serverUrl + url;
 		HttpGet httpget = new HttpGet(url);
 		httpget.addHeader("userName", userName);
 		httpget.addHeader("passWord", passWord);
 		httpget.setHeader("Accept", "application/json");
-
-		// httpget.getParams().setParameter(arg0, arg1);
 
 		HttpResponse response;
 		response = getHttpClient().execute(httpget);
@@ -91,17 +82,58 @@ public class Caller {
 			throw new Exception("HttpStatusCode:" + statusCode);
 		}
 
-		HttpEntity entity = response.getEntity();
+		T obj = null;
 
-		JSONObject json = null;
+		HttpEntity entity = response.getEntity();
 		if (entity != null) {
 			InputStream instream = entity.getContent();
-			String result = convertStreamToString(instream);
-			json = new JSONObject(result);
+			String result = StringUtil.convertStreamToString(instream);
 			instream.close();
-			return json;
+
+			obj = JsonUtil.fromJson(result, clazz);
 		}
-		return json;
+		httpget.abort();
+		return obj;
+	}
+
+	/**
+	 * 
+	 * @param <T>
+	 * @param url
+	 * @param token
+	 *            Type targetType = new TypeToken<List<Contact>>(){}.getType();
+	 * @return
+	 * @throws Exception
+	 */
+	public static <T> T getJson(String url, TypeToken<T> token)
+			throws Exception {
+
+		url = serverUrl + url;
+		HttpGet httpget = new HttpGet(url);
+		httpget.addHeader("userName", userName);
+		httpget.addHeader("passWord", passWord);
+		httpget.setHeader("Accept", "application/json");
+
+		HttpResponse response;
+		response = getHttpClient().execute(httpget);
+
+		final int statusCode = response.getStatusLine().getStatusCode();
+		if (statusCode != HttpStatus.SC_OK) {
+			throw new Exception("HttpStatusCode:" + statusCode);
+		}
+
+		T obj = null;
+
+		HttpEntity entity = response.getEntity();
+		if (entity != null) {
+			InputStream instream = entity.getContent();
+			String result = StringUtil.convertStreamToString(instream);
+			instream.close();
+
+			obj = JsonUtil.fromJson(result, token);
+		}
+		httpget.abort();
+		return obj;
 	}
 
 	/**
@@ -121,17 +153,53 @@ public class Caller {
 
 		HttpResponse response;
 		response = getHttpClient().execute(httpget);
+
 		final int statusCode = response.getStatusLine().getStatusCode();
 		if (statusCode != HttpStatus.SC_OK) {
 			throw new Exception("HttpStatusCode:" + statusCode);
 		}
+
 		HttpEntity entity = response.getEntity();
 		if (entity != null) {
 			InputStream instream = entity.getContent();
-			result = convertStreamToString(instream);
+			result = StringUtil.convertStreamToString(instream);
 			instream.close();
+			httpget.abort();
 		}
 		return result;
+	}
+
+	/**
+	 * 
+	 * @param url
+	 * @param obj
+	 * @param targetType
+	 *            Type targetType = new TypeToken<List<Contact>>() {
+	 *            }.getType();
+	 * @return
+	 * @throws Exception
+	 */
+	public static HttpResponse putJson(String url, Object obj, Type targetType)
+			throws Exception {
+
+		HttpPut httpPut = new HttpPut(serverUrl + url);
+
+		httpPut.addHeader("userName", userName);
+		httpPut.addHeader("passWord", passWord);
+		httpPut.addHeader("content-type", "application/json");
+		httpPut.setHeader("Accept", "application/json");
+
+		HttpEntity entity = new StringEntity(JsonUtil.toJson(obj, targetType));
+		httpPut.setEntity(entity);
+
+		HttpResponse response;
+		response = httpclient.execute(httpPut);
+
+		final int statusCode = response.getStatusLine().getStatusCode();
+		if (statusCode != HttpStatus.SC_OK) {
+			throw new Exception("HttpStatusCode:" + statusCode);
+		}
+		return response;
 	}
 
 	/**
@@ -143,16 +211,16 @@ public class Caller {
 	 * @throws Exception
 	 * @throws ClientProtocolException
 	 */
-	public static HttpResponse putJson(String url, JSONObject data)
-			throws Exception, ClientProtocolException {
+	public static HttpResponse putJson(String url, Object obj) throws Exception {
 
 		HttpPut httpPut = new HttpPut(serverUrl + url);
 
 		httpPut.addHeader("userName", userName);
 		httpPut.addHeader("passWord", passWord);
+		httpPut.addHeader("content-type", "application/json");
 		httpPut.setHeader("Accept", "application/json");
 
-		HttpEntity entity = new StringEntity(data.toString());
+		HttpEntity entity = new StringEntity(JsonUtil.toJson(obj));
 		httpPut.setEntity(entity);
 
 		HttpResponse response;
@@ -162,41 +230,59 @@ public class Caller {
 		if (statusCode != HttpStatus.SC_OK) {
 			throw new Exception("HttpStatusCode:" + statusCode);
 		}
-
 		return response;
 	}
 
-	public HttpResponse postJosn(String url, String jsonData) throws Exception {
-		HttpPost httpPost = new HttpPost("url");
+	/**
+	 * 
+	 * @param url
+	 * @param obj
+	 * @return
+	 * @throws Exception
+	 */
+	public HttpResponse postJosn(String url, Object obj) throws Exception {
+
+		HttpPost httpPost = new HttpPost(serverUrl + url);
+
 		httpPost.addHeader("userName", userName);
 		httpPost.addHeader("passWord", passWord);
-		httpPost.setHeader("Accept", "application/json");
 		httpPost.addHeader("content-type", "application/json");
-		HttpEntity entity = new StringEntity(jsonData);
+		httpPost.setHeader("Accept", "application/json");
+
+		HttpEntity entity = new StringEntity(JsonUtil.toJson(obj));
 		httpPost.setEntity(entity);
+
 		HttpResponse response = getHttpClient().execute(httpPost);
+
 		return response;
 	}
 
+	/**
+	 * 
+	 * @param url
+	 * @param obj
+	 * @param targetType
+	 *            Type targetType = new TypeToken<List<Contact>>() {
+	 *            }.getType();
+	 * @return
+	 * @throws Exception
+	 */
+	public HttpResponse postJosn(String url, Object obj, Type targetType)
+			throws Exception {
 
-	public static String convertStreamToString(InputStream is) {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-		StringBuilder sb = new StringBuilder();
-		String line = null;
-		try {
-			while ((line = reader.readLine()) != null) {
-				sb.append(line + "\n");
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				is.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return sb.toString();
+		HttpPost httpPost = new HttpPost(serverUrl + url);
+
+		httpPost.addHeader("userName", userName);
+		httpPost.addHeader("passWord", passWord);
+		httpPost.addHeader("content-type", "application/json");
+		httpPost.setHeader("Accept", "application/json");
+
+		HttpEntity entity = new StringEntity(JsonUtil.toJson(obj, targetType));
+		httpPost.setEntity(entity);
+
+		HttpResponse response = getHttpClient().execute(httpPost);
+
+		return response;
 	}
 
 }

@@ -48,17 +48,17 @@ public class CustomerResourceTest {
 
 	@Test
 	public void testDeleteCustomer() throws Exception {
-		
+
 	}
 
 	@Test
 	public void testUpdateCustomer() throws Exception {
-		
+
 	}
 
 	@Test
 	public void testGetCustomer() throws Exception {
-		
+
 	}
 
 }

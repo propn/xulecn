@@ -21,13 +21,24 @@ public class CRUDTest {
 	@Test
 	public void testGetJson() {
 		String url = "/contacts";
+
+		TypeToken<List<Contact>> type = new TypeToken<List<Contact>>() {
+		};
+
+		List<Contact> rst;
 		try {
-			System.out.println(Caller.getJson(url));
+			rst = Caller.getJson(url, type);
+			
+			rst.addAll(Caller.getJson(url, type));
+			rst.addAll(Caller.getJson(url, type));
+			rst.addAll(Caller.getJson(url, type));
+
+			System.out.println(JsonUtil.toJson(rst, type.getType()));
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 	@Test
@@ -77,10 +88,9 @@ public class CRUDTest {
 
 		System.out.println(sUserList1);
 		System.out.println(sUserList2);
-		
-		String url="";
-		
-		
+
+		String url = "";
+
 	}
 
 	@Test

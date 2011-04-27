@@ -19,8 +19,8 @@ import javax.ws.rs.core.Response;
 
 import org.leixu.jersey.bean.Customer;
 import org.leixu.jersey.storage.CustomerStore;
-import org.leixu.jersey.util.Caller;
 import org.leixu.jersey.util.JsonUtil;
+import org.leixu.jersey.util.StringUtil;
 
 @Path("/customer")
 public class CustomerResource {
@@ -29,7 +29,7 @@ public class CustomerResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addCustomer(InputStream customerData) {
 
-		String jsonData = Caller.convertStreamToString(customerData);
+		String jsonData = StringUtil.convertStreamToString(customerData);
 		System.out.println("######jsonData############");
 		System.out.println(jsonData);
 		System.out.println("######jsonData############");
@@ -73,7 +73,7 @@ public class CustomerResource {
 				throw new WebApplicationException(Response.Status.NOT_FOUND);
 			}
 
-			String jsonData = Caller.convertStreamToString(input);
+			String jsonData = StringUtil.convertStreamToString(input);
 			Customer cust2 = JsonUtil.fromJson(jsonData, Customer.class);
 
 			cust.setFirstName(cust2.getFirstName());
