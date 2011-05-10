@@ -55,9 +55,6 @@ import com.google.gson.reflect.TypeToken;
  * sUserList3 ----> [{"uname":"jack","sex":"Male"},{"uname":"marry","sex":"Female"}]
  * </pre>
  * 
- * @author Fuchun
- * @since ay-commons-lang 1.0
- * @version 1.1.0
  */
 public class JsonUtil {
 	private static final Logger LOGGER = LoggerFactory
