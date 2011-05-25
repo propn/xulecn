@@ -350,7 +350,7 @@ public class JsonUtil {
 		}
 		Gson gson = builder.create();
 		try {
-			return gson.fromJson(json, token.getType());
+			return (T)gson.fromJson(json, token.getType());
 		} catch (Exception ex) {
 			LOGGER.error(json + " 无法转换为 " + token.getRawType().getName()
 					+ " 对象!", ex);
@@ -371,7 +371,7 @@ public class JsonUtil {
 	 * @since 1.0
 	 */
 	public static <T> T fromJson(String json, TypeToken<T> token) {
-		return fromJson(json, token, null);
+		return (T)fromJson(json, token, null);
 	}
 
 	/**
@@ -399,7 +399,7 @@ public class JsonUtil {
 		}
 		Gson gson = builder.create();
 		try {
-			return gson.fromJson(json, clazz);
+			return (T)gson.fromJson(json, clazz);
 		} catch (Exception ex) {
 			LOGGER.error(json + " 无法转换为 " + clazz.getName() + " 对象!", ex);
 			return null;
@@ -420,7 +420,7 @@ public class JsonUtil {
 	 * @since 1.0
 	 */
 	public static <T> T fromJson(String json, Class<T> clazz) {
-		return fromJson(json, clazz, null);
+		return (T)fromJson(json, clazz, null);
 	}
 
 	/**
